@@ -145,9 +145,25 @@ All M0 tasks completed:
   - Minimal PDF parsing, metadata extraction, error handling
   - Edge cases (empty, invalid, corrupted PDFs)
 
+##### ✅ PDF Table Extraction Logic (2026-04-26)
+- Created `src/compass/indexer/pdf_tables.py`:
+  - `ExtractedTable` dataclass (page_num, table_num, rows, bbox)
+  - Format conversion: to_dict(), to_markdown(), to_json()
+  - `PDFTableExtractor.extract_from_bytes()` — extract all tables from PDF
+  - `PDFTableExtractor.extract_from_file()` — extract from file path
+  - Markdown output with page annotations
+  - JSON output for structured data
+  - Table counting utility
+  - Robust error handling for malformed PDFs
+- Created comprehensive tests in `tests/test_pdf_tables.py`:
+  - Table dataclass conversions, edge cases
+  - Empty/invalid PDF handling
+  - Multiple tables per page
+  - Special characters and None value handling
+
 #### Remaining M1 Tasks
 
-- [ ] PDF table extraction logic
+- [ ] OCR fallback for scanned content (pytesseract)
 - [ ] PDF table extraction logic
 - [ ] OCR fallback for scanned content (pytesseract)
 - [ ] BM25 lexical search index (tantivy-py)
