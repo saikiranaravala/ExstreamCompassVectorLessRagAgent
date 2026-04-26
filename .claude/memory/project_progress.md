@@ -239,7 +239,7 @@ All M0 tasks completed:
 
 ## M1: Indexer Implementation - ✅ COMPLETE
 
-All M1 tasks finished (7/7):
+All Indexer tasks finished (7/7):
 - ✅ HTML parser (selectolax + readability-lxml)
 - ✅ PDF text extraction (pypdf + pdfplumber)
 - ✅ PDF table extraction
@@ -247,6 +247,50 @@ All M1 tasks finished (7/7):
 - ✅ BM25 lexical search (tantivy-py)
 - ✅ Atomic write mechanism (tmp-then-rename)
 - ✅ Index Tree generation (Claude Haiku 4.5 summarization)
+
+## M1: Reasoning Agent - In Progress
+
+### Completed
+
+##### ✅ LangGraph Agent Scaffold (2026-04-26)
+- Created `src/compass/agent/state.py`:
+  - `AgentToolCall` dataclass for tool call tracking
+  - `AgentState` extending LangGraph MessagesState
+  - Fields: query, variant, tool_calls, budgets, final_answer, citations
+- Created `src/compass/agent/agent.py`:
+  - `ReasoningAgent` class with LangGraph workflow
+  - Graph nodes: process_query, plan_tools, execute_tools, generate_answer, finalize
+  - Conditional routing based on budget availability
+  - Claude Opus 4.7 integration for answer generation
+  - Budget enforcement (20 tool calls, 8 file reads per query)
+  - `query()` method for end-to-end processing
+- Created comprehensive tests in `tests/test_agent.py`:
+  - State management and tool call tracking
+  - Agent initialization with custom budgets
+  - Graph node testing (process, plan, execute, generate, finalize)
+  - Budget enforcement and variant validation
+  - End-to-end query processing
+
+##### ✅ 5 Core Tools (2026-04-26)
+- Created `src/compass/agent/core_tools.py`:
+  - `ToolResult` dataclass for consistent tool output
+  - `ListNodeTool` — navigate index tree structure
+  - `ReadHTMLTool` — parse and extract HTML documents
+  - `ReadPDFTool` — extract content from PDF documents
+  - `LexicalSearchTool` — full-text search via BM25 index
+  - `CompareVariantsTool` — compare CloudNative vs ServerBased docs
+  - `ToolRegistry` — centralized tool management and execution
+  - Tool initialization with index tree, search index, docs root
+- Created comprehensive tests in `tests/test_core_tools.py`:
+  - Individual tool testing with mocks
+  - Tool result validation
+  - Registry management and tool discovery
+  - Error handling and invalid arguments
+
+### Remaining M1 Reasoning Agent Tasks
+
+- [ ] Variant isolation logic (CloudNative vs. ServerBased enforcement)
+- [ ] Budget enforcement (tool call & file read limits)
 - [ ] PDF table extraction logic
 - [ ] OCR fallback for scanned content (pytesseract)
 - [ ] BM25 lexical search index (tantivy-py)
