@@ -339,9 +339,29 @@ All Reasoning Agent tasks finished (4/4):
   - Session expiration cleanup
   - Statistics generation
 
+##### ✅ Citation Verification (2026-04-26)
+- Created `src/compass/services/citations.py`:
+  - `Citation` dataclass for tracking source documents
+  - Formatting: `to_dict()`, `to_markdown()`, `to_html()`
+  - `VerifiedCitation` with verification status and method
+  - `Answer` dataclass with citations and verification flag
+  - `CitationExtractor` for extracting citations from tool outputs
+  - Support for search results, HTML reads, PDF reads
+  - `CitationVerifier` for citation validation
+  - Document existence verification
+  - Content match verification with similarity threshold
+  - `CitationFormatter` for output formatting
+  - Markdown and HTML citation formatting
+  - Citation indexing by source document
+- Created comprehensive tests in `tests/test_citations.py`:
+  - Citation creation and formatting
+  - Answer with citations
+  - Citation extraction from tool outputs
+  - Citation verification (existence, content match)
+  - Citation formatting and indexing
+
 ### Remaining M2 Tasks
 
-- [ ] Citation verification
 - [ ] Audit logging
 - [ ] Budget tracking integration
 - [ ] PDF table extraction logic
