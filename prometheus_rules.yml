@@ -1,0 +1,90 @@
+groups:
+  - name: compass_alerts
+    interval: 30s
+    rules:
+      # Alert: High error rate
+      - alert: HighQueryErrorRate
+        expr: |
+          (sum(rate(compass_queries_total{status="failure"}[5m])) by (variant) /
+           sum(rate(compass_queries_total[5m])) by (variant)) > 0.1
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High query error rate for {{ $labels.variant }}"
+          description: "Error rate is {{ $value | humanizePercentage }} over the last 5 minutes"
+
+      # Alert: Slow query processing
+      - alert: SlowQueryProcessing
+        expr: histogram_quantile(0.95, compass_query_latency_seconds) > 5
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Slow query processing detected"
+          description: "95th percentile latency is {{ $value | humanizeDuration }}"
+
+      # Alert: Tool call failures
+      - alert: HighToolCallFailureRate
+        expr: |
+          (sum(rate(compass_tool_calls_total{status="failure"}[5m])) /
+           sum(rate(compass_tool_calls_total[5m]))) > 0.05
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High tool call failure rate"
+          description: "Tool failure rate is {{ $value | humanizePercentage }}"
+
+      # Alert: No active sessions
+      - alert: NoActiveSessions
+        expr: compass_active_sessions == 0
+        for: 10m
+        labels:
+          severity: info
+        annotations:
+          summary: "No active sessions"
+          description: "The application has no active sessions"
+
+      # Alert: Index size growing rapidly
+      - alert: RapidIndexGrowth
+        expr: |
+          rate(compass_index_size_bytes[1h]) > 1000000
+        for: 30m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Index size growing rapidly"
+          description: "Index growing at {{ $value | humanize }} bytes/second"
+
+      # Alert: High budget utilization
+      - alert: HighBudgetUtilization
+        expr: compass_budget_utilization > 0.8
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High {{ $labels.budget_type }} budget utilization"
+          description: "Utilization is {{ $value | humanizePercentage }}"
+
+      # Alert: Query latency SLO violation
+      - alert: QueryLatencySLOViolation
+        expr: |
+          histogram_quantile(0.99, compass_query_latency_seconds) > 10
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Query latency SLO violated"
+          description: "99th percentile latency is {{ $value | humanizeDuration }}, exceeds 10s SLO"
+
+      # Alert: Citations not being generated
+      - alert: LowCitationGeneration
+        expr: |
+          rate(compass_citations_total[5m]) == 0
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Low citation generation rate"
+          description: "No citations generated in last 5 minutes"
