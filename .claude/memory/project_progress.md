@@ -198,10 +198,30 @@ All M0 tasks completed:
   - Content preview truncation
   - Document deletion and counting
 
+##### ✅ Atomic Write Mechanism (2026-04-26)
+- Created `src/compass/indexer/atomic.py`:
+  - `AtomicWriter` class for atomic file operations
+  - `write_json()` — atomic JSON write with optional validation
+  - `write_text()` — atomic text write with optional validation
+  - `write_file()` — generic atomic write using tmp-then-rename pattern
+  - Temp file created in same directory (same filesystem for atomic rename)
+  - Parent directory creation with mkdir -p semantics
+  - Optional validation function for consistency checks
+  - Automatic cleanup of temp files on failure
+  - `read_with_fallback()` — read with primary/fallback file support
+  - `AtomicDirectory` class for directory operations
+  - `atomic_replace_dir()` — atomic directory replacement with backup
+- Created comprehensive tests in `tests/test_atomic.py`:
+  - JSON/text write operations
+  - Validation pass/fail scenarios
+  - Overwrite of existing files
+  - Complex nested JSON structures
+  - Fallback file reading
+  - Directory creation and replacement
+
 #### Remaining M1 Tasks
 
 - [ ] Index Tree generation (Claude Haiku 4.5 summarization)
-- [ ] Atomic write mechanism (tmp-then-rename)
 - [ ] PDF table extraction logic
 - [ ] OCR fallback for scanned content (pytesseract)
 - [ ] BM25 lexical search index (tantivy-py)
