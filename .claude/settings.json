@@ -1,0 +1,35 @@
+{
+  "project": {
+    "name": "ExstreamVectorLessRag / Compass",
+    "description": "Vectorless RAG agent for OpenText Exstream documentation",
+    "pythonVersion": "3.11.9",
+    "llmProvider": "OpenRouter",
+    "llmModel": "deepseek/deepseek-chat"
+  },
+  "environment": {
+    "OPENROUTER_API_KEY": "${OPENROUTER_API_KEY}",
+    "PYTHONPATH": "${PROJECT_ROOT}:${PROJECT_ROOT}/src",
+    "PROJECT_ROOT": "E:\\AIWorkSpace\\ExstreamVectorLessRag"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(find *)",
+      "Bash(grep *)",
+      "Bash(git *)",
+      "Bash(ls *)"
+    ],
+    "deny": [],
+    "ask": []
+  },
+  "claude": {
+    "model": "claude-opus-4-6",
+    "temperature": 1,
+    "maxTokens": 4096
+  },
+  "paths": {
+    "memory": "E:\\AIWorkSpace\\ExstreamVectorLessRag\\memory",
+    "docs": "E:\\AIWorkSpace\\ExstreamVectorLessRag\\docs",
+    "src": "E:\\AIWorkSpace\\ExstreamVectorLessRag\\src",
+    "tests": "E:\\AIWorkSpace\\ExstreamVectorLessRag\\tests"
+  }
+}
