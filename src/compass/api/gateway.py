@@ -2,12 +2,17 @@
 
 import logging
 import time
+import uuid
 from dataclasses import dataclass
 from datetime import datetime, timedelta
 from typing import Optional, Callable, Any
+from urllib.parse import quote
 
 from fastapi import FastAPI, Request, HTTPException, Depends
+from fastapi.responses import RedirectResponse
 from fastapi.security import HTTPBearer, HTTPAuthCredentials
+
+from compass.api.oidc import OIDCConfig, OIDCManager, OIDCUserInfo
 
 logger = logging.getLogger(__name__)
 
@@ -210,16 +215,21 @@ class AuthenticationManager:
 class APIGateway:
     """API Gateway for request routing and security."""
 
-    def __init__(self, app: FastAPI):
+    def __init__(self, app: FastAPI, oidc_configs: Optional[dict[str, OIDCConfig]] = None):
         """Initialize API gateway.
 
         Args:
             app: FastAPI application
+            oidc_configs: Optional OIDC provider configurations
         """
         self.app = app
         self.auth_manager = AuthenticationManager()
         self.rate_limiter = RateLimiter(RateLimitConfig())
         self.security = HTTPBearer()
+
+        # Initialize OIDC if provided
+        self.oidc_manager = OIDCManager(oidc_configs or {})
+        self._oidc_initialized = False
 
         # Register middleware
         self._register_middleware()
@@ -230,8 +240,9 @@ class APIGateway:
         @self.app.middleware("http")
         async def gateway_middleware(request: Request, call_next):
             """Main gateway middleware."""
-            # Skip auth for health check and login
-            if request.url.path in ["/health", "/login", "/docs", "/openapi.json"]:
+            # Skip auth for health check, login, OIDC, and docs
+            skip_auth_paths = ["/health", "/login", "/docs", "/openapi.json", "/auth"]
+            if request.url.path in skip_auth_paths or request.url.path.startswith("/auth/"):
                 return await call_next(request)
 
             # Extract token
@@ -304,8 +315,96 @@ class APIGateway:
 
         return role_checker
 
+    async def initialize_oidc(self) -> None:
+        """Initialize OIDC provider connections."""
+        if not self._oidc_initialized and self.oidc_manager.providers:
+            await self.oidc_manager.initialize()
+            self._oidc_initialized = True
+
     def register_routes(self) -> None:
         """Register gateway routes."""
+
+        @self.app.get("/auth/{provider}")
+        async def start_oidc_auth(provider: str):
+            """Start OIDC authentication flow.
+
+            Args:
+                provider: OIDC provider name (e.g., 'azure', 'okta')
+
+            Returns:
+                Redirect to provider authorization endpoint
+            """
+            oidc_provider = self.oidc_manager.get_provider(provider)
+            if not oidc_provider:
+                raise HTTPException(
+                    status_code=400, detail=f"Unknown OIDC provider: {provider}"
+                )
+
+            # Generate CSRF state
+            state = str(uuid.uuid4())
+            if not self.oidc_manager.create_auth_state(provider, state):
+                raise HTTPException(status_code=500, detail="Failed to create auth state")
+
+            # Get authorization URL
+            auth_url = oidc_provider.get_authorization_url(state)
+
+            return RedirectResponse(url=auth_url)
+
+        @self.app.get("/auth/callback")
+        async def oidc_callback(code: str, state: str):
+            """Handle OIDC provider callback.
+
+            Args:
+                code: Authorization code from provider
+                state: CSRF state for verification
+
+            Returns:
+                Redirect to frontend with token or error
+            """
+            # Verify state
+            provider_name = self.oidc_manager.verify_auth_state(state)
+            if not provider_name:
+                raise HTTPException(status_code=400, detail="Invalid or expired state")
+
+            # Handle callback
+            user_info = await self.oidc_manager.handle_callback(provider_name, code)
+            if not user_info:
+                raise HTTPException(status_code=400, detail="Failed to authenticate")
+
+            # Create user in auth manager
+            from compass.api.gateway import User
+
+            user = User(
+                user_id=user_info.user_id,
+                email=user_info.email,
+                roles=user_info.roles,
+                variant=user_info.variant,
+            )
+
+            self.auth_manager.register_user(user)
+            token = self.auth_manager.create_token(user)
+
+            # Redirect to frontend with token
+            frontend_url = f"/auth/success?token={quote(token)}&user_id={quote(user.user_id)}"
+            return RedirectResponse(url=frontend_url)
+
+        @self.app.get("/auth/success")
+        async def auth_success(token: str, user_id: str):
+            """Auth success page (frontend would handle token storage).
+
+            Args:
+                token: Authentication token
+                user_id: User ID
+
+            Returns:
+                Success response with token info
+            """
+            return {
+                "status": "success",
+                "access_token": token,
+                "token_type": "bearer",
+                "user_id": user_id,
+            }
 
         @self.app.post("/login")
         async def login(email: str, password: str) -> dict:

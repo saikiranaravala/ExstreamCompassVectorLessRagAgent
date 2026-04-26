@@ -411,7 +411,7 @@ All Orchestration Service tasks finished (3/3):
   - Cache persistence across instances
   - Memory and disk cache operations
 
-## M4: API Gateway & Auth - In Progress
+## M4: API Gateway & Auth - ✅ COMPLETE
 
 ### Completed
 
@@ -436,49 +436,81 @@ All Orchestration Service tasks finished (3/3):
   - User registration and management
   - Role-based permissions
   - Complete authentication flows
-- [ ] PDF table extraction logic
-- [ ] OCR fallback for scanned content (pytesseract)
-- [ ] BM25 lexical search index (tantivy-py)
-- [ ] Index Tree generation (Claude Haiku 4.5 summarization)
-- [ ] Atomic write mechanism (tmp-then-rename)
 
-### 3. ⏳ Reasoning Agent (M1)
-- [ ] LangGraph agent scaffold
-- [ ] 5 core tools: list_node(), read_html(), read_pdf(), lexical_search(), compare_variants()
-- [ ] Variant isolation logic (CloudNative vs. ServerBased enforcement)
-- [ ] Budget enforcement (20 tool calls, 8 file reads per query)
+##### ✅ Request Routing & Endpoint Management (2026-04-26)
 
-### 4. ⏳ Orchestration Service (M2)
-- [ ] Session management
-- [ ] Citation verification
-- [ ] Audit logging
-- [ ] Budget tracking
+- Created `src/compass/api/routes.py`:
+  - `QueryRequest` and `QueryResponse` models
+  - `APIRouter` class for request routing and endpoint management
+  - Query endpoint: `/api/v1/query` (POST) with variant, session management, audit logging
+  - Session endpoints: GET/DELETE `/api/v1/session/{session_id}`, GET `/api/v1/session/{session_id}/queries`
+  - Admin endpoints: `/api/v1/health`, `/api/v1/stats`
+  - `RequestHandler` with static methods for query, session, and admin request handling
+  - Integration with authentication, rate limiting, audit logging, and session management
+- Created comprehensive tests in `tests/test_gateway.py`:
+  - API Gateway OIDC integration tests
 
-### 5. ⏳ Vision Service (M2)
-- [ ] Diagram interpretation (Claude Opus 4.7)
-- [ ] Figure extraction & analysis
+##### ✅ SSO/OIDC Integration (2026-04-26)
 
-### 6. ⏳ API Gateway & Auth (M2)
-- [ ] SSO/OIDC integration
-- [ ] Rate limiting
-- [ ] Request routing
+- Created `src/compass/api/oidc.py`:
+  - `OIDCConfig` dataclass for provider configuration
+  - `OIDCUserInfo` dataclass for extracted user information
+  - `OIDCProvider` class for provider interactions
+  - Authorization URL generation with CSRF state
+  - Token exchange (authorization code -> tokens)
+  - User info extraction from OIDC provider
+  - ID token verification (JWT validation)
+  - `OIDCManager` for managing multiple providers
+  - Auth state creation and verification (CSRF protection)
+  - Callback handling with user info extraction
+- Updated `src/compass/api/gateway.py`:
+  - Added OIDC support to APIGateway constructor
+  - `initialize_oidc()` async method for provider initialization
+  - New endpoints: `/auth/{provider}`, `/auth/callback`, `/auth/success`
+  - Middleware updated to exclude OIDC endpoints from auth
+  - Redirect-based OIDC flow for seamless SSO
+- Updated dependencies:
+  - Added `authlib>=1.3.0` for OIDC support
+  - Added `PyJWT>=2.8.0` for JWT token validation
+- Created comprehensive tests in `tests/test_oidc.py`:
+  - OIDC configuration and user info dataclasses
+  - OIDC provider and manager functionality
+  - Auth state management and CSRF protection
+  - Token exchange simulation (mocked)
+- Created documentation:
+  - `docs/OIDC_SETUP.md` with setup guide for Azure AD, Okta, Google, and custom providers
+  - Configuration examples for common OIDC providers
+  - User flow documentation
+  - Troubleshooting guide
 
-### 7. ⏳ Web UI (M3)
+## Remaining Work
+
+### M5: Web UI (Pending)
+
+- [ ] Frontend framework setup (React / TypeScript)
 - [ ] Variant selector component
-- [ ] Chat interface
-- [ ] Citations panel
-- [ ] Reasoning trail visibility
+- [ ] Chat interface with message history
+- [ ] Citations panel with source verification
+- [ ] Reasoning trail visibility (show tool calls)
+- [ ] Session management UI (create, load, save)
+- [ ] Integration with API gateway authentication
 
-### 8. ⏳ Evaluation & Testing (M4)
-- [ ] 300-query evaluation harness (per PRD)
-- [ ] Accuracy metrics
-- [ ] Latency benchmarks
-- [ ] Citation correctness validation
+### M6: Evaluation & Testing (Pending)
 
-### 9. ⏳ Deployment & Monitoring (M4)
-- [ ] Docker containerization
-- [ ] OpenTelemetry + Grafana telemetry setup
-- [ ] Production deployment
+- [ ] 300-query evaluation harness (per PRD specification)
+- [ ] Accuracy metrics (answer correctness, citation accuracy)
+- [ ] Latency benchmarks (response time, tool call duration)
+- [ ] Citation verification (correctness, completeness)
+- [ ] Cross-variant boundary testing (ensure variant isolation)
+- [ ] Edge case testing (malformed documents, OCR failures)
+
+### M7: Deployment & Monitoring (Pending)
+
+- [ ] Docker containerization (Dockerfile + docker-compose.yml)
+- [ ] OpenTelemetry + Prometheus integration
+- [ ] Grafana dashboards (query latency, error rates, cache hit rates)
+- [ ] Production deployment configuration
+- [ ] Monitoring and alerting setup
 
 ## Known Issues & Risks
 

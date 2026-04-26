@@ -331,3 +331,42 @@ class TestAuthenticationFlow:
         authenticated = manager.authenticate_token(token)
 
         assert authenticated is None
+
+
+class TestAPIGatewayWithOIDC:
+    """Test API Gateway with OIDC integration."""
+
+    def test_gateway_initialization_without_oidc(self):
+        """Test initializing gateway without OIDC."""
+        from fastapi import FastAPI
+
+        from compass.api.gateway import APIGateway
+
+        app = FastAPI()
+        gateway = APIGateway(app)
+
+        assert gateway.oidc_manager is not None
+        assert len(gateway.oidc_manager.providers) == 0
+
+    def test_gateway_initialization_with_oidc(self):
+        """Test initializing gateway with OIDC."""
+        from fastapi import FastAPI
+
+        from compass.api.gateway import APIGateway
+        from compass.api.oidc import OIDCConfig
+
+        app = FastAPI()
+        oidc_configs = {
+            "azure": OIDCConfig(
+                provider_name="azure",
+                client_id="test_client",
+                client_secret="test_secret",
+                discovery_url="https://example.com/.well-known/openid-configuration",
+                redirect_uri="http://localhost:8000/auth/callback",
+            )
+        }
+
+        gateway = APIGateway(app, oidc_configs)
+
+        assert len(gateway.oidc_manager.providers) == 1
+        assert gateway.oidc_manager.get_provider("azure") is not None
