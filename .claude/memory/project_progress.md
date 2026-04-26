@@ -72,19 +72,32 @@ type: project
 ### 5. ✅ Set up Python 3.11.9 Project Structure (2026-04-26)
 - Created `pyproject.toml` with:
   - Python 3.11.9+ requirement
-  - All planned dependencies (FastAPI, LangGraph, PDF tools, tantivy, OpenRouter SDK, etc.)
+  - All planned dependencies with >= constraints (FastAPI, LangGraph, PDF tools, tantivy, OpenRouter SDK, etc.)
   - Dev dependencies (pytest, black, ruff, mypy)
   - Tool configurations (black, ruff, mypy, pytest)
-- Created `requirements.txt` with pinned versions for reproducibility
+- Created `requirements.txt` with flexible version constraints
 - Project scaffold ready for development
+
+### 6. ✅ Create FastAPI Project Scaffold (2026-04-26)
+- Created directory structure:
+  - `src/compass/` — main application package
+  - `src/compass/agent/` — LangGraph agent module
+  - `src/compass/indexer/` — indexing and parsing
+  - `src/compass/services/` — orchestration services
+  - `src/compass/api/` — API routes
+- Created core files:
+  - `src/compass/app.py` — FastAPI app with health check and root endpoints
+  - `src/compass/main.py` — entry point for uvicorn
+  - `src/compass/config.py` — settings management (pydantic)
+  - Placeholder modules for agent tools, parser, and services
 
 ## Pending Steps
 
 ### 1. ⏳ M0: Foundations (Planned May 2026)
 
-- [ ] Initialize git repository
+- [ ] ~~Initialize git repository~~ ✅ (Pre-existing)
 - [ ] ~~Set up Python 3.11.9 project structure (pyproject.toml, requirements.txt)~~ ✅ Completed
-- [ ] Create FastAPI project scaffold
+- [ ] ~~Create FastAPI project scaffold~~ ✅ Completed
 - [ ] Set up CI/CD pipeline
 
 ### 2. ⏳ Indexer Implementation (M0/M1)
