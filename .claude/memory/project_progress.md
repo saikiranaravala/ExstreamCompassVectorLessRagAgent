@@ -132,9 +132,22 @@ All M0 tasks completed:
 - Created comprehensive tests in `tests/test_html_parser.py`:
   - Simple HTML parsing, script/style removal, complex structures, edge cases
 
+##### ✅ PDF Text Extraction using pypdf + pdfplumber (2026-04-26)
+- Created `src/compass/indexer/pdf_parser.py`:
+  - `ParsedPDF` dataclass (title, url, text, pages, metadata)
+  - `PDFParser.parse_file()` — parse PDF files from disk
+  - `PDFParser.parse_bytes()` — parse PDF from bytes
+  - Primary extraction via pdfplumber (better accuracy)
+  - Fallback to pypdf if pdfplumber fails
+  - Metadata extraction (title, author, subject, creator, producer)
+  - Error handling with graceful fallbacks
+- Created comprehensive tests in `tests/test_pdf_parser.py`:
+  - Minimal PDF parsing, metadata extraction, error handling
+  - Edge cases (empty, invalid, corrupted PDFs)
+
 #### Remaining M1 Tasks
 
-- [ ] PDF text extraction (pypdf + pdfplumber)
+- [ ] PDF table extraction logic
 - [ ] PDF table extraction logic
 - [ ] OCR fallback for scanned content (pytesseract)
 - [ ] BM25 lexical search index (tantivy-py)
