@@ -314,6 +314,36 @@ All Reasoning Agent tasks finished (4/4):
 - ✅ 5 core tools (list_node, read_html, read_pdf, lexical_search, compare_variants)
 - ✅ Variant isolation logic (CloudNative vs. ServerBased)
 - ✅ Budget enforcement built into agent state tracking
+
+## M2: Orchestration Service - In Progress
+
+### Completed
+
+##### ✅ Session Management (2026-04-26)
+- Created `src/compass/services/session.py`:
+  - `SessionBudget` dataclass for per-session budgets
+  - Budget enforcement: `has_tool_calls_remaining()`, `has_file_reads_remaining()`
+  - Budget tracking: `increment_tool_calls()`, `increment_file_reads()`
+  - `QueryRecord` dataclass for recording queries within session
+  - `Session` dataclass with queries, budget, metadata
+  - Session serialization: `to_dict()` and `from_dict()`
+  - `SessionManager` for complete session lifecycle
+  - Session CRUD: create, get, update, delete, list
+  - Persistence: save/load sessions to JSON files
+  - Session cleanup: `cleanup_expired_sessions()` for old sessions
+  - Statistics: `get_session_stats()` for query and budget analysis
+- Created comprehensive tests in `tests/test_session.py`:
+  - Budget tracking and enforcement
+  - Query record management
+  - Session creation and persistence
+  - Session expiration cleanup
+  - Statistics generation
+
+### Remaining M2 Tasks
+
+- [ ] Citation verification
+- [ ] Audit logging
+- [ ] Budget tracking integration
 - [ ] PDF table extraction logic
 - [ ] OCR fallback for scanned content (pytesseract)
 - [ ] BM25 lexical search index (tantivy-py)
