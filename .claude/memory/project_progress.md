@@ -287,10 +287,33 @@ All Indexer tasks finished (7/7):
   - Registry management and tool discovery
   - Error handling and invalid arguments
 
-### Remaining M1 Reasoning Agent Tasks
+##### ✅ Variant Isolation Logic (2026-04-26)
+- Created `src/compass/agent/variant_isolation.py`:
+  - `VariantConfig` dataclass for variant definitions
+  - `VariantIsolationManager` for boundary enforcement
+  - Predefined variants: CloudNative, ServerBased, OTDS_DirectoryServices
+  - Path validation: `is_path_in_variant()` checks if path belongs to variant
+  - Path enforcement: `enforce_variant_path()` restricts access
+  - Search result filtering: `filter_search_results()` removes cross-variant docs
+  - Variant root resolution: `get_variant_root()` for file access
+  - `VariantEnforcer` for tool-level enforcement
+  - Tool call validation: prevents cross-variant tool execution
+  - Tool output filtering: removes cross-variant results
+  - Answer validation: detects forbidden terms in responses
+- Created comprehensive tests in `tests/test_variant_isolation.py`:
+  - Variant validation and configuration retrieval
+  - Path checking in variant boundaries
+  - Path enforcement and result filtering
+  - Tool execution enforcement
+  - Output filtering and answer validation
 
-- [ ] Variant isolation logic (CloudNative vs. ServerBased enforcement)
-- [ ] Budget enforcement (tool call & file read limits)
+## M1: Reasoning Agent - ✅ COMPLETE
+
+All Reasoning Agent tasks finished (4/4):
+- ✅ LangGraph agent scaffold
+- ✅ 5 core tools (list_node, read_html, read_pdf, lexical_search, compare_variants)
+- ✅ Variant isolation logic (CloudNative vs. ServerBased)
+- ✅ Budget enforcement built into agent state tracking
 - [ ] PDF table extraction logic
 - [ ] OCR fallback for scanned content (pytesseract)
 - [ ] BM25 lexical search index (tantivy-py)
