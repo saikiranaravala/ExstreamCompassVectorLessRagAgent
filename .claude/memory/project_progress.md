@@ -91,14 +91,33 @@ type: project
   - `src/compass/config.py` — settings management (pydantic)
   - Placeholder modules for agent tools, parser, and services
 
+### 7. ✅ Set up CI/CD Pipeline (2026-04-26)
+- Created GitHub Actions workflow (`.github/workflows/ci.yml`):
+  - Python 3.11 matrix testing
+  - Linting (ruff)
+  - Format checking (black)
+  - Type checking (mypy)
+  - Unit tests with coverage (pytest)
+  - Coverage reporting to codecov
+- Created test infrastructure:
+  - `tests/conftest.py` — pytest fixtures (FastAPI test client)
+  - `tests/test_app.py` — basic endpoint tests
+  - `pytest.ini` — pytest configuration
+- Added configuration files:
+  - `.env.example` — environment variables template
+  - Updated `.gitignore` — comprehensive Python/project excludes
+
+## M0: Foundations - ✅ COMPLETE
+
+All M0 tasks completed:
+- ✅ Initialize git repository (pre-existing)
+- ✅ Set up Python 3.11.9 project structure
+- ✅ Create FastAPI project scaffold
+- ✅ Set up CI/CD pipeline
+
 ## Pending Steps
 
-### 1. ⏳ M0: Foundations (Planned May 2026)
-
-- [ ] ~~Initialize git repository~~ ✅ (Pre-existing)
-- [ ] ~~Set up Python 3.11.9 project structure (pyproject.toml, requirements.txt)~~ ✅ Completed
-- [ ] ~~Create FastAPI project scaffold~~ ✅ Completed
-- [ ] Set up CI/CD pipeline
+### 2. ⏳ M1: Indexer Implementation
 
 ### 2. ⏳ Indexer Implementation (M0/M1)
 - [ ] HTML parser using selectolax + readability-lxml
