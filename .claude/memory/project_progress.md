@@ -178,9 +178,30 @@ All M0 tasks completed:
   - Text density detection for various image types
   - OCR recommendation logic with custom thresholds
 
+##### ✅ BM25 Lexical Search Index (2026-04-26)
+- Created `src/compass/indexer/search.py`:
+  - `BM25Index` class using tantivy for full-text search
+  - `SearchResult` dataclass (doc_id, title, path, score, content_preview)
+  - Schema creation with tokenized fields (title, content) and stored fields
+  - Index initialization and persistence
+  - `add_document()` — add single document to index
+  - `batch_add_documents()` — bulk indexing with error resilience
+  - `search()` — query with BM25 scoring and result limit
+  - `delete_document()` — remove document by ID
+  - `get_document_count()` — total document count
+  - `clear_index()` — remove all documents
+  - Content preview generation (first 200 chars)
+- Created comprehensive tests in `tests/test_search.py`:
+  - Index initialization and persistence
+  - Single/batch document addition
+  - Search with scoring and limits
+  - Content preview truncation
+  - Document deletion and counting
+
 #### Remaining M1 Tasks
 
-- [ ] BM25 lexical search index (tantivy-py)
+- [ ] Index Tree generation (Claude Haiku 4.5 summarization)
+- [ ] Atomic write mechanism (tmp-then-rename)
 - [ ] PDF table extraction logic
 - [ ] OCR fallback for scanned content (pytesseract)
 - [ ] BM25 lexical search index (tantivy-py)
