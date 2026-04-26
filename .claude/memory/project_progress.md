@@ -386,6 +386,30 @@ All Orchestration Service tasks finished (3/3):
 - ✅ Session management (create, persist, budget tracking)
 - ✅ Citation verification (extraction, validation, formatting)
 - ✅ Audit logging (comprehensive event tracking and export)
+
+## M3: Vision Service - In Progress
+
+### Completed
+
+##### ✅ Diagram Interpretation & Figure Extraction (2026-04-26)
+- Created `src/compass/services/vision.py`:
+  - `Figure` dataclass for extracted figures (diagrams, charts, images, tables)
+  - `VisionAnalysis` dataclass with interpretation results
+  - `FigureExtractor` for extracting figures from files/directories
+  - File format detection (PNG, JPG, GIF, WebP)
+  - Figure type detection (diagram, chart, table, image)
+  - `VisionInterpreter` using Claude Opus 4.7 vision
+  - Base64 image encoding for API submission
+  - Type-specific interpretation prompts
+  - Object detection and insight extraction
+  - `VisionCache` for persistent caching
+  - Two-tier cache: memory + disk (JSON)
+- Created comprehensive tests in `tests/test_vision.py`:
+  - Figure extraction from files and directories
+  - Type detection for different figure kinds
+  - Vision interpretation with caching
+  - Cache persistence across instances
+  - Memory and disk cache operations
 - [ ] PDF table extraction logic
 - [ ] OCR fallback for scanned content (pytesseract)
 - [ ] BM25 lexical search index (tantivy-py)
