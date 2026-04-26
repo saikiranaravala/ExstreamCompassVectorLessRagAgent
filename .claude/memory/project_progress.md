@@ -219,9 +219,34 @@ All M0 tasks completed:
   - Fallback file reading
   - Directory creation and replacement
 
-#### Remaining M1 Tasks
+##### ✅ Index Tree Generation (2026-04-26)
+- Created `src/compass/indexer/index_tree.py`:
+  - `IndexNode` dataclass (name, path, type, summary, children, doc_count)
+  - Serialization: to_dict() and from_dict() for JSON persistence
+  - `IndexTreeBuilder` for recursive tree construction
+  - `build_tree()` — traverse docs folder and generate summaries
+  - Integration with Claude Haiku 4.5 for folder summarization
+  - Atomic write of final index tree JSON
+  - `IndexTreeManager` for tree operations
+  - `load_tree()` — load index from file
+  - `find_node()` — search by name (recursive)
+  - Document counting and tree printing utilities
+- Created comprehensive tests in `tests/test_index_tree.py`:
+  - Node creation and serialization roundtrips
+  - Tree building and navigation
+  - Document counting and node finding
+  - File I/O and persistence
 
-- [ ] Index Tree generation (Claude Haiku 4.5 summarization)
+## M1: Indexer Implementation - ✅ COMPLETE
+
+All M1 tasks finished (7/7):
+- ✅ HTML parser (selectolax + readability-lxml)
+- ✅ PDF text extraction (pypdf + pdfplumber)
+- ✅ PDF table extraction
+- ✅ OCR fallback (pytesseract)
+- ✅ BM25 lexical search (tantivy-py)
+- ✅ Atomic write mechanism (tmp-then-rename)
+- ✅ Index Tree generation (Claude Haiku 4.5 summarization)
 - [ ] PDF table extraction logic
 - [ ] OCR fallback for scanned content (pytesseract)
 - [ ] BM25 lexical search index (tantivy-py)
