@@ -387,7 +387,7 @@ All Orchestration Service tasks finished (3/3):
 - ✅ Citation verification (extraction, validation, formatting)
 - ✅ Audit logging (comprehensive event tracking and export)
 
-## M3: Vision Service - In Progress
+## M3: Vision Service - ✅ COMPLETE
 
 ### Completed
 
@@ -410,6 +410,32 @@ All Orchestration Service tasks finished (3/3):
   - Vision interpretation with caching
   - Cache persistence across instances
   - Memory and disk cache operations
+
+## M4: API Gateway & Auth - In Progress
+
+### Completed
+
+##### ✅ API Gateway with Authentication & Rate Limiting (2026-04-26)
+- Created `src/compass/api/gateway.py`:
+  - `RateLimitConfig` with per-minute and per-hour limits
+  - `RateLimiter` for rate limiting enforcement
+  - Request tracking with automatic cleanup
+  - Per-user rate limit tracking
+  - `AuthenticationManager` for user management
+  - Token creation with expiry
+  - Token revocation and validation
+  - User registration and retrieval
+  - `APIGateway` class for FastAPI integration
+  - Middleware for request interception
+  - Role-based access control (RBAC)
+  - Rate limit response headers
+  - Built-in routes: /login, /logout, /user/profile, /user/rate-limit
+- Created comprehensive tests in `tests/test_gateway.py`:
+  - Rate limiting enforcement
+  - Token authentication and expiry
+  - User registration and management
+  - Role-based permissions
+  - Complete authentication flows
 - [ ] PDF table extraction logic
 - [ ] OCR fallback for scanned content (pytesseract)
 - [ ] BM25 lexical search index (tantivy-py)
