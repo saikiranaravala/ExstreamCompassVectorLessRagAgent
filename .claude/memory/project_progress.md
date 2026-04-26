@@ -161,9 +161,26 @@ All M0 tasks completed:
   - Multiple tables per page
   - Special characters and None value handling
 
+##### ✅ OCR Fallback for Scanned Content (2026-04-26)
+- Created `src/compass/indexer/ocr.py`:
+  - `OCRProcessor` class for text extraction using pytesseract
+  - Tesseract availability detection
+  - Image preprocessing: mode conversion, resizing, contrast enhancement
+  - Text extraction from image and image bytes
+  - Text density detection (distinguish scanned vs blank pages)
+  - `PDFPageOCR` for PDF-specific OCR operations
+  - OCR recommendation logic (should_use_ocr)
+  - Graceful fallback when Tesseract unavailable
+- Created comprehensive tests in `tests/test_ocr.py`:
+  - Tesseract availability check
+  - Image preprocessing (conversion, scaling, contrast)
+  - Text extraction with/without preprocessing
+  - Text density detection for various image types
+  - OCR recommendation logic with custom thresholds
+
 #### Remaining M1 Tasks
 
-- [ ] OCR fallback for scanned content (pytesseract)
+- [ ] BM25 lexical search index (tantivy-py)
 - [ ] PDF table extraction logic
 - [ ] OCR fallback for scanned content (pytesseract)
 - [ ] BM25 lexical search index (tantivy-py)
