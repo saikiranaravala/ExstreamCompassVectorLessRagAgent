@@ -360,10 +360,32 @@ All Reasoning Agent tasks finished (4/4):
   - Citation verification (existence, content match)
   - Citation formatting and indexing
 
-### Remaining M2 Tasks
+##### ✅ Audit Logging (2026-04-26)
+- Created `src/compass/services/audit.py`:
+  - `AuditEventType` enum for all event categories
+  - `AuditEvent` dataclass with serialization
+  - `AuditLogger` for centralized logging
+  - Event logging methods: log_session_*, log_query_*, log_tool_*, log_budget_*, log_variant_*
+  - File-based logging with JSONL format (one event per line)
+  - Event filtering: by session, user, event type
+  - Audit trail methods: `get_session_audit_trail()`, `get_user_audit_trail()`
+  - Statistics: `get_statistics()` for event analysis
+  - Export: `export_logs()` for compliance exports
+  - Severity levels: INFO, WARNING, ERROR
+- Created comprehensive tests in `tests/test_audit.py`:
+  - Event creation and serialization
+  - Logging all event types
+  - Event filtering and queries
+  - Audit trail generation
+  - Statistics collection
+  - Log export
 
-- [ ] Audit logging
-- [ ] Budget tracking integration
+## M2: Orchestration Service - ✅ COMPLETE
+
+All Orchestration Service tasks finished (3/3):
+- ✅ Session management (create, persist, budget tracking)
+- ✅ Citation verification (extraction, validation, formatting)
+- ✅ Audit logging (comprehensive event tracking and export)
 - [ ] PDF table extraction logic
 - [ ] OCR fallback for scanned content (pytesseract)
 - [ ] BM25 lexical search index (tantivy-py)
