@@ -119,8 +119,21 @@ All M0 tasks completed:
 
 ### 2. ⏳ M1: Indexer Implementation
 
-### 2. ⏳ Indexer Implementation (M0/M1)
-- [ ] HTML parser using selectolax + readability-lxml
+#### Completed in M1
+
+##### ✅ HTML Parser using selectolax + readability-lxml (2026-04-26)
+- Created `src/compass/indexer/html_parser.py`:
+  - `ParsedHTML` dataclass for structured results (title, url, content, text, html)
+  - `HTMLParser.parse_file()` — parse HTML files from disk
+  - `HTMLParser.parse_string()` — parse HTML from string
+  - Readability-lxml for content extraction (title, summary)
+  - Selectolax for text extraction and cleanup (removes scripts/styles)
+  - Error handling with logging
+- Created comprehensive tests in `tests/test_html_parser.py`:
+  - Simple HTML parsing, script/style removal, complex structures, edge cases
+
+#### Remaining M1 Tasks
+
 - [ ] PDF text extraction (pypdf + pdfplumber)
 - [ ] PDF table extraction logic
 - [ ] OCR fallback for scanned content (pytesseract)
