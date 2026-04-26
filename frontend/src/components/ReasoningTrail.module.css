@@ -1,0 +1,195 @@
+.container {
+  border-top: 1px solid var(--gray-200);
+  padding-top: 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .container {
+    border-top-color: var(--gray-700);
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  user-select: none;
+  padding: 0.5rem 0;
+  color: var(--gray-900);
+  font-weight: 600;
+  font-size: 0.975rem;
+  margin-bottom: 0.75rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .header {
+    color: var(--gray-100);
+  }
+}
+
+.header:hover {
+  opacity: 0.8;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  font-size: 0.75rem;
+  color: var(--primary);
+}
+
+.title {
+  flex: 1;
+}
+
+.subtitle {
+  font-size: 0.75rem;
+  color: var(--gray-600);
+  font-weight: normal;
+}
+
+@media (prefers-color-scheme: dark) {
+  .subtitle {
+    color: var(--gray-400);
+  }
+}
+
+.content {
+  padding: 0.75rem 0;
+}
+
+.info {
+  background-color: var(--gray-50);
+  border-radius: 4px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .info {
+    background-color: var(--gray-700);
+  }
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem 0;
+  color: var(--gray-700);
+}
+
+@media (prefers-color-scheme: dark) {
+  .infoRow {
+    color: var(--gray-300);
+  }
+}
+
+.label {
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+@media (prefers-color-scheme: dark) {
+  .label {
+    color: var(--gray-100);
+  }
+}
+
+.value {
+  color: var(--primary);
+  font-family: monospace;
+}
+
+.sessionId {
+  color: var(--gray-600);
+  font-family: monospace;
+  font-size: 0.75rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .sessionId {
+    color: var(--gray-400);
+  }
+}
+
+.section {
+  margin-bottom: 0.75rem;
+}
+
+.section h5 {
+  margin: 0.75rem 0 0.5rem 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+@media (prefers-color-scheme: dark) {
+  .section h5 {
+    color: var(--gray-100);
+  }
+}
+
+.stepsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.step {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--gray-700);
+}
+
+@media (prefers-color-scheme: dark) {
+  .step {
+    color: var(--gray-300);
+  }
+}
+
+.step strong {
+  color: var(--gray-900);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .step strong {
+    color: var(--gray-100);
+  }
+}
+
+.stepIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: 600;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.stepDesc {
+  margin: 0;
+  color: var(--gray-600);
+  font-size: 0.8rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .stepDesc {
+    color: var(--gray-400);
+  }
+}

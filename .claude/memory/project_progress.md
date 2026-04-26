@@ -483,17 +483,112 @@ All Orchestration Service tasks finished (3/3):
   - User flow documentation
   - Troubleshooting guide
 
+## M5: Web UI - In Progress
+
+### Completed
+
+##### ✅ Frontend Framework Setup (2026-04-26)
+- Created React 18 + TypeScript + Vite frontend in `frontend/` directory
+- Configuration files:
+  - `package.json` with React, React Router, Axios dependencies
+  - `tsconfig.json` and `tsconfig.node.json` for TypeScript setup
+  - `vite.config.ts` with dev server on port 3000 and `/api` proxy to backend
+  - `index.html` entry point and `src/main.tsx` React bootstrapping
+- Global styles:
+  - `src/index.css` with CSS variables (colors, spacing) and dark mode support
+  - Responsive design with `prefers-color-scheme` media queries
+- API client layer:
+  - `src/services/api.ts` with full TypeScript types and axios integration
+  - Methods: login, logout, submitQuery, getSession, closeSession, getUserProfile, getRateLimit
+  - Automatic token management in localStorage
+  - 401 handling with redirect to login on token expiry
+
+##### ✅ Variant Selector Component (2026-04-26)
+- Created `src/components/VariantSelector.tsx`:
+  - Displays Cloud Native and Server-Based documentation options
+  - Button-style selector with description text
+  - Callback for variant change
+  - Responsive CSS Grid layout
+- Styling: `src/components/VariantSelector.module.css`
+  - Active state styling with primary color highlight
+  - Hover effects and transitions
+  - Dark mode support
+
+##### ✅ Chat Interface Component (2026-04-26)
+- Created `src/components/ChatInterface.tsx`:
+  - Message display with role-based styling (user/assistant)
+  - Input form with submit handling
+  - Session management (create new or resume existing)
+  - API integration for query submission
+  - Real-time message streaming with loading state
+  - Message history with timestamps
+  - Click on assistant message to show citations/reasoning details
+- Styling: `src/components/ChatInterface.module.css`
+  - Two-column layout (messages + side panel)
+  - Responsive (single column on mobile)
+  - Message animations and loading indicators
+  - Input form with disabled state during processing
+
+##### ✅ Citations Panel Component (2026-04-26)
+- Created `src/components/CitationsPanel.tsx`:
+  - Displays list of citations from query response
+  - Citation numbering with sequential badges
+  - Shows: document title, file path, content preview
+  - Truncates long content with `-webkit-line-clamp: 3`
+- Styling: `src/components/CitationsPanel.module.css`
+  - Scrollable list with numbered citations
+  - Color-coded badges matching UI theme
+  - Responsive spacing and typography
+
+##### ✅ Reasoning Trail Component (2026-04-26)
+- Created `src/components/ReasoningTrail.tsx`:
+  - Collapsible section showing query metadata
+  - Displays: variant, tool calls count, processing time, session ID
+  - Processing steps (1-4): Query → Planning → Execution → Synthesis
+  - Step descriptions and progress visualization
+- Styling: `src/components/ReasoningTrail.module.css`
+  - Expandable/collapsible header
+  - Numbered step visualization
+  - Color-coded info rows
+
+##### ✅ Main App Component (2026-04-26)
+- Created `src/App.tsx`:
+  - Authentication flow: Login form if not authenticated, chat UI if logged in
+  - User profile loading on mount
+  - Session state management
+  - Variant switching with session reset
+  - Logout functionality
+  - Error handling for authentication failures
+- Login form component with email/password fields
+- Loading state while checking authentication
+- Styling: `src/App.module.css`
+  - Header with branding and user section
+  - Login container with gradient background
+  - Responsive layout
+  - Dark mode support
+
+##### ✅ Frontend Configuration & Docs (2026-04-26)
+- Created `frontend/.gitignore` for Node dependencies, build output, env files
+- Created `frontend/README.md` with:
+  - Setup and installation instructions
+  - Development and build commands
+  - Project structure overview
+  - API integration documentation
+  - Component descriptions
+  - Browser support notes
+
 ## Remaining Work
 
-### M5: Web UI (Pending)
+### M5: Web UI - Pending Tasks
 
-- [ ] Frontend framework setup (React / TypeScript)
-- [ ] Variant selector component
-- [ ] Chat interface with message history
-- [ ] Citations panel with source verification
-- [ ] Reasoning trail visibility (show tool calls)
-- [ ] Session management UI (create, load, save)
-- [ ] Integration with API gateway authentication
+- [ ] Session persistence (save/load from backend)
+- [ ] Message export/sharing
+- [ ] Advanced filtering and search within chat history
+- [ ] Keyboard shortcuts (Cmd/Ctrl+K for search, etc.)
+- [ ] Error boundary components
+- [ ] Loading skeleton screens
+- [ ] Accessibility improvements (ARIA labels, keyboard nav)
+- [ ] E2E tests (Cypress/Playwright)
 
 ### M6: Evaluation & Testing (Pending)
 
