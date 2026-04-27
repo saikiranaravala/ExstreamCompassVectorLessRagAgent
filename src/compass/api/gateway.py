@@ -8,13 +8,21 @@ from datetime import datetime, timedelta
 from typing import Optional, Callable, Any
 from urllib.parse import quote
 
-from fastapi import FastAPI, Request, HTTPException, Depends
+from fastapi import FastAPI, Request, HTTPException, Depends, APIRouter
 from fastapi.responses import RedirectResponse
-from fastapi.security import HTTPBearer, HTTPAuthCredentials
+from fastapi.security import HTTPBearer
+from pydantic import BaseModel
 
 from compass.api.oidc import OIDCConfig, OIDCManager, OIDCUserInfo
 
 logger = logging.getLogger(__name__)
+
+
+class LoginRequest(BaseModel):
+    """Login request body."""
+
+    email: str
+    password: str
 
 
 @dataclass
@@ -241,9 +249,45 @@ class APIGateway:
         async def gateway_middleware(request: Request, call_next):
             """Main gateway middleware."""
             # Skip auth for health check, login, OIDC, and docs
-            skip_auth_paths = ["/health", "/login", "/docs", "/openapi.json", "/auth"]
-            if request.url.path in skip_auth_paths or request.url.path.startswith("/auth/"):
+            skip_auth_paths = ["/health", "/login", "/api/v1/login", "/docs", "/openapi.json", "/api/v1/swagger.json"]
+            skip_auth_prefixes = ["/auth", "/auth/", "/api/v1/auth"]
+
+            # Check if path should skip auth
+            if request.url.path in skip_auth_paths:
                 return await call_next(request)
+
+            # Check if path starts with skip prefix
+            for prefix in skip_auth_prefixes:
+                if request.url.path.startswith(prefix):
+                    return await call_next(request)
+
+            # For /api/v1/query and other non-auth endpoints, check if token is provided
+            # If no token, skip auth for demo mode
+            auth_header = request.headers.get("Authorization", "")
+            if not auth_header:
+                # Allow unauthenticated access to demo endpoints in development
+                if request.url.path.startswith("/api/v1/query") or request.url.path.startswith("/api/v1/session"):
+                    # Add a demo user for development
+                    class DemoUser:
+                        user_id = "demo"
+                        email = "demo@example.com"
+                        roles = ["user"]
+                        variant = "CloudNative"
+                    request.state.user = DemoUser()
+                    return await call_next(request)
+                else:
+                    raise HTTPException(status_code=401, detail="Missing authorization token")
+
+            # Verify token format
+            if not auth_header.startswith("Bearer "):
+                raise HTTPException(status_code=401, detail="Invalid authorization header")
+
+            token = auth_header.replace("Bearer ", "")
+
+            # Authenticate
+            user = self.auth_manager.authenticate_token(token)
+            if not user:
+                raise HTTPException(status_code=401, detail="Invalid or expired token")
 
             # Extract token
             auth_header = request.headers.get("Authorization", "")
@@ -323,8 +367,9 @@ class APIGateway:
 
     def register_routes(self) -> None:
         """Register gateway routes."""
+        router = APIRouter(prefix="/api/v1", tags=["auth"])
 
-        @self.app.get("/auth/{provider}")
+        @router.get("/auth/{provider}")
         async def start_oidc_auth(provider: str):
             """Start OIDC authentication flow.
 
@@ -350,7 +395,7 @@ class APIGateway:
 
             return RedirectResponse(url=auth_url)
 
-        @self.app.get("/auth/callback")
+        @router.get("/auth/callback")
         async def oidc_callback(code: str, state: str):
             """Handle OIDC provider callback.
 
@@ -388,7 +433,7 @@ class APIGateway:
             frontend_url = f"/auth/success?token={quote(token)}&user_id={quote(user.user_id)}"
             return RedirectResponse(url=frontend_url)
 
-        @self.app.get("/auth/success")
+        @router.get("/auth/success")
         async def auth_success(token: str, user_id: str):
             """Auth success page (frontend would handle token storage).
 
@@ -406,14 +451,14 @@ class APIGateway:
                 "user_id": user_id,
             }
 
-        @self.app.post("/login")
-        async def login(email: str, password: str) -> dict:
+        @router.post("/login")
+        async def login(request: LoginRequest) -> dict:
             """Login endpoint."""
             # In production, validate credentials against auth provider
             # For now, create test user
             user = User(
-                user_id=email.split("@")[0],
-                email=email,
+                user_id=request.email.split("@")[0],
+                email=request.email,
                 roles=["user"],
             )
 
@@ -429,7 +474,7 @@ class APIGateway:
                 },
             }
 
-        @self.app.post("/logout")
+        @router.post("/logout")
         async def logout(request: Request) -> dict:
             """Logout endpoint."""
             user = self.get_current_user(request)
@@ -443,7 +488,7 @@ class APIGateway:
 
             return {"message": "Logged out successfully"}
 
-        @self.app.get("/user/profile")
+        @router.get("/user/profile")
         async def get_profile(request: Request) -> dict:
             """Get user profile."""
             user = self.get_current_user(request)
@@ -455,7 +500,7 @@ class APIGateway:
                 "variant": user.variant,
             }
 
-        @self.app.get("/user/rate-limit")
+        @router.get("/user/rate-limit")
         async def get_rate_limit(request: Request) -> dict:
             """Get rate limit status."""
             user = self.get_current_user(request)
@@ -466,6 +511,9 @@ class APIGateway:
                 "user_id": user.user_id,
                 **remaining,
             }
+
+        # Register router with app
+        self.app.include_router(router)
 
     def create_dependency(
         self,

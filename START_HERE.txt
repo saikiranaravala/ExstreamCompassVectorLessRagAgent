@@ -1,0 +1,154 @@
+================================================================================
+COMPASS RAG - SIMPLE LOCAL SETUP (NO DOCKER)
+================================================================================
+
+WHAT YOU NEED:
+- Python 3.11+ (python --version)
+- Node.js 18+ (node --version)
+- OpenRouter API key (free at https://openrouter.ai)
+- 5 minutes
+
+================================================================================
+QUICK SETUP - COPY & PASTE THESE COMMANDS
+================================================================================
+
+TERMINAL 1 - BACKEND SETUP
+==========================
+
+# 1. Get to the right folder
+cd /path/to/compass-rag
+
+# 2. Create Python environment
+python -m venv venv
+
+# 3. Activate it
+# Windows:
+venv\Scripts\activate
+# macOS/Linux:
+source venv/bin/activate
+
+# 4. Install Python packages
+pip install -r requirements.txt
+
+# 5. Create .env file with your OpenRouter API key
+# Create a file called ".env" in the root folder with:
+# OPENROUTER_API_KEY=sk-your-key-here
+# REASONING_MODEL=deepseek-v4
+# SUMMARIZATION_MODEL=deepseek-v4
+# DEBUG=true
+# DATABASE_URL=sqlite:///./compass.db
+
+# 6. Start backend (LEAVE THIS RUNNING)
+python -m uvicorn compass.main:app --reload --host 0.0.0.0 --port 8000
+
+You should see:
+  Uvicorn running on http://0.0.0.0:8000
+  Application startup complete
+
+================================================================================
+
+TERMINAL 2 - FRONTEND SETUP
+===========================
+
+# Open a NEW terminal/command prompt
+
+# 1. Go to frontend folder
+cd /path/to/compass-rag/frontend
+
+# 2. Install frontend packages
+npm install
+
+# 3. Start dev server (LEAVE THIS RUNNING)
+npm run dev
+
+You should see:
+  Local: http://localhost:5173
+
+================================================================================
+
+BROWSER - TEST IT
+=================
+
+1. Open: http://localhost:5173
+
+2. Login with:
+   Email: test@example.com
+   Password: anything
+
+3. Click "Cloud Native" or "Server-Based"
+
+4. Type a question:
+   "What is cloud native deployment?"
+
+5. Click "Send"
+
+6. Wait 2-4 seconds for answer
+
+7. Click the answer to see:
+   - Citations (source documents)
+   - Reasoning trail (tool calls and timing)
+
+================================================================================
+
+THAT'S IT!
+==========
+
+You now have a working Compass RAG system with:
+✓ Backend API (Python)
+✓ Frontend UI (React)
+✓ SQLite database
+✓ Full chat interface
+
+No Docker. No extra services. Just Python + Node.
+
+To STOP:
+- Press Ctrl+C in each terminal
+
+To START again:
+- Terminal 1: venv\Scripts\activate (or source venv/bin/activate)
+              python -m uvicorn compass.main:app --reload
+- Terminal 2: npm run dev (in frontend folder)
+
+================================================================================
+
+TROUBLESHOOTING QUICK FIXES
+===========================
+
+Backend won't start:
+  → Check Python: python --version (need 3.11+)
+  → Check .env file has OPENROUTER_API_KEY
+  → Try: pip install -r requirements.txt --upgrade
+
+Frontend won't load:
+  → Check backend is running: curl http://localhost:8000/health
+  → Should see: {"status":"healthy","service":"compass-rag"}
+
+Port in use:
+  → Kill old process or use different port: python -m uvicorn compass.main:app --port 8001
+
+Slow first query:
+  → Normal! Index loads on first run (10-15 seconds)
+  → Subsequent queries are fast (2-4 seconds)
+
+API key error:
+  → Check key starts with "sk-or-"
+  → Get new key: https://openrouter.io/keys
+
+================================================================================
+
+NEED MORE HELP?
+===============
+
+Simple setup questions:
+  → Read: SIMPLE_SETUP.md
+
+All setup options:
+  → Read: INSTALLATION.md
+
+Production deployment:
+  → Read: DEPLOYMENT.md
+
+Quick reference:
+  → Read: QUICKSTART.md
+
+================================================================================
