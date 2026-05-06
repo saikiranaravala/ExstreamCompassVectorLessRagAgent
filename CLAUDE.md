@@ -12,7 +12,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Target GA:** Q4 2026
 
-**Target Stack:** 
+**Target Stack:**
 - Backend: Python 3.11.9 + FastAPI
 - Agent Framework: LangGraph
 - LLM (reasoning): Deepseek v4 (via OpenRouter API)
@@ -20,55 +20,81 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Status
 
-This is **pre-implementation**. The repository currently contains:
-- `PRD.md` — detailed Product Requirements Document (624 lines)
-- `docs/` — raw OpenText Exstream documentation corpus
+**Active development.** The system is partially implemented with working backend, frontend, and core agent framework. Current focus areas:
+- Agent reasoning and tool orchestration (using Claude via Anthropic SDK, not Deepseek)
+- Index tree generation and incremental indexing
+- Citation verification and audit logging
+- OIDC authentication and session management
+- Observability and telemetry integration
 
-**No application code, tests, or build system exists yet.** Implementation is planned to start M0 (foundations) in May 2026.
+**Note:** The PRD specifies Deepseek v4 for reasoning/summarization; implementation currently uses Claude. Evaluation on switching to cost-optimized model (Deepseek or similar) is planned post-MVP.
 
-## Planned Architecture
+## Architecture Overview
 
-The system consists of several tightly integrated components:
+### Two-Path Request Handling (Important)
 
-### Reasoning Agent
-- Framework: LangGraph
-- Model: Deepseek v4 (via OpenRouter API) — cost-optimized reasoning
-- Tools (5): `list_node()`, `read_html()`, `read_pdf()`, `lexical_search()`, `compare_variants()`
-- Variant isolation: enforced at tool-runtime level (queries restricted to CloudNative or ServerBased subtree)
-- Budget per query: max 20 tool calls, max 8 file reads
+There are currently **two distinct query paths** — understanding which is active prevents confusion:
 
-### Index Tree & Indexing
-- **Index structure:** `.atlas/index.json` — a JSON file mirroring the documentation folder structure with LLM-generated summaries at each node
-- **Summarization:** Deepseek v4 (via OpenRouter API) — cost-optimized for high-volume folder summarization
-- **Atomic writes:** tmp-then-rename pattern to ensure consistency
-- **Indexer:** Cron-driven incremental job
-  - HTML parsing: `selectolax` + `readability-lxml`
-  - PDF text extraction: `pypdf`
-  - PDF tables: `pdfplumber`
-  - OCR fallback (for scanned docs): Tesseract / `pytesseract`
-  - Lexical search backend: `tantivy-py` (BM25, in-process, no external dependency)
+**Path A — Active demo path (`src/compass/app.py`):**
+- Routes `POST /api/v1/query`, `GET/DELETE /api/v1/session/{id}` are defined **inline in `app.py`**
+- Uses `search_documentation()` (file-glob + keyword scoring against `docs/{variant}/HTML/`, returning top 3 results) and `generate_answer_from_docs()` to build answers without the LangGraph agent
+- Allows unauthenticated access (demo mode); variant isolation is **not enforced** in this path
 
-### Orchestration Service
-- Session management
-- Budget enforcement (tool call & file read limits per query)
-- Citation verification & tracking
-- Audit logging (all tool calls recorded)
+**Path B — Full agent path (`src/compass/api/routes.py` → `CompassRouter`):**
+- `CompassRouter` wraps the LangGraph `ReasoningAgent`, `SessionManager`, and `AuditLogger`
+- **Not currently registered with the app** — requires explicit `CompassRouter.register_with_app(app)` to activate
+- Intended for production; falls back to a demo response if the agent fails
 
-### Vision Service
-- Model: Deepseek v4 (via OpenRouter API)
-- Purpose: Interpret diagrams and figures in documentation
-- Note: May need to evaluate if Deepseek v4 vision capabilities are sufficient; can fallback to alternative if needed
+### Reasoning Agent (`src/compass/agent/`)
+- **Framework:** LangGraph (`StateGraph`)
+- **Model:** `claude-opus-4-7` (hard-coded in `agent.py` via Anthropic SDK — ignores the `REASONING_MODEL` env var, which is a Deepseek placeholder in `.env.example`)
+- **Summarization model:** `claude-haiku-4-5-20251001` (used by `IndexTreeBuilder` in `indexer/index_tree.py` for generating `.atlas/index.json` summaries)
+- **Tools (5)** registered via `ToolRegistry` in `core_tools.py` (note: `agent/tools.py` is an empty placeholder):
+  - `list_node` — traverses `.atlas/index.json` hierarchy
+  - `read_html` — parses HTML files via `indexer/html_parser.py`
+  - `read_pdf` — extracts PDF content via `indexer/pdf_parser.py`
+  - `lexical_search` — BM25 search via `indexer/search.py` (tantivy)
+  - `compare_variants` — cross-variant topic comparison
+- **All tools require their dependencies injected at construction** (`index_tree`, `search_index`, `docs_root`); they return errors if uninitialized (current stubs)
+- **LangGraph DAG:**
+  ```
+  START → process_query → plan_tools ──(budget ok)──► execute_tools → generate_answer → finalize → END
+                                      └─(budget exhausted)──────────────────────────────►
+  ```
+- `_plan_tools` and `_execute_tools` are currently stubs — tool dispatch is not yet wired to `ToolRegistry`
+- **Budget constraints:** max 20 tool calls, max 8 file reads per query (tracked in `AgentState`)
+- **Variant isolation:** Enforced at tool-runtime level via `variant_isolation.py` — queries restricted to CloudNative or ServerBased subtree; this is a **security boundary**
 
-### API Gateway & Web UI
-- Authentication: SSO/OIDC
-- Rate limiting
-- Frontend: Variant selector (Cloud Native vs. Server-Based), citations panel, reasoning trail visibility
+### Index Tree & Indexing (`src/compass/indexer/`)
+- **Index structure:** `.atlas/index.json` — JSON file mirroring docs folder structure with LLM-generated summaries
+- **Atomic writes:** tmp-then-rename pattern via `atomic.py`
+- HTML parsing: `selectolax` + `readability-lxml` (`html_parser.py`)
+- PDF text: `pypdf` (`pdf_parser.py`), tables: `pdfplumber` (`pdf_tables.py`)
+- OCR fallback: Tesseract / `pytesseract` (`ocr.py`)
+- Lexical search: `tantivy-py` BM25 in-process (`search.py`)
+- **Known issue:** Corpus structure diverges from PRD (see Documentation Corpus Structure below). Index paths must match actual on-disk structure.
+
+### Orchestration Services (`src/compass/services/`)
+- `session.py` — per-user session state and chat history with budget tracking
+- `citations.py` — maps agent-cited documents to actual files, tracks citation correctness (critical for evaluation metrics)
+- `audit.py` — all tool calls and agent actions recorded to `.audit_logs/` (JSONL)
+- `vision.py` — stub for diagram interpretation (planned)
+
+### API Gateway (`src/compass/api/gateway.py`)
+- `APIGateway` initializes `AuthenticationManager` (in-memory token store) and `RateLimiter` (60 req/min, 1000 req/hour per user)
+- Middleware checks `Authorization: Bearer <token>`; falls back to `DemoUser` for `/api/v1/query` and `/api/v1/session` paths (unauthenticated demo access)
+- OIDC flow: `GET /api/v1/auth/{provider}` → redirect → `GET /api/v1/auth/callback` → token creation
+- `POST /api/v1/login` creates a token for any email/password (dev only)
+
+### Frontend (`frontend/src/`)
+- React + Vite (TypeScript) — variant selector, chat interface, citations panel, reasoning trail
+- `services/api.ts` (`CompassAPI`) wraps axios; adds Bearer token automatically, redirects on 401
+- Key components: `ChatInterface.tsx`, `CitationsPanel.tsx`, `ReasoningTrail.tsx`, `VariantSelector.tsx`
+- **Ports:** Backend 8000, Frontend 5173 (dev) / 3000 (Docker)
 
 ## Documentation Corpus Structure
 
 ### Actual Layout (On-Disk)
-
-The `docs/` folder contains three top-level categories:
 
 ```
 docs/
@@ -90,41 +116,137 @@ docs/
 
 ### Divergence from PRD
 
-The PRD specifies the planned corpus layout as:
+The PRD specifies kebab-case flat paths (`cloud-native/html/`, `server/html/`) but the actual corpus uses:
+- PascalCase folder names (`CloudNative`, `ServerBased`)
+- ServerBased HTML split across **4 documentation subsystems** with different authoring tools, not a single flat `html/` folder
+- DesignAndProduction uses OpenText's proprietary XML/XSLT (not MadCap Flare)
+- A third top-level category `OTDS_DirectoryServices/` not covered in the PRD
+- Some PDFs embedded **inside** HTML documentation trees
+
+**Implementation note:** The indexer must handle this heterogeneous structure. Update `.atlas/` node paths to match actual on-disk structure.
+
+## Development Commands
+
+### Setup (One-Time)
+
+```bash
+python -m venv venv
+# Windows PowerShell: venv\Scripts\Activate.ps1
+# macOS/Linux: source venv/bin/activate
+
+pip install -r requirements.txt
+cp .env.example .env
+# Edit .env: set ANTHROPIC_API_KEY
 ```
-docs_root/cloud-native/html/
-docs_root/cloud-native/pdf/
-docs_root/server/html/
-docs_root/server/pdf/
+
+```bash
+cd frontend && npm install && cd ..
 ```
 
-**Actual divergence:**
-- Folder names use PascalCase (`CloudNative`, `ServerBased`) not kebab-case (`cloud-native`, `server`)
-- ServerBased HTML is split across **4 separate documentation subsystems** (CommunicationsDesigner, ContentAuthor, DesignAndProduction, Empower) using different authoring tools, not a single flat `html/` folder
-- DesignAndProduction uses OpenText's proprietary XML/XSLT-based help system, not MadCap Flare like the others
-- A third top-level category `OTDS_DirectoryServices/` (OpenText Directory Services) exists, not covered in the PRD
-- Several PDFs are embedded **inside** HTML documentation trees, not only in separate `PDFs/` folders
+### Running Locally
 
-**Implementation note:** The indexer must handle the complex ServerBased structure and the divergence between folder naming and the PRD's assumptions. Update `.atlas/` node paths to match actual on-disk structure.
+```bash
+# Terminal 1 — Backend
+python -m uvicorn compass.main:app --reload --host 0.0.0.0 --port 8000
 
-## Key Files
+# Terminal 2 — Frontend
+cd frontend && npm run dev
+# Browser: http://localhost:5173
+```
 
-- **[PRD.md](PRD.md)** — Full product requirements, user stories, functional requirements (9 categories), data models, evaluation strategy (300-query harness), 6-milestone roadmap, risk register, open questions, and planned configuration schema.
+### Running with Docker
 
-## Configuration (Planned)
+```bash
+docker-compose up -d
+# Services: backend (8000), frontend (3000), PostgreSQL, Prometheus, Jaeger, Grafana (3001)
 
-The PRD (§7.7) specifies a planned `config.yml` with keys for:
-- Variant selection (CloudNative vs. ServerBased)
-- HTML/PDF tool configuration (parser tuning, OCR thresholds)
-- Indexing schedule and parallelism
-- Budget constraints (tool call limits, file read limits)
-- Telemetry & logging settings
+docker-compose ps
+docker-compose logs -f backend
+docker-compose down
+```
 
-This file does not yet exist. It will be created during M0.
+### Testing
 
-## Future Development Notes
+```bash
+pytest                                        # All tests
+pytest tests/test_agent.py                   # Specific file
+pytest tests/test_agent.py::test_agent_workflow -v
+pytest --cov=src --cov-report=html           # Coverage
+pytest -m "not slow"                         # Skip slow tests
+pytest -s tests/test_agent.py               # Live logging
+```
 
-- The indexer is the most complex component; it must robustly handle heterogeneous HTML/PDF formats and the misalignment between PRD-assumed and actual corpus structure.
-- The variant isolation logic (enforcing CloudNative vs. ServerBased at the tool-runtime level) is a critical security boundary; audit carefully.
-- Evaluation will use a 300-query harness to measure accuracy, latency, and citation correctness.
-- OpenTelemetry + Grafana telemetry is planned for production monitoring.
+Tests requiring API calls (agent, indexing) need `ANTHROPIC_API_KEY` in `.env`. Unit tests with mocks run without it.
+
+**Evaluation framework** lives in `tests/evaluation/`: `harness.py`, `metrics.py`, `reporter.py`, `test_queries.py` — target 300-query dataset for accuracy, latency, citation correctness.
+
+### Environment Variables
+
+**Required:** `ANTHROPIC_API_KEY` — **not present in `.env.example`**; must be added manually after copying.
+
+**Optional:** `OPENROUTER_API_KEY` (Deepseek evaluation), `DEBUG=true`, `LOG_LEVEL`
+
+See `.env.example` for the full list. Note: `.env.example` specifies `REASONING_MODEL=deepseek-v4` and `SUMMARIZATION_MODEL=deepseek-v4`, but `agent.py` hard-codes `claude-opus-4-7` and does not read these vars.
+
+### Code Quality
+
+```bash
+black src tests          # Format
+ruff check src tests --fix  # Lint
+mypy src                 # Type check
+```
+
+### Observability (Docker Only)
+
+- **Prometheus:** `http://localhost:9090`
+- **Jaeger UI:** `http://localhost:16686`
+- **Grafana:** `http://localhost:3001` (admin/admin)
+- **Audit logs:** `.audit_logs/*.jsonl`
+
+## Debugging & Troubleshooting
+
+**Backend fails to start:** Check `ANTHROPIC_API_KEY` is set; verify Python 3.11.9.
+
+**Agent timeouts:** Agent enforces budget (20 tool calls, 8 file reads). Check `.audit_logs/` for action history.
+
+**Indexing failures:** Indexer handles 4 different HTML authoring tools + PDFs. If a file fails, check `src/compass/indexer/html_parser.py` (note: `indexer/parser.py` is an empty stub). OCR fallback is in `ocr.py`.
+
+**Variant isolation not enforced:** This is a security boundary. Audit tool calls via `.audit_logs/`.
+
+```bash
+# Enable debug logging
+DEBUG=true python -m uvicorn compass.main:app --reload
+
+# View audit logs
+cat .audit_logs/*.jsonl | jq .
+```
+
+## Key Implementation Notes
+
+**Activating the full agent path:** To switch from the demo keyword-search path to the full LangGraph agent, instantiate `CompassRouter` with a `ReasoningAgent`, `SessionManager`, and `AuditLogger`, then call `CompassRouter.register_with_app(app)` in `app.py`. The inline routes in `app.py` will need to be removed to avoid conflicts.
+
+**Tool dependencies:** `ToolRegistry` (and its individual tools) require `index_tree`, `search_index`, and `docs_root` to be passed in. Without these, tools return error `ToolResult`s. The index must be built before the full agent path works.
+
+**Citation verification** (`src/compass/services/citations.py`): Validates agent citations map to actual source files. Critical for trust and evaluation metrics.
+
+**Budget enforcement:** `AgentState` (`src/compass/agent/state.py`) tracks `tool_calls_used` and `file_reads_used`. The `_should_execute_tools` conditional edge skips tool execution when budget is exhausted.
+
+## Planned Work
+
+- **Wire agent tools:** Connect `_plan_tools` / `_execute_tools` LangGraph nodes to `ToolRegistry` and real index/search
+- **Activate CompassRouter:** Register full agent path, replacing the demo inline routes
+- **Fix `.env.example`:** Add `ANTHROPIC_API_KEY`; align `REASONING_MODEL` with actual model used in `agent.py`
+- **Model migration:** Evaluate cost-optimized models (Deepseek v4, Claude Haiku)
+- **Incremental indexing:** Cron-driven delta updates to `.atlas/index.json`
+- **Vision service:** Implement diagram interpretation stub in `vision.py`
+- **Evaluation harness:** 300-query dataset for accuracy, latency, citation correctness
+- **Configuration schema:** `config.yml` for variant selection, parser tuning, OCR thresholds, budget constraints (PRD §7.7)
+
+## Reference Documentation
+
+- **[PRD.md](PRD.md)** — Product requirements, milestones, risk register
+- **[START_HERE.txt](START_HERE.txt)** — 5-minute local setup (no Docker)
+- **[QUICKSTART.md](QUICKSTART.md)** — Docker setup
+- **[INSTALLATION.md](INSTALLATION.md)** — Detailed setup
+- **[docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)** — Production deployment
+- **[docs/OIDC_SETUP.md](docs/OIDC_SETUP.md)** — Authentication configuration

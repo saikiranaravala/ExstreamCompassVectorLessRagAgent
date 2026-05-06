@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { api } from './services/api'
-import { VariantSelector } from './components/VariantSelector'
 import { ChatInterface } from './components/ChatInterface'
 import styles from './App.module.css'
 
 const App: React.FC = () => {
-  const [variant, setVariant] = useState<string>('CloudNative')
-  const [sessionId, setSessionId] = useState<string | undefined>(undefined)
+  const [variant, setVariant] = useState<string>(() => {
+    return localStorage.getItem('compass_variant') || 'CloudNative'
+  })
+  const [sessionId, setSessionId] = useState<string | undefined>(() => {
+    const savedVariant = localStorage.getItem('compass_variant') || 'CloudNative'
+    return localStorage.getItem(`compass_session_${savedVariant}`) || undefined
+  })
   const [user, setUser] = useState<any>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -62,8 +66,15 @@ const App: React.FC = () => {
 
   const handleVariantChange = (newVariant: string) => {
     setVariant(newVariant)
-    // Reset session when variant changes
-    setSessionId(undefined)
+    localStorage.setItem('compass_variant', newVariant)
+    // Restore session for the new variant (or start fresh)
+    const savedSession = localStorage.getItem(`compass_session_${newVariant}`)
+    setSessionId(savedSession || undefined)
+  }
+
+  const handleSessionChange = (id: string) => {
+    setSessionId(id)
+    localStorage.setItem(`compass_session_${variant}`, id)
   }
 
   if (loading) {
@@ -90,7 +101,7 @@ const App: React.FC = () => {
       <header className={styles.header}>
         <div className={styles.headerContent}>
           <div className={styles.logo}>
-            <h1>Compass RAG</h1>
+            <h1>Document Assistant</h1>
             <p className={styles.subtitle}>Documentation Assistant</p>
           </div>
           <div className={styles.userSection}>
@@ -106,14 +117,11 @@ const App: React.FC = () => {
       </header>
 
       <div className={styles.content}>
-        <VariantSelector
-          selectedVariant={variant}
-          onVariantChange={handleVariantChange}
-        />
         <ChatInterface
           variant={variant}
+          onVariantChange={handleVariantChange}
           sessionId={sessionId}
-          onSessionChange={setSessionId}
+          onSessionChange={handleSessionChange}
         />
       </div>
     </div>
@@ -143,7 +151,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, error }) => {
   return (
     <div className={styles.loginContainer}>
       <div className={styles.loginBox}>
-        <h2>Compass RAG</h2>
+        <h2>Document Assistant</h2>
         <p className={styles.loginSubtitle}>Documentation Assistant</p>
 
         {error && <div className={styles.errorMessage}>{error}</div>}

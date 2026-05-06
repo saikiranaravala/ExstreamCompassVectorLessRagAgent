@@ -12,14 +12,23 @@ export interface Message {
   response?: QueryResponse
 }
 
+const VARIANTS = [
+  { id: 'CloudNative', label: 'Cloud Native' },
+  { id: 'ServerBased', label: 'Server Based' },
+]
+
 interface ChatInterfaceProps {
   variant: string
+  onVariantChange: (variant: string) => void
   sessionId?: string
   onSessionChange?: (sessionId: string) => void
 }
 
+const MESSAGES_KEY = (variant: string) => `compass_messages_${variant}`
+
 export const ChatInterface: React.FC<ChatInterfaceProps> = ({
   variant,
+  onVariantChange,
   sessionId,
   onSessionChange,
 }) => {
@@ -30,6 +39,29 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
     null
   )
   const messagesEndRef = useRef<HTMLDivElement>(null)
+
+  // Load persisted messages when variant changes
+  useEffect(() => {
+    const stored = localStorage.getItem(MESSAGES_KEY(variant))
+    if (stored) {
+      try {
+        const restored: Message[] = JSON.parse(stored).map((m: any) => ({
+          ...m,
+          timestamp: new Date(m.timestamp),
+        }))
+        setMessages(restored)
+      } catch {
+        setMessages([])
+      }
+    } else {
+      setMessages([])
+    }
+    setSelectedMessage(null)
+  }, [variant])
+
+  const saveMessages = (msgs: Message[]) => {
+    localStorage.setItem(MESSAGES_KEY(variant), JSON.stringify(msgs))
+  }
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -53,7 +85,11 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
       timestamp: new Date(),
     }
 
-    setMessages((prev) => [...prev, userMessage])
+    setMessages((prev) => {
+      const next = [...prev, userMessage]
+      saveMessages(next)
+      return next
+    })
     setInput('')
     setLoading(true)
 
@@ -79,7 +115,11 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
         response,
       }
 
-      setMessages((prev) => [...prev, assistantMessage])
+      setMessages((prev) => {
+        const next = [...prev, assistantMessage]
+        saveMessages(next)
+        return next
+      })
       setSelectedMessage(response)
     } catch (error) {
       console.error('Query failed:', error)
@@ -91,7 +131,11 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
           'Sorry, an error occurred while processing your query. Please try again.',
         timestamp: new Date(),
       }
-      setMessages((prev) => [...prev, errorMessage])
+      setMessages((prev) => {
+        const next = [...prev, errorMessage]
+        saveMessages(next)
+        return next
+      })
     } finally {
       setLoading(false)
     }
@@ -103,10 +147,10 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
         <div className={styles.messagesContainer}>
           {messages.length === 0 && (
             <div className={styles.emptyState}>
-              <h2>Welcome to Compass RAG</h2>
-              <p>Ask questions about {variant} documentation</p>
+              <h2>Welcome to Document Assistant</h2>
+              <p>Ask questions about <strong>{VARIANTS.find(v => v.id === variant)?.label}</strong> documentation</p>
               <p className={styles.hint}>
-                Type your question below to get started
+                Select a variant below, then type your question
               </p>
             </div>
           )}
@@ -159,19 +203,34 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
           <div ref={messagesEndRef} />
         </div>
 
-        <form onSubmit={handleSubmit} className={styles.inputForm}>
-          <input
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Ask a question about the documentation..."
-            disabled={loading}
-            className={styles.input}
-          />
-          <button type="submit" disabled={loading} className={styles.submitBtn}>
-            {loading ? 'Processing...' : 'Send'}
-          </button>
-        </form>
+        <div className={styles.inputArea}>
+          <div className={styles.variantToggle}>
+            {VARIANTS.map((v) => (
+              <button
+                key={v.id}
+                type="button"
+                className={`${styles.variantBtn} ${variant === v.id ? styles.variantBtnActive : ''}`}
+                onClick={() => onVariantChange(v.id)}
+                disabled={loading}
+              >
+                {v.label}
+              </button>
+            ))}
+          </div>
+          <form onSubmit={handleSubmit} className={styles.inputForm}>
+            <input
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              placeholder={`Ask about ${VARIANTS.find(v => v.id === variant)?.label} documentation...`}
+              disabled={loading}
+              className={styles.input}
+            />
+            <button type="submit" disabled={loading} className={styles.submitBtn}>
+              {loading ? 'Processing...' : 'Send'}
+            </button>
+          </form>
+        </div>
       </div>
 
       {selectedMessage && (

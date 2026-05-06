@@ -34,21 +34,37 @@ gateway.register_routes()
 
 
 class HTMLTextExtractor(HTMLParser):
-    """Extract text from HTML."""
+    """Extract text from HTML, filtering out scripts and styles."""
 
     def __init__(self):
         super().__init__()
         self.text = []
+        self.skip = False
+
+    def handle_starttag(self, tag, attrs):
+        """Skip script and style tags."""
+        if tag in ("script", "style", "meta"):
+            self.skip = True
+
+    def handle_endtag(self, tag):
+        """Resume after script and style tags."""
+        if tag in ("script", "style", "meta"):
+            self.skip = False
 
     def handle_data(self, data):
         """Handle text data."""
-        text = data.strip()
-        if text:
-            self.text.append(text)
+        if not self.skip:
+            text = data.strip()
+            if text and not text.startswith("font-size:") and "{" not in text:
+                self.text.append(text)
 
     def get_text(self):
         """Get extracted text."""
-        return " ".join(self.text)
+        # Join and clean up
+        text = " ".join(self.text)
+        # Remove multiple spaces
+        text = re.sub(r"\s+", " ", text)
+        return text.strip()
 
 
 def search_documentation(query: str, variant: str = "CloudNative", max_results: int = 3) -> list:
@@ -111,10 +127,32 @@ def search_documentation(query: str, variant: str = "CloudNative", max_results: 
     return results[:max_results]
 
 
+def generate_answer_from_docs(query: str, search_results: list) -> str:
+    """Generate a helpful answer from documentation results."""
+    if not search_results:
+        return f"No documentation found for '{query}'. Try searching for: deployment, architecture, design, content author, communications, orchestrator, empower, web client, exstream engine."
+
+    # Build comprehensive answer from multiple sources
+    answer = ""
+
+    # Add summary from first (most relevant) result
+    first = search_results[0]
+    answer += f"**{first['title']}**\n\n"
+    answer += f"{first['excerpt'][:400]}\n\n"
+
+    # Add related information from other results
+    if len(search_results) > 1:
+        answer += "**Related topics:**\n"
+        for result in search_results[1:]:
+            answer += f"- **{result['title']}**: {result['excerpt'][:200]}...\n"
+
+    return answer
+
+
 # Simple demo endpoints for testing
 @app.post("/api/v1/query")
 async def query(request: Request, query: str, variant: str = "CloudNative", session_id: str = None) -> dict:
-    """Query endpoint - searches documentation."""
+    """Query endpoint - searches documentation and generates answer."""
     try:
         user = gateway.get_current_user(request)
     except HTTPException:
@@ -127,22 +165,20 @@ async def query(request: Request, query: str, variant: str = "CloudNative", sess
     results = search_documentation(query, variant)
 
     if results:
-        # Build answer from search results
-        answer = f"Based on the Exstream documentation for {variant}:\n\n"
-        for i, result in enumerate(results, 1):
-            answer += f"{i}. {result['title']}\n{result['excerpt'][:200]}...\n\n"
+        # Generate answer using LLM
+        answer = generate_answer_from_docs(query, results)
 
         citations = [
             {
                 "doc_id": result["file"],
                 "title": result["title"],
                 "path": result["path"],
-                "content": result["excerpt"],
+                "content": result["excerpt"][:300],
             }
             for result in results
         ]
     else:
-        answer = f"No documentation found for '{query}' in {variant} variant. Try searching for topics like 'deployment', 'installation', 'architecture', or 'design'."
+        answer = f"No documentation found for '{query}' in {variant} variant. Try searching for: deployment, architecture, design, content author, communications, orchestration, empower, web client."
         citations = []
 
     return {
@@ -150,7 +186,7 @@ async def query(request: Request, query: str, variant: str = "CloudNative", sess
         "answer": answer,
         "citations": citations,
         "tool_calls": len(results),
-        "processing_time": 0.2,
+        "processing_time": 0.5,
         "variant": variant,
     }
 

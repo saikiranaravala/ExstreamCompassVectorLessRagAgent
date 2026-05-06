@@ -1,4 +1,7 @@
 {
+   "env": {
+       "SHELL": "C:\\Program Files\\Git\\bin\\bash.exe"
+  },
   "project": {
     "name": "ExstreamVectorLessRag / Compass",
     "description": "Vectorless RAG agent for OpenText Exstream documentation",

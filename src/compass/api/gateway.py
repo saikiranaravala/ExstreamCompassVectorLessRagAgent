@@ -261,32 +261,34 @@ class APIGateway:
                 if request.url.path.startswith(prefix):
                     return await call_next(request)
 
-            # For /api/v1/query and other non-auth endpoints, check if token is provided
-            # If no token, skip auth for demo mode
+            # For /api/v1/query, /api/v1/session and other endpoints, check if token is provided
+            # If no token or invalid token, allow for demo mode
             auth_header = request.headers.get("Authorization", "")
+
+            # Try to authenticate if token provided
+            if auth_header:
+                if auth_header.startswith("Bearer "):
+                    token = auth_header.replace("Bearer ", "")
+                    user = self.auth_manager.authenticate_token(token)
+                    if user:
+                        request.state.user = user
+                        return await call_next(request)
+
+            # Allow unauthenticated access to query and session endpoints for demo
+            if request.url.path.startswith("/api/v1/query") or request.url.path.startswith("/api/v1/session"):
+                # Add a demo user for development
+                class DemoUser:
+                    user_id = "demo"
+                    email = "demo@example.com"
+                    roles = ["user"]
+                    variant = "CloudNative"
+                request.state.user = DemoUser()
+                return await call_next(request)
+
+            # For other endpoints, require auth
             if not auth_header:
-                # Allow unauthenticated access to demo endpoints in development
-                if request.url.path.startswith("/api/v1/query") or request.url.path.startswith("/api/v1/session"):
-                    # Add a demo user for development
-                    class DemoUser:
-                        user_id = "demo"
-                        email = "demo@example.com"
-                        roles = ["user"]
-                        variant = "CloudNative"
-                    request.state.user = DemoUser()
-                    return await call_next(request)
-                else:
-                    raise HTTPException(status_code=401, detail="Missing authorization token")
-
-            # Verify token format
-            if not auth_header.startswith("Bearer "):
-                raise HTTPException(status_code=401, detail="Invalid authorization header")
-
-            token = auth_header.replace("Bearer ", "")
-
-            # Authenticate
-            user = self.auth_manager.authenticate_token(token)
-            if not user:
+                raise HTTPException(status_code=401, detail="Missing authorization token")
+            else:
                 raise HTTPException(status_code=401, detail="Invalid or expired token")
 
             # Extract token
