@@ -1,31 +1,38 @@
-# Quick Start - 5 Minutes to Running Compass RAG
+# Quick Start - Document Assistant
 
-This is the fastest way to get Compass RAG running locally with full end-to-end testing.
+Two ways to get Document Assistant running: cloud (Render.com, no local install) or local Docker.
 
-## 🚀 Quick Install (Option 1: Docker - Recommended)
+## 🚀 Option A: Render.com (Fastest — No Local Setup)
+
+See `render_deployment.md` for the complete step-by-step guide.  
+The demo is already live at your Render URLs once deployed.
+
+---
+
+## 🐳 Option B: Local Docker
 
 ### Prerequisites
 - Docker & Docker Compose installed
-- OpenRouter API key (get free key at https://openrouter.ai)
+- Anthropic API key (get one at https://console.anthropic.com)
 - 8GB RAM available
 
-### Step 1: Get OpenRouter API Key
+### Step 1: Get Anthropic API Key
 ```
-1. Visit https://openrouter.ai
-2. Sign up (free tier available)
-3. Get your API key (looks like: sk-or-...)
+1. Visit https://console.anthropic.com
+2. Sign up and go to API Keys
+3. Create a key (looks like: sk-ant-...)
 ```
 
 ### Step 2: Set Environment Variable
 
 **Windows (PowerShell):**
 ```powershell
-$env:OPENROUTER_API_KEY = "sk-your-key-here"
+$env:ANTHROPIC_API_KEY = "sk-ant-your-key-here"
 ```
 
 **macOS/Linux (Bash):**
 ```bash
-export OPENROUTER_API_KEY="sk-your-key-here"
+export ANTHROPIC_API_KEY="sk-ant-your-key-here"
 ```
 
 ### Step 3: Start Everything
@@ -138,15 +145,15 @@ docker-compose logs frontend
 docker-compose restart frontend
 ```
 
-### OpenRouter API key error
+### Anthropic API key error
 ```bash
 # Verify key is set
-echo $OPENROUTER_API_KEY  # (macOS/Linux)
+echo $ANTHROPIC_API_KEY  # (macOS/Linux)
 # or
-$env:OPENROUTER_API_KEY  # (PowerShell)
+$env:ANTHROPIC_API_KEY  # (PowerShell)
 
-# Key should start with "sk-or-"
-# Get new key: https://openrouter.ai/keys
+# Key should start with "sk-ant-"
+# Get new key: https://console.anthropic.com/settings/keys
 ```
 
 ### All services down

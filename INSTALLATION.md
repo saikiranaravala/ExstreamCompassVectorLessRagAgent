@@ -26,37 +26,43 @@ docker --version      # Docker 20.10+ (for containerized setup)
 
 Choose one approach:
 
-### Option 1: Docker Compose (Recommended - Easiest)
-✅ Recommended for first-time testing  
+### Option 1: Render.com (Cloud — Zero Local Setup)
+✅ No local install required  
+✅ Free tier available  
+✅ Accessible from any browser  
+⏱️ Time: 10-15 minutes  
+See `render_deployment.md` for step-by-step instructions.
+
+### Option 2: Docker Compose (Local — Recommended)
 ✅ All services pre-configured  
 ✅ No dependency conflicts  
 ⏱️ Time: 10-15 minutes
 
-### Option 2: Local Python + Node (Advanced)
+### Option 3: Local Python + Node (Advanced)
 ✅ Full control and debugging  
 ✅ Can modify code and test immediately  
 ⏱️ Time: 30-45 minutes
 
-### Option 3: Hybrid (Python local, Services in Docker)
+### Option 4: Hybrid (Python local, Services in Docker)
 ✅ Balance of control and simplicity  
 ⏱️ Time: 20-30 minutes
 
 ---
 
-## Option 1: Docker Compose (Recommended)
+## Option 2: Docker Compose (Recommended)
 
-### Step 1: Get Your OpenRouter API Key
+### Step 1: Get Your Anthropic API Key
 
-1. Visit [OpenRouter.ai](https://openrouter.ai)
-2. Sign up and get your API key
-3. Set environment variable:
+1. Visit [console.anthropic.com](https://console.anthropic.com)
+2. Sign up and navigate to **API Keys**
+3. Create a key and set the environment variable:
 
 ```bash
 # Windows (PowerShell)
-$env:OPENROUTER_API_KEY = "sk-your-key-here"
+$env:ANTHROPIC_API_KEY = "sk-ant-your-key-here"
 
 # macOS/Linux
-export OPENROUTER_API_KEY="sk-your-key-here"
+export ANTHROPIC_API_KEY="sk-ant-your-key-here"
 ```
 
 ### Step 2: Start All Services
@@ -118,7 +124,7 @@ See **Testing Workflow** section below.
 
 ---
 
-## Option 2: Local Python + Node (Advanced)
+## Option 3: Local Python + Node (Advanced)
 
 ### Step 1: Clone & Setup Project
 
@@ -179,7 +185,7 @@ createdb -U postgres compass
 
 ```bash
 # Set environment variables
-export OPENROUTER_API_KEY="sk-your-key"
+export ANTHROPIC_API_KEY="sk-ant-your-key"
 export PYTHONPATH=./src
 
 # Start uvicorn server
@@ -211,7 +217,7 @@ See **Testing Workflow** section below.
 
 ---
 
-## Option 3: Hybrid (Python Local + Docker Services)
+## Option 4: Hybrid (Python Local + Docker Services)
 
 ### Step 1: Start Only Support Services
 
@@ -237,7 +243,7 @@ source venv/bin/activate  # or venv\Scripts\activate on Windows
 pip install -r requirements.txt
 
 # Start backend (connects to Docker PostgreSQL)
-export OPENROUTER_API_KEY="sk-your-key"
+export ANTHROPIC_API_KEY="sk-ant-your-key"
 export DATABASE_URL="postgresql://compass:compass_password@localhost:5432/compass"
 python -m uvicorn compass.main:app --reload --host 0.0.0.0 --port 8000
 ```
@@ -406,24 +412,23 @@ lsof -i :8000
 # Check backend is running
 curl http://localhost:8000/health
 
-# Check frontend environment
-# frontend/.env should have:
-VITE_API_URL=http://localhost:8000/api/v1
+# For local dev: the frontend proxies /api to localhost:8000 via vite.config.ts
+# For Render.com: VITE_API_URL must be set to the backend URL before the build runs
 
 # Check browser console for errors (F12)
 ```
 
-### OpenRouter API key not working
+### Anthropic API key not working
 
 ```bash
 # Verify key is set
-echo $OPENROUTER_API_KEY
+echo $ANTHROPIC_API_KEY
 
-# Check key format (should start with "sk-")
-# Get new key from https://openrouter.ai/keys
+# Key format: sk-ant-...
+# Get new key from https://console.anthropic.com/settings/keys
 
 # Verify in Python
-python -c "import os; print(os.getenv('OPENROUTER_API_KEY'))"
+python -c "import os; print(os.getenv('ANTHROPIC_API_KEY'))"
 ```
 
 ### Docker services not starting

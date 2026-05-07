@@ -1,6 +1,6 @@
 # Deployment Guide
 
-Complete guide for deploying Compass RAG in production with Docker, monitoring, and observability.
+Complete guide for deploying Document Assistant (Compass RAG) — Render.com cloud, Docker, and production options.
 
 ## Prerequisites
 
@@ -9,7 +9,19 @@ Complete guide for deploying Compass RAG in production with Docker, monitoring, 
 - 8GB+ RAM
 - 20GB+ disk space (for documentation corpus and databases)
 
-## Quick Start
+## Option 1: Render.com (Cloud — Recommended for Demo)
+
+Deploys both API and frontend with zero server setup. See `render_deployment.md` for the
+complete step-by-step guide including env var configuration and smoke-test checklist.
+
+**Required env var:** `ANTHROPIC_API_KEY`  
+**Frontend env var (baked at build time):** `VITE_API_URL=https://<your-api>.onrender.com/api/v1`
+
+Free tier note: instances sleep after 15 min idle; first request after sleep takes ~30-60 s.
+
+---
+
+## Option 2: Docker Compose (Local / Self-hosted)
 
 ### 1. Build and Start Services
 
@@ -18,7 +30,7 @@ Complete guide for deploying Compass RAG in production with Docker, monitoring, 
 cd compass-rag
 
 # Set environment variables
-export OPENROUTER_API_KEY=your_api_key_here
+export ANTHROPIC_API_KEY=your_anthropic_key_here
 export ENVIRONMENT=production
 
 # Build and start all services
@@ -76,11 +88,13 @@ open http://localhost:3001  # admin / admin
 Create `.env` file or set environment variables:
 
 ```bash
-# API Configuration
-OPENROUTER_API_KEY=sk-...
-REASONING_MODEL=deepseek-v4
-SUMMARIZATION_MODEL=deepseek-v4
+# API Configuration (required)
+ANTHROPIC_API_KEY=sk-ant-...
 DEBUG=false
+
+# Optional — for future Deepseek evaluation
+# OPENROUTER_API_KEY=sk-or-...
+# REASONING_MODEL=deepseek-v4
 
 # Budget Constraints
 MAX_TOOL_CALLS_PER_QUERY=20
@@ -261,7 +275,7 @@ docker-compose up -d --no-deps --no-build backend
 docker-compose logs backend
 
 # Verify API key
-echo $OPENROUTER_API_KEY
+echo $ANTHROPIC_API_KEY
 
 # Check database connectivity
 docker-compose logs postgres
@@ -310,7 +324,7 @@ docker-compose exec postgres psql -U compass -c \
 ## Production Checklist
 
 - [ ] Set strong PostgreSQL password
-- [ ] Update `OPENROUTER_API_KEY` to production key
+- [ ] Set `ANTHROPIC_API_KEY` to production key
 - [ ] Set `DEBUG=false`
 - [ ] Configure SSL/TLS for frontend and API
 - [ ] Set up external alerting (email, Slack, PagerDuty)

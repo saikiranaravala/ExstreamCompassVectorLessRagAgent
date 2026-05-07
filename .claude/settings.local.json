@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__claude_ai_Gamma__generate",
+      "mcp__claude_ai_Gamma__get_generation_status"
+    ]
+  }
+}

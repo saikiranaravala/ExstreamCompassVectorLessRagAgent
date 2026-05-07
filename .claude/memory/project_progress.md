@@ -12,15 +12,16 @@ type: project
 **Purpose:** Vectorless Retrieval-Augmented Generation (RAG) agent for OpenText Exstream (Customer Communications Management) documentation  
 **Key Innovation:** Folder hierarchy serves as retrieval index (no vector embeddings)  
 **Target GA:** Q4 2026  
-**Current Status:** Pre-implementation (planning phase)
+**Current Status:** Active development — demo path working; deployed to Render.com (API + UI)
 
 ## Project Details
 
-**Tech Stack (Planned):**
+**Tech Stack (Actual):**
 - Backend: Python 3.11.9 + FastAPI
 - Agent Framework: LangGraph
-- LLM (reasoning): Deepseek v4 (via OpenRouter API)
-- LLM (summarization): Deepseek v4 (via OpenRouter API)
+- LLM (reasoning): claude-opus-4-6 (hard-coded in agent.py via Anthropic SDK)
+- LLM (summarization): claude-haiku-4-5-20251001 (hard-coded in index_tree.py)
+- Deployment: Render.com (free tier — Web Service + Static Site)
 - HTML parsing: selectolax + readability-lxml
 - PDF handling: pypdf, pdfplumber
 - OCR: Tesseract / pytesseract
@@ -829,6 +830,17 @@ All Orchestration Service tasks finished (3/3):
 - [ ] Grafana dashboards (query latency, error rates, cache hit rates)
 - [ ] Production deployment configuration
 - [ ] Monitoring and alerting setup
+
+## Recently Completed (Post-M7)
+
+- **Render.com deployment** — Both API (Web Service) and UI (Static Site) live and working
+- **CORS fix** — `allow_credentials=False` + OPTIONS bypass in gateway middleware
+- **UI rename** — "Compass RAG" → "Document Assistant" throughout frontend
+- **Per-query variant selector** — pills embedded in chat input bar; history stored per-variant in localStorage
+- **TypeScript build fix** — Added `frontend/src/vite-env.d.ts`
+- **`.env.example` updated** — `ANTHROPIC_API_KEY` as required; correct model names
+- **Slim requirements** — `requirements-render.txt` (8 packages) for Render free tier
+- **`.gitignore`** — HTML docs committed to git (for search); PDFs + DesignAndProduction excluded
 
 ## Known Issues & Risks
 

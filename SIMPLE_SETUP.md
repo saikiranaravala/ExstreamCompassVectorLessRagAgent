@@ -22,11 +22,11 @@ npm --version
 - Python: Download from https://www.python.org/downloads/
 - Node.js: Download from https://nodejs.org/
 
-## Step 1: Get OpenRouter API Key
+## Step 1: Get Anthropic API Key
 
-1. Visit https://openrouter.ai
-2. Sign up (free tier works)
-3. Copy your API key
+1. Visit https://console.anthropic.com
+2. Sign up and navigate to **API Keys**
+3. Create a new key and copy it
 
 ## Step 2: Setup Python Backend
 
@@ -68,14 +68,11 @@ cd ..
 Create `.env` file in root folder:
 
 ```
-OPENROUTER_API_KEY=sk-your-key-here
-REASONING_MODEL=deepseek-v4
-SUMMARIZATION_MODEL=deepseek-v4
+ANTHROPIC_API_KEY=sk-ant-your-key-here
 DEBUG=true
-DATABASE_URL=sqlite:///./compass.db
 ```
 
-Replace `sk-your-key-here` with your actual key.
+Replace `sk-ant-your-key-here` with your actual Anthropic key.
 
 ## Step 5: Start Backend
 
@@ -169,13 +166,13 @@ kill -9 <PID>
 python -m uvicorn compass.main:app --port 8001
 ```
 
-**Error: "OpenRouter API key not valid"**
+**Error: "ANTHROPIC_API_KEY not set"**
 ```bash
 # Check .env file has your key
 cat .env
 
-# Verify key starts with "sk-or-"
-# Get new key: https://openrouter.ai/keys
+# Verify key starts with "sk-ant-"
+# Get new key: https://console.anthropic.com/settings/keys
 ```
 
 ### Frontend won't load

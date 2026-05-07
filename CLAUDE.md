@@ -83,14 +83,17 @@ There are currently **two distinct query paths** — understanding which is acti
 ### API Gateway (`src/compass/api/gateway.py`)
 - `APIGateway` initializes `AuthenticationManager` (in-memory token store) and `RateLimiter` (60 req/min, 1000 req/hour per user)
 - Middleware checks `Authorization: Bearer <token>`; falls back to `DemoUser` for `/api/v1/query` and `/api/v1/session` paths (unauthenticated demo access)
+- **CORS:** `CORSMiddleware` uses `allow_origins=["*"]`, `allow_credentials=False` (Bearer tokens don't require credentials flag). Gateway middleware passes `OPTIONS` preflight requests straight through to `CORSMiddleware` before auth checks run — critical because Starlette runs `@app.middleware("http")` wrappers before `add_middleware` wrappers.
 - OIDC flow: `GET /api/v1/auth/{provider}` → redirect → `GET /api/v1/auth/callback` → token creation
 - `POST /api/v1/login` creates a token for any email/password (dev only)
 
 ### Frontend (`frontend/src/`)
-- React + Vite (TypeScript) — variant selector, chat interface, citations panel, reasoning trail
-- `services/api.ts` (`CompassAPI`) wraps axios; adds Bearer token automatically, redirects on 401
-- Key components: `ChatInterface.tsx`, `CitationsPanel.tsx`, `ReasoningTrail.tsx`, `VariantSelector.tsx`
-- **Ports:** Backend 8000, Frontend 5173 (dev) / 3000 (Docker)
+- React + Vite (TypeScript) — chat interface, citations panel, reasoning trail
+- App title: **Document Assistant** (renamed from "Compass RAG")
+- `services/api.ts` (`CompassAPI`) wraps axios; adds Bearer token automatically, redirects on 401; base URL from `import.meta.env.VITE_API_URL` (baked at Vite build time) falling back to `/api/v1`
+- **Variant selector** is embedded as a pill toggle inside the chat input bar (not a standalone page-level component); variant state + chat history are persisted in `localStorage` per-variant key (`compass_messages_{variant}`)
+- Key components: `ChatInterface.tsx`, `CitationsPanel.tsx`, `ReasoningTrail.tsx`
+- **Ports:** Backend 8000, Frontend 5173 (dev) / 3000 (Docker) / Render static site
 
 ## Documentation Corpus Structure
 
@@ -182,11 +185,20 @@ Tests requiring API calls (agent, indexing) need `ANTHROPIC_API_KEY` in `.env`. 
 
 ### Environment Variables
 
-**Required:** `ANTHROPIC_API_KEY` — **not present in `.env.example`**; must be added manually after copying.
+**Required:** `ANTHROPIC_API_KEY` — present in `.env.example`; copy `.env.example` → `.env` and fill it in.
 
 **Optional:** `OPENROUTER_API_KEY` (Deepseek evaluation), `DEBUG=true`, `LOG_LEVEL`
 
-See `.env.example` for the full list. Note: `.env.example` specifies `REASONING_MODEL=deepseek-v4` and `SUMMARIZATION_MODEL=deepseek-v4`, but `agent.py` hard-codes `claude-opus-4-7` and does not read these vars.
+See `.env.example` for the full list. Note: `agent.py` hard-codes `claude-opus-4-6` and `index_tree.py` hard-codes `claude-haiku-4-5-20251001`; the `REASONING_MODEL` / `SUMMARIZATION_MODEL` env vars in `.env.example` are placeholders for a future model-config pass and are not currently read by either file.
+
+### Render.com Deployment
+
+See `render_deployment.md` for the complete step-by-step guide. Key points:
+- Backend: Web Service, `pip install -r requirements-render.txt`, start cmd `PYTHONPATH=src uvicorn compass.main:app --host 0.0.0.0 --port $PORT`
+- Frontend: Static Site, build `cd frontend && npm install && npm run build`, publish dir `./frontend/dist`
+- Set `ANTHROPIC_API_KEY` in the backend's **Environment** tab
+- Set `VITE_API_URL=https://<your-api>.onrender.com/api/v1` in the frontend's **Environment** tab **before** the first build — it is baked into the bundle at build time
+- Free tier sleeps after 15 min idle; first cold-start request takes ~30–60 s
 
 ### Code Quality
 
@@ -235,18 +247,29 @@ cat .audit_logs/*.jsonl | jq .
 
 - **Wire agent tools:** Connect `_plan_tools` / `_execute_tools` LangGraph nodes to `ToolRegistry` and real index/search
 - **Activate CompassRouter:** Register full agent path, replacing the demo inline routes
-- **Fix `.env.example`:** Add `ANTHROPIC_API_KEY`; align `REASONING_MODEL` with actual model used in `agent.py`
-- **Model migration:** Evaluate cost-optimized models (Deepseek v4, Claude Haiku)
+- **Model migration:** Evaluate cost-optimized models (Deepseek v4, Claude Haiku) once agent path is active
 - **Incremental indexing:** Cron-driven delta updates to `.atlas/index.json`
 - **Vision service:** Implement diagram interpretation stub in `vision.py`
 - **Evaluation harness:** 300-query dataset for accuracy, latency, citation correctness
 - **Configuration schema:** `config.yml` for variant selection, parser tuning, OCR thresholds, budget constraints (PRD §7.7)
 
+## Completed Work (recent)
+
+- **Render.com deployment:** Both API (Web Service) and UI (Static Site) deployed and working on free tier. See `render_deployment.md`.
+- **CORS fix:** `allow_credentials=False` + OPTIONS preflight bypass at top of gateway middleware — resolves browser CORS errors for cross-origin Bearer-token requests.
+- **UI — Document Assistant rename:** App title and login page updated from "Compass RAG" to "Document Assistant".
+- **UI — per-query variant selector:** Variant toggle (Cloud Native / Server Based) embedded as pills inside the chat input bar; switching variant loads that variant's chat history from `localStorage`.
+- **UI — chat history persistence:** Messages stored in `localStorage` per-variant; survives page refresh and variant switching.
+- **TypeScript build fix:** Added `frontend/src/vite-env.d.ts` with `ImportMetaEnv` declaration to resolve `import.meta.env` type errors in Vite builds.
+- **`.gitignore` / docs corpus:** Docs PDFs and `ServerBased/HTML/DesignAndProduction/` (160 MB) excluded from git; HTML docs committed to repo for Render.com search to work.
+- **`.env.example`:** Updated — `ANTHROPIC_API_KEY` added as required, `REASONING_MODEL`/`SUMMARIZATION_MODEL` updated to reflect actual models in use.
+
 ## Reference Documentation
 
 - **[PRD.md](PRD.md)** — Product requirements, milestones, risk register
-- **[START_HERE.txt](START_HERE.txt)** — 5-minute local setup (no Docker)
-- **[QUICKSTART.md](QUICKSTART.md)** — Docker setup
-- **[INSTALLATION.md](INSTALLATION.md)** — Detailed setup
-- **[docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)** — Production deployment
+- **[render_deployment.md](render_deployment.md)** — Render.com step-by-step deployment guide
+- **[QUICKSTART.md](QUICKSTART.md)** — Quick start (Render or Docker)
+- **[INSTALLATION.md](INSTALLATION.md)** — Detailed local setup options
+- **[SIMPLE_SETUP.md](SIMPLE_SETUP.md)** — Minimal local setup (Python + Node, no Docker)
+- **[docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)** — Production deployment (Docker, monitoring)
 - **[docs/OIDC_SETUP.md](docs/OIDC_SETUP.md)** — Authentication configuration
