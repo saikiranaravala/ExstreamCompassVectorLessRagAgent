@@ -249,7 +249,7 @@ class APIGateway:
         async def gateway_middleware(request: Request, call_next):
             """Main gateway middleware."""
             # Skip auth for health check, login, OIDC, and docs
-            skip_auth_paths = ["/health", "/login", "/api/v1/login", "/docs", "/openapi.json", "/api/v1/swagger.json"]
+            skip_auth_paths = ["/", "/health", "/login", "/api/v1/login", "/docs", "/redoc", "/openapi.json", "/api/v1/swagger.json"]
             skip_auth_prefixes = ["/auth", "/auth/", "/api/v1/auth"]
 
             # Check if path should skip auth
