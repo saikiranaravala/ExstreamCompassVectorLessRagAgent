@@ -248,6 +248,10 @@ class APIGateway:
         @self.app.middleware("http")
         async def gateway_middleware(request: Request, call_next):
             """Main gateway middleware."""
+            # Pass CORS preflight requests straight through so CORSMiddleware can handle them
+            if request.method == "OPTIONS":
+                return await call_next(request)
+
             # Skip auth for health check, login, OIDC, and docs
             skip_auth_paths = ["/", "/health", "/login", "/api/v1/login", "/docs", "/redoc", "/openapi.json", "/api/v1/swagger.json"]
             skip_auth_prefixes = ["/auth", "/auth/", "/api/v1/auth"]
