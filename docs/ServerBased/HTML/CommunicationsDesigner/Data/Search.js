@@ -1,0 +1,1 @@
+define({r:0.5,st:'Stem',n:1,t:[0],m:[],u:['../Content/CommDesignerHelp/AddingDesigns.htm'],s:['+','modifi'],p:[['+',9],['are',11],['check',9],['definition_mappingavariable',47],['existing',7],['in',15],['message',9],['other',4],['save',18],['that',7],['to',1],['web',6]]});

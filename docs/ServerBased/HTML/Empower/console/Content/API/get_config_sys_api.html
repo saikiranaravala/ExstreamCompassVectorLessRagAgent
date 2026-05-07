@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="[%=System.LinkedTitle%]|[%=System.LinkedTitle%]|System settings API calls">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="Empower Server Console and API" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="DocVersion" content="" /><title>Get a configuration</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <h1 class="chapternum">Get a configuration</h1>
+            <p>The <code>GET</code> API call for configurations returns detailed information about a specified system configuration attribute.</p>
+            <h2>Who can access this call</h2>
+            <p>Access to the <span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span> is defined in the <code>customSecurityContext.xml</code> file during installation, and is controlled by your authorization provider. By default, <span class="_Exstream_Product_NamesHydrogen">Empower</span> supports the <code>administrator</code>, <code>editor</code>, and <code>integrator</code> authorities.</p>
+            <p>Authenticated users with any of the following authorities can use this API call:</p>
+            <ul>
+                <li value="1"><code>administrator</code>
+                </li>
+                <li value="2"><code>editor</code>
+                </li>
+            </ul>
+            <h2 class="title">Request</h2>
+            <table style="margin-left: 0;margin-right: auto;">
+                <col />
+                <col />
+                <thead>
+                    <tr>
+                        <th style="text-align: left;">Request method</th>
+                        <th style="text-align: left;">Syntax</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align: left;">GET</td>
+                        <td style="text-align: left;"><code>/&lt;context&gt;/resource/config/{configParam}</code>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>The <code>&lt;context&gt;</code> variable is configured during  <span class="_Exstream_Product_NamesHydrogen">Empower</span>&#160;installation. </p>
+            <p class="Subheading">Request header</p>
+            <table style="width: 100%;margin-left: 0;margin-right: auto;">
+                <col />
+                <col />
+                <col />
+                <col />
+                <thead>
+                    <tr>
+                        <th>Header</th>
+                        <th>Value</th>
+                        <th>Use</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>Accept</code>
+                        </td>
+                        <td><code>application/xml</code>
+                        </td>
+                        <td>Optional</td>
+                        <td>Requests that <span class="_Exstream_Product_NamesHydrogen">Empower</span> return an XML response instead of the default JSON response</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="Subheading">Request parameters</p>
+            <p>Use one of the following parameters for the  <code>{configParam}</code> variable:</p>
+            <table style="margin-left: 0;margin-right: auto;width: 100%;">
+                <col title="col1" span="1" />
+                <col title="COLSPEC6" span="1" />
+                <col title="COLSPEC5" span="1" />
+                <thead>
+                    <tr>
+                        <th rowspan="1" colspan="1">Parameter</th>
+                        <th rowspan="1" colspan="1">Data type</th>
+                        <th rowspan="1" colspan="1">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>defaultEditor</code>
+                        </td>
+                        <td>String<br /></td>
+                        <td>The version of the editor that is assigned to all new <span class="_Exstream_Product_NamesHydrogen">Empower</span>  applications</td>
+                    </tr>
+                    <tr>
+                        <td><code>defaultLocale</code>
+                        </td>
+                        <td>String</td>
+                        <td>The alternative language that appears in <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> and in the <span class="_Exstream_Product_NamesHydrogen">Empower</span> documentation if the end user's web browser is configured to use a language that is not supported by <span class="_Exstream_Product_NamesHydrogen">Empower</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>idleDocCleanup</code>
+                        </td>
+                        <td>String</td>
+                        <td>
+                            <p>Indicates whether the scheduled cleanup process is set to mark documents for deletion when they have not been edited within the retention period  that is specified in the <code>idleDocRetention</code>&#160;parameter</p>
+                            <p>This parameter can have a value of <code>Enabled</code> or <code>Disabled</code>.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>idleDocRetention</code>
+                        </td>
+                        <td>Integer</td>
+                        <td>
+                            <p>The number of days that documents are retained after they are imported or edited</p>
+                            <p>When the scheduled cleanup process runs, if the <code>idleDocCleanup</code> parameter is enabled, documents that have not been edited within the specified retention period are marked for deletion.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>preview</code>
+                        </td>
+                        <td>String</td>
+                        <td>
+                            <p>Indicates the state of the document preview service</p>
+                            <p>This parameter can have a value of <code>Enabled</code> or <code>Disabled</code>.</p>
+                            <p>The default value for this parameter is <code>Enabled</code>.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>previewTimeout</code>
+                        </td>
+                        <td>
+                            <p>Integer</p>
+                        </td>
+                        <td>The length of time (in milliseconds) that <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> will wait for a response from the PDF preview</td>
+                    </tr>
+                    <tr>
+                        <td><code>retentionTime</code>
+                        </td>
+                        <td>
+                            <p>Integer</p>
+                        </td>
+                        <td>
+                            <p>The length of time (in milliseconds) that objects such as documents or editors are retained after they are marked for deletion</p>
+                            <p>When the retention period expires, eligible objects are deleted during the next scheduled cleanup.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>servicesVersion</code>
+                        </td>
+                        <td>String</td>
+                        <td>The version of <span class="_Exstream_Product_NamesHydrogen_Services">Empower Services Layer</span> that you are running</td>
+                    </tr>
+                    <tr>
+                        <td><code>supportEmail</code>
+                        </td>
+                        <td>String</td>
+                        <td>The email address to which <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> sends messages</td>
+                    </tr>
+                    <tr>
+                        <td><code>triggerDays</code>
+                        </td>
+                        <td>String</td>
+                        <td>The days of the week that are used to define the  <code>triggerExpression</code> parameter</td>
+                    </tr>
+                    <tr>
+                        <td><code>triggerExpression</code>
+                        </td>
+                        <td>String</td>
+                        <td>
+                            <p>The cron expression that defines when the  scheduled cleanup process runs</p>
+                            <p>You can build your own cron expression, or use the <code>triggerDays</code>, <code>triggerHours</code>, and <code>triggerMinutes</code> parameters to set the value for the <code>triggerExpression</code> parameter.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>triggerExpressionType</code>
+                        </td>
+                        <td>String</td>
+                        <td>
+                            <p>The cron expression that defines whether to run the cleanup process on a daily basis or an hourly basis</p>
+                            <p>This parameter can have a value of <code>Daily</code> or <code>Hourly</code>.</p>
+                            <p>The default value for this parameter is <code>Daily</code>.</p>
+                            <p>You can build your own cron expression, or use the <code>triggerExpressionType</code> parameter with the <code>triggerExpression</code>, <code>triggerDays</code>, <code>triggerHours</code>, and <code>triggerMinutes</code> parameters.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>triggerHours</code>
+                        </td>
+                        <td>String</td>
+                        <td>The hour of the day that is used to define the  <code>triggerExpression</code> parameter</td>
+                    </tr>
+                    <tr>
+                        <td><code>triggerMinutes</code>
+                        </td>
+                        <td>String</td>
+                        <td>The minute of the hour that is used to define the  <code>triggerExpression</code> parameter</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="Subheading">Example request</p>
+            <table style="margin-left: 0;margin-right: auto;">
+                <col title="COLSPEC9" span="1" />
+                <col title="COLSPEC10" span="1" />
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="1" colspan="1">
+                            <p>Request header</p>
+                        </td>
+                        <td rowspan="1" colspan="1"><code>GET <span class="Basic_Variables_Product_Sample_URI">http://sample-server.example.com</span>:8080/mpw/resource/config/supportEmail</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Request body</td>
+                        <td>This API call does not support a request body.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2 class="title">Response</h2>
+            <p><span class="_Exstream_Product_NamesHydrogen">Empower</span> supports two formats for API response payloads: JSON and XML.</p>
+            <p class="Subheading">Example JSON response</p>
+            <p>Media type: application/json</p>
+            <div class="overview"><pre xml:space="preserve">
+{
+    "header": {
+        "status": {
+            "code": "SERV100I"
+        }
+    },
+    "body": {
+        "config": {
+            "supportEmail": "support@example.com"
+        }
+    }
+}</pre>
+            </div>
+            <p class="Subheading">Example XML response</p>
+            <p>Media type: application/xml</p>
+            <div><pre xml:space="preserve">
+        <code>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;ResponseContainer&gt;
+    &lt;header&gt;
+        &lt;status code="SERV100I"/&gt;
+    &lt;/header&gt;
+    &lt;body&gt;
+        &lt;config supportEmail="support@example.com"/&gt;
+    &lt;/body&gt;
+&lt;/ResponseContainer&gt;</code>   </pre>
+            </div>
+            <p>&#160;</p>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear: both; clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;"><a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Copyright © <span class="_IMP_TemplateVarsCopyrightDateRange_CurrentYear">2019</span>&#160;<span class="Branding_Variables_Company_Legal_Name">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="Branding_Variables_Company_Legal_Name">Open&#160;Text</span>.</a>
+                </p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br /><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <!--QCCR1K4298 START-->
+        <div style="display:none;" id="HPb-Branding-Variables" Footer="Yes" Feedback="Yes">&#160;</div>
+        <script>/* <![CDATA[ */
+            var BrandingVariables = document.getElementById("HPb-Branding-Variables");
+            if(BrandingVariables.getAttribute('Footer')=="No"){document.getElementById('Copyright').style.display = 'none';}
+            if(BrandingVariables.getAttribute('Feedback')=="No"){document.getElementById('Feedback').style.display = 'none';}
+        /* ]]> */</script>
+        <!--QCCR1K4298 END-->
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+            var closeIFrame = function() {
+            $('.MCTopicPopupContainer').remove();
+            $("#mc-background-tint").remove();
+            }
+        </script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+        <script src="../Resources/Scripts/_IMP_init.js">
+        </script>
+        <!-- Include the following files in output -->
+        <p style="visibility:hidden"><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js">frontfileref</a><a href="../Resources/Stylesheets/fonts/_IMP_Lato-Regular.ttf">frontfileref</a><a href="../Resources/Stylesheets/fonts/_IMP_Lato-Bold.ttf">frontfileref</a>
+        </p>
+        <script type="text/javascript">/* <![CDATA[ */
+
+				//Set navigation hotkeys within iframe (must be done separately from top level)
+				window.addEventListener('keyup',
+					function(e) {
+						switch (e.key) {
+							case 'ArrowLeft':
+								MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous");
+								break;
+							case 'ArrowRight':
+								MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next");
+						}
+					}
+				, false);
+
+		/* ]]> */</script>
+    </body>
+</html>

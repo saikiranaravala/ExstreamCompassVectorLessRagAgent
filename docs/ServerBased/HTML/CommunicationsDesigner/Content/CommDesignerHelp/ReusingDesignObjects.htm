@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="Exstream Platform (Server-Based) 23.3 Communications Designer Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Reusing design objects</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Reusing design objects</h1>
+                <p>To save time and ensure a consistent appearance across multiple projects, you can create and use components in a design. Components are named design objects that are stored in the common asset service (CAS), and can be reused in any design. Changing a component in any design will modify every instance of that component wherever it is used in other designs. </p>
+                <p>You can save text boxes, tables, and image objects as components. For example, when you import your corporate logo as an image, you can save it as a component so that it can be easily updated in all of your communications with a single change. You can include variables in design objects that you want to save as components.</p>
+                <div class="Admonition_Note">
+                    <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>While you can specify names for design objects that you insert in a design, these objects are not stored as named objects in CAS and exist only in the design layout. However, if you select a design object and create a component from it, that component is stored as a named object in CAS. You can use <span class="mc-variable _Exstream_UI_Names.CDR_StructureView variable">Structure view</span> to see the components that are used in each design.</p>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Creating a new component</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <ol>
+                            <li value="1">In <span class="mc-variable _Exstream_UI_Names.CDR_DesignView variable">Design view</span>, in the design area, select the object that you want to convert into a component.</li>
+                            <li value="2">On the design toolbar, click the <span class="uielement">Create component</span> button <img src="../images/b_CommDesigner_CreateComponent.png" style="width: 18px;height: 18px;" alt="Create Component button" class="inline" />. </li>
+                            <li value="3">In the <span class="uielement">Create new component</span> dialog box, specify a name, and optionally, a description for the new component.</li>
+                            <li value="4">
+                                <p>Click <span class="uielement">Create</span>.</p>
+                                <p>The selected design object is converted into a component, and you can see the component status in the properties panel. When you first create a component, it is locked for editing and the component status is set to <span class="uielement">Locked</span> <img src="../images/b_ExstreamWeb_Component_Locked.png" alt="Lock component button set to a red Locked state showing that the component is not available for editing" class="inline" title="Lock component button set to a red Locked state showing that the component is not available for editing" />.</p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Accessing an existing component in a design</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>When you open a design in <span class="mc-variable _Exstream_UI_Names.CDR_DesignView variable">Design view</span>, you can select and update the component objects in that design. Some component properties—such as flow options, position on a page, and read order—are applied only to that specific instance of a component in that design. To update these properties, you must access the component in a design, and then update the properties for that instance of the component. The properties that you can modify are also dependent upon the type of design object that makes up that component. For example, you can modify the interactive properties for a component only if interactive properties are supported for that design object.</p>
+                        <p>Before you make any changes to a component, be aware that updating any one instance of a component will also update all other instances of that component in other designs. To see the list of designs that use a component, select the component in your design, and then in the properties panel, click the <span class="uielement">Used by</span> card.</p>
+                        <p>To edit a component: </p>
+                        <ol>
+                            <li value="1">Select the component in your design. </li>
+                            <li value="2">In the properties panel, on the <span class="uielement">General</span> card, click the <span class="uielement">Unlock</span> button <img src="../images/b_ExstreamWeb_Unlock.png" class="inline" alt="Unlock component button" title="Unlock component button" /> to set the component status to <span class="uielement">Unlocked</span> <img src="../images/b_ExstreamWeb_Component_Unlocked.png" class="inline" alt="Unlock component button set to a red Locked state showing that the component is available for editing" title="Unlock component button set to a red Locked state showing that the component is available for editing" />.</li>
+                            <li value="3">
+                                <p>Make changes as needed. To update component properties, use the cards in the properties panel.</p>
+                            </li>
+                            <li value="4">
+                                <p>Click the <span class="uielement">Lock</span> button <img src="../images/b_ExstreamWeb_Lock.png" class="inline" title="Lock component button" alt="Lock component button" /> to set the component status to <span class="uielement">Locked</span> <img src="../images/b_ExstreamWeb_Component_Locked.png" alt="Lock component button set to a red Locked state showing that the component is not available for editing" class="inline" title="Lock component button set to a red Locked state showing that the component is not available for editing" />.</p>
+                                <div class="Admonition_Important">
+                                    <p data-mc-autonum="&lt;b&gt;Important: &lt;/b&gt;"><span class="autonumber"><span><b>Important: </b></span></span>When you lock a component, you receive a message to confirm that you want to update the component in CAS. Before you accept and save your changes, keep in mind that locking a component will also do the following:</p>
+                                    <ul>
+                                        <li>Update all instances of that component in other designs. </li>
+                                        <li>Clear your action history for the design as a whole. This means that you cannot undo or redo any actions that you performed prior to releasing the component.</li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ol>
+                        <p>The following table describes how the component status in a particular design affects the status of the component in CAS:</p>
+                        <table style="width: 100%;" summary="Steps to use the Change component status toggle switch to reserve or release a component for editing">
+                            <col style="width: 20%;" />
+                            <col style="width: 80%;" />
+                            <thead>
+                                <tr>
+                                    <th>Status</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p>
+                                            <img src="../images/b_ExstreamWeb_Component_Unlocked.png" alt="Unlock component button set to a red Locked state showing that the component is available for editing" style="max-width: auto;max-height: 25px;height: 25px;width: auto;" title="Unlock component button set to a red Locked state showing that the component is available for editing" />
+                                        </p>
+                                        <p>The <span class="uielement">Unlocked</span> button is active</p>
+                                    </td>
+                                    <td>
+                                        <p>Indicates that the component is now unlocked and reserved for editing in the current design. </p>
+                                        <p>When you unlock a component in a design, it locks the component object in CAS to indicate that the component is being edited in an open design. If another user tries to unlock this component in a different design while it is being edited, <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> will issue a warning and the component status will be reset to <span class="uielement">Locked</span> in that design. </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>
+                                            <img src="../images/b_ExstreamWeb_Component_Locked.png" alt="Lock component button set to a red Locked state showing that the component is not available for editing" style="max-width: auto;max-height: 25px;height: 25px;width: auto;" title="Lock component button set to a red Locked state showing that the component is not available for editing" />
+                                        </p>
+                                        <p>The <span class="uielement">Locked</span> button is active</p>
+                                    </td>
+                                    <td>
+                                        <p>Indicates that the component is now locked and cannot be edited in the current design. </p>
+                                        <p>When you lock the component in the current design, it unlocks the component in CAS to indicate that it is available for editing in other open designs. </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Accessing an existing component from <span class="mc-variable _Exstream_UI_Names.CDR_StructureView variable">Structure view</span></a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>In <span class="mc-variable _Exstream_UI_Names.CDR_StructureView variable">Structure view</span>, you can select a design in the <span class="uielement">Structure map</span> to see the components that are used in that design. You can then open the component directly in <span class="mc-variable _Exstream_UI_Names.CDR_DesignView variable">Design view</span> and make updates to it. Some component properties—such as flow options, position on a page, and read order—are applied only to a specific instance of a component in a design. To update these properties, you must access the component in a design, and then update the properties for that instance of the component. The properties that you can modify are also dependent upon the type of design object that makes up that component. For example, you can modify the interactive properties for a component only if interactive properties are supported for that design object.</p>
+                        <p>Before you make any changes, be aware that updating any one instance of a component will also update all other instances of that component in other designs. To see the list of designs that use a component, select the component in the <span class="uielement">Structure map</span>, and then in the <span class="uielement">Properties</span> panel, click the <span class="uielement">Used by</span> tab.</p>
+                        <p>When you open a component from <span class="mc-variable _Exstream_UI_Names.CDR_StructureView variable">Structure view</span>, you do not need to manually change the status of the component. Opening the component automatically unlocks it for editing in <span class="mc-variable _Exstream_UI_Names.CDR_DesignView variable">Design view</span>. When you save your changes and close <span class="mc-variable _Exstream_UI_Names.CDR_DesignView variable">Design view</span>, the component is locked in that design, and made available for editing in other designs.</p>
+                        <p>To edit a component:</p>
+                        <ol>
+                            <li value="1">
+                                <p>In the <span class="uielement">Structure map</span>, double-click the component. Alternatively, you can select the component and then click <span class="uielement">Open</span>.</p>
+                            </li>
+                            <li value="2">
+                                <p>Make changes as needed.</p>
+                                <div class="Admonition_Note">
+                                    <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>You can also change the component name when you open a component directly in <span class="mc-variable _Exstream_UI_Names.CDR_DesignView variable">Design view</span>.</p>
+                                </div>
+                            </li>
+                            <li value="3">Click the <span class="uielement">Save changes</span> button <img src="../images/b_ExstreamWeb_SaveExit.png" class="inline" title="Save changes button" alt="Save changes button" /> in the design area to save your changes and return to <span class="mc-variable _Exstream_UI_Names.CDR_StructureView variable">Structure view</span>.</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Unlinking a component</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>You can use components to create "starter objects" that can help save designers time and make it easier for them to create complex objects. For example, you might design a two-column automated table, a three-column automated table, and a table with alternating fill, and then save all of the tables as components. Then, other designers can insert these components in their designs and unlink them to customize them as needed. An unlinked component becomes a normal design object. Changes to the unlinked object will not modify the original component.</p>
+                        <p>To unlink a component, select the component in your design, and on the design toolbar, click the <span class="uielement">Unlink component</span> button <img src="../images/b_CommDesigner_UnlinkComponent.png" alt="the Unlink component button" style="width: 17px;height: 17px;" title="Unlink component" />.</p>
+                        <div class="Admonition_Note">
+                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>This option is available only when you access a particular instance of a component in a design. If you open a component directly in <span class="mc-variable _Exstream_UI_Names.CDR_DesignView variable">Design view</span>, this option will not be available.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2023</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

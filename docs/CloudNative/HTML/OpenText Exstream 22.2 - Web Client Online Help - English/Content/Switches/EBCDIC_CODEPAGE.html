@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="Switch reference (English only)|Complete list of switches|[%=System.LinkedTitle%]|Switches E - H" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="OpenText Exstream (Cloud-Native) Release CE 22.2.0 Web Client Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>EBCDIC_CODEPAGE</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>EBCDIC_CODEPAGE</h1>
+                <p>Use the EBCDIC_CODEPAGE engine switch to specify how ISO 8859-1 encoded characters are mapped when you produce output from an application using the engine on a z/OS platform. </p>
+                <p><span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> uses IBM-1047 as the default code page. <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> cannot automatically detect the file encoding, if your data files on the mainframe are encoded with a different EBCDIC code page, such as IBM-037 or IBM-285, you must use this switch to specify the EBCDIC code page that you are using in the data files.</p>
+                <p class="intro_phrase">Syntax</p><pre xml:space="preserve">-EBCDIC_CODEPAGE=&lt;mappingMethod&gt;</pre>
+                <p>The only argument for this switch is the method that you want to use to map ISO 8859-1 encoded characters, and supports the following values:</p>
+                <ul>
+                    <li><code>&lt;codePage&gt;</code>—Uses the specified EBCDIC code page, which should be one of those expected by the <code>iconv</code> utility. For example, <code>IBM-037</code>.</li>
+                    <li><code>design</code>—Uses the EBCDIC to ASCII conversion table that is specified in <span class="mc-variable _IMP_Product_Names.DesignManager variable">Design Manager</span>, in the <span class="uielement">System Settings</span> properties, on the <span class="uielement">Text and Fonts</span> tab</li>
+                    <li><code>6.1</code>—Maps ISO 8859-1 encoded characters to EBCDIC as they were mapped in <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> version 6.1 and earlier (for backward compatibility)</li>
+                </ul>
+                <p class="intro_phrase">Example 1</p><pre xml:space="preserve">-EBCDIC_CODEPAGE=IBM-037</pre>
+                <p class="intro_phrase">Example 2</p><pre xml:space="preserve">-EBCDIC_CODEPAGE=design</pre>
+                <p class="intro_phrase">Example 3</p><pre xml:space="preserve">-EBCDIC_CODEPAGE=6.1</pre>
+                <p class="intro_phrase">Supported in</p>
+                <ul>
+                    <li>
+                        <p>7.0.625 and later maintenance releases</p>
+                    </li>
+                    <li>
+                        <p>8.0.308 and later versions</p>
+                    </li>
+                </ul>
+                <p>The <code>design</code> argument is available in these versions:</p>
+                <ul>
+                    <li>
+                        <p>7.0.627 and later maintenance releases</p>
+                    </li>
+                    <li>
+                        <p>8.0.309 and later versions</p>
+                    </li>
+                </ul>
+                <p>The <code>6.1</code> argument is available in the following versions:</p>
+                <ul>
+                    <li>
+                        <p>7.0.627 and later maintenance releases</p>
+                    </li>
+                    <li>
+                        <p>8.0.310 and later versions</p>
+                    </li>
+                </ul>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2022</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

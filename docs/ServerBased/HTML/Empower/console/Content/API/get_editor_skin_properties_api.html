@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="[%=System.LinkedTitle%]|[%=System.LinkedTitle%]|Editor customization API calls">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="Empower Server Console and API" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="DocVersion" content="" /><title>Get editor skin properties</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <h1 class="chapternum">Get editor skin properties</h1>
+            <p>The <code>GET</code> API call for editor skin properties returns a list of the current values of the configurable color properties that can be used to customize the appearance of <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>.</p>
+            <div class="Admonition_Important">
+                <p data-mc-autonum="&lt;b&gt;Important: &lt;/b&gt;"><span class="autonumber"><span><b>Important: </b></span></span>Editor customization is not supported in editor versions earlier than 16.4 Update 2, and some customization parameters are available only in version 16.6.0 and later.</p>
+                <p>For information about which parameters are supported in each version, see <a href="set_editor_skin_properties_api.html" class="MCXref xref">Set editor skin properties</a>.</p>
+            </div>
+            <h2>Who can access this call</h2>
+            <p>Access to the <span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span> is defined in the <code>customSecurityContext.xml</code> file during installation, and is controlled by your authorization provider. By default, <span class="_Exstream_Product_NamesHydrogen">Empower</span> supports the <code>administrator</code>, <code>editor</code>, and <code>integrator</code> authorities.</p>
+            <p>Authenticated users with any of the following authorities can use this API call:</p>
+            <ul>
+                <li value="1"><code>administrator</code>
+                </li>
+                <li value="2"><code>editor</code>
+                </li>
+            </ul>
+            <h2 class="title">Request</h2>
+            <table style="margin-left: 0;margin-right: auto;">
+                <col />
+                <col />
+                <thead>
+                    <tr>
+                        <th style="text-align: left;">Request method</th>
+                        <th style="text-align: left;">Syntax</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align: left;">GET</td>
+                        <td style="text-align: left;"><code>/&lt;context&gt;/resource/skin</code>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>The <code>&lt;context&gt;</code> variable is configured during  <span class="_Exstream_Product_NamesHydrogen">Empower</span>&#160;installation. </p>
+            <p class="Subheading">Request header</p>
+            <table style="width: 100%;margin-left: 0;margin-right: auto;">
+                <col />
+                <col />
+                <col />
+                <col />
+                <thead>
+                    <tr>
+                        <th>Header</th>
+                        <th>Value</th>
+                        <th>Use</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>Accept</code>
+                        </td>
+                        <td><code>application/xml</code>
+                        </td>
+                        <td>Optional</td>
+                        <td>Requests that <span class="_Exstream_Product_NamesHydrogen">Empower</span> return an XML response instead of the default JSON response</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="Subheading">Request parameters</p>
+            <p>This call does not require parameters.</p>
+            <p class="Subheading">Example request</p>
+            <table style="margin-left: 0;margin-right: auto;">
+                <col title="COLSPEC9" span="1" />
+                <col title="COLSPEC10" span="1" />
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="1" colspan="1">
+                            <p>Request header</p>
+                        </td>
+                        <td rowspan="1" colspan="1"><code>GET <span class="Basic_Variables_Product_Sample_URI">http://sample-server.example.com</span>:8080/mpw/resource/skin</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Request body</td>
+                        <td>This API call does not support a request body.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2 class="title">Response</h2>
+            <p><span class="_Exstream_Product_NamesHydrogen">Empower</span> supports two formats for API response payloads: JSON and XML.</p>
+            <p class="Subheading">Example JSON response</p>
+            <p>Media type: application/json</p>
+            <div class="overview"><pre xml:space="preserve">
+{
+   "header": {
+        "status": {
+            "code": "SERV100I"
+        }
+    },
+    "body": {
+        "skin": {
+            "id": "1",
+            "logoFilename": "NewLogo.png",
+            "logoMimetype": "image/png",
+            "menubarActiveTabColor": "#000003",
+            "menubarBottomBackground": "#000006",
+            "menubarHoverTabColor": "#000004",
+            "menubarTextColor": "#000007",
+            "menubarTopBackground": "#000005",
+            "pageButtonHover": "#000004",
+            "pageManagerBackground": "#000006",
+            "pageManagerHoverBorder": "#000004",
+            "pageManagerText": "#000001",
+            "previewButton": "#000003",
+            "previewButtonHover": "#000004",
+            "previewButtonText": "#000001",
+            "titlebarBackground": "#000002",
+            "titlebarText": "#000001",
+            "toolbarBackground": "#000008",
+     }
+   }
+}</pre>
+            </div>
+            <p class="Subheading">Example XML response</p>
+            <p>Media type: application/xml</p>
+            <div><pre xml:space="preserve">
+        <code>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;ResponseContainer&gt;
+    &lt;header&gt;
+        &lt;status code="SERV100I"/&gt;
+    &lt;/header&gt;
+    &lt;body&gt;
+        &lt;skin logoFilename="NewLogo.png" logoMimetype="image/png" menubarActiveTabColor="#000003" menubarBottomBackground="#000006" menubarHoverTabColor="#000004" menubarTextColor="#000007" menubarTopBackground="#000005" pageButtonHover="#000004" pageManagerBackground="#000006" pageManagerHoverBorder="#000004" pageManagerText="#000001" previewButton="#000003" previewButtonHover="#000004" previewButtonText="#000001" titlebarBackground="#000002" titlebarText="#000001" toolbarBackground="#000008"/&gt;
+    &lt;/body&gt;
+&lt;/ResponseContainer&gt;</code>   </pre>
+            </div>
+            <p class="Subheading">Response parameters</p>
+            <p>If a parameter object does not contain a value, a JSON response returns a <code>null</code> value for the object, but an XML response does not include the object.</p>
+            <table style="margin-left: 0;margin-right: auto;width: 100%;">
+                <col title="col1" span="1" />
+                <col title="COLSPEC6" span="1" />
+                <col title="COLSPEC5" span="1" />
+                <thead>
+                    <tr>
+                        <th rowspan="1" colspan="1">Parameter</th>
+                        <th rowspan="1" colspan="1">Data type</th>
+                        <th rowspan="1" colspan="1">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>logoFilename</code>
+                        </td>
+                        <td>String</td>
+                        <td>The name of the custom logo image file</td>
+                    </tr>
+                    <tr>
+                        <td><code>logoMimetype</code>
+                        </td>
+                        <td>String</td>
+                        <td>The MIME type of the custom logo image file</td>
+                    </tr>
+                    <tr>
+                        <td><code>menubarActiveTabColor</code>
+                        </td>
+                        <td>String<br /></td>
+                        <td>
+                            <p>The color that is used to highlight the active selection on the menu bar</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>menubarBottomBackground</code>
+                        </td>
+                        <td>String</td>
+                        <td>
+                            <p>The second color that is used to create the menu bar gradient</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>menubarHoverTabColor</code>
+                        </td>
+                        <td>String</td>
+                        <td>
+                            <p>The color that is used to emphasize a menu item that an end user points to</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>menubarTextColor</code>
+                        </td>
+                        <td>String</td>
+                        <td>
+                            <p>The color of  the menu item text</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>menubarTopBackground</code>
+                        </td>
+                        <td>String</td>
+                        <td>
+                            <p>The first color that is used to create the menu bar gradient</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>pageButtonHover</code>
+                        </td>
+                        <td>String</td>
+                        <td>
+                            <p>The color that is used to emphasize the pagination controls when an end user points to them</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>pageManagerBackground</code>
+                        </td>
+                        <td>String</td>
+                        <td>
+                            <p>The color of the background of the <span class="uielement">Page Manager</span> selection box</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>pageManagerHoverBorder</code>
+                        </td>
+                        <td>String</td>
+                        <td>
+                            <p>The color that is used to emphasize the border of the <span class="uielement">Page Manager</span> selection box when an end user points to it</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>pageManagerText</code>
+                        </td>
+                        <td>String</td>
+                        <td>
+                            <p>The color of the text in the <span class="uielement">Page Manager</span> selection box</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>previewButton</code>
+                        </td>
+                        <td>String</td>
+                        <td>
+                            <p>The color of the <span class="uielement">Preview</span> button</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>previewButtonHover</code>
+                        </td>
+                        <td>String</td>
+                        <td>
+                            <p>The color that is used to emphasize the <span class="uielement">Preview</span> button when an end user points to it</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>previewButtonText</code>
+                        </td>
+                        <td>String</td>
+                        <td>
+                            <p>The color of the <span class="uielement">Preview</span> button text</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>titlebarBackground</code>
+                        </td>
+                        <td>
+                            <p>String</p>
+                        </td>
+                        <td>
+                            <p>The color of the title bar</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>titlebarText</code>
+                        </td>
+                        <td>
+                            <p>String</p>
+                        </td>
+                        <td>
+                            <p>The color of the title bar text</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>toolbarBackground</code>
+                        </td>
+                        <td>String</td>
+                        <td>
+                            <p>The color of the background of the toolbar</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>&#160;</p>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear: both; clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;"><a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Copyright © <span class="_IMP_TemplateVarsCopyrightDateRange_CurrentYear">2019</span>&#160;<span class="Branding_Variables_Company_Legal_Name">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="Branding_Variables_Company_Legal_Name">Open&#160;Text</span>.</a>
+                </p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br /><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <!--QCCR1K4298 START-->
+        <div style="display:none;" id="HPb-Branding-Variables" Footer="Yes" Feedback="Yes">&#160;</div>
+        <script>/* <![CDATA[ */
+            var BrandingVariables = document.getElementById("HPb-Branding-Variables");
+            if(BrandingVariables.getAttribute('Footer')=="No"){document.getElementById('Copyright').style.display = 'none';}
+            if(BrandingVariables.getAttribute('Feedback')=="No"){document.getElementById('Feedback').style.display = 'none';}
+        /* ]]> */</script>
+        <!--QCCR1K4298 END-->
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+            var closeIFrame = function() {
+            $('.MCTopicPopupContainer').remove();
+            $("#mc-background-tint").remove();
+            }
+        </script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+        <script src="../Resources/Scripts/_IMP_init.js">
+        </script>
+        <!-- Include the following files in output -->
+        <p style="visibility:hidden"><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js">frontfileref</a><a href="../Resources/Stylesheets/fonts/_IMP_Lato-Regular.ttf">frontfileref</a><a href="../Resources/Stylesheets/fonts/_IMP_Lato-Bold.ttf">frontfileref</a>
+        </p>
+        <script type="text/javascript">/* <![CDATA[ */
+
+				//Set navigation hotkeys within iframe (must be done separately from top level)
+				window.addEventListener('keyup',
+					function(e) {
+						switch (e.key) {
+							case 'ArrowLeft':
+								MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous");
+								break;
+							case 'ArrowRight':
+								MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next");
+						}
+					}
+				, false);
+
+		/* ]]> */</script>
+    </body>
+</html>

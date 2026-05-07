@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]|[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="Exstream Platform (Server-Based) 23.3 Communications Designer Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Setting up data sources</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Setting up data sources</h1>
+                <p>A data source is what <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> uses to identify which <a href="HelpPopUps/Definition_Samplefile.htm" class="MCTopicPopup MCTopicPopupHotSpot a">sample file</a> to use for a particular data map. The same sample file can be used in multiple data sources, and be mapped differently for each data source with which is it associated.</p>
+                <p>Use the <span class="uielement">Communication asset management</span> page to create and modify the data sources  that can be used when fulfilling your communications.</p>
+                <p>To access the <span class="uielement">Communication asset management</span> page, in <span class="mc-variable _Exstream_UI_Names.WebApps_ContentLauncher variable">Content Launcher</span>, on the toolbar, click the <span class="uielement">Communication assets</span> button <img src="../images/b_WebApps_MappingIcon.png" title="Communications button on the Content Launcher toolbar" alt="Communications button on the Content Launcher toolbar" class="inline" />.</p>
+                <div class="Admonition_Note">
+                    <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>Only <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> user roles that have the proper workflow control permissions allow access to the <span class="uielement">Communication asset management</span> page. If you have questions about your access privileges, talk to your system administrator.</p>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" /></a><a name="Creating"></a><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead" aria-expanded="false">Creating a new data source</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <ol>
+                            <li value="1">On the <span class="uielement">Communication asset management</span> page, on the <span class="uielement">Data sources</span> tab, click the <span class="uielement">New</span> button to see a list of available design packs.</li>
+                            <li value="2">
+                                <p>In the <span class="uielement">Design pack name</span> column, select a design pack, and click <span class="uielement">Next</span>. </p>
+                            </li>
+                            <li value="3">
+                                <p>Specify a name and, optionally, a description for the data source that you want to create. </p>
+                            </li>
+                            <li value="4">
+                                <p>Click <span class="uielement">Create</span>.</p>
+                                <p>The <span class="uielement">Properties</span> panel for that data source opens to the right of the widget. </p>
+                            </li>
+                            <li value="5">
+                                <p>In the <span class="uielement">Properties</span> panel, select the sample data file to be mapped by completing one of the actions described in the following table:</p>
+                                <table style="width: 100%;margin-left: 0;margin-right: auto;" summary="Actions to select a sample data file to be mapped">
+                                    <col style="width: 30%;" />
+                                    <col style="width: 70%;" />
+                                    <thead>
+                                        <tr>
+                                            <th>Action</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <p>Use a sample file that is stored in CAS</p>
+                                            </td>
+                                            <td>
+                                                <ol>
+                                                    <li value="1">
+                                                        <p>Click <span class="uielement">Find sample file</span>.</p>
+                                                    </li>
+                                                    <li value="2">
+                                                        <p>Select the sample file you want to use and click <span class="uielement">OK</span>.</p>
+                                                    </li>
+                                                </ol>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>Use a sample file that is stored on your local machine or network.</p>
+                                            </td>
+                                            <td>
+                                                <ol>
+                                                    <li value="1">
+                                                        <p>Click <span class="uielement">Upload</span>.</p>
+                                                    </li>
+                                                    <li value="2">
+                                                        <p>Browse to the sample file that you want to use, and click <span class="uielement">Open</span>.</p>
+                                                    </li>
+                                                    <li value="3">
+                                                        <p>Optionally, in the <span class="uielement">Sample file upload</span> dialog, add a description.</p>
+                                                    </li>
+                                                    <li value="4">
+                                                        <p>Click <span class="uielement">Add</span>.</p>
+                                                        <p>The sample file that you selected is uploaded to CAS and is automatically set as the sample file for your data source.</p>
+                                                    </li>
+                                                </ol>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+                            <li value="6">
+                                <p>Optionally, in the <span class="uielement">File format</span> list, select the format of your sample file from the following options:</p>
+                                <ul>
+                                    <li><span class="uielement">JSON</span>
+                                    </li>
+                                    <li><span class="uielement">XML</span>
+                                    </li>
+                                </ul>
+                                <p>The file format is automatically selected based on the information found in the associated sample file, but you can use the <span class="uielement">File format</span> list to manually select a supported format.  For XML files, <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> supports the following features: </p>
+                                <ul>
+                                    <li>
+                                        <p>Elements and values</p>
+                                    </li>
+                                    <li>
+                                        <p>Attributes</p>
+                                    </li>
+                                    <li>
+                                        <p>Namespaces</p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li value="7">
+                                <p>Click <span class="uielement">Create</span>.</p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" /></a><a name="Opening"></a><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead" aria-expanded="false">Opening an existing data source</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <ol>
+                            <li value="1">
+                                <p>On the <span class="uielement">Communication asset management</span> page, click one of the following buttons: </p>
+                                <ul>
+                                    <li>
+                                        <p><span class="uielement">Existing</span>—Displays all of the existing data sources</p>
+                                    </li>
+                                    <li>
+                                        <p><span class="uielement">Recent</span>—Displays a list of data sources that you have recently opened</p>
+                                    </li>
+                                    <li>
+                                        <p><span class="uielement">Favorites</span>—Displays a list of data sources that have been bookmarked</p>
+                                        <div class="Admonition_Tip">
+                                            <p data-mc-autonum="&lt;b&gt;Tip: &lt;/b&gt;"><span class="autonumber"><span><b>Tip: </b></span></span> If you work frequently with a specific data source, you can bookmark that data source so that it appears in the <span class="uielement">Favorites</span> list. To bookmark a data source, point to the data source in the <span class="uielement">Existing</span> or <span class="uielement">Recent</span> tabs, and click the bookmark icon (<img src="../images/i_CommDesigner_Favorite.png" alt="Bookmark icon" style="width: 13px;height: 21px;" title="Bookmark icon" class="inline" />) in the <span class="uielement">Favorite</span> column.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li value="2">
+                                <p>Select the data source that you want to open, and click <span class="uielement">Open</span>. </p>
+                                <p>The data source opens in <span class="mc-variable _Exstream_UI_Names.CDR_MappingView variable">Mapping view</span>.</p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ boldPrint MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Handling orphaned mappings</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>Orphaned mappings are data areas in a sample file that previously had variables mapped to them, but that are no longer present in that sample file. Orphaned mappings occur when a sample file that is associated with a data source is changed after it has been previously mapped. When you open a data source that contains orphaned mappings, you receive a message that indicates which previously mapped data elements are missing. </p>
+                        <p class="ListIntro">To close the message, select one of the following options:</p>
+                        <ul>
+                            <li>
+                                <p>To ignore all of the orphaned mappings and remove them from the data source, click <span class="uielement">Discard</span>.</p>
+                            </li>
+                            <li>
+                                <p>To retain the variable mappings in the data source, click <span class="uielement">Keep</span>. You might want to do this, for example, if you are using a production file that has the correct data elements, but the sample file no longer has those elements.</p>
+                                <div class="Admonition_Note">
+                                    <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>If you choose to keep orphaned mappings, you will continue to receive the message each time you open the data source.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Updating the data source properties</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>If you have already created a data source but want to change any of its properties, you can do so by selecting the data source, making the necessary adjustments in the <span class="uielement">Properties</span> panel, and then clicking <span class="uielement">Save</span>.</p>
+                        <div class="Admonition_Note">
+                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>If the data source has been approved, or submitted for approval, the properties cannot be changed.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Viewing the references for a data source</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>You can use the <span class="uielement">Used by</span> tab in the <span class="uielement">Properties</span> panel to see which <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Documents,_Exstream_Snippets.Webapps_DataSources">communications</MadCap:conditionalText> use a selected <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_DataSources">data source</MadCap:conditionalText>. </p>
+                        <p>To find where a <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_DataSources">data source</MadCap:conditionalText> is used: </p>
+                        <ol>
+                            <li value="1">
+                                <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_CommunicationAsset">On the <span class="uielement">Communication asset management</span> page</MadCap:conditionalText>, select the <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_DataSources">data source</MadCap:conditionalText>. </li>
+                            <li value="2">
+                                <p>In the <span class="uielement">Properties</span> panel, click the <span class="uielement">Used by</span> tab. </p>
+                                <p>The list shows all of the <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Documents,_Exstream_Snippets.Webapps_DataSources">communications</MadCap:conditionalText> that use that <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_DataSources">data source</MadCap:conditionalText>.</p>
+                            </li>
+                            <li value="3">
+                                <p>Use the indicator in the <span class="uielement">Status</span> column to determine whether the parent <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Documents,_Exstream_Snippets.Webapps_DataSources">communication</MadCap:conditionalText> is available for editing:</p>
+                                <ul>
+                                    <li>A green indicator (<img src="../images/i_ExstreamWeb_Status_GreenDot.png" alt="green status indicator" title="green status indicator" />) means that the parent <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Documents,_Exstream_Snippets.Webapps_DataSources">communication</MadCap:conditionalText> is available for editing.</li>
+                                    <li>A red indicator (<img src="../images/i_ExstreamWeb_Status_RedDot.png" title="red status indicator" alt="red status indicator" />) means that the parent <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Documents,_Exstream_Snippets.Webapps_DataSources">communication</MadCap:conditionalText> is locked for editing by another user.</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2023</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

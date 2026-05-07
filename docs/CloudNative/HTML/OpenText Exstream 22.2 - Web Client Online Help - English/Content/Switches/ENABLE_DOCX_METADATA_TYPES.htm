@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="Switch reference (English only)|Complete list of switches|[%=System.LinkedTitle%]|Switches E - H" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="OpenText Exstream (Cloud-Native) Release CE 22.2.0 Web Client Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>ENABLE_DOCX_METADATA_TYPES</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>ENABLE_DOCX_METADATA_TYPES</h1>
+                <p>Use the ENABLE_DOCX_METADATA_TYPES engine switch to control headers, deleteIDs, and margins in DOCX output more closely, and to provide a better editing experience in the final DOCX document. When you use the ENABLE_DOCX_METADATA_TYPES engine switch in the command line or control file during production, you can use metadata to explicitly define custom headers, custom deleteIDs, and uniform margins in DOCX output. Optionally, you can also define different headers and deleteIDs for first, odd, and even pages in the DOCX document.</p>
+                <p>If you want more control of headers, deleteIDs, and margins in DOCX output, and you want to provide a better editing experience in the final DOCX document, you can use the ENABLE_DOCX_METADATA_TYPES engine switch. When you use this engine switch in the command line or control file during production, you can use metadata to explicitly define custom headers, custom deleteIDs, and uniform margins in DOCX output. Optionally, you can also define different headers and deleteIDs for first, odd, and even pages in the DOCX document.</p>
+                <p>If you want the engine to produce DOCX text boxes instead of DOCX frames in the output, you can use the <a href="FORCE_NO_DOCX_TEXT_FRAMES.html" class="noNum MCXref xref xrefnoNum">FORCE_NO_DOCX_TEXT_FRAMES</a> engine switch in the command line or control file during production.</p>
+                <p data-mc-conditions="_Exstream_Conditions.WebClientOnly">For more information about DOCX&#160;output and designing applications in <span class="mc-variable _IMP_Product_Names.DesignAndProduction_Short variable">Design and Production</span>, see <span class="docName mc-variable _Exstream_Doc_Names._Product_Prefix variable">OpenText Exstream</span> <span class="docName mc-variable _Exstream_Doc_Names.DNP_Help variable">Design and Production Online Help</span>.</p>
+                <p>When you produce DOCX output without using the ENABLE_DOCX_METADATA_TYPES engine switch, the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> engine automatically determines a header, deleteID, and margins. The engine handles headers, deleteIDs, and margins as follows:</p>
+                <ul>
+                    <li>The engine might create a single header from the first entry in each design page. Repeating headers in the design are not converted to headers in DOCX output, and headers apply to individual pages in the DOCX document.</li>
+                    <li>The engine might create a single deleteID from the last entry in each design page. Repeating deleteIDs in the design are not converted to headers in DOCX output, and deleteIDs apply to individual pages in the DOCX document.</li>
+                    <li>The engine determines margins using the boundaries of content flow frames. Margins might vary throughout the DOCX document, depending on the design of each page in <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span>.</li>
+                </ul>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ boldPrint MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Using Metadata to Define Custom Headers and Footers</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>When you use the ENABLE_DOCX_METADATA_TYPES engine switch, you can apply special metadata to design objects to specify that they should be part of a custom header or deleteID in DOCX output. The metadata objects that you use to define custom headers and deleteIDs for DOCX output do not have values.</p>
+                        <p>Keep in mind the following considerations when you use metadata to define custom headers and deleteIDs:</p>
+                        <ul>
+                            <li>
+                                <p>You must set the output queue that you are using to produce the output to break before each customer. On the <strong>Breaks</strong> tab of the output queue properties, in the <strong>Customers</strong> box, enter <code>1</code>. </p>
+                            </li>
+                            <li>If you are also using metadata to define margins, then you should place the objects that you want to appear in the header outside of the specified top margin. Likewise, you should place the objects that you want to appear in the deleteID outside of the specified bottom margin. Otherwise, because design objects are anchored in the DOCX output where they are located on the design page, headers and deleteIDs might overlap other text and objects in the output. Setting a header and deleteID distance in the design does not affect the placement of objects in the header and deleteID in DOCX output. </li>
+                            <li>The objects to which you add header or deleteID metadata must be on the page that appears first in the output. If the engine removes the page that contains the header or deleteID objects for a customer due to a rule, the headers or deleteIDs will not appear in the output. If any objects to which you have assigned header or deleteID metadata appear on subsequent pages in the output, the engine omits those objects from the output. If you are producing more than one document for each customer within the same application, these conditions apply across all documents. The objects to which you add header or deleteID metadata must be on the first page output from the first document. </li>
+                            <li>When you use the ENABLE_DOCX_METADATA_TYPES engine switch, the engine ignores any design objects that are placed on flow pages (whether or not you have assigned header or deleteID metadata to them), and they will not appear in the output. </li>
+                            <li>The engine creates a new section in the DOCX output for each separate design page (whether or not you use the ENABLE_DOCX_METADATA_TYPES engine switch). When you use the engine switch and use metadata to define headers and deleteIDs, the engine applies headers and deleteIDs to all resulting sections. </li>
+                            <li>If you delete a section break in the output, headers and deleteIDs might be affected. For example, if you are using a different first-page header, and you delete the first section break in the document, then the first-page header is permanently deleted. </li>
+                            <li>You cannot specify custom headers or deleteIDs in page templates. If you assign header or deleteID metadata to objects in a page template, the engine omits those objects from the output. </li>
+                            <li>You cannot specify custom headers and deleteIDs if any of the following conditions are true: <ul><li>You are using language layers. </li><li>You are using the Application Consolidator to combine output from multiple applications. </li><li>You are using two-step processing. </li></ul></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ boldPrint MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Defining a Default Header or Footer</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>You can define a default header or deleteID that appears on each page of the DOCX output. If you define only the default header or deleteID, the header or deleteID that you define is the same for all pages.</p>
+                        <p>Keep in mind that because DOCX specifies a default header and an odd-page header the same way, you use the same metadata object to define a default header or an odd-page header (when defining different headers for odd and even pages). If you do not specify any objects for even-page headers, the odd-page header becomes the default header and applies to all pages.</p>
+                        <p>To define a default header or deleteID:</p>
+                        <ol>
+                            <li value="1">
+                                <p>In Design Manager, create one of the following metadata objects, depending on whether you want to define a header or deleteID:</p>
+                                <table style="width: 100%;">
+                                    <col style="width: 30%;" />
+                                    <col style="width: 70%;" />
+                                    <col style="width: 60%;" />
+                                    <tbody>
+                                        <tr>
+                                            <th>Option</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Define a default header in DOCX output</td>
+                                            <td>
+                                                <p>Create a metadata object named <code>DocX-DefaultHeader</code>.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Define a default deleteID in DOCX output</td>
+                                            <td>Create a metadata object named <code>DocX-DefaultFooter</code>.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+                            <li value="2">In the Property Panel for the new metadata object, select <strong>No value</strong>, and then save the metadata object.</li>
+                            <li value="3">In Designer, on the design page that will appear first in the output, add the corresponding metadata to each object that you want to appear in the default header or deleteID.</li>
+                        </ol>
+                        <p>You can define a different header or deleteID that will appear on the first page of the DOCX output. When you define a first-page header or deleteID, the <strong>Different First Page</strong> option is selected for the header and deleteID when you open the output in Microsoft Word.</p>
+                        <p>If you want to omit a default or odd-page header or deleteID from the first page, you can create an empty text box with no frame and define it as the first-page header.</p>
+                        <p>The option to define a different first-page header or deleteID applies to both the header and deleteID. That is, if you define either a first-page header or a first-page deleteID, then both the header and deleteID are different for the first page. If you only define one, then the other will be left blank for the first page.</p>
+                        <p>To define a different header or deleteID for the first page:</p>
+                        <ol>
+                            <li value="1">
+                                <p>In Design Manager, create one of the following metadata objects, depending on whether you want to define a header or deleteID:</p>
+                                <table style="width: 100%;">
+                                    <col style="width: 30%;" />
+                                    <col style="width: 70%;" />
+                                    <col style="width: 60%;" />
+                                    <tbody>
+                                        <tr>
+                                            <th>Option</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Define a first-page header in DOCX output</td>
+                                            <td>
+                                                <p>Create a metadata object named <code>DocX-FirstHeader</code>.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Define a first-page deleteID in DOCX output</td>
+                                            <td>Create a metadata object named <code>DocX-FirstFooter.</code></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+                            <li value="2">In the Property Panel for the new metadata object, select <strong>No value</strong>, and then save the metadata object.</li>
+                            <li value="3">In Designer, on the design page that will appear first in the output, add the corresponding metadata to each object that you want to appear in the first-page header or deleteID.</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ boldPrint MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Defining Different Headers or Footers for Odd and Even Pages</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>You can define different headers or deleteIDs that will appear on odd and even pages in DOCX output. Keep in mind that because DOCX specifies a default header and an odd-page header the same way, you use the same metadata object to define a default header or an odd-page header (when defining different headers for odd and even pages). When you specify an object for an even-page header, the <strong>Different Odd &amp; Even Pages</strong> option is selected for the header when you open the output in Microsoft Word. The specified default header appears on odd pages, and the specified even-page header appears on even pages. Additionally, the default or odd-page header appears on the first page, unless a first-page header is defined.</p>
+                        <p>If you want to define a header or deleteID for only even pages or only odd pages, you can create an empty text box with no frame and define it as the header or deleteID that you want to be blank.</p>
+                        <p>The option to define different odd- and even-page headers or deleteIDs applies to both headers and deleteIDs. That is, whenever you define either an even-page header or an even-page deleteID, both the header and deleteID are different for odd and even pages. If you define only one for even pages, the other will be left blank on even pages.</p>
+                        <p>To define different headers or deleteIDs for odd and even pages:</p>
+                        <ol>
+                            <li value="1">
+                                <p>In Design Manager, create one of the following metadata objects to define an odd-page header, depending on whether you want to define a header or deleteID:</p>
+                                <table style="width: 100%;">
+                                    <col style="width: 30%;" />
+                                    <col style="width: 70%;" />
+                                    <col style="width: 60%;" />
+                                    <tbody>
+                                        <tr>
+                                            <th>Option</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Define an odd-page header in DOCX output</td>
+                                            <td>
+                                                <p>Create a metadata object named <code>DocX-DefaultHeader</code>.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Define an odd-page deleteID in DOCX output</td>
+                                            <td>Create a metadata object named <code>DocX-DefaultFooter</code>.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+                            <li value="2">In the Property Panel for the new metadata object, select the <strong>No value</strong> check box, and then save the metadata object.</li>
+                            <li value="3">
+                                <p>Create one of the following metadata objects to define an even-page header, depending on whether you want to define a header or deleteID:</p>
+                                <table style="width: 100%;">
+                                    <col style="width: 30%;" />
+                                    <col style="width: 70%;" />
+                                    <col style="width: 60%;" />
+                                    <tbody>
+                                        <tr>
+                                            <th>Option</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Define an even-page header in DOCX output</td>
+                                            <td>
+                                                <p>Create a metadata object named <code>DocX-EvenHeader</code>.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Define an even-page deleteID in DOCX output</td>
+                                            <td>Create a metadata object named <code>DocX-EvenFooter</code>.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+                            <li value="4">In the Property Panel for the new metadata object, select the <strong>No value</strong> check box, and then save the metadata object.</li>
+                            <li value="5">In Designer, on the design page that will appear first in the output, complete the following steps to add the appropriate metadata to the desired objects:<ol><li value="1">Add the corresponding metadata that you created in step 1 to each object that you want to appear in the odd-page header or deleteID.</li><li value="2">Add the corresponding metadata that you created in step 3 to each object that you want to appear in the even-page header or deleteID.</li></ol></li>
+                        </ol>
+                        <p>When you use the ENABLE_DOCX_METADATA_TYPES engine switch, you can apply special metadata to a page to specify uniform margins for all pages in DOCX output.</p>
+                        <p>Keep in mind the following considerations when you use metadata to specify uniform margins:</p>
+                        <ul>
+                            <li>
+                                <p>You must add metadata to the page that appears first in the output. If the engine removes the page to which the metadata is applied for a customer due to a rule, the specified margins will not be set in the output. If you are producing more than one document for each customer within the same application, this condition applies across all documents. You must add the metadata to first-page output from the first document. The engine ignores margin metadata applied to subsequent pages in the output.</p>
+                            </li>
+                            <li>
+                                <p>The specified margins apply to all pages in the output.</p>
+                            </li>
+                            <li>Any flowing content that extends outside of the specified margins in the design will be fully contained within the margins in the output. Any other objects that extend outside the specified margins will remain at their original locations in the output.</li>
+                            <li>The header and deleteID distance settings do not affect custom headers and deleteIDs that are defined for DOCX output. Design objects that you include in a header or deleteID using metadata are anchored in the DOCX output at the location where they are located on the design page.</li>
+                            <li>If you specify margins incorrectly (for example, negative values, or overlapping side margins), the engine adjusts the margins to default values and issues an error message.</li>
+                            <li>You cannot specify uniform margins if either of the following conditions are true:<ul><li>You are using the Application Consolidator to combine output from multiple applications. </li><li>You are using two-step processing. </li></ul></li>
+                        </ul>
+                        <p>To define a uniform margin setting:</p>
+                        <ol>
+                            <li value="1">
+                                <p>In Design Manager, create one of the following metadata objects, depending on which margin that you want to specify:</p>
+                                <table style="width: 100%;">
+                                    <col style="width: 30%;" />
+                                    <col style="width: 70%;" />
+                                    <col style="width: 60%;" />
+                                    <tbody>
+                                        <tr>
+                                            <th>Option</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Specify the top margin</td>
+                                            <td>Create a metadata object named <code>DocX-TopMargin</code>.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Specify the bottom margin</td>
+                                            <td>Create a metadata object named <code>DocX-BottomMargin</code>.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Specify the left margin</td>
+                                            <td>Create a metadata object named <code>DocX-LeftMargin</code>.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Specify the right margin</td>
+                                            <td>Create a metadata object named <code>DocX-RightMargin</code>.</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="1">Specify the header distance setting for the DOCX output</td>
+                                            <td colspan="1">Create a metadata object named <code>DocX-HeaderDistance</code>.</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="1">Specify the deleteID distance setting for the DOCX output</td>
+                                            <td colspan="1">Create a metadata object named <code>DocX-FooterDistance</code>.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+                            <li value="2">In the Property Panel for the new metadata object, complete the following steps to specify the measurement of the margin:<ol><li value="1">Clear the <strong>No value</strong> check box.</li><li value="2">In the <strong>Default value</strong> area, enter a value or select a variable that specifies the measurement of the margin. The value entered or the value of the selected variable specifies the measurement in inches by default, or you can include units to specify inches or centimeters. For example, <code>1.5</code> or <code>1.5in</code> specifies 1.5 inches, and <code>4cm</code> specifies 4 centimeters.</li><li value="3">Save the metadata object.</li></ol></li>
+                            <li value="3">In Design Manager, add the corresponding metadata to the page object that will appear first in the output.</li>
+                        </ol>
+                    </div>
+                </div>
+                <p class="intro_phrase">Syntax</p>
+                <p><code>-ENABLE_DOCX_METADATA_TYPES</code>
+                </p>
+                <p>This switch does not have any arguments.</p>
+                <p class="intro_phrase">Supported in</p>
+                <ul>
+                    <li>8.6.101 and later versions</li>
+                    <li>8.0.324 and later maintenance releases</li>
+                </ul>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2022</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

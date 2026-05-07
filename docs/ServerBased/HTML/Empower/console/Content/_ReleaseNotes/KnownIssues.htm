@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="Empower Server Console and API" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Known issues</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <h1>Known issues</h1>
+            <div class="Admonition_Note">
+                <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>The issues that are reported here are not intended as statements of future support or limitations. Some issues might be related to the design of a particular application and therefore will not affect you. Some issues are defects that have already been corrected, and will be available in a future maintenance release of the software. Some issues are expected behavior, and therefore will not change in future maintenance releases. To find out whether these issues have been resolved, see the version-specific release notes or maintenance notes that accompany each release.</p>
+            </div>
+            <table style="margin-left: 0;margin-right: auto;">
+                <caption>Known issues in <span class="_Exstream_Product_NamesHydrogen">Empower</span></caption>
+                <col style="width: 175px;" />
+                <col style="width: 161px;" />
+                <col />
+                <col />
+                <thead>
+                    <tr>
+                        <th><span class="_Exstream_Product_NamesExstream">Exstream</span> component</th>
+                        <th>Related feature</th>
+                        <th>Description</th>
+                        <th>Workaround</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesDesignManager">Design Manager</span>
+                        </td>
+                        <td>Editable paragraph objects</td>
+                        <td>If you use the same editable paragraph object in different documents, the object might not be updated in all of the documents when end users edit an instance of the paragraph in <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>.</td>
+                        <td>Use unique instances of editable paragraph objects across different documents. </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesDesignManager">Design Manager</span>
+                        </td>
+                        <td>Fulfillment</td>
+                        <td>If you include two numbered lists that are separated by plain text (for example, a numbered list, a text paragraph, and another numbered list), and you specify that you want to renumber the second list (in <span class="_Exstream_Product_NamesDesignManager">Design Manager</span>, on the <span class="uielement">Basic</span> tab of the properties for the paragraph object, the <span class="uielement">Renumber this text when placed in frame</span> check box), the <span class="_Exstream_Product_NamesHydrogen">Empower</span> document and the fulfilled output do not match. Specifically, <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> treats the two numbered lists as separate lists (1,2,3; text; 1,2,3), but the engine numbers the second list as if it is a continuation of the first list (1,2,3; text; 4,5,6). </td>
+                        <td>No workaround.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesDesignManager">Design Manager</span>
+                        </td>
+                        <td>Fulfillment</td>
+                        <td>If you change variable values in your fulfillment application, the engine updates text but does not update objects in your output based on the updated variable values.</td>
+                        <td>No workaround. While you can change variable values in fulfillment to update text, <span class="_Exstream_Product_NamesHydrogen">Empower</span> does not support changing variable values in fulfillment to update objects.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Appearance and behavior</td>
+                        <td>
+                            <p>In some cases, when you paste content from an external source into an <span class="_Exstream_Product_NamesHydrogen_Document">Empower document</span>, the original formatting is not retained.</p>
+                        </td>
+                        <td>If the pasted content needs to retain the original formatting, select the content within <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> and reapply the formatting as needed.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Appearance and behavior</td>
+                        <td>When you use fixed line spacing, lines do not grow to accommodate objects that are embedded in the design or that are pasted in during an edit session.</td>
+                        <td>Do not use fixed line spacing when working with embedded objects.</td>
+                    </tr>
+                    <tr data-mc-conditions="">
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Appearance and behavior<br />(Chrome)</td>
+                        <td>If you are using the Chrome browser, when you select text and then tag it as superscript or subscript, and then you copy and paste the selection elsewhere in the document, the selection loses its superscript or subscript formatting. <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> honors all other applied formatting. </td>
+                        <td>
+                            <p>If the pasted text needs to retain the superscript or subscript formatting, select the text and reapply the formatting.</p>
+                        </td>
+                    </tr>
+                    <tr data-mc-conditions="">
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>
+                            <p>Appearance and behavior (Firefox)</p>
+                        </td>
+                        <td>Because of a known issue in the Firefox browser, <span class="_Exstream_Product_NamesHydrogen">Empower</span> messages are not displayed in pop-up message windows in Firefox. Only the default Firefox text is displayed in pop-up messages.</td>
+                        <td>No workaround. This issue does not exist for other supported browsers.</td>
+                    </tr>
+                    <tr data-mc-conditions="">
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Appearance and behavior (Internet Explorer)</td>
+                        <td><span class="_Exstream_Product_NamesHydrogen">Empower</span> documents do not appear or behave as expected in Internet Explorer.</td>
+                        <td>
+                            <p>Make sure that end users have Compatibility View settings turned off in Internet Explorer. </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Array variables</td>
+                        <td>If your <span class="_Exstream_Product_NamesHydrogen">Empower</span> document contains an editable array variable, you cannot use a drop-down list to populate its contents.</td>
+                        <td>
+                            <p>If you need to use an editable array variable to populate a drop-down list, set the display property for the variable to either <span class="uielement">Automatic</span> or <span class="uielement">Specified</span> (in <span class="_Exstream_Product_NamesDesigner">Designer</span>, on the <span class="uielement">Variable Use</span> tab of the variable properties, the <span class="uielement">Array element to</span> list).</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Array variables</td>
+                        <td>When <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> populates content for array variables in automated rows, only the final element in the array appears in the row.</td>
+                        <td>
+                            <p>No workaround. This issue occurs when variables that are in automated rows in your <span class="_Exstream_Product_NamesHydrogen">Empower</span> document use a substitution timing of <span class="uielement">Initial Engine run only</span> (set in <span class="_Exstream_Product_NamesDesigner">Designer</span>, on the <span class="uielement">Variable Use</span> tab of the variable properties, using the <span class="uielement">When to substitute</span> list). You should avoid using variables with <span class="uielement">Initial Engine run only</span> substitution timing in automated rows.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Array variables</td>
+                        <td>If you add an array variable to an <span class="_Exstream_Product_NamesHydrogen">Empower</span> document and set the value of the array element to <span class="uielement">All, paragraphs</span> in <span class="_Exstream_Product_NamesDesigner">Designer</span> (in the variable properties, on the <span class="uielement">Variable Use</span> tab, in the <span class="uielement">Array element to use</span> drop-down list), end users cannot format each paragraph in the array separately in  <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>—any formatting changes made to one paragraph in the array will be reflected in all paragraphs in the array.</td>
+                        <td>
+                            <p>If you need to allow end users to format variable paragraphs separately in an&#160;<span class="_Exstream_Product_NamesHydrogen">Empower</span> document, make the paragraphs elements in a formatted text variable array.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Array variables</td>
+                        <td>If you edit the value of a scalar formatted text variable with an embedded array variable that is in an automated row, the edited value is sometimes applied to the entire table. </td>
+                        <td>No workaround.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td><span class="_Exstream_Product_NamesBCA_Short">Content Author</span> clauses</td>
+                        <td> If you duplicate a clause in a frame in <span class="_Exstream_Product_NamesBCA_Short">Content Author</span>, both clauses appear in preview, but only one is displayed in <span class="_Exstream_Product_NamesHydrogen">Empower</span>. </td>
+                        <td>
+                            <p> To correct this issue, create a separate copy of the clause in <span class="_Exstream_Product_NamesBCA_Short">Content Author</span>.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> and <span class="_Exstream_Product_NamesDesignAndProduction_Full">Exstream Design and Production</span></td>
+                        <td>Container designs and standard designs</td>
+                        <td>When your <span class="_Exstream_Product_NamesHydrogen">Empower</span> document uses both a standard and a container design, if you add a flow frame that is used only in the container design, the flow frame also appears in the output that is produced from the standard design.</td>
+                        <td>
+                            <p>If you are using a container design that requires a frame that is not used in the standard design, create a separate document or page for your container design, and configure the page so that it is used only for container designs (In <span class="_Exstream_Product_NamesDesignManager">Design Manager</span>, on the <span class="uielement">Interactive</span> tab of the page properties, the <span class="uielement">Use for container designs only</span> check box).</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Check boxes</td>
+                        <td>If you design a check box with different dimension values for width and height, the check box  rendered as a square in <span class="_Exstream_Product_NamesHydrogen">Empower</span>.</td>
+                        <td>
+                            <p>No workaround.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> and <span class="_Exstream_Product_NamesDesignAndProduction_Full">Exstream Design and Production</span></td>
+                        <td>Currency variables</td>
+                        <td>When an editable currency variable is set to <span class="uielement">Use Locale Specification</span> (in <span class="_Exstream_Product_NamesDesignManager">Design Manager</span>, on the <span class="uielement">Output Format</span> tab of the variable properties, in the <span class="uielement">Output format</span> list), and an end user edits the variable in an <span class="_Exstream_Product_NamesHydrogen">Empower</span> document so that it uses a format that is different from the locale specification, <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> and the engine both honor the edited format of the variable rather than the locale specification.</td>
+                        <td>
+                            <p>No workaround.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Currency variables</td>
+                        <td>If the logic in your design concatenates the value of a currency variable with the value of a string variable, <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> does not show the correct value for the currency variable. </td>
+                        <td>
+                            <p>Do not use logic in your design that concatenates the value of a currency variable with the value of a string variable.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Editable areas</td>
+                        <td>If you apply text rules that partially cover text paragraphs in editable areas (paragraph objects, table cells, and text boxes), then end users might see unexpected behavior in <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>.</td>
+                        <td>
+                            <p>You can apply text rules that fully cover text paragraphs in editable areas, or you can apply text paragraph rules to editable areas (in <span class="_Exstream_Product_NamesDesignManager">Design Manager</span>, on the <span class="uielement">Targeting</span> tab of the paragraph properties, the <span class="uielement">Rule</span> section; or in <span class="_Exstream_Product_NamesDesigner">Designer</span>, from the right-click menu, <span class="uielement">Add text rule</span>, or on the <span class="uielement">Rule </span>tab of the paragraph properties).</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Embedded interactive areas</td>
+                        <td>When you place embedded edit areas in an automated table row, end users cannot make changes to them. </td>
+                        <td>
+                            <p><span class="_Exstream_Product_NamesHydrogen">Empower</span> does not support embedded interactive areas in automated rows. If you need to include editable content in an automated table row, you must ensure that you use editable variables instead of embedded interactive areas.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>&#160;</td>
+                        <td>Flow frames</td>
+                        <td>In an <span class="_Exstream_Product_NamesHydrogen">Empower</span> document, if there is too much content to fit in a content frame, and the next available content frame is not large enough to hold the overflow content, then the overflow content will flow to the next available content frame of sufficient size on a flow page. However, when end users preview the content or send the <span class="_Exstream_Product_NamesHydrogen">Empower</span> document to the engine for fulfillment, the overflow content does not appear in the third frame as expected.</td>
+                        <td>This issue occurs because <span class="_Exstream_Product_NamesHydrogen">Empower</span> allows content to skip frames where overflow will not fit, but the engine does not. When the engine encounters the first flow frame where the overflow content will not fit, it does not continue looking for additional frames where the content can fit. If you design an <span class="_Exstream_Product_NamesHydrogen">Empower</span> document with flowing content, place the flow frame that will accept overflow content adjacent to the frame where the overflow comes from.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Flow frames</td>
+                        <td>End users cannot select editable content because an adjacent flow frame overlaps it.</td>
+                        <td>
+                            <p>Do not place editable content near a flow frame that can overlap it. For example, if you place an editable autosized text box adjacent to a flow frame, and an end user makes changes that cause the text box to expand and overlap the flow frame, <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> places the flow frame on top of the editable content. In that scenario, end users cannot click to access the editable content that is beneath the flow frame.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Flow frames</td>
+                        <td>If your <span class="_Exstream_Product_NamesHydrogen">Empower</span> document contains a page with relative flowing objects, and you place a flow frame on the same page, if you set the destination of overflow to <span class="uielement">Copy this page</span> (in <span class="_Exstream_Product_NamesDesignManager">Design Manager</span>, in the properties for the page, on the <span class="uielement">Flow </span>tab, in the <span class="uielement">Destination of overflow from this page</span> drop-down list), end users might see unexpected behavior in <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>.</td>
+                        <td>
+                            <p>Design a separate flow page to capture overflow from the originating page. Then, in <span class="_Exstream_Product_NamesDesignManager">Design Manager</span>, on the properties for the originating page, set the overflow destination to the separate flow page.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Flow frames</td>
+                        <td>If your <span class="_Exstream_Product_NamesHydrogen">Empower</span> document contains relative objects in flow frames, the pagination in <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> differs from that of engine output. 
+						When <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> determines whether a flow frame is wide enough to hold an object, it evaluates only the current object being placed.  The engine, on the other hand, evaluates the entire flow list and disables any flow frames that are not wide enough to hold objects in the flow list. 
+					</td>
+                        <td>
+                            <p>When designing a flow list that contains relative objects, make sure that flow frames are wide enough to hold all of the objects in the flow list.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Formatted text variables</td>
+                        <td>If your <span class="_Exstream_Product_NamesHydrogen">Empower</span> document contains formatted text variables that are arrays, formatting changes that end users make to an array element are also applied to the array element that follows.</td>
+                        <td>If you need to show all elements of a formatted text variable that end users can format, use the <span class="uielement">All, paragraphs</span> setting when you configure the variable in <span class="_Exstream_Product_NamesDesigner">Designer</span> (on the <span class="uielement">Variable Use</span> tab of the variable properties, the <span class="uielement">Array element to use</span> list).</td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Formatted text variables</td>
+                        <td>Formatted text variables that are hyperlinks do not work in <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>.</td>
+                        <td>
+                            <p>You cannot apply a hyperlink to a formatted text variable in <span class="_Exstream_Product_NamesDesigner">Designer</span>; however, you can import hyperlinks in formatted text variables in <span class="_Exstream_Product_NamesHydrogen">Empower</span> by using reference files for RTF content, and web services for HTML content.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Formatted text variables</td>
+                        <td>If your design uses rules to compare the values of formatted text variables to determine which content to include or exclude in your <span class="_Exstream_Product_NamesHydrogen">Empower</span> document, the engine does not include the correct content in your <span class="_Exstream_Product_NamesHydrogen">Empower</span> document.</td>
+                        <td>
+                            <p>No workaround. Do not use rules to evaluate formatted text variables in your <span class="_Exstream_Product_NamesHydrogen">Empower</span> documents.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Formatted text variables</td>
+                        <td>If your <span class="_Exstream_Product_NamesHydrogen">Empower</span> document contains multiple instances of a plain text-formatted text variable, any formatting changes that end users make to a single instance of the variable are propagated to every other instance of the variable.</td>
+                        <td>
+                            <p>No workaround is necessary—this is expected behavior. If you need to limit the ability of end users to make formatting changes to text in an Empower document, do not use editable formatted text variables.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Formatted text variables</td>
+                        <td>If your <span class="_Exstream_Product_NamesHydrogen">Empower</span> document uses formatted text variables that are arrays, and you set the value of the array element to <span class="uielement">Automatic</span>; <span class="uielement">All, print as list</span>; or <span class="uielement">All, blanks</span> (in Designer, in the variable properties, on the <span class="uielement">Variable Use</span> tab, in the <span class="uielement">Array element to use</span> drop-down list), then only the first element in the array appears in the <span class="_Exstream_Product_NamesHydrogen">Empower</span> document.</td>
+                        <td>
+                            <p>In order to make all elements in a formatted text variable array appear in an <span class="_Exstream_Product_NamesHydrogen">Empower</span> document, set the value of the array element to either <span class="uielement">All, paragraphs</span> or <span class="uielement">All, line breaks</span>.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Formatted text variables</td>
+                        <td>If your <span class="_Exstream_Product_NamesHydrogen">Empower</span> document uses formatted text variables that are arrays to populate the values of a drop-down list, the values in the drop-down list do not appear as expected—specifically, <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> replaces the values with a reference code.</td>
+                        <td>
+                            <p>No workaround. Do not use formatted text variables that are arrays to populate the values of drop-down lists in your <span class="_Exstream_Product_NamesHydrogen">Empower</span> documents.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Formatted text variables</td>
+                        <td>If your <span class="_Exstream_Product_NamesHydrogen">Empower</span> document uses more than one instance of a formatted text variable that contains multiple paragraphs, if end users delete a paragraph from one of the instances, they might see unexpected behavior in <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>.</td>
+                        <td>
+                            <p>No workaround. If you need to let end users delete text from an <span class="_Exstream_Product_NamesHydrogen">Empower</span> document, do not use editable formatted text variables.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Formatted text variables</td>
+                        <td>If a list uses a formatted text variable array to populate its options, end users receive an error when they try to select an option.</td>
+                        <td>
+                            <p><span class="_Exstream_Product_NamesHydrogen">Empower</span> does not support the use of formatted text variable arrays for list options.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Formatted text variables</td>
+                        <td>If a formula attempts to set a formatted text variable to a string value, the formula stops running and a browser error is received.</td>
+                        <td>
+                            <p>No workaround.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Fulfillment</td>
+                        <td>Signature report files do not display the correct data.</td>
+                        <td>
+                            <p>To display the correct data in report files that are produced using version 16.4.0 or version 16.4 Update 1, include the <code>ALWAYS_SET_DATA_SECTIONS</code> switch in the control file for your application.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>German keyboard</td>
+                        <td>In the Edge and Internet Explorer browsers, when you use the German keyboard input in <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>, you cannot use press CTRL+ALT+M on your keyboard to enter the <code>µ</code> character (the <span class="uielement">Add comment</span> window opens instead).</td>
+                        <td>
+                            <p>When using the German keyboard input to enter the <code>µ</code> character in an <span class="_Exstream_Product_NamesHydrogen">Empower</span> document, press ALT+0181 on your keyboard.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Images</td>
+                        <td>If you use multiple empty image objects that share a placeholder variable, and the image objects are set to maintain size from file (on the <span class="uielement">Image</span> tab of the empty image properties, the <span class="uielement">Image placement and size</span> list), then the size of the placed image in <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> and in preview can sometimes differ from the size of the image in fulfilled output. 
+</td>
+                        <td>No workaround.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Images<br />(Edge)</td>
+                        <td>In the Edge browser, transparent PNG images that are pasted into an <span class="_Exstream_Product_NamesHydrogen">Empower</span> document have a black background instead of the expected transparent background.</td>
+                        <td>
+                            <p>This issue affects only the Edge browser. If you cannot use a different browser, you can import the actual image instead of using the clipboard to copy and paste the image into an <span class="_Exstream_Product_NamesHydrogen">Empower</span> document. Alternatively, you can use a graphics program to save the image without transparency.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Images<br />(Internet Explorer)</td>
+                        <td>
+                            <p>In the Chrome, Firefox, and Edge browsers, clicking either an image object or the blue border surrounding the image opens the image upload dialog. However, if you are using Internet Explorer, clicking the blue border does not open the image upload dialog; you must click the image object itself.</p>
+                        </td>
+                        <td>
+                            <p>In Internet Explorer, click the image object to open the image upload dialog.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Lists (bulleted)</td>
+                        <td>In the Edge browser, if you copy and paste a bulleted list into the <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> and&#160;then place the cursor after one of the bullets, any text typed is automatically tagged in Symbol font.</td>
+                        <td>
+                            <p>After inserting the cursor between the bullet and the original text, change the font style to the desired font.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Lists <br />(Edge)</td>
+                        <td>If you paste a bulleted or numbered list into <span class="_Exstream_Product_NamesHydrogen">Empower</span> using&#160;the Edge browser, the content is pasted in as standard (non-list) text.</td>
+                        <td>
+                            <p>After pasting the desired text, reapply the appropriate list formatting in <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>List controls</td>
+                        <td>If you use a list control that is populated by an integer variable, and you specify output formatting on the variable (in the variable properties, on the <span class="uielement">Output Format</span> tab, the <span class="uielement">Output format</span> drop-down list), when end users enter a value that matches the format you specified, they receive an error indicating that they have used an invalid format.</td>
+                        <td>
+                            <p>No workaround.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Non-breaking spaces</td>
+                        <td>Non-breaking spaces that you add either directly to text in <span class="_Exstream_Product_NamesDesigner">Designer</span> or that come from tagged text content imported into <span class="_Exstream_Product_NamesHydrogen">Empower</span> documents appear as regular spaces in <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>. </td>
+                        <td>
+                            <p>This issue is cosmetic only and does not affect preview, fulfillment, or final output.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Output queues</td>
+                        <td>When your application contains a duplex output queue, <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> does not display empty back pages.</td>
+                        <td>
+                            <p>No workaround. <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> does not display empty back pages&#160;because <span class="_Exstream_Product_NamesHydrogen">Empower</span> is inherently simplex. </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>PANTONE colors</td>
+                        <td>In an <span class="_Exstream_Product_NamesHydrogen">Empower</span> document, if an end user copies content that uses a PANTONE color and then pastes the content into another area of the document, the pasted content does not retain the PANTONE color information during fulfillment in the engine.</td>
+                        <td>
+                            <p>No workaround. Although <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> retains PANTONE color values in an <span class="_Exstream_Product_NamesHydrogen">Empower</span> document and the engine honors PANTONE colors during fulfillment, <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> does substitute RGB values for PANTONE colors while an <span class="_Exstream_Product_NamesHydrogen">Empower</span> document is being edited. Because of the RGB substitution during the editing session, if an end user copies content that uses a PANTONE color and then pastes the content into another area of the document, the pasted content does not retain the PANTONE color information.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogen">Empower</span>
+                        </td>
+                        <td>Preview and fulfillment</td>
+                        <td>When you apply SYS_QueueCurrent rules to specific documents in your Empower application, those documents do not appear in preview but do appear in fulfilled output. This issue occurs because Empower uses device preview, not queue preview; as a result, documents that are included only for specific queues are automatically excluded in preview. 
+</td>
+                        <td>Do not use SYS_QueueCurrent rules on any documents that end users need to preview in Empower Editor.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Preview and fulfillment</td>
+                        <td>
+                            <p>If you package your <span class="_Exstream_Product_NamesHydrogen">Empower</span> preview application using package file compression (either by selecting the <span class="uielement">Compress package contents</span> check box in the packaging dialog in <span class="_Exstream_Product_NamesDesignManager">Design Manager</span> or by adding the <code>COMPRESSPACKAGEFILE</code> switch to the control file for the application), and the package file is greater than 100 MB, then the built-in EWS preview function fails with the following error:</p>
+                            <p><code>Decompression halted because the decompressed package file is too large to be stored in memory.</code>
+                            </p>
+                        </td>
+                        <td>
+                            <p>Do not use package file compression with <span class="_Exstream_Product_NamesHydrogen">Empower</span> preview applications.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Saving</td>
+                        <td>
+                            <p>If your design contains an editable area with formatted text variable that uses the <span class="uielement">Variable for content and validation</span> setting (In <span class="_Exstream_Product_NamesDesignManager">Design Manager</span>, on the <span class="uielement">Interactive</span> tab of the object properties), when end users try to save the resulting <span class="_Exstream_Product_NamesHydrogen">Empower</span> document they receive the following error: </p>
+                            <p><code>Empower is not able to communicate with the server to save your document. If you continue to encounter this problem, contact your system administrator.</code><![CDATA[
+]]></p>
+                        </td>
+                        <td><span class="_Exstream_Product_NamesHydrogen">Empower</span> does not support the <span class="uielement">Variable for content and validation</span> setting on any objects. To resolve this issue, you can remove objects that use that setting, or, when running the engine to create your Empower output, you add the <code>FILTER_FTV_EDITABLE_AREAS</code> switch to your control file so that the engine will remove formatted text variables that are set as the variable for content and validation on editable areas from the resulting <span class="_Exstream_Product_NamesHydrogen">Empower</span> document.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Saving and navigation</td>
+                        <td>If you are running <span class="_Exstream_Product_NamesHydrogen_Server">Empower Server</span> version 16.2 or later, and an end user running a version of <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> earlier than 16.2 attempts to navigate between pages or save an <span class="_Exstream_Product_NamesHydrogen">Empower</span> document that was created using <span class="_Exstream_Product_NamesDesignAndProduction_Short">Design and Production</span> version 16.2 or later, <span class="_Exstream_Product_NamesHydrogen">Empower</span> returns a 403 error.</td>
+                        <td>Upgrade to <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> 16.2 or later.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Section-driven documents</td>
+                        <td>
+                            <p>If your <span class="_Exstream_Product_NamesHydrogen">Empower</span> document contains section-driven documents, and the image that populates the object comes from a placeholder variable that is mapped in both customer and section data, then two separate issues can occur:
+</p>
+                            <ul>
+                                <li value="1">When you run the <span class="_Exstream_Product_NamesExstream">Exstream</span> engine, an incorrect image can appear in fulfilled output (specifically, the image from the section-driven document might appear in the customer document).</li>
+                                <li value="2">When an end user uploads an image to the empty image object in the customer document and then previews the document, <span class="_Exstream_Product_NamesHydrogen">Empower</span> incorrectly shows the image from the first section in preview. </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <p>Do not map the same image placeholder variable in both customer and section data.</p>
+                            <div class="Admonition_Important">
+                                <p data-mc-autonum="&lt;b&gt;Important: &lt;/b&gt;"><span class="autonumber"><span><b>Important: </b></span></span>This can be resolved by upgrading to version 16.4.10 of the <span class="_Exstream_Product_NamesExstream">Exstream</span> engine.</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Section-driven documents</td>
+                        <td>In a section-driven document that contains multiple empty image objects that are not controlled by placeholder variables, when an end user uploads an image in the first empty image object, the same image appears in subsequent empty image objects.
+</td>
+                        <td>To make an empty image object section-specific, you must tie it to a placeholder variable.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Spell check</td>
+                        <td>If you add an embedded object (such as an inline button) to an editable text area in an <span class="_Exstream_Product_NamesHydrogen">Empower</span> document, the red underline on any misspelled words that are on the same line as the button appears in the middle of the words instead of beneath them.</td>
+                        <td>
+                            <p>No workaround. This issue affects only <span class="_Exstream_Product_NamesHydrogen">Empower</span> documents that are opened in Internet Explorer, and does not affect fulfillment or final output.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Spell check</td>
+                        <td>When your <span class="_Exstream_Product_NamesHydrogen">Empower</span> document uses languages without an available spelling dictionary (such as Chinese), all words in editable areas appear as misspelled words underlined in red.</td>
+                        <td>
+                            <p>No workaround. End users cannot turn off spell checking in <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>. </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Symbol fonts</td>
+                        <td>In Firefox, other fonts may be substituted for instances of symbol-type fonts  in <span class="_Exstream_Product_NamesHydrogen">Empower</span> documents.</td>
+                        <td>
+                            <p>Although this issue causes the document to appear differently than it does in <span class="_Exstream_Product_NamesDesigner">Designer</span>, the issue is cosmetic only and does not affect fulfillment or final output. End users can preview the document to see how the instances of symbol-type fonts should appear.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>String variables</td>
+                        <td>If you use periods to format the value of a string variable (for example, <code>@@@.@@@.@@@@</code> for a phone number), <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> populates the value of the variable with several instances of the string 
+
+					<code>undefined</code>.</td>
+                        <td>
+                            <p>This is a cosmetic issue that does not affect preview or fulfillment. However, you can force <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> to 
+
+							populate the variable values correctly by using <code>\</code> as an escape character before each period (for example, <code>@@@\.@@@\.@@@@</code>) when you define custom 
+
+						formatting on the variable properties in <span class="_Exstream_Product_NamesDesigner">Designer</span> or <span class="_Exstream_Product_NamesDesignManager">Design Manager</span>.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Tables</td>
+                        <td>
+                            <p>In designs that contain flowing tables that are exactly (or nearly) as wide as flow frames, if a table moves into a flow frame in <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>, the table disappears from the <span class="_Exstream_Product_NamesHydrogen">Empower</span> document.</p>
+                        </td>
+                        <td>
+                            <p>  
+						This issue occurs because certain browsers slightly round up the size of objects such as tables so that they are too wide to fit into a similarly sized flow frame. As a result, you should increase the size of flow frames to ensure that they are large enough to accommodate rounding differences on flowing tables.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Tables</td>
+                        <td>
+                            <p>Empty table rows that are set to auto-size height may appear taller in <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> than in preview or fulfilled output.
+						</p>
+                            <p><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> does not collapse empty table rows because end users might need them to be available for editing during the <span class="_Exstream_Product_NamesHydrogen">Empower</span> session. During fulfillment, the engine collapses any table rows that are still empty.
+						</p>
+                        </td>
+                        <td>
+                            <p>This issue is cosmetic only and does not affect fulfillment or final output.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Tables</td>
+                        <td>If end users add column lines to a table in <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>, the overall width of the table shrinks.</td>
+                        <td>Although this issue changes the appearance of the table in <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>, the issue is cosmetic only and does not affect fulfillment or final output. End users can preview the document to see how the table should appear.  </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Tables</td>
+                        <td>If you add an embedded table on the same line as other text, and the table splits, the visual results of a preview or fulfillment might not match what is seen in the <span class="_Exstream_Product_NamesHydrogen">Empower</span> document.</td>
+                        <td>
+                            <p>No workaround.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Tables</td>
+                        <td>If you paste more than one splitting table on the same text line, only one table will appear in the preview or output.</td>
+                        <td>
+                            <p>You can embed more than one table on the same line if they are not set to split. If you need to use multiple splitting embedded tables, place them on separate lines.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Tables</td>
+                        <td>If you paste a table that has a column with a preferred width that is equal to or less than the combined width of the left and right margins of the cells, the table does not render as expected.</td>
+                        <td>
+                            <p>No workaround.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Tab order</td>
+                        <td>If you have a pre-16.2 <span class="_Exstream_Product_NamesHydrogen">Empower</span> document that contains tab-ordered elements and tab-ordered library components, when you use version 16.2 or later of <span class="_Exstream_Product_NamesDesignAndProduction_Full">Exstream Design and Production</span> to repackage the application so that you can regenerate the <span class="_Exstream_Product_NamesHydrogen">Empower</span> document, the tab order in the resulting <span class="_Exstream_Product_NamesHydrogen">Empower</span> document changes.</td>
+                        <td>
+                            <p>Beginning with version 16.2, <span class="_Exstream_Product_NamesDesignAndProduction_Full">Exstream Design and Production</span> and <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> do a better job of handling designs that contain tab-ordered elements alongside tab-ordered library components. You might have to slightly adjust the tab order in <span class="_Exstream_Product_NamesDesigner">Designer</span> to accommodate the changes to tab order. </p>
+                            <p>You can read about using tab-ordered library components in your tab-ordered <span class="_Exstream_Product_NamesHydrogen">Empower</span> documents   in <span class="emphasis-italic">Designing for <span class="_Exstream_Product_NamesHydrogen_Full">Exstream Empower Editor</span></span>.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Tabs</td>
+                        <td>If end users add tabs to the end of a right- or center-aligned line of text, the tabs do not appear in preview, fulfillment, or final output.</td>
+                        <td>
+                            <p>End users should not add tabs to the end of a right- or center-aligned line of text. Although the tabs appear in <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>, the issue is cosmetic only and does not affect preview, fulfillment, or final output. </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Text (appearance)</td>
+                        <td>In <span class="_Exstream_Product_NamesDesigner">Designer</span>, if you set a specific height for a text box or table, some of the text in the text box or table might not appear, or might appear outside the text box or table in <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>.</td>
+                        <td>
+                            <p>As a design best practice for <span class="_Exstream_Product_NamesHydrogen">Empower</span> documents, set the height of text boxes and tables to be autosized in <span class="_Exstream_Product_NamesDesigner">Designer</span> (on the <span class="uielement">Dynamic Size and Placement</span> tab of the text box or table properties, the <span class="uielement">Autosize height</span> check box).</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Text</td>
+                        <td>
+                            <p>When end users paste content into existing content that uses different paragraph justification, the existing content assumes the paragraph justification of the pasted content.</p>
+                        </td>
+                        <td>
+                            <p>In order to retain paragraph justification, content must be pasted onto a blank line.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Text boxes</td>
+                        <td>When the point where a text box splits is followed by one or more blank lines, <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> honors the blank lines both in the <span class="_Exstream_Product_NamesHydrogen">Empower</span> document and in preview. However, in fulfilled output, the engine removes the blank lines.</td>
+                        <td>
+                            <p>If you want any blank lines that occur at the point where a text box splits to appear in fulfilled output, you must use the KEEP_SPLIT_WHITESPACE engine switch in your control file when you run the engine for fulfillment.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Text boxes</td>
+                        <td>If a text box has multiple lines of wrapped text, and the <span class="uielement">Wrap Line</span> check box is cleared, selecting all the text and typing does not replace the selected text as expected.</td>
+                        <td>
+                            <p>If you need to remove or replace the text in the text box, you can delete the text character-by-character using the DELETE or BACKSPACE key on your keyboard, or by selecting all of the text and pressing DELETE. After that, you can then type new text as needed.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Variable validation</td>
+                        <td>If your <span class="_Exstream_Product_NamesHydrogen">Empower</span> document uses variable validation on a list control that is populated by an array variable, end users cannot make a selection if any of the variable values are invalid.</td>
+                        <td>
+                            <p>If you use variable validation, ensure that all elements for array variables used in list controls are valid.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Variables</td>
+                        <td>Variables that are included by rule during an <span class="_Exstream_Product_NamesHydrogen">Empower</span> editing session show the design sample as set on the variable properties in <span class="_Exstream_Product_NamesDesignManager">Design Manager</span> instead of the actual variable value.</td>
+                        <td>
+                            <p>No workaround. This issue occurs when variables that are excluded by rule during the engine run that creates the <span class="_Exstream_Product_NamesHydrogen">Empower</span> document use a substitution timing of <span class="uielement">Initial Engine run only</span> (set in <span class="_Exstream_Product_NamesDesigner">Designer</span>, on the <span class="uielement">Variable Use</span> tab of the variable properties, using the <span class="uielement">When to substitute</span> list). You should avoid using variables with <span class="uielement">Initial Engine run only</span> substitution.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Variables (custom formatting)</td>
+                        <td>
+                            <p>If your <span class="_Exstream_Product_NamesHydrogen">Empower</span> document contains variables that use custom formatting, end users see unexpected results for the following combinations of variable types and custom format strings:</p>
+                            <ul>
+                                <li value="1"><span class="emphasis-bold">Float and currency variables—</span>If you use the <code>0</code> and <code>#</code> characters in combination to specify digits and characters that should be dropped, <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> populates variable values with digits in all cases. For example, if you specify a custom string of 0.00#, <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> populates a variable value of 1.23 with 1.230.</li>
+                                <li value="2">
+                                    <p><span class="emphasis-bold">String variables—</span>If you use the <code>&amp;</code> character (to specify a character or a space) and the <code>@</code> character (to specify a character or nothing) in combination, <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> does not populate variable values as expected.</p>
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <p>No workaround. Avoid using the specified combinations of variable types and custom format strings (in <span class="_Exstream_Product_NamesDesignManager">Design Manager</span>, on the variable properties, on the <span class="uielement">Output Format</span> tab, the <span class="uielement">Custom format string</span> box; and in <span class="_Exstream_Product_NamesDesigner">Designer</span>,
+						on the variable properties, on the <span class="uielement">Variable Use</span> tab, with <span class="uielement">Custom</span> selected in the <span class="uielement">Special Formatting</span> drop-down list, the box below the drop-down list).</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>
+                        </td>
+                        <td>Variables (output formatting)</td>
+                        <td>
+                            <p>When you apply output formatting to an editable variable in <span class="_Exstream_Product_NamesDesigner">Designer</span> or <span class="_Exstream_Product_NamesDesignManager">Design Manager</span> (in <span class="_Exstream_Product_NamesDesigner">Designer</span>, the <span class="uielement">Special Formatting</span> drop-down list on the <span class="uielement">Variable Use</span> tab of the variable properties; in <span class="_Exstream_Product_NamesDesignManager">Design Manager</span>, the <span class="uielement">Output format</span> drop-down list on the <span class="uielement">Output Format</span> tab of variable properties), while end users edit the variable in an <span class="_Exstream_Product_NamesHydrogen">Empower</span> document, <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> shows the actual variable value, without applying any formatting settings. 
+
+						</p>
+                            <p>For example, suppose that you want the value for a variable to appear in all caps, so you apply the <span class="uielement">Upper, Keep Blanks</span> setting in <span class="_Exstream_Product_NamesDesigner">Designer</span> or <span class="_Exstream_Product_NamesDesignManager">Design Manager</span>. Even if the actual variable value is <kbd>abcd</kbd>, <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> initially populates the variable with the correctly formatted value of <kbd>ABCD</kbd>. When an end user clicks the editable variable area, however, <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> changes the variable to its actual value (<kbd>abcd</kbd>), and then allows the end user to enter any value (including lower-case). When the end user selects an area outside of the editable variable area, <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> once again applies the correct (upper-case) formatting to the variable value.</p>
+                        </td>
+                        <td>
+                            <p>
+
+						This issue is cosmetic only and does not affect fulfillment or final output. The engine honors all output formatting for variables when creating output from edited <span class="_Exstream_Product_NamesHydrogen">Empower</span> documents.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogen">Empower</span> and <span class="_Exstream_Product_NamesDesigner">Designer</span></td>
+                        <td>Page number variables</td>
+                        <td>If your design includes page number variables on flow pages, the page numbers do not appear as expected in fulfilled output.
+</td>
+                        <td>
+                            <p>When adding page number variables to flow pages, use a substitution timing of <span class="uielement">Initial Engine, Interactive Editor, and Final Engine</span> (set in <span class="_Exstream_Product_NamesDesigner">Designer</span>, on the <span class="uielement">Variable Use</span> tab of the variable properties, using the <span class="uielement">When to substitute</span> list) to ensure that the engine populates the variable value during fulfillment.</p>
+                            <div class="Admonition_Important">
+                                <p data-mc-autonum="&lt;b&gt;Important: &lt;/b&gt;"><span class="autonumber"><span><b>Important: </b></span></span>This can be resolved by upgrading to version 16.4.6 or 16.4.10 of the <span class="_Exstream_Product_NamesExstream">Exstream</span> engine.</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> and fulfillment</td>
+                        <td>Empty image objects</td>
+                        <td>If you set an empty image object to maintain size from file (on the <span class="uielement">Image</span> tab of the empty image properties, the <span class="uielement">Image placement and size</span> drop-down list), and the image is too large to fit within a page boundary, the image might not appear in Empower Editor; however, it might appear as expected in the fulfilled PDF.</td>
+                        <td>
+                            <p>Do not place images that are too large to fit within page boundaries in <span class="_Exstream_Product_NamesHydrogen">Empower</span> documents.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogen_Admin_Console">Empower Server Console</span>
+                        </td>
+                        <td>User-defined tags</td>
+                        <td>Tags for roles or documents are not case-sensitive, so you cannot apply two tags that differ only by case (such as <kbd>Document</kbd> and <kbd>document</kbd>).</td>
+                        <td>
+                            <p>You can use the <span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span> (which is case-sensitive) to apply tags that differ only by case.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogen_Services">Empower Services Layer</span>
+                        </td>
+                        <td>Clustering (before version 16.4)</td>
+                        <td>
+                            <p>In versions of <span class="_Exstream_Product_NamesHydrogen">Empower</span> earlier than 16.4, it is possible for the index on an <span class="_Exstream_Product_NamesHydrogen">Empower</span> cluster node to become corrupted if, for example, a synchronization operation is interrupted or there is an unplanned power outage. If an index becomes corrupted, end users who attempt to access a resource in the affected repository will receive a 500-level error, and the application server log for the node will include a warning message describing the failed operation.</p>
+                        </td>
+                        <td>
+                            <div class="Admonition_Important">
+                                <p data-mc-autonum="&lt;b&gt;Important: &lt;/b&gt;"><span class="autonumber"><span><b>Important: </b></span></span>This workaround should not be used with <span class="_Exstream_Product_NamesHydrogen">Empower</span> 16.4 or later.</p>
+                            </div>
+                            <p>You must re-index the contents of the repository on each node in the cluster.</p>
+                            <p>To recreate all of the indexes for a node:</p>
+                            <ol>
+                                <li value="1">Stop the <span class="_Exstream_Product_NamesHydrogen">Empower</span> application.</li>
+                                <li value="2">In the <code>empower.home</code> directory for the node, delete the index folder.</li>
+                                <li value="3">Restart the node.</li>
+                                <li value="4">Repeat step 1 through step 3  for each node in the cluster.</li>
+                            </ol>
+                            <p>If an index is missing an update, use one of the following the <span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span> calls to update the indexes:</p>
+                            <p>To re-index all of the repositories for a node:</p><pre class="AllowBreaks" xml:space="preserve">http://&lt;server&gt;:&lt;port&gt;/<br />&lt;EmpowerContext&gt;/console<br />/tools/repository<br />/reindex.jsp?sync=true</pre>
+                            <p>To re-index only editors:</p><pre class="AllowBreaks" xml:space="preserve">http://&lt;server&gt;:&lt;port&gt;/<br />&lt;EmpowerContext&gt;/console<br />/tools/repository<br />/reindex.jsp?<br />sync=true&amp;path=/lib</pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogen_Services">Empower Services Layer</span>
+                        </td>
+                        <td>Installation and upgrade</td>
+                        <td>
+                            <p>When you set up the <span class="_Exstream_Product_NamesHydrogen">Empower</span> repository database using a supported version of a MySQL database, you might receive the following MySQL error:</p>
+                            <p><code>ER_NET_PACKET_TOO_LARGE</code>
+                            </p>
+                        </td>
+                        <td>For information about adjusting the <code>max_allowed_packet</code> variable, see the documentation for your version of MySQL.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogen_Services">Empower Services Layer</span>
+                        </td>
+                        <td>Installation and upgrade</td>
+                        <td>
+                            <p>In versions of <span class="_Exstream_Product_NamesHydrogen">Empower</span> earlier than 16.4, when you install or upgrade <span class="_Exstream_Product_NamesHydrogen">Empower</span> on an application server that is a node in an <span class="_Exstream_Product_NamesHydrogen">Empower</span> cluster, and another instance of JGroups in the same network is broadcasting discovery requests, the following warning message might appear in the application server log when you restart the application server:</p>
+                            <p><code>WARNING: JGRP000010: packet <br />from [hostIp0] has different <br />version ([version1]) than<br />ours ([version2]); packet<br />is discarded</code>
+                            </p>
+                            <p>For example:</p>
+                            <p><code>WARNING: JGRP000010: packet <br />from 16.183.82.8:46655 has <br />different version (3.3.1)<br />than ours (3.6.2); packet<br />is discarded</code>
+                            </p>
+                        </td>
+                        <td>
+                            <div class="Admonition_Important">
+                                <p data-mc-autonum="&lt;b&gt;Important: &lt;/b&gt;"><span class="autonumber"><span><b>Important: </b></span></span>This workaround should not be used with <span class="_Exstream_Product_NamesHydrogen">Empower</span> 16.4 or later.</p>
+                            </div>
+                            <p>Make sure that:</p>
+                            <ul>
+                                <li value="1">Every application server in the <span class="_Exstream_Product_NamesHydrogen">Empower</span> cluster uses the same version of JGroups</li>
+                                <li value="2">Every instance of <span class="_Exstream_Product_NamesHydrogen">Empower</span> in the <span class="_Exstream_Product_NamesHydrogen">Empower</span> cluster uses the same version of JGroups</li>
+                                <li value="3">
+                                    <p>No other JGroups processes on the network are attempting to access the <span class="_Exstream_Product_NamesHydrogen">Empower</span> cluster</p>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogen_Services">Empower Services Layer</span>
+                        </td>
+                        <td>Installation and upgrade</td>
+                        <td>When you use the <span class="_Exstream_Product_NamesHydrogen">Empower</span> migration tool to automatically transfer the contents of the <span class="_Exstream_Product_NamesHydrogen">Empower</span> repository from an older version of <span class="_Exstream_Product_NamesHydrogen">Empower</span> to <span class="_Exstream_Product_NamesHydrogen">Empower</span> 16.4, and the servers that host the old version and the new version of <span class="_Exstream_Product_NamesHydrogen">Empower</span> are located in different time zones, applications are migrated as expected, but no documents are migrated.</td>
+                        <td>When you use the <span class="_Exstream_Product_NamesHydrogen">Empower</span> migration tool to automatically transfer the contents of the <span class="_Exstream_Product_NamesHydrogen">Empower</span> repository from an older version of <span class="_Exstream_Product_NamesHydrogen">Empower</span> to <span class="_Exstream_Product_NamesHydrogen">Empower</span> 16.4, make sure that the servers that host the old version and the new version of <span class="_Exstream_Product_NamesHydrogen">Empower</span> have the same timezone settings.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogen_Services">Empower Services Layer</span>
+                        </td>
+                        <td>Installation and upgrade</td>
+                        <td>When <span class="_Exstream_Product_NamesHydrogen">Empower</span> is installed on an IBM WebSphere application server, <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> end users are not able to preview documents if the preview user and password fields are blank in the <span class="uielement">Environment entries for Web modules</span> in WebSphere, even if Engine as a Web Service (EWS) has not been configured to require authentication.</td>
+                        <td>
+                            <p>In WebSphere, in the <span class="uielement">Environment entries for Web modules</span> settings for your <span class="_Exstream_Product_NamesHydrogen">Empower</span> application, make sure that you provide values for the <code>preview/AdminUser</code> and <code>preview/AdminPsw</code> environment variables.</p>
+                            <p> If EWS has not been configured to require authentication, then enter <code>AdminUser</code> for the preview admin user value, and <code>AdminPsw</code> for the preview admin password value.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> and <span class="_Exstream_Product_NamesHydrogen_Services">Empower Services Layer</span></td>
+                        <td> Installation and upgrade, GZIP compression</td>
+                        <td>When <span class="_Exstream_Product_NamesHydrogen">Empower</span> is installed on an Apache TomEE+ application server that has gzip compression enabled and that uses Java 8 Update 151 through Java 8 Update 161 (8u151 - 8u161), gzip-compressed content is not decoded correctly when documents are opened in <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>.</td>
+                        <td>To correct this issue, upgrade to Java 8 Update 162 or later.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogen_Services">Empower Services Layer</span>
+                        </td>
+                        <td>Performance</td>
+                        <td>If Engine as a Web Service (EWS) and <span class="_Exstream_Product_NamesHydrogen">Empower</span> are installed on&#160;the same server and EWS is configured as the preview provider for <span class="_Exstream_Product_NamesHydrogen">Empower</span>,  performance issues can occur during heavy, concurrent loads (for example, when an <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> end user opens multiple previews in the same editing session). </td>
+                        <td>
+                            <p>As a best practice, do not run EWS and  the <span class="_Exstream_Product_NamesHydrogen_Services">Empower Services Layer</span> on&#160;the same server.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogen_Services">Empower Services Layer</span>
+                        </td>
+                        <td>Performance</td>
+                        <td>When <span class="_Exstream_Product_NamesHydrogen">Empower</span> is installed on an&#160;IBM WebSphere 8.5.5.7 application server, a memory leak that occurs on some WebSphere 8.5.5.7 servers could affect the performance of the <span class="_Exstream_Product_NamesHydrogen">Empower</span> application. If a WebSphere memory leak occurs, <span class="_Exstream_Product_NamesHydrogen">Empower</span> administrators and <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> end users might notice that <span class="_Exstream_Product_NamesHydrogen">Empower</span> operations take longer than expected.</td>
+                        <td>
+                            <p>To reduce the amount of memory used by the IBM StAX parser, try setting the internal buffer size to 2048 bytes in the WebSphere server settings.</p>
+                            <p>On a WebSphere application server, the internal buffer size is controlled by the following property:</p><pre class="AllowBreaks">com.ibm.xml.xlxp2.api.util.<br />encoding.DataSourceFactory.<br />bufferLength</pre>
+                            <p>For more information about configuring WebSphere properties, see the WebSphere documentation.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogen_Services">Empower Services Layer</span>
+                        </td>
+                        <td>Performance</td>
+                        <td>
+                            <p>In versions of <span class="_Exstream_Product_NamesHydrogen">Empower</span> earlier than 16.6, it is possible for the repository database to become corrupted if you use the default database connection pool settings.</p>
+                            <p>If you are running <span class="_Exstream_Product_NamesHydrogen">Empower</span> 16.6.0 or later, using the default  database connection pool settings could result in degraded performance for <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> users.</p>
+                        </td>
+                        <td>
+                            <p>Set the maximum number of connections for your database connection pool to 100, and the minimum number of connections to 10.</p>
+                            <p>For information about configuring connection pool parameters, see the documentation for your application server.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="_Exstream_Product_NamesHydrogen_Services">Empower Services Layer</span>
+                        </td>
+                        <td>Spring Security permissions</td>
+                        <td>Permissions that are added to the <code>customSecurityContext.xml</code> file after the <code>"denyAll"</code> entry fail with a 403 error.</td>
+                        <td>
+                            <p>When you make changes to the <code>customSecurityContext.xml</code> file, do not add permissions after the <code>"denyAll"</code> string:</p><pre class="AllowBreaks" data-mc-conditions="">&lt;!-- Error pages --&gt;
+&lt;intercept-url pattern="/error/**" access="permitAll" /&gt;
+&lt;!-- Deny all other url's --&gt;
+&lt;intercept-url pattern="/**" access="denyAll" /&gt;</pre>
+                            <p>&#160;</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>&#160;</p>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear: both; clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;"><a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Copyright © <span class="_IMP_TemplateVarsCopyrightDateRange_CurrentYear">2019</span>&#160;<span class="Branding_Variables_Company_Legal_Name">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="Branding_Variables_Company_Legal_Name">Open&#160;Text</span>.</a>
+                </p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br /><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <!--QCCR1K4298 START-->
+        <div style="display:none;" id="HPb-Branding-Variables" Footer="Yes" Feedback="Yes">&#160;</div>
+        <script>/* <![CDATA[ */
+            var BrandingVariables = document.getElementById("HPb-Branding-Variables");
+            if(BrandingVariables.getAttribute('Footer')=="No"){document.getElementById('Copyright').style.display = 'none';}
+            if(BrandingVariables.getAttribute('Feedback')=="No"){document.getElementById('Feedback').style.display = 'none';}
+        /* ]]> */</script>
+        <!--QCCR1K4298 END-->
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+            var closeIFrame = function() {
+            $('.MCTopicPopupContainer').remove();
+            $("#mc-background-tint").remove();
+            }
+        </script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+        <script src="../Resources/Scripts/_IMP_init.js">
+        </script>
+        <!-- Include the following files in output -->
+        <p style="visibility:hidden"><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js">frontfileref</a><a href="../Resources/Stylesheets/fonts/_IMP_Lato-Regular.ttf">frontfileref</a><a href="../Resources/Stylesheets/fonts/_IMP_Lato-Bold.ttf">frontfileref</a>
+        </p>
+        <script type="text/javascript">/* <![CDATA[ */
+
+				//Set navigation hotkeys within iframe (must be done separately from top level)
+				window.addEventListener('keyup',
+					function(e) {
+						switch (e.key) {
+							case 'ArrowLeft':
+								MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous");
+								break;
+							case 'ArrowRight':
+								MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next");
+						}
+					}
+				, false);
+
+		/* ]]> */</script>
+    </body>
+</html>

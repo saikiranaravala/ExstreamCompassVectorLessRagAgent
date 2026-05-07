@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="OpenText Exstream (Cloud-Native) Release CE 22.2.0 Web Client Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Viewing resources in asset library views</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Viewing resources in asset library views</h1>
+                <p>In the asset library views, you perform the following general tasks to customize the displayed resource lists in the asset library panel and to view common resource properties.</p>
+                <div class="Admonition_Note">
+                    <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>When resources are created or updated in DAS, the time-stamp is recorded in Coordinated Universal Time (UTC). Therefore, filtering or sorting by date may return unexpected results.</p>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Filtering displayed resources in the asset library panel</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>By default, asset library panels display all of the available resources for each panel. To make it easier to locate a specific resource, you can filter the list of displayed resources. The following table describes the different methods you can use to filter the displayed list.</p>
+                        <table style="width: 100%;margin-left: 0;margin-right: auto;">
+                            <caption>Resource list filters</caption>
+                            <col style="width: 30%;" />
+                            <col style="width: 70%;" />
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <p>Filter type</p>
+                                    </th>
+                                    <th>
+                                        <p>Description</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p>Resource name</p>
+                                    </td>
+                                    <td>
+                                        <p> To filter the displayed list by resource name, use the <span class="uielement">Search</span> box in the top right corner of the asset library panel.</p>
+                                        <div class="Admonition_Tip">
+                                            <p data-mc-autonum="&lt;b&gt;Tip: &lt;/b&gt;"><span class="autonumber"><span><b>Tip: </b></span></span>You can use the <span class="uielement">Search</span> box as follows to help you find items in the list:</p>
+                                            <ul>
+                                                <li>
+                                                    <p>Enter a full or partial search term in the box and then click the search button <img src="../images/b_WebApps_Search.png" class="inline" />.</p>
+                                                </li>
+                                                <li>
+                                                    <p>Click the arrow in the box to show the <span class="uielement">Advanced search options</span>, select one or more filters, and then click&#160;<span class="uielement">Search</span>. For more information, see <a href="../Common/FilteringSearches.htm" class="MCXref xref">Filtering searches</a>.</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <p><span class="emphasis-bold">In the <span class="mc-variable _Exstream_UI_Names.WEB_DesignAssetMgmtView variable">Design asset library view</span> only:&#160;</span>If your deployment supports the advanced search option <a href="../Common/FilteringSearches.htm#Search_text_within_content"><span class="uielement">Search text within content</span></a>, you can find resources in the list that contain messages and clauses with text that matches the search term.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>Resource type</p>
+                                    </td>
+                                    <td>
+                                        <p>To filter the displayed list by resource type, click the resource type selection list and select from the available options. You can select as many resource types as you want. To select all types, simply clear all existing selections.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>Resource properties</p>
+                                    </td>
+                                    <td>
+                                        <ol>
+                                            <li value="1">
+                                                <p>Click  the <span class="uielement">Filter</span> button <img src="../images/b_WebApps_FilterAssets.png" alt="" class="inline" />, specify the following settings as needed:</p>
+                                                <ul>
+                                                    <li>In the <span class="uielement">Created</span> area, use the <span class="uielement">From</span> and <span class="uielement">To</span> boxes to enter a range for the resource creation date. You can also click the calendar button <img src="../images/b_WebApps_CalendarSelector.png" class="inline" alt="" /> to select a date instead of manually entering it.</li>
+                                                    <li>In the <span class="uielement">Updated</span> area, use the <span class="uielement">From</span> and <span class="uielement">To</span> boxes to enter a range for the date that the resource was last updated. You can also click the calendar button <img src="../images/b_WebApps_CalendarSelector.png" class="inline" alt="" /> to select a date instead of manually entering it.</li>
+                                                    <li>
+                                                        <p>In the <span class="uielement">Workflow</span> list, select a resource workflow state.</p>
+                                                        <div class="Admonition_Note">
+                                                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>When you filter by <span class="uielement">Approved</span>, you see the latest approved version of an object, even if there is a later version in a non-approved workflow state.</p>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li value="2">Click <span class="uielement">Apply</span>.</li>
+                                        </ol>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="Admonition_Note">
+                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>Because of the relationship between standard variations and any associated alternate variations, filters are ignored for variations. If your filter includes a standard variation, then all of the alternate variations will appear in the sub-list beneath the standard variation—even if your filter should exclude one or more of the alternate variations.</p>
+                        </div>
+                        <p>By default, the first 25 items are displayed in the asset library panel. To change the number of items displayed in the panel, use the&#160;<span class="uielement">Items per page</span> list. If the number of resources is too large to display in the  panel, you can navigate the list with the page buttons <img src="../images/b_WebApps_PageNavigation.png" class="inline" alt="" />.</p>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Bookmarking a resource</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p> If you work frequently with a specific resource, you can bookmark that resource so that it appears in the <span class="uielement">Favorites</span> list in the asset library panel. To bookmark a resource, point to the resource in the asset library panel, and then click the <span class="uielement">Favorite</span> icon <img src="../images/b_WebApps_Favorite.png" alt="Bookmark icon" style="width: 13px;height: 21px;" title="Bookmark icon" class="inline" /> in the <span class="uielement">Favorites</span> column.</p>
+                        <p>To see the list of bookmarked resources in an asset library panel, click the <span class="uielement">Favorites</span> button. To return to viewing all resources, click the <span class="uielement">Library</span> button.</p>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Customizing the columns in the asset library panel</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>By default, asset library panels show the following information for each resource: <span class="uielement">Name</span>, <span class="uielement">Type</span>, <span class="uielement">Version</span>, <span class="uielement">Created</span>, <span class="uielement">Updated</span>, <span class="uielement">Favorites</span>.</p>
+                        <p>If you want to customize the information that is displayed for each resource, use the <span class="uielement">Column selections</span> list to select or clear applicable check boxes. </p>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Hiding resources in the asset library</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>To hide a selected resource, in the <span class="uielement">Properties</span> panel, click the <span class="uielement">Visible resource</span> <img src="../images/b_WebApps_VisibleResource.png" class="inline" alt="" /> button.</p>
+                        <p>When you hide a resource, all versions of that resource are hidden in all of the views in the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> web client. However, you can view hidden resources in the asset library by clicking the <span class="uielement">Show hidden assets</span> <img src="../images/b_WebApps_ShowHidden.png" alt="" class="inline" />button in the asset library panel. To go back to viewing only visible resources, click the <span class="uielement">Show hidden assets</span> <img src="../images/b_WebApps_ShowVisible.png" alt="" class="inline" /> button again.</p>
+                        <div class="Admonition_Note">
+                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>If a resource is in use and then subsequently hidden, it will still be visible where used. The reference is retained to preserve the current design functionality, but the resource will not be available to be used in a new instance.</p>
+                        </div>
+                        <p>To unhide a previously hidden resource, select the resource in the asset library panel, and then in the <span class="uielement">Properties</span> panel, click the <span class="uielement">Hidden resource</span> <img src="../images/b_WebApps_HiddenResource.png" class="inline" alt="" /> button.</p>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Viewing advanced resource details</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>You can select <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_DesignAsset,_Exstream_Snippets.Webapps_CommunicationAsset,_Exstream_Snippets.Webapps_Orchestration">a resource</MadCap:conditionalText> and see additional information about it that is stored in the asset library.</p>
+                        <p>To see these advanced details for a selected <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_DesignAsset,_Exstream_Snippets.Webapps_CommunicationAsset,_Exstream_Snippets.Webapps_Orchestration">resource</MadCap:conditionalText>, click the <span class="uielement">Advanced</span> button on the <span class="uielement">General</span> tab in the <span class="uielement">Properties</span> panel. The following table describes the information that is displayed for the selected <span><MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_DesignAsset,_Exstream_Snippets.Webapps_CommunicationAsset,_Exstream_Snippets.Webapps_Orchestration">resource</MadCap:conditionalText></span>.</p>
+                        <table style="width: 100%;margin-left: 0;margin-right: auto;caption-side: top;">
+                            <caption>Advanced details</caption>
+                            <col style="width: 30%;" />
+                            <col style="width: 70%;" />
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <p>Item</p>
+                                    </th>
+                                    <th>
+                                        <p>Description</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p><span class="uielement">Name</span>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>The name of the  resource</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><span class="uielement">ID</span>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>The DAS&#160;resource identifier string for the  resource</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><span class="uielement">Version</span>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>The current version of the <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_DesignAsset,_Exstream_Snippets.Webapps_CommunicationAsset,_Exstream_Snippets.Webapps_Orchestration">resource</MadCap:conditionalText>. The version number is incremented every time that a new draft is created from an approved version of the <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_DesignAsset,_Exstream_Snippets.Webapps_CommunicationAsset,_Exstream_Snippets.Webapps_Orchestration">resource</MadCap:conditionalText>.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><span class="uielement">Content type</span>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>The type of <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_DesignAsset,_Exstream_Snippets.Webapps_CommunicationAsset,_Exstream_Snippets.Webapps_Orchestration">resource</MadCap:conditionalText></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><span class="uielement">Description</span>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>The description of the <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_DesignAsset,_Exstream_Snippets.Webapps_CommunicationAsset,_Exstream_Snippets.Webapps_Orchestration">resource</MadCap:conditionalText>, if available</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><span class="uielement">Created</span>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>The  user that created the <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_DesignAsset,_Exstream_Snippets.Webapps_CommunicationAsset,_Exstream_Snippets.Webapps_Orchestration">resource</MadCap:conditionalText>, and the date and time that it was created</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><span class="uielement">Updated</span>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>The  user that last updated the <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_DesignAsset,_Exstream_Snippets.Webapps_CommunicationAsset,_Exstream_Snippets.Webapps_Orchestration">resource</MadCap:conditionalText>, and the date and time that it was updated</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><span class="uielement">Reserved by</span>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>The  user, if any, that has locked the <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_DesignAsset,_Exstream_Snippets.Webapps_CommunicationAsset,_Exstream_Snippets.Webapps_Orchestration">resource</MadCap:conditionalText>. This information is available only if the selected <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_DesignAsset,_Exstream_Snippets.Webapps_CommunicationAsset,_Exstream_Snippets.Webapps_Orchestration">resource</MadCap:conditionalText> is locked for editing.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><span class="uielement">Effective date</span>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>The start date on which the <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_DesignAsset,_Exstream_Snippets.Webapps_CommunicationAsset,_Exstream_Snippets.Webapps_Orchestration">resource</MadCap:conditionalText> is available to be included in customer output. This information is available only for <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> objects.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><span class="uielement">Expiration date</span>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>The date on which the <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_DesignAsset,_Exstream_Snippets.Webapps_CommunicationAsset,_Exstream_Snippets.Webapps_Orchestration">resource</MadCap:conditionalText> is no longer available to be included in customer output. This information is available only for <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> objects.</p>
+                                    </td>
+                                </tr>
+                                <tr data-mc-conditions="_Exstream_Snippets.Webapps_Communications,_Exstream_Snippets.Webapps_DesignAsset,_Exstream_Snippets.Webapps_CommunicationAsset">
+                                    <td>
+                                        <p><span class="uielement">Design pack</span>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>The name, version, and DAS resource ID of the design pack that is associated with the communication. <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_DesignAsset,_Exstream_Snippets.Webapps_CommunicationAsset,_Exstream_Snippets.Webapps_Orchestration"> This information is available only for <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> communications.</MadCap:conditionalText></p>
+                                    </td>
+                                </tr>
+                                <tr data-mc-conditions="_Exstream_Snippets.Webapps_Communications,_Exstream_Snippets.Webapps_CommunicationAsset,_Exstream_Snippets.Webapps_DesignAsset">
+                                    <td>
+                                        <p><span class="uielement">Communication set</span>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>The name, version, and DAS resource ID of the communication set that is associated with the communication. <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_DesignAsset,_Exstream_Snippets.Webapps_CommunicationAsset,_Exstream_Snippets.Webapps_Orchestration"> This information is available only for <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> communications.</MadCap:conditionalText></p>
+                                    </td>
+                                </tr>
+                                <tr data-mc-conditions="_Exstream_Snippets.Webapps_Communications,_Exstream_Snippets.Webapps_CommunicationAsset,_Exstream_Snippets.Webapps_DesignAsset">
+                                    <td>
+                                        <p><span class="uielement">Data source</span>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>The name, version, and DAS resource ID of the data source that is associated with the communication. <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_CommunicationAsset,_Exstream_Snippets.Webapps_DesignAsset,_Exstream_Snippets.Webapps_Orchestration">This information is available only if for <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> communications that use a DAS data source.</MadCap:conditionalText></p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Viewing resource workflow history </a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>To see the workflow history for a selected resource, in the <span class="uielement">Properties</span> panel, click the <span class="uielement">Workflow</span> tab. On this tab, you can see the version history for the resource, the workflow events related to each version, and any comments that were added for each workflow state change.</p>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Viewing resource references</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>You can use the <span class="uielement">References</span> tab in the <span class="uielement">Properties</span> panel to see all of the linked resources for a selected <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_DesignAsset,_Exstream_Snippets.Webapps_CommunicationAsset,_Exstream_Snippets.Webapps_Orchestration">resource</MadCap:conditionalText>, if applicable. </p>
+                        <p>To see the references for a resource: </p>
+                        <ol>
+                            <li value="1">
+                                <p>
+                                    <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_DesignAsset,_Exstream_Snippets.Webapps_Orchestration,_Exstream_Snippets.Webapps_CommunicationAsset">In the asset library panel</MadCap:conditionalText>, select a resource. </p>
+                            </li>
+                            <li value="2">
+                                <p>In the <span class="uielement">Properties</span> panel, click the <span class="uielement">References</span> tab. </p>
+                            </li>
+                            <li value="3">
+                                <p class="ListIntro">To display a list of references for the selected resource, click the following buttons:</p>
+                                <ul>
+                                    <li>
+                                        <p><span class="uielement">Used by</span>—The list shows all of the parent resources that use the selected resource. Keep in mind that this list displays only parent resources with a direct link to the selected resource. Resources that use the parent resources are not listed. This option is selected by default.</p>
+                                    </li>
+                                    <li>
+                                        <p><span class="uielement">Uses</span>—The list shows all of the child resources that are used by the selected resource, including resources that are used by each child resource. </p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li value="4">
+                                <p>To filter the displayed list by resource type, click the resource type selection list and select from the available options. You can select as many resource types as you want. To select all types, simply clear all existing selections.</p>
+                            </li>
+                        </ol>
+                        <p>By default, the first 50 items are displayed in the <span class="uielement">Properties</span> panel. To change the number of items displayed in the panel, use the&#160;<span class="uielement">Items per page</span> list. If the number of resources is too large to display in the  panel, you can navigate the resource list with the page navigation buttons <img src="../images/b_WebApps_PageNavigation.png" class="inline" alt="" />.</p>
+                    </div>
+                </div>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2022</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

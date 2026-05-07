@@ -1,0 +1,1 @@
+define({'skin':{'default':{},'_IMP_HTML5_GHS':{}},'toc':{'default':{'OpenBookIconAlternateText':'Open Book','ClosedBookIconAlternateText':'Closed Book','TopicIconAlternateText':'Topic Icon','MarkAsNewIconAlternateText':'New Topic'}}});

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="OpenText Exstream (Cloud-Native) Release CE 22.2.0 Web Client Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Importing an export package</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Importing an export package</h1>
+                <p>The <span class="uielement">Import</span> option lets you import resources from export packages into a DAS&#160;asset library. Export packages can contain <a href="MigratingCASResources.htm">CAS&#160;resources</a> or <a href="ExportingDASResources.htm">DAS resources</a>. </p>
+                <p class="ListIntro">During an import process, it is possible to encounter conflicts between the resources being imported and the resources that already exist in the destination DAS&#160;asset library. A resource conflict occurs when an incoming resource has the same resource ID and version as an existing resource, but those resources have different content. You can handle resource conflicts using a default resolution policy for import to automatically resolve conflicts during the import process. </p>
+                <div class="Admonition_Note">
+                    <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>If the export package you are importing contains a resource object that exists in another domain in the same tenant, the system does not re-import the resource; rather, it simply associates the resource with the domain you are attempting to import it into. However, changes made to the resource in one domain do not affect the resource in other domains.</p>
+                </div>
+                <p class="subhead">To import an export package:</p>
+                <ol>
+                    <li value="1">
+                        <p>In the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> web client, click the <span class="uielement">Import</span> button  <img src="../images/b_WebApps_AppToolbar_ImportIcon.png" title="Import button" style="width: 47px;height: 47px;vertical-align: text-bottom;" class="inline" /> in the application toolbar.</p>
+                    </li>
+                    <li value="2">
+                        <p>In the <span class="uielement">Import</span> dialog box, click the <span class="uielement">File selection</span> button  <img src="../images/b_WebApps_ImportSelector.png" title="File selector icon for imports" alt="" style="max-height: auto;max-width: 46px;" /> to open the file browser and select the export package that you want to import, then click <span class="uielement">Open</span>. </p>
+                    </li>
+                    <li value="3">
+                        <p>If necessary, in the <span class="uielement">Package password</span> field, enter the password for the export package ZIP file.</p>
+                    </li>
+                    <li value="4">
+                        <p>In the <span class="uielement">Import format</span> list, select one of the following: </p>
+                        <ul>
+                            <li><span class="uielement">DAS</span>—Indicates that the export package contains DAS&#160;resources. This is the default selection.</li>
+                            <li><span class="uielement">CAS</span>—Indicates that the export package contains CAS&#160;resources.</li>
+                        </ul>
+                    </li>
+                    <li value="5">
+                        <p>In the <span class="uielement">Default resolution policy</span> list, select from the following options to set the default resolution policy to use to resolve any resource conflicts that might occur during the import:</p>
+                        <ul>
+                            <li>
+                                <p><span class="uielement">Auto rename</span>—Automatically rename and import conflicted resources. This resolution policy assigns a new name and a randomly generated resource ID&#160;to the imported resource. The import process also updates references to the imported resource with references to the renamed resource. The naming convention for the renamed object is <code>&lt;originalName&gt;_&lt;importTimeStamp&gt;</code>.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Error</span>—Cancel the import and issue an error message. Keep in mind that using this policy will cancel the entire import process if any conflicts are encountered. No resources from the export package will be imported.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Replace</span>—Overwrite resources that exist in the asset library. If the existing resource is in an approved state, the imported resource is stored as a new version of the existing resource. However, if the existing resource is in draft state, the content of the draft version of the existing resource is replaced with the content of the imported resource. Keep in mind that if you have existing resources in review or rejected states, these resource cannot be replaced and the import process will fail. You must first either return the resources to a draft state or approve them and then retry the import.</p>
+                                <p>For example, if versions 1, 2, and 3 of a page resource already exist, but then a conflicting page version 3 is imported, with <span class="uielement">Replace</span> selected, the incoming resource will become version 4.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Skip</span>—Do not import resources that have conflicts. The import process updates references to skipped resources with references to the existing resources in the asset library. You cannot skip required references.</p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li value="6">
+                        <p>Click <span class="uielement">Next</span>. The import process evaluates the selected resource package, and identifies any resource conflicts. </p>
+                        <ul>
+                            <li>If no conflicts are found, then the import is completed and <span class="uielement">Import</span> dialog box displays the list of imported resources. Review this list and click <span class="uielement">Close</span> to close the dialog box. </li>
+                            <li>If resource conflicts are found, then the <span class="uielement">Import</span> dialog box displays the list of resources to be imported. By default, all conflicted resources are set to be resolved using the default resolution policy. To continue the import process, go to the next step. </li>
+                        </ul>
+                    </li>
+                    <li value="7">
+                        <p>Review the displayed list and change the resolution policies for individual resources, if needed. Optionally, use the following lists to filter the displayed resources:</p>
+                        <ul>
+                            <li><span class="uielement">Resource type</span>—Lets you filter the displayed list for a specific resource type</li>
+                            <li><span class="uielement">Status</span>—Lets you filter the displayed list based the conflict</li>
+                        </ul>
+                    </li>
+                    <li value="8">Click <span class="uielement">Import</span>.  The import is completed with all conflicts resolved as specified, and the <span class="uielement">Import</span> dialog box displays the list of imported resources. Review this list and click <span class="uielement">Close</span> to close the dialog box. </li>
+                </ol>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2022</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

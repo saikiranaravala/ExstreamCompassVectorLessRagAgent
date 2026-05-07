@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="Empower Server Console and API" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Using the Empower&#160;API</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <h1>Using the <span class="_Exstream_Product_NamesHydrogen">Empower</span>&#160;API</h1>
+            <p>The <span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span> is a REST interface that lets integrators use API calls to control functions such as importing documents to the <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> interface, opening documents in the editor interface, and exporting documents for fulfillment. The documentation provided here assumes that you are familiar with the principles of software development, APIs, and HTTP protocols.</p>
+            <p>You can use the following topics to learn more about the <span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span>:</p>
+            <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Closed" data-mc-alt2="Open" /></a><a name="APIAuthentication"></a><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_">API&#160;authentication               </a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <p>Access to the <span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span> is defined in the <code>customerSecurityContxt.xml</code> file during installation, and is controlled by the authorization provider that you configure when you set up the Spring Security framework. By default, <span class="_Exstream_Product_NamesHydrogen">Empower</span> supports the <code>administrator</code>, <code>editor</code>, and <code>integrator</code> authorities.</p>
+                    <p>The following table lists the  various components of <span class="_Exstream_Product_NamesHydrogen">Empower</span>, and the API calls that each <span class="_Exstream_Product_NamesHydrogen">Empower</span> authority is authorized to make to that component:</p>
+                    <table style="margin-left: 0;margin-right: auto;">
+                        <col style="width: 200px;" />
+                        <col style="width: 200px;" />
+                        <col style="width: 200px;" />
+                        <col style="width: 200px;" />
+                        <thead>
+                            <tr>
+                                <th>Empower object</th>
+                                <th>Administrator authority permissions</th>
+                                <th>Editor authority permissions</th>
+                                <th>Integrator authority permissions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Applications</td>
+                                <td>
+                                    <ul>
+                                        <li value="1">Create</li>
+                                        <li value="2">Delete</li>
+                                        <li value="3">Read</li>
+                                        <li value="4">Update</li>
+                                    </ul>
+                                </td>
+                                <td>&#160;</td>
+                                <td>
+                                    <ul>
+                                        <li value="1">Read</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Configuration settings</td>
+                                <td>
+                                    <ul>
+                                        <li value="1">Read</li>
+                                        <li value="2">Update</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li value="1">Read</li>
+                                    </ul>
+                                </td>
+                                <td>&#160;</td>
+                            </tr>
+                            <tr>
+                                <td><span class="_Exstream_Product_NamesHydrogen">Empower</span> documents</td>
+                                <td>
+                                    <ul>
+                                        <li value="1">Delete</li>
+                                        <li value="2">Read</li>
+                                        <li value="3">Update</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li value="1">Read</li>
+                                        <li value="2">Update</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li value="1">Create</li>
+                                        <li value="2">Delete</li>
+                                        <li value="3">Read</li>
+                                        <li value="4">Update</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>s</td>
+                                <td>
+                                    <ul>
+                                        <li value="1">Create</li>
+                                        <li value="2">Delete</li>
+                                        <li value="3">Read</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li value="1">Read</li>
+                                    </ul>
+                                </td>
+                                <td>&#160;</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Security settings</p>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li value="1">Create</li>
+                                        <li value="2">Delete</li>
+                                        <li value="3">Read</li>
+                                        <li value="4">Update</li>
+                                    </ul>
+                                </td>
+                                <td>&#160;</td>
+                                <td>&#160;</td>
+                            </tr>
+                            <tr>
+                                <td>System health checks</td>
+                                <td>
+                                    <ul>
+                                        <li value="1">Read</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li value="1">Read</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li value="1">Read</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Closed" data-mc-alt2="Open" /></a><a name="TheAPIFormat"></a><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_">The API&#160;format              </a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <p>Every string that is passed in an <span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span> request must be UTF-8 encoded. For best results,  normalize all strings to the Unicode Normalization Form C (NFC) format.</p>
+                    <p>Dates logged by <span class="_Exstream_Product_NamesHydrogen">Empower</span> operations, such as the document import time and date, are set to Coordinated Universal Time (UTC/GMT). </p>
+                </div>
+            </div>
+            <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Closed" data-mc-alt2="Open" /></a><a name="TheAPIRequestStructure"></a><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_">The API request structure              </a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <p>The <span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span> supports the HTTP DELETE, GET, and POST methods. All <span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span> requests consist of a URL and a header. The body of certain POST requests also include  a payload.</p>
+                    <p>The <span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span> request structure consists of the following elements:</p>
+                    <ul>
+                        <li value="1"><a href="#Request" class="MCXref xref">Request URL</a>
+                        </li>
+                        <li value="2"><a href="#Request2" class="MCXref xref">Request HTTP header</a>
+                        </li>
+                        <li value="3"><a href="#Request3" class="MCXref xref">Request HTTP body</a>
+                        </li>
+                    </ul>
+                    <h2><a name="Request"></a>Request URL</h2>
+                    <p>Use the following format for  request URLs:</p>
+                    <p><code>METHOD https://&lt;server&gt;:&lt;port&gt;/&lt;context&gt;/resource/{resource-name}/{parameters}/{method-name}</code>
+                    </p>
+                    <p>For more information about the variables that are contained in the request URL for each <span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span> call, see the <a href="api_docs.htm"><a href="api_docs.htm" class="MCXref xref">Empower API documentation</a></a>.</p>
+                    <h2><a name="Request2"></a>Request HTTP header</h2>
+                    <p class="intro_phrase">Security token header</p>
+                    <p><span class="_Exstream_Product_NamesHydrogen">Empower</span> requires session-based security tokens for all POST and DELETE API calls. These session-based tokens help to prevent malicious applications or websites from performing unwanted actions through the web browser of a user who has been authenticated to the <span class="_Exstream_Product_NamesHydrogen">Empower</span> server (a type of attack known as a Cross-Site Request Forgery—or CSRF—attack).</p>
+                    <p>Before your integration application can make DELETE and POST API calls, it must use the <a href="get_token_api.html" class="MCXref xref">Get security token</a> API call to capture the token response parameters for the user's current session, and then use the header token name and value in the HTML header for the API calls. </p>
+                    <p>To include the token in a request header, use the following format:</p>
+                    <p><code>{csrfHeader}</code>: <code>{csrfToken}</code></p>
+                    <p>For example:</p>
+                    <p><code>X-CSRF-TOKEN: 95cf86a3-079f-4860-aa62-dd64f8a8c321</code>
+                    </p>
+                    <p>You can also  view the security token by retrieving the <code>XSRF-TOKEN</code> cookie after making an API call from a session that is already in progress.</p>
+                    <div class="Admonition_Note">
+                        <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>Keep in mind that if a session expires or changes, you must acquire a new security token.</p>
+                    </div>
+                    <p class="intro_phrase">XML header</p>
+                    <p>By default, the <span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span> response body contains a JSON payload. To receive an XML response instead of a JSON response, use the following HTTP header in your request:</p>
+                    <p><code>Accept: application/xml</code>
+                    </p>
+                    <h2><a name="Request3"></a>Request HTTP body</h2>
+                    <p><span class="_Exstream_Product_NamesHydrogen">Empower</span> does not support including a body in GET or DELETE requests. </p>
+                    <p>Some POST requests include the <code>application/x-www-form-urlencoded</code> payload type in the body of the request. The <code>multipart/form-data</code> format is used for POST requests that include file uploads.</p>
+                </div>
+            </div>
+            <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Closed" data-mc-alt2="Open" /></a><a name="TheAPIResponseStructure"></a><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_">The API response structure              </a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <p>The <span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span> response consists of the following elements:</p>
+                    <ul>
+                        <li value="1"><a href="#Response" class="MCXref xref">Response HTTP header</a>
+                        </li>
+                        <li value="2"><a href="#HTTP" class="MCXref xref">HTTP response status codes</a>
+                        </li>
+                        <li value="3"><a href="#Response2" class="MCXref xref">Response HTTP body</a>
+                        </li>
+                        <li value="4"><a href="#Examples" class="MCXref xref">Response examples</a>
+                        </li>
+                        <li value="5"><a href="#Respons" class="MCXref xref">Empower&#160;API response messages</a>
+                        </li>
+                    </ul>
+                    <h2><a name="Response"></a>Response HTTP header</h2>
+                    <p>Only header objects that contain a value are returned in the response.</p>
+                    <table style="margin-left: 0;margin-right: auto;">
+                        <col />
+                        <col />
+                        <thead>
+                            <tr>
+                                <th>This header item</th>
+                                <th>Describes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><kbd class="NoWrap">Accept-Language</kbd>
+                                </td>
+                                <td>
+                                    <p>The language requested in the header (if available)</p>
+                                    <p>If the language that was requested in the header is not available, <span class="_Exstream_Product_NamesHydrogen">Empower</span> returns the default language.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><kbd class="NoWrap">Cache-Control</kbd>
+                                </td>
+                                <td>Whether or not the object is publicly accessible</td>
+                            </tr>
+                            <tr>
+                                <td><kbd class="NoWrap">content-disposition</kbd>
+                                </td>
+                                <td>How the content is delivered</td>
+                            </tr>
+                            <tr>
+                                <td><kbd class="NoWrap">Content-Length</kbd>
+                                </td>
+                                <td>The size of the response payload</td>
+                            </tr>
+                            <tr>
+                                <td><kbd class="NoWrap">Content-Type</kbd>
+                                </td>
+                                <td>
+                                    <p>The media type of the response payload
+
+</p>
+                                    <p>The <span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span> supports JSON and XML payloads.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><kbd class="NoWrap">Date</kbd>
+                                </td>
+                                <td>The date and time of the response</td>
+                            </tr>
+                            <tr>
+                                <td><kbd class="NoWrap">HTTP code</kbd>
+                                </td>
+                                <td>The standard HTTP response code</td>
+                            </tr>
+                            <tr>
+                                <td><kbd class="NoWrap">Server</kbd>
+                                </td>
+                                <td>The type and version of the <span class="_Exstream_Product_NamesHydrogen_Server">Empower Server</span></td>
+                            </tr>
+                            <tr>
+                                <td><kbd class="NoWrap">Transfer-Encoding</kbd>
+                                </td>
+                                <td>Whether or not transfer encoding has been applied to the message body</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>&#160;</p>
+                    <p>Example POST response HTTP header:</p>
+                    <p><code>HTTP/1.1 200 OK<br />Cache-Control=private<br />Content-Type=application/json
+<br />Date=Mon, 02 Feb 2015 21:06:42 GMT
+<br />Server=Apache-Coyote/1.1
+<br />Transfer-Encoding=chunked </code><![CDATA[
+]]></p>
+                    <p>Example GET response HTTP header:</p>
+                    <p><code>HTTP/1.1 200 OK</code>
+                        <br /><code>Cache-Control=no-store,no-cache,must-revalidate,max-age=0,s-maxage=0,post-check=0,pre-check=0</code>
+                        <br style="mc-tag-and-class: code;" /><code>Content-Type=application/octet-stream</code>
+                        <br style="mc-tag-and-class: code;" /><code>Date=Mon, 02 Feb 2015 20:58:02 GMT</code>
+                        <br style="mc-tag-and-class: code;" /><code>Pragma=no-cache</code>
+                        <br /><code>Server=Apache-Coyote/1.1</code>
+                        <br style="mc-tag-and-class: code;" /><code>Transfer-Encoding=chunked</code>
+                        <br style="mc-tag-and-class: code;" /><code>content-disposition=inline;filename=x32048.ParagraphObjectShowHideInitiallyShow.459a9127-f45b-435d-8e49-44ad30836d42.zip</code>
+                    </p>
+                    <h2><a name="HTTP"></a>HTTP response status codes</h2>
+                    <table style="margin-left: 0;margin-right: auto;">
+                        <col style="width: 400px;" />
+                        <col style="width: 600px;" />
+                        <thead>
+                            <tr>
+                                <th>Status code</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><kbd class="NoWrap">200: OK</kbd>
+                                </td>
+                                <td>The call succeeded and the requested content is being returned.</td>
+                            </tr>
+                            <tr>
+                                <td><kbd class="NoWrap">400: BAD REQUEST</kbd>
+                                </td>
+                                <td>
+                                    <p>The server was unable to understand the request. This error usually occurs for one of the following reasons:</p>
+                                    <ul>
+                                        <li value="1">There are
+invalid parameters
+</li>
+                                        <li value="2">Mandatory parameters
+are missing</li>
+                                        <li value="3">There is an invalid Accept HTTP request header</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><kbd class="NoWrap">401: UNAUTHORIZED</kbd>
+                                </td>
+                                <td>
+                                    <p>The server was unable to authorize the request. This error usually occurs for one of the following reasons:
+</p>
+                                    <ul>
+                                        <li value="1">An authentication token
+is missing</li>
+                                        <li value="2">An authentication token is invalid</li>
+                                        <li value="3">
+An authentication token signature
+is invalid</li>
+                                        <li value="4">An authentication token signature has expired</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><kbd class="NoWrap">403: FORBIDDEN</kbd>
+                                </td>
+                                <td>The user is logged in, but is not authorized to perform this action.</td>
+                            </tr>
+                            <tr>
+                                <td><kbd class="NoWrap">404: NOT FOUND</kbd>
+                                </td>
+                                <td>The requested record is not available. This error can indicate that the record  never existed or that it has been deleted.</td>
+                            </tr>
+                            <tr>
+                                <td><kbd class="NoWrap">405: METHOD NOT ALLOWED</kbd>
+                                </td>
+                                <td>The method type specified in the request is not valid. For example, the request specified the GET method for a call that requires the POST method.</td>
+                            </tr>
+                            <tr>
+                                <td><kbd class="NoWrap">406: NOT ACCEPTABLE</kbd>
+                                </td>
+                                <td>The specified <code>Accept</code> header is not supported for the call.</td>
+                            </tr>
+                            <tr>
+                                <td><kbd class="NoWrap">415: UNSUPPORTED MEDIA TYPE</kbd>
+                                </td>
+                                <td>The requested media type is not supported for the call.  For example, the call requests the <code>application/x-www-form-urlencoded</code> media type, when only the <code>multipart/form-data</code> media type is supported for this call.</td>
+                            </tr>
+                            <tr>
+                                <td><kbd class="NoWrap">500: INTERNAL SERVICE ERROR</kbd>
+                                </td>
+                                <td>The server failed to fulfill the request and has encountered an error.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h2><a name="Response2"></a>Response HTTP body</h2>
+                    <p><span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span>  calls can return HTML, an <span class="_Exstream_Product_NamesHydrogen">Empower</span> document, or a standard HTTP body. The default  <span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span> response body contains a JSON payload. To generate an XML response instead of a JSON response, use the <code>Accept: application/xml</code> HTTP header in your request.</p>
+                    <p class="intro_phrase">JSON container schema</p>
+                    <p>The following JSON schema defines the structure of the <span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span>&#160;response body:</p><pre class="AllowBreaks" xml:space="preserve">{
+  "id": "/",
+  "type": "object",
+  "properties": {
+    "header": {
+      "id": "header",
+      "type": "object",
+      "properties": {
+        "status": {
+          "id": "status",
+          "type": "object",
+          "properties": {
+            "code": {
+              "id": "code",
+              "type": "string"
+            },
+            "msg": {
+              "id": "msg",
+              "type": "string"
+            }
+          },
+          "required": [
+            "code"
+          ]
+        }
+      },
+      "required": [
+        "status"
+      ]
+    },
+    "body": {
+      "id": "body",
+      "type": "object",
+      "properties": {
+            This depends on the service's method
+      }
+    }
+  },
+  "required": [
+    "header",
+    "body"
+  ]<br />}</pre>
+                    <p class="intro_phrase">XML container schema</p>
+                    <p>The following XML schema defines the structure of the <span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span>&#160;response body:</p><pre class="AllowBreaks" xml:space="preserve">&lt;xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema"&gt;
+    &lt;xs:element name="ResponseContainer"&gt;
+        &lt;xs:complexType&gt;
+            &lt;xs:sequence&gt;
+                &lt;xs:element name="header"&gt;
+                    &lt;xs:complexType&gt;
+                        &lt;xs:sequence&gt;
+                            &lt;xs:element name="status"&gt;
+                                &lt;xs:complexType&gt;
+                                    &lt;xs:sequence&gt;
+                                        &lt;xs:element type="xs:string" name="msg" minOccurs="0"/&gt;
+                                    &lt;/xs:sequence&gt;
+                                    &lt;xs:attribute type="xs:string" name="code"/&gt;
+                                &lt;/xs:complexType&gt;
+                            &lt;/xs:element&gt;
+                        &lt;/xs:sequence&gt;
+                    &lt;/xs:complexType&gt;
+                &lt;/xs:element&gt;
+                &lt;xs:element name="body" minOccurs="0"&gt;
+                    &lt;xs:complexType&gt;
+                        &lt;xs:sequence&gt;
+                            &lt;!-- This depends on the service's method --&gt;
+                            &lt;xs:any processContents="lax"/&gt;
+                        &lt;/xs:sequence&gt;
+                    &lt;/xs:complexType&gt;
+                &lt;/xs:element&gt;
+            &lt;/xs:sequence&gt;
+        &lt;/xs:complexType&gt;
+    &lt;/xs:element&gt;
+&lt;/xs:schema&gt;<br /></pre>
+                    <h2><a name="Examples"></a>Response examples</h2>
+                    <p>To see examples of JSON and XML responses for the API methods that <span class="_Exstream_Product_NamesHydrogen">Empower</span> supports, see the <a href="api_docs.htm" class="MCXref xref">Empower API documentation</a>.</p>
+                    <h2><a name="Respons"></a><span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span> response messages</h2>
+                    <p><span class="_Exstream_Product_NamesHydrogen">Empower</span> response messages include information that you can use for debugging, such as the details of notifications or errors, as well as corresponding message codes.</p>
+                    <p>For information about the API call that returns the <span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span> response codes, see <a href="codes_sys_api.html" class="MCXref xref">View response codes</a>.</p>
+                    <p class="intro_phrase"><span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span> message examples</p>
+                    <p>When you attempt to access a document that does not exist,  the <span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span> returns the following  payload header:</p><pre xml:space="preserve" class="AllowBreaks">{<br />	"ResponseContainer": {<br />		...<br />		"header": {<br />			"status": {<br />				"code": "BUSI110E",<br />				"msg": The following document could not be found: 19b0eb38-0091-48c4-a1a5-417773d103b7."<br />			}<br />		}<br />	}<br />}</pre>
+                    <p>When there are no notifications or errors,  <span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span> returns the following  payload header, which contains a status code of <code>0</code>, and no message:</p><pre xml:space="preserve" class="AllowBreaks">{<br />	"ResponseContainer": {<br />		...<br />		"header": {<br />			"status": {<br />				"code": "0"<br />			}<br />		}<br />	}<br />}</pre>
+                </div>
+            </div>
+            <p><a href="api_docs.htm" class="MCXref xref">Empower API documentation</a>
+            </p>
+            <p><a href="../AdminConsole/TestIntegration.htm" class="MCXref xref">Testing your integration applications</a>
+            </p>
+            <p>&#160;</p>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear: both; clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;"><a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Copyright © <span class="_IMP_TemplateVarsCopyrightDateRange_CurrentYear">2019</span>&#160;<span class="Branding_Variables_Company_Legal_Name">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="Branding_Variables_Company_Legal_Name">Open&#160;Text</span>.</a>
+                </p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br /><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <!--QCCR1K4298 START-->
+        <div style="display:none;" id="HPb-Branding-Variables" Footer="Yes" Feedback="Yes">&#160;</div>
+        <script>/* <![CDATA[ */
+            var BrandingVariables = document.getElementById("HPb-Branding-Variables");
+            if(BrandingVariables.getAttribute('Footer')=="No"){document.getElementById('Copyright').style.display = 'none';}
+            if(BrandingVariables.getAttribute('Feedback')=="No"){document.getElementById('Feedback').style.display = 'none';}
+        /* ]]> */</script>
+        <!--QCCR1K4298 END-->
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+            var closeIFrame = function() {
+            $('.MCTopicPopupContainer').remove();
+            $("#mc-background-tint").remove();
+            }
+        </script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+        <script src="../Resources/Scripts/_IMP_init.js">
+        </script>
+        <!-- Include the following files in output -->
+        <p style="visibility:hidden"><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js">frontfileref</a><a href="../Resources/Stylesheets/fonts/_IMP_Lato-Regular.ttf">frontfileref</a><a href="../Resources/Stylesheets/fonts/_IMP_Lato-Bold.ttf">frontfileref</a>
+        </p>
+        <script type="text/javascript">/* <![CDATA[ */
+
+				//Set navigation hotkeys within iframe (must be done separately from top level)
+				window.addEventListener('keyup',
+					function(e) {
+						switch (e.key) {
+							case 'ArrowLeft':
+								MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous");
+								break;
+							case 'ArrowRight':
+								MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next");
+						}
+					}
+				, false);
+
+		/* ]]> */</script>
+    </body>
+</html>

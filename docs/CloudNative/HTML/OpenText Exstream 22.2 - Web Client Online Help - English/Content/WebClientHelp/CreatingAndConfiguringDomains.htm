@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]|[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="OpenText Exstream (Cloud-Native) Release CE 22.2.0 Web Client Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Creating and configuring domains</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Creating and configuring domains</h1>
+                <p>In an <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> deployment, each tenant is a data-isolated environment. A domain in a tenant is simply a logical grouping of resources in the DAS&#160;asset library. By default, when you add or create a resource, it is associated with the domain in which it is created. However, all resources in a tenant—regardless of the domain with which they are associated—are stored in the same tenant schema in the database. A common scenario for using multiple domains is to separate resources for development, testing, and production. Domains can also be used to separate resources that are used for different business processes or geographical regions. The number of domains that you create in a tenant depends on your specific business needs.</p>
+                <p>When a user signs in to the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> web client, they must select a domain to work in. The <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> role that is assigned to the user determines which domains they can see in Tenant View, and after they select a domain, they can see only those resources that are available to them within that domain. You use the <span class="uielement">Roles</span> panel in <span class="mc-variable _Exstream_UI_Names.WEB_TenantMgmtView variable">Tenant management view</span> to <a href="ManagingUserPermissions.htm#Creating">create roles</a> and <a href="ManagingUserPermissions.htm#Configur">configure permissions</a> for each role.</p>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Creating a new domain</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <ol>
+                            <li value="1">
+                                <p>In the <span class="uielement">Domains</span> panel in <span class="mc-variable _Exstream_UI_Names.WEB_TenantMgmtView variable">Tenant management view</span>, click <span class="emphasis-bold">Add</span>.</p>
+                            </li>
+                            <li value="2">
+                                <p>In the <span class="uielement">Properties</span> panel, enter a name for the new domain in the <span class="uielement">Name</span> box, and optionally, enter a description.</p>
+                            </li>
+                            <li value="3">
+                                <p><a name="Production"></a>If a tenant has both production and non-production keys associated with it, then choose one of the following options to specify which key the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> engine uses for this domain:</p>
+                                <ul>
+                                    <li>
+                                        <p>To use an available production key, select the <span class="uielement">Production</span> check box. </p>
+                                    </li>
+                                    <li>To use an available non-production key, clear the <span class="uielement">Production</span> check box. </li>
+                                </ul>
+                                <div class="Admonition_Important">
+                                    <p data-mc-autonum="&lt;b&gt;Important: &lt;/b&gt;"><span class="autonumber"><span><b>Important: </b></span></span> Be sure to set this correctly when you create a new domain. You cannot modify this setting after you create the domain.</p>
+                                </div>
+                                <p>Keep in mind that if the domain settings specify to use a key type that is not available in the tenant, the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> engine uses whichever key is available. The following table describes how the behavior of the engine changes depending on the key that is used.</p>
+                                <table style="width: 100%;margin-left: 0;margin-right: auto;" summary="List of key types and corresponding engine behavior">
+                                    <col style="width: 20%;" />
+                                    <col style="width: 40%;" />
+                                    <thead>
+                                        <tr>
+                                            <th>Key type</th>
+                                            <th>Engine behavior</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <p>Production key</p>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Output (including preview and simulation)&#160;does not contain the demo watermark. </li>
+                                                    <li>Transaction count is incremented for qualified batch engine runs.</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>Non-production key</p>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Output (including preview and simulation)&#160;contains the demo watermark. </li>
+                                                    <li>Transaction count is not incremented for qualified batch engine runs.</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p>For more information about <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> product keys, see <a href="InstallingProductKeys.htm" class="MCXref xref">Installing product keys for tenants</a>.</p>
+                            </li>
+                            <li value="4">
+                                <p><a name="jobtracing"></a>If you want <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> to track the resources used for each job in the domain, select the <span class="uielement">Job tracing</span> check box.</p>
+                                <p>When enabled, this option traces the <a href="MonitoringOrchestrationJobs.htm#flowtrace">flow instances</a> that correspond to engine orchestration jobs. For each flow instance, it tracks which resources—and which version of those resources—were used, as well as who modified and approved them.</p>
+                            </li>
+                            <li value="5">
+                                <p>Click <span class="uielement">Create</span>.</p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" /></a><a name="Assignin"></a><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead" aria-expanded="false">Assigning roles to <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> groups in a domain</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <ol>
+                            <li value="1">In the <span class="uielement">Domains</span> panel in <span class="mc-variable _Exstream_UI_Names.WEB_TenantMgmtView variable">Tenant management view</span>, select the domain for which you want to define user permissions.</li>
+                            <li value="2">
+                                <p>In the <span class="uielement">Group assignments</span> tab in the <span class="uielement">Properties</span> panel, click the <span class="uielement">Add group assignments</span> button <img src="../images/b_WebApps_AddListItem.png" alt="" class="inline" />.</p>
+                            </li>
+                            <li value="3">
+                                <p>In the <span class="uielement">Group assignments</span> dialog box, use the following methods as needed to list available <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> groups in the <span class="uielement">Groups</span> area:&#160;</p>
+                                <ol>
+                                    <li value="1">To list all available <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> groups, click the <img src="../images/b_WebApps_Search_gray.png" alt="" /> button in the <span class="uielement">Search</span> box. </li>
+                                    <li value="2">To list specific <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> groups that are filtered by name, enter the name or part of the name in the <span class="uielement">Search</span> box, and then click the <img src="../images/b_WebApps_Search_gray.png" alt="" />&#160;button. </li>
+                                    <li value="3">To list all <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> groups in a specific partition, select the partition in the <span class="uielement">Partition</span> list. Keep in mind that once you select a partition, you can switch between partitions but you can no longer see groups from all partitions at the same time.</li>
+                                </ol>
+                            </li>
+                            <li value="4">
+                                <p>In the <span class="uielement">Groups</span> area, complete the following steps to specify the group assignments for the current domain:</p>
+                                <ol>
+                                    <li value="1">In the <span class="uielement">Group ID</span> column, select the <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> groups for which you want to enable access to the current domain.</li>
+                                    <li value="2">In the <span class="uielement">Role</span> column, for each selected <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> group, click the <span class="uielement">Select roles</span> list, and then select the roles that you want to assign to that group.</li>
+                                </ol>
+                            </li>
+                            <li value="5">Click <span class="uielement">Apply</span>.</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Modifying role assignments for an assigned <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> group</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <ol>
+                            <li value="1">In the <span class="uielement">Domains</span> panel in <span class="mc-variable _Exstream_UI_Names.WEB_TenantMgmtView variable">Tenant management view</span>, select the domain for which you want to define user permissions.</li>
+                            <li value="2">
+                                <p>Go to the <span class="uielement">Group assignments</span> tab in the <span class="uielement">Properties</span> panel.</p>
+                            </li>
+                            <li value="3">
+                                <p>In the <span class="uielement">Currently assigned groups</span> area, click the <span class="uielement">Role</span> list for the <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> group for which you want to modify role assignments. </p>
+                            </li>
+                            <li value="4">In the <span class="uielement">Role</span> list, select or clear role assignment check boxes as needed. </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Removing an <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> group assignment from a domain</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <ol>
+                            <li value="1">In the <span class="uielement">Domains</span> panel in <span class="mc-variable _Exstream_UI_Names.WEB_TenantMgmtView variable">Tenant management view</span>, select the domain for which you want to define user permissions.</li>
+                            <li value="2">
+                                <p>Go to the <span class="uielement">Group assignments</span> tab in the <span class="uielement">Properties</span> panel.</p>
+                            </li>
+                            <li value="3">
+                                <p>In the <span class="uielement">Currently assigned groups</span> area, click the <span class="uielement">Remove group assignment</span> button <img src="../images/b_WebApps_RemoveAssignment.png" alt="" class="inline" /> for the <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> group that you want to remove from the current domain. </p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" /></a><a name="SchedulingTasks"></a><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead" aria-expanded="false">Scheduling tasks for a domain</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <ol>
+                            <li value="1">
+                                <p>In the <span class="uielement">Domains</span> panel in <span class="mc-variable _Exstream_UI_Names.WEB_TenantMgmtView variable">Tenant management view</span>, select the domain for which you want to add a scheduled task.</p>
+                            </li>
+                            <li value="2">
+                                <p>In the <span class="uielement">Scheduled tasks</span> tab in the <span class="uielement">Properties</span> panel, click the <span class="uielement">Add scheduled task</span> button <img src="../images/b_WebApps_AddListItem.png" alt="" class="inline" />.</p>
+                            </li>
+                            <li value="3">
+                                <p>In the <span class="uielement">Scheduled task</span> dialog box, specify a name for your task, then specify a <a href="#Cron2">cron expression</a> and a type of action:</p>
+                                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Expire sorting assets</a></span>
+                                    <div class="MCDropDownBody dropDownBody">
+                                        <p>This task expires the sort data and sort index files from a pre-sort run and those stored in the sorting repository. This is used to prevent outdated sorting assets from being processed. Once expired, the assets are not processed anymore.</p>
+                                        <p>When you select this action, the following additional options become available:</p>
+                                        <ul>
+                                            <li>
+                                                <p><span class="uielement">Created</span>—Specify the creation dates for the orchestration jobs that you want to process. </p>
+                                                <ul>
+                                                    <li>
+                                                        <p><span class="uielement">More than ... days before</span>—Specify the number of days that an orchestration job was created before the scheduled task.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><span class="uielement">Fixed dates</span>—Select a specific range of dates during which an orchestration job was created. When you select this option, you can use the calendar controls in the <span class="uielement">From</span> and <span class="uielement">To</span> fields to select specific dates.</p>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <p><span class="uielement">Flow model</span>—Specify the ID of the flow model in the pre-sort run that produced the sorting assets that should be expired.</p>
+                                            </li>
+                                            <li>
+                                                <p><span class="uielement">Communication</span>—Specify the ID of the communication in the pre-sort run that produced the sorting assets that should be expired.</p>
+                                            </li>
+                                            <li>
+                                                <p><span class="uielement">Pre-sort queue name</span>—Specify the name of the pre-sort queue in the pre-sort run that produced the sorting assets that should be expired.</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Mark jobs for deletion</a></span>
+                                    <div class="MCDropDownBody dropDownBody">
+                                        <p>When you select <span class="uielement">Mark jobs for deletion</span>, any qualifying jobs are tagged for removal but not removed from the database. When you select this action, the following additional options become available:</p>
+                                        <ul>
+                                            <li>
+                                                <p><span class="uielement">Start</span>—The <span class="uielement">Start</span> options let you specify the start dates for the orchestration jobs that you want to process. </p>
+                                                <ul>
+                                                    <li>
+                                                        <p><span class="uielement">More than ... days before</span>—Specify the number of days that an orchestration job started before the scheduled task.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><span class="uielement">Fixed dates</span>—Select a specific range of dates during which an orchestration job started. When you select this option, you can use the calendar controls in the <span class="uielement">From</span> and <span class="uielement">To</span> fields to select specific dates.</p>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <p><span class="uielement">Finish</span>—The <span class="uielement">Finish</span> options let you specify the completion dates for the orchestration jobs that you want to process.</p>
+                                                <ul>
+                                                    <li>
+                                                        <p><span class="uielement">More than ... days before</span>—Specify the number of days that an orchestration job completed before the scheduled task.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><span class="uielement">Fixed dates</span>—Select a specific range of dates during which an orchestration job completed. When you select this option, you can use the calendar controls in the <span class="uielement">From</span> and <span class="uielement">To</span> fields to select specific dates.</p>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <p><span class="uielement">Mode</span>—The <span class="uielement">Mode</span> options let you specify which types of orchestration jobs should be processed whenever the scheduled task runs.</p>
+                                                <ul>
+                                                    <li>
+                                                        <p><span class="uielement">Any</span>—Select this option to process all jobs (batch and on-demand)&#160;that meet the criteria for the scheduled task. </p>
+                                                    </li>
+                                                    <li>
+                                                        <p><span class="uielement">Batch</span>—Select this option to process only batch jobs that meet the criteria for the scheduled task.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><span class="uielement">On demand</span>—Select this option to process only on-demand jobs that meet the criteria for the scheduled task.</p>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <p><span class="uielement">Statuses</span>—You can use the <span class="uielement">Statuses</span> options to specify whether to process jobs that ran successfully or unsuccessfully as part of your scheduled task. Both options will be processed if you select neither check box or both check boxes.</p>
+                                                <ul>
+                                                    <li>
+                                                        <p><span class="uielement">Complete</span>—Select this option to process only orchestration jobs that completed successfully.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><span class="uielement">Error</span>—Select this option to process only orchestration jobs that encountered errors when they ran.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><span class="uielement">Canceled</span>—Select this option to process only orchestration jobs that have been canceled.</p>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Service call</a></span>
+                                    <div class="MCDropDownBody dropDownBody">
+                                        <p>Initiates an orchestration job run at a regularly scheduled interval.  This is done by sending an HTTP request to a published HTTPS input channel. The HTTPS input channel must use the input selector processor as an after-event in order to process the body of the HTTP request properly. The body of the HTTP request contains the input channel used to retrieve the driver file for triggering the job and the relative path to the driver file. Optionally, the retrieved driver file can be cached for a specified number of days. The input selector processor uses this information to make the driver file available to the orchestration job.</p>
+                                        <p>When you select this action, the following additional options become available:</p>
+                                        <ul>
+                                            <li>
+                                                <p><span class="uielement">Service name</span>—Select the HTTP connector to associate with the task.</p>
+                                            </li>
+                                            <li>
+                                                <p><span class="uielement">Input channel</span>—Select the input connector  used to retrieve the file in the input path.</p>
+                                            </li>
+                                            <li>
+                                                <p><span class="uielement">Input path</span>—The path to the file to retrieve; this is the relative path to what is defined in the input channel.</p>
+                                            </li>
+                                            <li>
+                                                <p><span class="uielement">Caching</span>—Specify the number of days for the caching timeout.</p>
+                                            </li>
+                                        </ul>
+                                        <div class="Admonition_Note">
+                                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>The <span class="uielement">Service name</span> and <span class="uielement">Input channel</span> lists are auto-populated with any <a href="PublishingFlows.htm">published</a> connectors in the flow context.</p>
+                                        </div>
+                                        <p>To complete setting up a service call, follow these steps:</p>
+                                        <ol>
+                                            <li value="1">
+                                                <p>Click <span class="uielement">Next</span>.</p>
+                                            </li>
+                                            <li value="2">
+                                                <p>If you want to add one or more key-value pairs to the request header, click the <span class="uielement">Request headers</span> button <img src="../images/b_WebApps_AddListItem.png" alt="" class="inline" /> and fill out the following fields:</p>
+                                                <ul>
+                                                    <li>
+                                                        <p><span class="uielement">Key</span>—Specify the key name for the request header element. This is the name of the orchestration system variable (created in <span class="mc-variable _IMP_Product_Names.Orchestrator_Short variable">Communications Orchestrator</span>).</p>
+                                                        <div class="Admonition_Note">
+                                                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>Keys in the header request are case-insensitive and must be unique.  An error is issued if the user attempts to specify a duplicate key.</p>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <p><span class="uielement">Value</span>—Specify the value of the request header element. This is the value assigned to the orchestration system variable (created in <span class="mc-variable _IMP_Product_Names.Orchestrator_Short variable">Communications Orchestrator</span>).</p>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li value="3">
+                                                <p>Click <span class="uielement">Add</span>.</p>
+                                            </li>
+                                            <li value="4">
+                                                <p>Click <span class="uielement">OK</span>.</p>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                </div>
+                                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Sorting &amp; bundling</a></span>
+                                    <div class="MCDropDownBody dropDownBody">
+                                        <p>This task is used to initiate the post-sort run for the sorting and bundling element. That is, the orchestration service picks sorting assets from the repository that are part of the pre-sort run, merges files, and sorts the assets according to the settings of the sort element. A post-sort run then produces the final documents.</p>
+                                        <p>When you select this action, the following additional options become available:</p>
+                                        <ul>
+                                            <li>
+                                                <p><span class="uielement">Created</span>—Specify the creation dates for the orchestration jobs that you want to process. </p>
+                                                <ul>
+                                                    <li>
+                                                        <p><span class="uielement">More than ... days before</span>—Specify the number of days that an orchestration job was created before the scheduled task.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><span class="uielement">Fixed dates</span>—Select a specific range of dates during which an orchestration job was created. When you select this option, you can use the calendar controls in the <span class="uielement">From</span> and <span class="uielement">To</span> fields to select specific dates.</p>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <p><span class="uielement">Dry run</span>—A dry run is typically used to test settings. If enabled, the processing state of sorting assets is not affected after the dry run, and thus the assets can still be picked up for additional post-sort runs.</p>
+                                            </li>
+                                            <li>
+                                                <p><span class="uielement">Consolidate multiple applications</span>—This setting configures if batch aggregation or application consolidation is used during the post-sort run. If enabled, multiple communications can be selected and are consolidated in the post-sort run.</p>
+                                            </li>
+                                            <li>
+                                                <p><span class="uielement">Flow model</span>—Specify the ID of the flow model that produced the sorting assets  in the pre-sort run.</p>
+                                            </li>
+                                            <li>
+                                                <p><span class="uielement">Communication</span>—Specify the ID of the communication that produced the sorting assets in the pre-sort run. If <span class="uielement">Consolidate multiple applications</span> is checked, you can select multiple communications.</p>
+                                            </li>
+                                            <li>
+                                                <p><span class="uielement">Pre-sort queue name</span>—Specify the name of the pre-sort queue that produced the sorting assets in the pre-sort run.  This can be used to pick up pre-sort assets for a certain desired output format.</p>
+                                            </li>
+                                            <li>
+                                                <p><span class="uielement">Post-sort queue name</span>—Specify the post-sort queue name to use in the post-sort run. If you don't specify a post-sort queue name, then all post-sort queues will be included in the run.</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Update expiration time</a></span>
+                                    <div class="MCDropDownBody dropDownBody">
+                                        <p>By default, all of the jobs, flow instances, and flow steps involved in  batch (asynchronous) processing of orchestration flow are set to the earliest expiration time. The <span class="uielement">Update expiration time</span> task is used to change that expiration.  This option runs according to the cron expression that you specify and does not have additional settings associated with it.</p>
+                                    </div>
+                                </div>
+                                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Wipe jobs</a></span>
+                                    <div class="MCDropDownBody dropDownBody">
+                                        <p>This action removes from the database any qualifying jobs that have previously been marked for deletion. Additionally, wiping a job deletes any files and folders from NFS that are associated with the job. This option runs according to the cron expression that you specify and does not have additional settings associated with it.</p>
+                                    </div>
+                                </div>
+                                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Wipe sorting assets</a></span>
+                                    <div class="MCDropDownBody dropDownBody">
+                                        <p>This action removes  any sorting assets from the database that have previously been marked for deletion.</p>
+                                        <p>When you select this action, the following additional options become available:</p>
+                                        <ul>
+                                            <li>
+                                                <p><span class="uielement">Created</span>—Specify the creation dates for the orchestration jobs that you want to process. </p>
+                                                <ul>
+                                                    <li>
+                                                        <p><span class="uielement">More than ... days before</span>—Specify the number of days that an orchestration job was created before the scheduled task.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><span class="uielement">Fixed dates</span>—Select a specific range of dates during which an orchestration job was created. When you select this option, you can use the calendar controls in the <span class="uielement">From</span> and <span class="uielement">To</span> fields to select specific dates.</p>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <p><span class="uielement">Statuses</span>—You can use the <span class="uielement">Statuses</span> options to specify whether to process jobs that ran successfully or unsuccessfully as part of your scheduled task.</p>
+                                                <ul>
+                                                    <li>
+                                                        <p><span class="uielement">Processed</span>—Select this option to wipe only the assets  that have been processed.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><span class="uielement">Waiting</span>—Select this option to wipe only  the assets that are in a waiting state.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><span class="uielement">Expired</span>—Select this option to wipe only  the assets  that are expired.</p>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <p><span class="uielement">Flow model</span>—Specifies the ID of the flow model in the pre-sort run that produced the sorting assets that should be wiped.</p>
+                                            </li>
+                                            <li>
+                                                <p><span class="uielement">Communication</span>—Specify the ID of the communication in the pre-sort run that produced the sorting assets that should be wiped.</p>
+                                            </li>
+                                            <li>
+                                                <p><span class="uielement">Pre-sort queue name</span>—Specify the name of the pre-sort queue in the pre-sort run that produced the sorting assets that should be wiped.</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li value="4">
+                                <p>Click <span class="uielement">OK</span>.</p>
+                            </li>
+                            <li value="5">
+                                <p>Click <span class="uielement">Save</span>.</p>
+                            </li>
+                        </ol>
+                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Supported cron expressions</a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p><a name="Cron2"></a>Cron expressions for scheduled tasks must have five fields (minutes, hours, day of month, month, day of week). The task scheduler supports the following standard cron expressions:</p>
+                                <table style="width: 100%;margin-left: 0;margin-right: auto;">
+                                    <col />
+                                    <col />
+                                    <col />
+                                    <col />
+                                    <thead>
+                                        <tr>
+                                            <th>Field</th>
+                                            <th>Required</th>
+                                            <th>Values</th>
+                                            <th>Supported special characters</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Minutes</td>
+                                            <td>Yes</td>
+                                            <td>0-59</td>
+                                            <td><kbd>* , -</kbd>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Hours</td>
+                                            <td>Yes</td>
+                                            <td>0-23</td>
+                                            <td><kbd>* , -</kbd>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Day of month</td>
+                                            <td>Yes</td>
+                                            <td>1-31</td>
+                                            <td><kbd>* , -</kbd>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Month</td>
+                                            <td>Yes</td>
+                                            <td>1-12 or JAN-DEC</td>
+                                            <td><kbd>* , -</kbd>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Day of week</td>
+                                            <td>Yes</td>
+                                            <td>0-6 or SUN-SAT</td>
+                                            <td><kbd>* , -</kbd>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="Admonition_Tip">
+                                    <p data-mc-autonum="&lt;b&gt;Tip: &lt;/b&gt;"><span class="autonumber"><span><b>Tip: </b></span></span>You can combine slashes ( <kbd>/</kbd> ) with ranges to specify incremental values. For example, <kbd>*/5</kbd> in the minutes field indicates an event that happens every 5 minutes. <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> does not support other non-standard characters for cron expressions.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Examples of cron expressions</a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p> The following table provides some examples of how cron expressions for scheduled tasks are executed based on the frequency of the task.</p>
+                                <table style="width: 100%;margin-left: 0;margin-right: auto;">
+                                    <col />
+                                    <col />
+                                    <col />
+                                    <col />
+                                    <thead>
+                                        <tr>
+                                            <th>Scheduled task frequency</th>
+                                            <th>Cron expression for scheduled task</th>
+                                            <th>Expected result</th>
+                                            <th>Actual behavior</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td rowspan="3">Every 60 minutes (at minute 0)</td>
+                                            <td><kbd>0 * * * *</kbd>
+                                            </td>
+                                            <td>Runs at minute 0 of each hour</td>
+                                            <td>Runs at minute 0 of each hour</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>*/5 * * * *</kbd>
+                                            </td>
+                                            <td>Runs every five minutes</td>
+                                            <td>Runs once each hour, at minute 0, because the task runs only at minute 0</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>5 * * * *</kbd>
+                                            </td>
+                                            <td>Runs every hour, at minute 5</td>
+                                            <td>Never runs, because the task  runs at minute 0, not minute 5</td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="3">Every 15 minutes (at minute 0, 15, 30, and 45)</td>
+                                            <td><kbd>*/15 * * * *</kbd>
+                                            </td>
+                                            <td>Runs every 15 minutes</td>
+                                            <td>Runs every 15 minutes</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>0 * * * *</kbd>
+                                            </td>
+                                            <td>Runs at minute 0 of each hour</td>
+                                            <td>Runs at minute 0 of each hour</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>*/20 * * * *</kbd>
+                                            </td>
+                                            <td>Runs every 20 minutes, starting at minute 0</td>
+                                            <td>Runs once an hour, at minute 0, because the task  does not run at minutes 20 and 40</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p>Assuming that you use the default timing for your task  (every 60 minutes, at minute 0), the following sample cron expressions might be useful when setting up scheduled tasks:</p>
+                                <table style="width: 100%;margin-left: 0;margin-right: auto;">
+                                    <col />
+                                    <col />
+                                    <thead>
+                                        <tr>
+                                            <th>Cron expression</th>
+                                            <th>Timing for scheduled task</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><kbd>0 2 * * 6</kbd>
+                                            </td>
+                                            <td> Runs at 2:00 a.m. every Saturday</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>0 2 * * 1-5</kbd>
+                                            </td>
+                                            <td>Runs at 2:00 a.m. every Monday-Friday</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>0 23 * * *</kbd>
+                                            </td>
+                                            <td> Runs daily at 11:00 p.m.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>0 2 1 * *</kbd>
+                                            </td>
+                                            <td>Runs on first day of the month at 2:00 a.m.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>0 1 */14 * *</kbd>
+                                            </td>
+                                            <td>Runs twice a month, on day 14 and day 28, at 1:00 a.m.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><kbd>0 1 1,15 * *</kbd>
+                                            </td>
+                                            <td>Runs twice a month, on day 1 and day 15,  at 1:00 a.m.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" /></a><a name="DomainWorkflowType"></a><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead" aria-expanded="false">Configuring a domain to use the simple workflow</a><MadCap:dropDownHotspot><br /></MadCap:dropDownHotspot></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>You can configure one or more domains in a tenant to use the simple workflow instead of the <a href="ManagingApprovalWorkflows.htm">standard workflow</a>. The simple workflow skips the Submitted for approval state. In a domain with simple workflow, if your user role can approve <a href="AssociatingResourcesWithDomains.htm">resources that are associated with the domain</a>, you can approve those resources in one step. For more information about configuring user roles to approve resources, see <a href="ManagingUserPermissions.htm" class="MCXref xref">Configuring roles and permissions</a>.</p>
+                        <p>You can change a the <span class="uielement">Workflow type</span> property for a domain to <span class="uielement">Simple</span> or <span class="uielement">Standard</span> if the tenant-wide <span href="CreatingConfigurations_BCA.htm" class="uielement"><a href="CreatingConfigurations_BCA.htm">Use default workflow</a></span> property for <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> is enabled. When you add a domain, its <span class="uielement">Workflow type</span> property is initially <span class="uielement">Standard</span>. </p>
+                        <div class="Admonition_Note">
+                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>A domain's <span class="uielement">Workflow type</span> property is only visible when the <span class="uielement">Use default workflow</span> check box is selected.</p>
+                            <p>When the <span class="uielement">Use default workflow</span> check box is cleared, the default workflow in each domain, standard or simple, remains available in <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> and in the asset library views.</p>
+                        </div>
+                        <p>If the <span class="uielement">Workflow type</span> for a domain is <span class="uielement">Simple</span>, the resources associated with that domain have the following workflow states and change options:</p>
+                        <table style="width: 100%;">
+                            <col />
+                            <col />
+                            <tbody>
+                                <tr>
+                                    <th>Current state</th>
+                                    <th>Change options for simple workflow</th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>Draft</p>
+                                    </td>
+                                    <td>
+                                        <p><span class="uielement">Approve</span>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Approved</td>
+                                    <td><span class="uielement">Make new draft</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>When you initially enable the simple workflow, some resources might be in the Submitted for approval or Rejected state. In these cases, your change options are as follows:</p>
+                        <table style="width: 100%;">
+                            <col />
+                            <col />
+                            <tbody>
+                                <tr>
+                                    <th>Initial state</th>
+                                    <th>Change options for simple workflow</th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>Submitted for&#160;approval</p>
+                                    </td>
+                                    <td>
+                                        <p><span class="uielement">Approve</span> or <span class="uielement">Return to draft</span></p>
+                                        <div class="Admonition_Note">
+                                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>In the simple workflow, <span class="uielement">Reject</span> is not an option in the Submitted for approval state.</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Rejected</td>
+                                    <td><span class="uielement">Return to draft</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ boldPrint MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />To configure a domain to use the simple workflow:</a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <ol>
+                                    <li value="1">
+                                        <p>Sign in to the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> web client as a tenant administrator user at the following URL:</p>
+                                        <p><code>https://&lt;host&gt;:&lt;optionalPort&gt;/design?tenant=&lt;tenantName&gt;</code>
+                                        </p>
+                                    </li>
+                                    <li value="2">
+                                        <p>Select the <span class="uielement">Tenant management</span> <img src="../images/b_WebApps_AppToolbar_AdminIcon.png" class="inline" alt="" /> button.</p>
+                                    </li>
+                                    <li value="3">
+                                        <p>In the <span class="mc-variable _Exstream_UI_Names.WEB_TenantMgmtView variable">Tenant management view</span>, <a href="CreatingConfigurations_BCA.htm">enable the <span class="uielement">Use default workflow</span> property</a> for <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span>.</p>
+                                        <div class="Admonition_Note">
+                                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>The tenant-wide setting <span class="uielement">Use default workflow</span> affects <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> only.</p>
+                                            <p>The workflow in each domain, standard or simple, is always available in <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> and in the asset library views.</p>
+                                        </div>
+                                    </li>
+                                    <li value="4">
+                                        <p>While in the <span class="mc-variable _Exstream_UI_Names.WEB_TenantMgmtView variable">Tenant management view</span>, select the <span class="uielement">Domains</span> panel and then select the domain in which to change the workflow type.</p>
+                                    </li>
+                                    <li value="5">
+                                        <p>In the <span class="uielement">Properties</span> panel for the domain, select the <span class="uielement">Workflow</span> tab.</p>
+                                        <div class="Admonition_Tip">
+                                            <p data-mc-autonum="&lt;b&gt;Tip: &lt;/b&gt;"><span class="autonumber"><span><b>Tip: </b></span></span>If you do not see the <span class="uielement">Workflow</span> tab, repeat step 3 to enable the <span href="CreatingConfigurations_BCA.htm" class="uielement"><a href="CreatingConfigurations_BCA.htm">Use default workflow</a></span> setting and then repeat step 4.</p>
+                                        </div>
+                                    </li>
+                                    <li value="6">
+                                        <p>In the <span class="uielement">Workflow type</span> list, select <span class="uielement">Simple</span> and click <span class="uielement">Save</span>.</p>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Deleting a domain</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>To delete a domain, select the domain in the <span class="uielement">Domains</span> panel in <span class="mc-variable _Exstream_UI_Names.WEB_TenantMgmtView variable">Tenant management view</span>, and then in the <span class="uielement">Properties</span> panel, click <span class="uielement">Delete</span>.</p>
+                        <div class="Admonition_Note">
+                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>To successfully delete a domain, make sure that the domain does not contain any resources and no roles are currently assigned to that domain.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2022</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

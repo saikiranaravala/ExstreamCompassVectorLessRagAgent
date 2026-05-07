@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="OpenText Exstream (Cloud-Native) Release CE 22.2.0 Web Client Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Understanding tenants and domains</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Understanding tenants and domains</h1>
+                <p>When determining how you want to configure tenants and domains in your containerized <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> deployment, consider the resource sharing needs in your organization, how transactions are counted, and the impact of each deployment approach on database management. These factors will determine how you create and manage tenants and domains.</p>
+                <p>A tenant is a data-isolated environment that users access to complete their daily work. Each tenant in a deployment has associated database schemas for each service in your deployment. The more tenants that you have, the more database schemas you will have to create and manage for the deployment, which requires more synchronization. This can introduce more manual steps into your process and be more difficult to maintain.</p>
+                <p>A domain is a logical grouping of the resources in the DAS asset library. You can have multiple domains in each tenant, all sharing the same database schema. Because all of the resources are contained within a single DAS database schema, resources can be associated with multiple domains in the tenant.</p>
+                <h2>Choosing the right level of data isolation</h2>
+                <p>You can choose to isolate resources in your deployment at the domain level or at the tenant level. If you isolate at the domain level, then all domains in the tenant can share resources and all use the same transaction counting. If you isolate at the tenant level, then resources are not shared between the domains in Tenant A and the domains in Tenant B. Instead, you must <a href="ImportingResourcesDAS.htm">transport the resources</a> between the DAS database in Tenant A and the DAS database in Tenant B. With tenant-level isolation, transactions are counted separately for each tenant. </p>
+                <p>At a high level, if your business requires strict data isolation between business groups—such as would be necessary in the healthcare or financial services industries—then you should use separate tenant environments for each business group to keep sensitive data completely separate. If, however, different groups in your <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> environment need to collaborate closely as they work—such as with separate groups who are developing and testing the same applications—then you might use multiple domains within a single tenant to separate those groups. Whatever the scenario, <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> provides the tools necessary to customize your deployment to meet your specific business needs. </p>
+                <h2>Domain-level content isolation</h2>
+                <p>Domain-level content isolation should be considered if all business units in your organization are able to access the same resources and use the same transaction counting. Because all domains have access to the same resources, it gives you the flexibility to easily make last-minute changes in production. </p>
+                <p>For domain-level content isolation, you can use a single DAS database to share resources across multiple business units in your organization. To isolate content at the domain level, create a tenant, add the required domains to that tenant, and then associate the resources in DAS with each of the domains.</p>
+                <p>For example, suppose that you want to isolate content between Dev, QA, and Prod for each logical business unit. Within a single DAS tenant, you can create three domains for each business unit, all tied to the same DAS database. Using the Exstream web client, you can associate the resources in DAS with each domain that uses the shared assets. Transaction counting is handled by the same OTDS tenant for all business units.</p>
+                <h2>Tenant-level content isolation</h2>
+                <p>Tenant-level content isolation should be considered when your deployment has any of the following requirements:</p>
+                <ul>
+                    <li>Access to DAS resources are restricted by business unit</li>
+                    <li>Transactions are counted by business unit</li>
+                    <li>Security policies differ by business unit</li>
+                </ul>
+                <p>For tenant-level content isolation, you create a tenant for each business unit that requires isolation, which also requires you to create corresponding OTDS tenants, and DAS, Orchestration, and Empower (if needed) databases for each tenant in the deployment.</p>
+                <p>For example, suppose that you want to share resources for development and QA, but want each business unit to have security measures in place for all production content. In that scenario, you would create a development tenant that has separate development and QA&#160;domains for each business unit. You would then create a production tenant for each business unit, each with its own production domain.</p>
+                <p>One thing to note with this approach is that the more isolated your environments, the more manual steps you must complete to transport content from one tenant to another. <span class="mc-variable _IMP_Template_Elements._Company_Acronym variable">OpenText</span> does not recommend transporting content bi-directionally. That is, if you export content from a development tenant and import it into a production tenant, you should not import content from the production tenant back to the development tenant. Doing so can result in version conflicts for updated resources.</p>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2022</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

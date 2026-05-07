@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="Exstream Platform (Server-Based) 23.3 Content Author Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Adding variables to content</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Adding variables to content</h1>
+                <p>Depending on how your communication was designed, you might be able to add variables to text boxes or tables, or directly in text <a href="HelpPopUps/Definition_Messages.htm" class="MCTopicPopup MCTopicPopupHotSpot a aPopup" data-mc-width="auto" data-mc-height="auto">messages</a> or <a href="HelpPopUps/Definition_Clauses.htm" class="MCTopicPopup MCTopicPopupHotSpot a aPopup" data-mc-width="auto" data-mc-height="auto">clauses</a>. You would do this if you are working on a communication that will be sent to multiple customers. In that case, you can add variables to content so that it is personalized for each customer who receives the communication.</p>
+                <p>Simply put, variables are placeholders that are populated with data (such as a customer name or account number) before the communication is sent to a customer. The person who designs your communication determines not only which variables are available for you to use in <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span>, but also whether variables are available at all. Additionally, the designer of the communication has the option to provide a user-friendly name for each variable. So if you are confused about the name of a variable, you should talk to the person who designed the communication.</p>
+                <p>If you are working with a clause that will be editable in <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span>, you will see additional options on the variable card. Select the variable and then click <img src="../images/b_ContentAuthor_InteractiveProps.png" alt="Empower properties button" title="Empower properties button" class="inline" /> on the variable card to set <a href="AddingContentForEmpower.htm#InteractiveVariables">interactive properties</a> for the variable.</p>
+                <div class="Admonition_Tip">
+                    <p data-mc-autonum="&lt;b&gt;Tip: &lt;/b&gt;"><span class="autonumber"><span><b>Tip: </b></span></span>You will see sample data when you add variables to your content. Variables are populated with actual customer data only after you have finalized your changes to each customer communication, and the communication has been approved for production. You can switch between viewing sample data and variable names by clicking <img src="../images/B_ContentAuthor_VariableToggle.png" class="inline" alt="Variable sample data button" title="Variable sample data button" /> on the  toolbar in <span class="mc-variable _Exstream_UI_Names.BCA_AuthoringView variable">Authoring view</span>.</p>
+                </div>
+                <p>One potentially confusing aspect of adding variables to your content is choosing how the data that populates them will be formatted before a communication is sent to customers. For example, you might want to specify that date variables appear in a specific format, such as <code>mm/dd/yyyy</code>.</p>
+                <p>To specify an output format for a variable, select the variable text and then choose an option from the <span class="uielement">Output format</span> list on the card for the variable. Here is a brief description of the output format options that are available for each variable type:</p>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />True/false variables</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <ul>
+                            <li>
+                                <p><span class="uielement">Use Exstream settings</span>—Uses the output format specified by the person who designed the communication.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">T/F</span>—Returns <code>T</code> when the condition is true or <code>F</code> when the condition is false.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Y/N</span>—Returns <code>Y</code> when the condition is true or <code>N</code> when the condition is false.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">1/0</span>—Returns <code>1</code> when the condition is true or <code>0</code> when the condition is false.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">TRUE/FALSE</span>—Returns <code>True</code> when the condition is true or <code>False</code> when the condition is false.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">YES/NO</span>—Returns <code>Yes</code> when the condition is true or <code>No</code> when the condition is false.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Text variables</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>Note that certain text variables do not have output formatting options. If you have questions about the text variables available in your communication, you should talk to the person who designed the communication.</p>
+                        <ul>
+                            <li>
+                                <p><span class="uielement">Use Exstream settings</span>—Uses the output format specified by the person who designed the communication.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Keep blanks</span>—Preserves spaces as they appear in the value.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Trim blanks</span>—Removes all of the spaces found before the first character and after the last character of the text.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Lower, keep blanks</span>—Converts the text to all lowercase characters and preserves all of the spaces as they appear in the text.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Lower + exceptions, keep blanks</span>—Converts the text to all lowercase characters, except those words found in an exceptions file, and preserves all of the spaces as they appear in the text.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Upper, keep blanks</span>—Converts the text to all uppercase characters and preserve all of the spaces as they appear in the text.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Upper + exceptions, keep blanks</span>—Converts the text to all uppercase characters, except those words found in an exceptions file, and preserves all of the spaces as they appear in the text.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">InitCap, keep blanks</span>—Converts the text so that each word begins with an uppercase character and preserves all of the spaces as they appear in the text.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">InitCap, trim blanks</span>—Converts the text so that each word begins with an uppercase character and removes all of the spaces found before the first character and after the last character of the text.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">InitCap + exceptions, keep blanks</span>—Converts the text so that each word begins with an uppercase character, except those words found in an exceptions file, and preserves all of the spaces as they appear in the text.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Sentence, keep blanks</span>—Converts the text so that only the first word of a sentence begins with an uppercase character and preserves all of the spaces as they appear in the text.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Sentence + exceptions, keep blanks</span>—Converts the text so that only the first word of a sentence begins with an uppercase character, except those words found in an exceptions file, and preserves all of the spaces as they appear in the text.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Exceptions only, keep blanks</span>—Converts the words found in the exception file to match their format in the file and preserves all of the spaces as they appear in the text.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Phone number (999) 999-9999</span>—Converts text values to a US-style telephone number with the area code in parentheses and a hyphen between the first three and last four digits of the number.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Phone number (999) 999 9999</span>—Converts text values to a US-style telephone number with the area code in parentheses and a space between the first three and last four digits of the number.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Phone number 999 999-9999</span>—Converts text values to a US-style telephone number with the area code without parentheses and a hyphen between the first three and last four digits of the number.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Phone number 999 999 9999</span>—Converts text values to a US-style telephone number with the area code without parentheses and a space between the first three and last four digits of the number.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Date variables</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <ul>
+                            <li>
+                                <p><span class="uielement">Use Exstream settings</span>—Uses the output format specified by the person who designed the communication.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Multiple date formats</span>—<span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> provides a long list of options for formatting date values (examples: <code>mm/dd/yy</code>, <code>mm-dd-yyyy</code>, <code>mm/yyyy</code>).</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Currency variables</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <ul>
+                            <li>
+                                <p><span class="uielement">Use Exstream settings</span>—Uses the output format specified by the person who designed the communication.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">General number</span>—Uses simple numbers without any special formatting (such as currency symbols).</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Fixed decimal</span>—Adds zeros to pad the number of digits after the decimal point.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Fixed decimal with currency</span>—Inserts a fixed decimal point and the proper currency symbol for the locale.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Fixed or integer with currency</span>—Inserts a whole number if the number does not have a fraction and inserts the proper currency symbol for the locale. If the number has a fraction, the number is formatted as a floating number with the proper currency symbol for the locale in the final customer communication.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Significant decimal</span>—Inserts the least number of decimal values possible after the whole number.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Fixed or integer</span>—Inserts a whole number if the number does not have a fraction. If the number has a fraction, the number appears as a floating number in the final customer communication.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Number variables (with decimals)</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>These options apply to variable values that allow decimals. If you have questions about the number variables that are available, you should talk to the person who designed the communication.</p>
+                        <ul>
+                            <li>
+                                <p><span class="uielement">Use Exstream settings</span>—Uses the output format specified by the person who designed the communication.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">General number</span>—Uses simple numbers without any special formatting (such as commas).</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Percentage</span>—Adds a percent (<code>%</code>) symbol to the end of the number.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Percentage x 100</span>—Adds a percent (<code>%</code>) symbol at the end of the number and multiplies the value by 100. This option lets you format fractions as percents. For example, <code>.75</code> appears as <code>75%</code></p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Fixed decimal</span>—Adds zeros to pad the number of digits after the decimal point.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Fixed decimal with currency</span>—Inserts a fixed decimal point and the proper currency symbol for the locale.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Fixed or integer with currency</span>—Inserts a whole number if the number does not have a fraction and inserts the proper currency symbol for the locale. If the number has a fraction, the number is formatted as a floating number with the proper currency symbol for the locale in the final customer communication.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Significant decimal</span>—Inserts the least number of decimal values possible after the whole number.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Fixed or integer</span>—Inserts a whole number if the number does not have a fraction. If the number has a fraction, the number appears as a floating number in the final customer communication. </p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Absolute value</span>—Converts the values to the absolute value. This option lets you produce a negative number without a negative sign. For example, both <code>1</code> and <code>-1</code> appear as <code>1</code>.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Number variables (whole numbers)</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>These options apply to variable values that require whole numbers. If you have questions about the number variables that are available, you should talk to the person who designed the communication.</p>
+                        <ul>
+                            <li>
+                                <p><span class="uielement">Use Exstream settings</span>—Uses the output format specified by the person who designed the communication.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">General number</span>—Uses simple numbers without any special formatting (such as commas).</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Percentage</span>—Adds a percent (<code>%</code>) symbol to the end of the number.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Text upper (ONE, TWO)</span>—Converts integer values to English uppercase words. For example, <code>1</code> appears as <code>ONE</code>.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Text mixed (One, Two)</span>—Converts integer values to English mixed-case words. For example, <code>1</code> appears as <code>One</code>.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Text lower (one, two)</span>—Converts integer values to English lowercase words. For example, <code>1</code> appears as <code>one</code>.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Alpha upper (A, B, C)</span>—Converts integer values to uppercase alpha characters. Each integer is associated with a letter of the alphabet, all uppercase. If you use a number greater than 26, the alphabet starts over. For example, <code>1</code> appears as <code>A</code> and <code>27</code> appears as <code>AA</code>.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Alpha lower (a, b, c)</span>—Converts integer values to lowercase alpha characters. Each integer is associated with a letter of the alphabet, all lowercase. If you use a number greater than 26, the alphabet starts over. For example, <code>1</code> appears as <code>a</code> and <code>27</code> appears as <code>aa</code>.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Roman upper (I, II, III)</span>—Converts integer values to uppercase Roman numerals.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Roman lower (i, ii, iii)</span>—Converts integer values to lowercase Roman numerals.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Fixed decimal with currency</span>—Inserts a fixed decimal point and the proper currency symbol for the locale.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Fixed or integer with currency</span>—Inserts a whole number if the number does not have a fraction and inserts the proper currency symbol for the locale. If the number has a fraction, the engine formats it as a floating number and inserts the proper currency symbol for the locale.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Absolute value</span>—Converts the values to the absolute value. This option lets you produce a negative number without a negative sign. For example, both <code>1</code> and <code>-1</code> appear as <code>1</code>.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Array variables</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>For array variables, you can specify how the elements in an array will appear in customer output. In the <span class="uielement">Array element to use</span> list, select from the following options:</p>
+                        <ul>
+                            <li>
+                                <p><span class="uielement">Automatic</span>—Automatically imports the first element in the array.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Specified</span>—Imports a specific element in the array. Use the adjacent box to select which element to use.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">All, blanks</span>—Imports all elements in the array, separated by blank spaces.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">All, line breaks</span>—Imports all elements in the array, separated by line breaks.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">All, paragraphs</span>—Imports all elements in the array, separated by blank lines.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">All, print as list</span>—Imports all elements in the array as a delimiter-separated list. Keep in mind that the person who designs your communication determines the delimiter that is used for this setting.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2023</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

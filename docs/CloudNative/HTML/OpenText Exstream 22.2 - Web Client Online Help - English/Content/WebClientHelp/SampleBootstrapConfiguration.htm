@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="OpenText Exstream (Cloud-Native) Release CE 22.2.0 Web Client Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Manually setting up the sample tenant</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Manually setting up the sample tenant</h1>
+                <p>If your initial deployment process did not set up a sample tenant environment, you can use a bootstrap configuration to manually configure a <code>sample</code> tenant with the default domains, roles, and user permissions.</p>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Step 1: Setting up tenant schemas</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>If you are using manual schema management for your <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> databases, then before you can create the <code>sample</code> tenant in your deployment, you will need to first create the tenant schemas for each <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> service as described in the following table.</p>
+                        <div class="Admonition_Note">
+                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>The schema name and schema owner credentials in the following table are the default values that are the same as those used if a <code>sample</code> tenant is automatically configured during deployment. You can use custom user-configured values instead of these default values. If you choose to use custom values, make sure that you also update the default values in the sample bootstrap configuration.</p>
+                        </div>
+                        <table style="width: 100%;margin-left: 0;margin-right: auto;">
+                            <col />
+                            <col />
+                            <col />
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <p>Service</p>
+                                    </th>
+                                    <th>
+                                        <p>Schema name</p>
+                                    </th>
+                                    <th>
+                                        <p>Schema owner</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p>Design</p>
+                                    </td>
+                                    <td>
+                                        <p>exd_test</p>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <li>User name: exd_test</li>
+                                            <li>Password: Exstream1!</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>Orchestration</p>
+                                    </td>
+                                    <td>
+                                        <p>exo_test</p>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <li>User name: exo_test</li>
+                                            <li>Password: Exstream1!</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>exe_test</p>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <li>User name: exe_test</li>
+                                            <li>Password: Exstream1!</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>Experience Insights integration</p>
+                                    </td>
+                                    <td>
+                                        <p>exi_test</p>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <li>User name: exi_test</li>
+                                            <li>Password: Exstream1!</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Step 2:&#160;Creating the sample bootstrap configuration</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>The sample bootstrap configuration contains the values that are used to create <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> users and groups, and configure roles and domains for the <code>sample</code> tenant. The sample bootstrap configuration is specified in the same manner as any other <a href="BootstrapConfigurationParameters.htm">custom bootstrap configuration</a> that is used to create additional tenants in an <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> deployment, that is, you can either add the bootstrap parameters to the values.yaml that you used to initially deploy <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span>, or you can create a separate bootstrap file with those values. Regardless of the method, the sample bootstrap configuration is provided in the following parameter block:</p>
+                        <div class="codeSnippet"><a class="codeSnippetCopyButton" role="button" href="javascript:void(0);">Copy</a>
+                            <div class="codeSnippetCaption">
+                                <p>Bootstrap parameter block</p>
+                            </div>
+                            <div class="codeSnippetBody" data-mc-continue="False" data-mc-line-number-start="1" data-mc-use-line-numbers="False"><pre><code>bootstrap:<br />&#160;&#160;&#160;&#160;enabled: true<br />&#160;&#160;&#160;&#160;config:&#160;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;Enter sample bootstrap configuration parameters&gt;</code></pre>
+                            </div>
+                        </div>
+                        <p>To create a sample tenant with default values, you can use the following bootstrap configuration parameters, which use the same values as those used if a <code>sample</code> tenant is automatically configured during deployment:</p>
+                        <div class="Admonition_Tip">
+                            <p data-mc-autonum="&lt;b&gt;Tip: &lt;/b&gt;"><span class="autonumber"><span><b>Tip: </b></span></span>The sample bootstrap configuration in the documentation is identical to the <code>bootstrap.yaml</code> that is included in the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> Helm chart. You can copy either the contents of that file or the sample in the documentation to create your bootstrap configuration.</p>
+                        </div>
+                        <div style="mc-caption-repeat: true;" class="codeSnippet"><a class="codeSnippetCopyButton" role="button" href="javascript:void(0);">Copy</a>
+                            <div class="codeSnippetCaption">
+                                <p>Sample bootstrap configuration parameters</p>
+                            </div>
+                            <div class="codeSnippetBody" data-mc-continue="False" data-mc-line-number-start="1" data-mc-use-line-numbers="False"><pre><code>otdsAdmin:<br />&#160;&#160;username: otadmin@otds.admin<br />&#160;&#160;password: otds<br /><br />createOauthClients: true<br /><br />tenants:<br />&#160;&#160;sample:<br />&#160;&#160;&#160;&#160;otds:&#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;&#160;&#160;admin:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;username: admin<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;password: Exstream1!&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;&#160;&#160;exstreamAdmin:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;username: tenantadmin@exstream.role<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;password: Exstream1!<br />&#160;&#160;&#160;&#160;&#160;&#160;resources:&#160;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- name: SPS Resource for Non-Prod License<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;description: SPS Resource for DocGen Non-Prod Transactional Licenses<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;licenses:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- username: tenantadmin<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;partition: exstream.role<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;prodLicense: false<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;#file: &lt;Use --set-file to specify a product key file&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- name: SPS Resource for Prod License<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;description: SPS Resource for DocGen Prod Transactional License<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;licenses:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- username: tenantadmin<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;partition: exstream.role<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;prodLicense: true<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;#file: &lt;Use --set-file to specify a product key file&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;partitions:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;exstream.role:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;groups:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- name: tenantadmins<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- name: tenantusers<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- name: reviewers<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- name: browsers<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- name: authors<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- name: designers<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- name: empoweradmins<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- name: empowerintegrators<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- name: empowereditors<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;users:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- username: orchestrationadmin<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;password: Exstream1!<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;membership: [ tenantadmins@exstream.role ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- username: tenantbrowser<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;password: Exstream1!<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;membership: [ browsers@exstream.role ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- username: tenantadmin<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;password: Exstream1!<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;membership: [ tenantadmins@exstream.role, empoweradmins@exstream.role ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- username: tenantuser<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;password: Exstream1!<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;membership: [ tenantusers@exstream.role ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- username: review<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;password: Exstream1!<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;membership: [ reviewers@exstream.role ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- username: cce<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;password: Exstream1!<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;membership: [ tenantadmins@exstream.role, tenantusers@exstream.role ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- username: designer<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;password: Exstream1!<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;membership: [ designers@exstream.role ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- username: author<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;password: Exstream1!<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;membership: [ authors@exstream.role ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- username: empoweradmin<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;password: Exstream1!<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;membership: [ empoweradmins@exstream.role ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- username: empowerintegrator<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;password: Exstream1!<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;membership: [ empowerintegrators@exstream.role ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- username: empowereditor<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;password: Exstream1!<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;membership: [ empowereditors@exstream.role ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;das:<br />&#160;&#160;&#160;&#160;&#160;&#160;# databaseInfo:<br />&#160;&#160;&#160;&#160;&#160;&#160;#&#160;&#160;&#160;schema: exd_test<br />&#160;&#160;&#160;&#160;&#160;&#160;#&#160;&#160;&#160;username: exd_test<br />&#160;&#160;&#160;&#160;&#160;&#160;#&#160;&#160;&#160;password: Exstream1!<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;domains:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- id: Testdomain<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;production: false<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;roleMappings:&#160;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- role: superadmin<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;groups: [ tenantadmins@exstream.role ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- role: bcauser<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;groups: [ authors@exstream.role ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- role: commdesigner<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;groups: [ designers@exstream.role ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- role: tenantuser<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;groups: [ tenantusers@exstream.role ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- role: tenantadmin<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;groups: [ tenantadmins@exstream.role ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- role: reviewer<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;groups: [ reviewers@exstream.role ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- role: readonly<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;groups: [ empoweradmins@exstream.role, empowereditors@exstream.role ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- id: Proddomain<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;production: true<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;roleMappings:&#160;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- role: superadmin<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;groups: [ tenantadmins@exstream.role ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- role: bcauser<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;groups: [ authors@exstream.role ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- role: commdesigner<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;groups: [ designers@exstream.role ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- role: tenantuser<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;groups: [ tenantusers@exstream.role ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- role: tenantadmin<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;groups: [ tenantadmins@exstream.role ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- role: reviewer<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;groups: [ reviewers@exstream.role ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- role: readonly<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;groups: [ empoweradmins@exstream.role, empowereditors@exstream.role ]<br />&#160;&#160;&#160;&#160;&#160;&#160;roles:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- name: superadmin<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;appPermissions: [ COMM_DESIGNER, CONTENT_AUTHOR, DATA_MAPPER, DESIGNER_ASSET_MANAGER, ORCHESTRATOR, MONITOR, ORCHESTRATION_MANAGEMENT,MIGRATION_MANAGEMENT ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;permissions:&#160;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- permissions: [ ALL ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;types: [ all ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- name: bcauser<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;appPermissions: [ CONTENT_AUTHOR ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;permissions:&#160;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- permissions: [ CREATE, READ, WRITE, DELETE ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;types: [ exstrdocument, exstrpage, exstrcomponentobj, exstremail, exstrvariablebase, exstrgraphicalmessage, exstrtextmessage, exstrparagraph, exstrparagraphsection, exstrhtml5, image, samplefile, resourcepack, exstrpackage, exstrdatasource, versionedtemplate, enginerundef, documentdefinition, exstrapplication, exstrbarcode, exstrpapertype ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- name: commdesigner<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;appPermissions: [ COMM_DESIGNER ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;permissions:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- permissions: [ CREATE, READ, WRITE ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;types: [ exstrdocument, exstrpage, exstrcomponentobj, exstremail, exstrvariablebase, exstrgraphicalmessage, exstrtextmessage, exstrparagraph, exstrparagraphsection, exstrhtml5, documentdefinition, image, resourcepack, exstrpackage, exstrdatasource, versionedtemplate, enginerundef, samplefile, exstrapplication, exstrbarcode, exstrpapertype ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- name: reviewer<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;appPermissions: [ CONTENT_AUTHOR,COMM_DESIGNER,ORCHESTRATOR ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;permissions:&#160;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- permissions: [ APPROVE ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;types: [ all ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- name: tenantadmin<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;appPermissions: [ ALL&#160;&#160;]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;permissions:&#160;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- permissions: [ ALL ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;types: [ all ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- name: tenantuser<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;appPermissions: [ ALL ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;permissions:&#160;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- permissions: [ CREATE, READ, WRITE, DELETE ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;types: [ all ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- name: readonly<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;appPermissions: [ ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;permissions:&#160;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- permissions: [ READ ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;types: [ all ]<br /><br />&#160;&#160;&#160;&#160;# Provide tenant username/schema/password if applicable<br />&#160;&#160;&#160;&#160;# orchestration:<br />&#160;&#160;&#160;&#160;#&#160;&#160;&#160;databaseInfo:<br />&#160;&#160;&#160;&#160;#&#160;&#160;&#160;&#160;&#160;schema: exo_test<br />&#160;&#160;&#160;&#160;#&#160;&#160;&#160;&#160;&#160;username: exo_test<br />&#160;&#160;&#160;&#160;#&#160;&#160;&#160;&#160;&#160;password: Exstream1!<br /><br />&#160;&#160;&#160;&#160;# Provide tenant username/schema/password if applicable<br />&#160;&#160;&#160;&#160;# empower:<br />&#160;&#160;&#160;&#160;#&#160;&#160;&#160;databaseInfo:<br />&#160;&#160;&#160;&#160;#&#160;&#160;&#160;&#160;&#160;schema: exe_test<br />&#160;&#160;&#160;&#160;#&#160;&#160;&#160;&#160;&#160;username: exe_test<br />&#160;&#160;&#160;&#160;#&#160;&#160;&#160;&#160;&#160;password: Exstream1!<br /><br />&#160;&#160;&#160;&#160;# Provide tenant username/schema/password if applicable<br />&#160;&#160;&#160;&#160;# ei:<br />&#160;&#160;&#160;&#160;#&#160;&#160;&#160;databaseInfo:<br />&#160;&#160;&#160;&#160;#&#160;&#160;&#160;&#160;&#160;schema: exi_test<br />&#160;&#160;&#160;&#160;#&#160;&#160;&#160;&#160;&#160;username: exi_test<br />&#160;&#160;&#160;&#160;#&#160;&#160;&#160;&#160;&#160;password: Exstream1!<br /></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Step 3:&#160;Creating the sample tenant with a bootstrap configuration</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p class="subhead">To create the <code>sample</code> tenant, run a <code>helm upgrade</code> command with the sample bootstrap parameters. The Helm command that you use to create the <code>sample</code> tenant is similar to the <a href="CreatingTenantsWithBootstrap.htm">Helm command</a> that you would use to create any other additional tenants in an <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> deployment. </p>
+                        <p class="subhead">For example, if you added the bootstrap configuration for the sample tenant, including the product key contents, to a <code>bootstrap_sample.yaml</code> file, then you can use the following Helm command:</p><pre>helm upgrade exstream exstream-&lt;version&gt;.tgz --wait --timeout 30m -f values.yaml -f bootstrap_sample.yaml</pre>
+                    </div>
+                </div>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2022</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

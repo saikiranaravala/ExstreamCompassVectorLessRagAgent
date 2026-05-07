@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="[%=System.LinkedTitle%]|[%=System.LinkedTitle%]|Applications API calls">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="Empower Server Console and API" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="DocVersion" content="" /><title>Get applications</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <h1 class="chapternum">Get applications</h1>
+            <p>The <code>GET</code> API call for applications returns a list of the <span class="_Exstream_Product_NamesHydrogen">Empower</span>  applications that match your request parameters.</p>
+            <h2>Who can access this call</h2>
+            <p>Access to the <span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span> is defined in the <code>customSecurityContext.xml</code> file during installation, and is controlled by your authorization provider. By default, <span class="_Exstream_Product_NamesHydrogen">Empower</span> supports the <code>administrator</code>, <code>editor</code>, and <code>integrator</code> authorities.</p>
+            <p>Authenticated users with any of the following authorities can use this API call:</p>
+            <ul>
+                <li value="1"><code>administrator</code>
+                </li>
+                <li value="2"><code>integrator</code>
+                </li>
+            </ul>
+            <h2 class="title">Request</h2>
+            <table style="margin-left: 0;margin-right: auto;">
+                <col />
+                <col />
+                <thead>
+                    <tr>
+                        <th style="text-align: left;">Request method</th>
+                        <th style="text-align: left;">Syntax</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align: left;">GET</td>
+                        <td style="text-align: left;"><code>/&lt;context&gt;/resource/applications?{parameters}</code>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>The <code>&lt;context&gt;</code> variable is configured during  <span class="_Exstream_Product_NamesHydrogen">Empower</span>&#160;installation. </p>
+            <p>The  <code>{parameters}</code> search variable is optional. If you do not include any parameters, the search returns a list of all <span class="_Exstream_Product_NamesHydrogen">Empower</span>  applications.</p>
+            <p class="Subheading">Request header</p>
+            <table style="width: 100%;margin-left: 0;margin-right: auto;">
+                <col />
+                <col />
+                <col />
+                <col />
+                <thead>
+                    <tr>
+                        <th>Header</th>
+                        <th>Value</th>
+                        <th>Use</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>Accept</code>
+                        </td>
+                        <td><code>application/xml</code>
+                        </td>
+                        <td>Optional</td>
+                        <td>Requests that <span class="_Exstream_Product_NamesHydrogen">Empower</span> return an XML response instead of the default JSON response</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="Subheading">Request parameters</p>
+            <p>You can use the sorting, filtering, searching, and page size parameters to limit the number of <span class="_Exstream_Product_NamesHydrogen">Empower</span>  applications that are returned in a response.</p>
+            <p><span class="emphasis-bold">Sorting</span>
+            </p>
+            <table style="width: 100%;margin-left: 0;margin-right: auto;">
+                <col title="col1" span="1" />
+                <col title="COLSPEC6" span="1" />
+                <col title="COLSPEC5" span="1" />
+                <col title="COLSPEC5" span="1" />
+                <thead>
+                    <tr>
+                        <th rowspan="1" colspan="1">Parameter</th>
+                        <th rowspan="1" colspan="1">Data type</th>
+                        <th>
+                            <p>Use</p>
+                        </th>
+                        <th rowspan="1" colspan="1">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>sortField</code>
+                        </td>
+                        <td>String</td>
+                        <td>Optional</td>
+                        <td>
+                            <p>Returns a list of <span class="_Exstream_Product_NamesHydrogen">Empower</span>  applications that is sorted by the value of the specified <a href="#Application_Response_Parameters">application response parameter</a></p>
+                            <p>The maximum  string length is 50 characters.</p>
+                            <p>This parameter supports the <code>^[A-Za-z]*</code> characters.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>sortOrder</code>
+                        </td>
+                        <td>String</td>
+                        <td>Optional</td>
+                        <td>
+                            <p>Sorts the list of <span class="_Exstream_Product_NamesHydrogen">Empower</span>  applications in ascending or descending order</p>
+                            <p>This parameter can have a value of <code>ASC</code> or <code>DESC</code>.</p>
+                            <div class="Admonition_Note">
+                                <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>If you use the <code>sortField</code> parameter without the <code>sortOrder</code> parameter, the list of applications is sorted in ascending order.</p>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><span class="emphasis-bold">Filtering</span>
+            </p>
+            <p>To filter the results when you search <span class="_Exstream_Product_NamesHydrogen">Empower</span> applications, specify values for one or more of the parameters in the following table.</p>
+            <p>You can use these tips to help you refine your search:</p>
+            <ul>
+                <li value="1">To exclude a string from a filter request, precede the string with a dash (<code>-</code>). When you precede a string with a dash, <span class="_Exstream_Product_NamesHydrogen">Empower</span>&#160;excludes applications that match the string that follows the dash.</li>
+                <li value="2">
+                    <p>To look for a string that begins with a dash, add the backslash (<code>\</code>) escape character just before the dash in your search string. For example, <code>docTag=\-documentname</code>.</p>
+                </li>
+                <li value="3">To narrow the filtering results, you can string multiple parameters together with an ampersand (<code>&amp;</code>). For example, <code>appID=task&amp;accessgroupName=Name</code>.</li>
+            </ul>
+            <table style="width: 100%;margin-left: 0;margin-right: auto;">
+                <col title="col1" span="1" />
+                <col title="COLSPEC6" span="1" />
+                <col title="COLSPEC5" span="1" />
+                <col title="COLSPEC5" span="1" />
+                <thead>
+                    <tr>
+                        <th rowspan="1" colspan="1">Parameter</th>
+                        <th rowspan="1" colspan="1">Data type</th>
+                        <th>Use</th>
+                        <th rowspan="1" colspan="1">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <p><code>accessgroupName</code>
+                            </p>
+                        </td>
+                        <td>
+                            <p>String</p>
+                        </td>
+                        <td>Optional</td>
+                        <td>
+                            <p>Returns a list of the <span class="_Exstream_Product_NamesHydrogen">Empower</span>  applications that have been assigned the specified access group</p>
+                            <p>The maximum  string length is 250 characters.</p>
+                            <p>This parameter supports the <code>^[\\p{L}\\p{M}\\p{N}_\\-\\.\\*\\s"\\\\]*$</code>&#160;characters.</p>
+                            <div class="Admonition_Note">
+                                <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>For more information about how to search for document owners, see <a href="#Using_search_operators">Using search operators</a>.</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>appId</code>
+                        </td>
+                        <td>String</td>
+                        <td>Optional</td>
+                        <td>
+                            <p>The application ID that was generated by <span class="_Exstream_Product_NamesHydrogen">Empower</span></p>
+                            <p>The maximum  string length is 43 characters.</p>
+                            <p>This parameter supports the <code>\p{XDigit}{1,10}-\p{XDigit}{1,10}-\p{XDigit}{1,10}-\p{XDigit}{1,10}</code>&#160;characters.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>applicationName</code>
+                        </td>
+                        <td>String</td>
+                        <td>Optional</td>
+                        <td>
+                            <p>The name of the <span class="_Exstream_Product_NamesExstream">Exstream</span> application that was used to design the document</p>
+                            <p>The maximum  string length is 250 characters.</p>
+                            <p>This parameter supports the <code>^[\p{L}\p{M}\p{N}_\-\.\s]*$</code>&#160;characters.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>applicationOI</code>
+                        </td>
+                        <td>Number</td>
+                        <td>Optional</td>
+                        <td>
+                            <p>The Object Identifier (OI) of the <span class="_Exstream_Product_NamesExstream">Exstream</span>  application</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>applicationPath</code>
+                        </td>
+                        <td>String</td>
+                        <td>Optional</td>
+                        <td>
+                            <p>The folder path of the <span class="_Exstream_Product_NamesExstream">Exstream</span>  application in your installation of <span class="_Exstream_Product_NamesDesignManager">Design Manager</span></p>
+                            <p>The maximum  string length is 250 characters.</p>
+                            <p>This parameter supports the <code>^[\p{L}\p{M}\p{N}_\-\.\/\\\ ]*$</code> characters.&#160;</p>
+                            <div class="Admonition_Note">
+                                <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>If the <span class="_Exstream_Product_NamesExstream">Exstream</span>  application is located in the root folder of your installation of <span class="_Exstream_Product_NamesDesignManager">Design Manager</span>, the <code>applicationPath</code> field will be empty.</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>databaseId</code>
+                        </td>
+                        <td>UUID</td>
+                        <td>Optional</td>
+                        <td>
+                            <p>The database ID that is stored in the <span class="_Exstream_Product_NamesHydrogen">Empower</span>  application</p>
+                            <p>The maximum  string length is 36 characters.</p>
+                            <p>This parameter supports the <code>\p{XDigit}{8}-\p{XDigit}{4}-\p{XDigit}{4}-\p{XDigit}{4}-\p{XDigit}{12}</code>&#160;characters.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>editorVersion</code>
+                        </td>
+                        <td>String</td>
+                        <td>Optional</td>
+                        <td>
+                            <p>The version of the editor that is stored in an <span class="_Exstream_Product_NamesHydrogen">Empower</span>  application and that is assigned to all new documents</p>
+                            <p>The maximum  string length is 250 characters.</p>
+                            <p>This parameter supports the <code>^[a-zA-Z0-9\.]*$</code>&#160;characters.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>engineVersion</code>
+                        </td>
+                        <td>String</td>
+                        <td>Optional</td>
+                        <td>
+                            <p>The version of the engine that was used to package the <span class="_Exstream_Product_NamesExstream">Exstream</span> application</p>
+                            <p>The maximum  string length is 250 characters.</p>
+                            <p>This parameter supports the <code>^[a-zA-Z0-9\.]*$</code>characters.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><code>packageCreationDate</code>
+                            </p>
+                        </td>
+                        <td>Date</td>
+                        <td>Optional</td>
+                        <td>
+                            <p>The date that the package file was created</p>
+                            <p>The date format must be YYYY-MM-ddTHH:mm:ss.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>packageFile</code>
+                        </td>
+                        <td>String</td>
+                        <td>Optional</td>
+                        <td>
+                            <p>The name of the <span class="_Exstream_Product_NamesExstream">Exstream</span>  application package file, including the folder path</p>
+                            <p>The maximum  string length is 500 characters.</p>
+                            <p>This parameter supports the <code>^[\p{L}\p{M}\p{N}_\-\.\:\/\\\ ]*$</code>&#160;characters.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="1">
+                            <p><code>packageVersion</code>
+                            </p>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                            <p>String</p>
+                        </td>
+                        <td>Optional</td>
+                        <td rowspan="1" colspan="1">
+                            <p rowspan="1" colspan="1">The version of <span class="_Exstream_Product_NamesExstream">Exstream</span> that was used to package the application</p>
+                            <p>The maximum  string length is 250 characters.</p>
+                            <p>This parameter supports the <code>^[a-zA-Z0-9\.]*$</code>&#160;characters.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>previewPubFile</code>
+                        </td>
+                        <td>String</td>
+                        <td>Optional</td>
+                        <td>
+                            <p>The name of the <span class="_Exstream_Product_NamesExstream">Exstream</span> package file that all new documents will use to generate PDF previews (when Engine&#160;as a Web Service is configured as the PDF preview provider)</p>
+                            <p>The maximum  string length is 250 characters.</p>
+                            <p>This parameter supports the <code>^[\p{L}\p{M}\p{N}_\-\.\s]*$</code>&#160;characters.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><span class="emphasis-bold">Searching</span>
+            </p>
+            <p> You can search across a set of supported string fields.</p>
+            <div class="Admonition_Note">
+                <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span><span class="_Exstream_Product_NamesHydrogen">Empower</span> does not support using the dash (-) operator to exclude a search term on the <code>q</code> parameter.</p>
+            </div>
+            <table style="width: 100%;margin-left: 0;margin-right: auto;">
+                <col title="col1" span="1" />
+                <col title="COLSPEC6" span="1" />
+                <col title="COLSPEC5" span="1" />
+                <col title="COLSPEC5" span="1" />
+                <thead>
+                    <tr>
+                        <th rowspan="1" colspan="1">Parameter</th>
+                        <th rowspan="1" colspan="1">Data type</th>
+                        <th>
+                            <p>Use</p>
+                        </th>
+                        <th rowspan="1" colspan="1">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>q</code>
+                        </td>
+                        <td>String</td>
+                        <td>Optional</td>
+                        <td>
+                            <p>Returns a list of the <span class="_Exstream_Product_NamesHydrogen">Empower</span>  applications that match the search value that is specified for any of the following indexed string parameter fields:</p>
+                            <ul>
+                                <li value="1"><code>accessgroupName</code>
+                                </li>
+                                <li value="2"><code>appId</code>
+                                </li>
+                                <li value="3"><code>applicationName</code>
+                                </li>
+                                <li value="4"><code>applicationOI</code>
+                                </li>
+                                <li value="5"><code>applicationPath</code>
+                                </li>
+                                <li value="6"><code>databaseId</code>
+                                </li>
+                                <li value="7"><code>editorVersion</code>
+                                </li>
+                                <li value="8"><code>engineVersion</code>
+                                </li>
+                                <li value="9"><code>packageFile</code>
+                                </li>
+                                <li value="10"><code>packageVersion</code>
+                                </li>
+                                <li value="11"><code>previewPubFile</code>
+                                </li>
+                            </ul>
+                            <p>The maximum  string length is 500 characters.</p>
+                            <p>This parameter supports the <code>^[\\p{L}\\p{M}\\p{N}_\\-\\.\\*\\s"\\\\@]*$</code> characters.&#160;</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>You can narrow your search results by structuring your search request and using operators. For more information about using search in the <span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span>, see <a href="get_doc_api.html#Using_search_operators">Using search operators</a>.</p>
+            <p><span class="emphasis-bold">Controlling how search results are displayed</span>
+            </p>
+            <p>When your repository contains a large number of <span class="_Exstream_Product_NamesHydrogen">Empower</span> applications, it is important to consider how your integration application interface will display the results when users search for <span class="_Exstream_Product_NamesHydrogen">Empower</span>  applications. This API call supports several parameters that you can use to control how your integration application displays pages of results, and to help reduce the amount of time that it takes to return search results.</p>
+            <div class="Admonition_Tip">
+                <p data-mc-autonum="&lt;b&gt;Tip: &lt;/b&gt;"><span class="autonumber"><span><b>Tip: </b></span></span>For best results, design your integration application to use searching, filtering, and pagination to return a single page of results.</p>
+            </div>
+            <table style="margin-left: 0;margin-right: auto;width: 100%;">
+                <col title="col1" span="1" />
+                <col title="COLSPEC6" span="1" />
+                <col title="COLSPEC5" span="1" />
+                <col title="COLSPEC5" span="1" />
+                <thead>
+                    <tr>
+                        <th rowspan="1" colspan="1">Parameter</th>
+                        <th rowspan="1" colspan="1">Data type</th>
+                        <th>
+                            <p>Use</p>
+                        </th>
+                        <th rowspan="1" colspan="1">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>limit</code>
+                        </td>
+                        <td>Long</td>
+                        <td>Optional</td>
+                        <td>
+                            <p>Sets a limit on the number of applications that <span class="_Exstream_Product_NamesHydrogen">Empower</span> can return in the response (the page size)</p>
+                            <div class="Admonition_Note">
+                                <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>You must use the <code>limit</code> and <code>offset</code> parameters together.</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>offset</code>
+                        </td>
+                        <td>Long</td>
+                        <td>Optional</td>
+                        <td>
+                            <p>Tells <span class="_Exstream_Product_NamesHydrogen">Empower</span> how many results to skip before returning the first search result </p>
+                            <div class="Admonition_Note">
+                                <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>You must use the <code>limit</code> and <code>offset</code> parameters together.</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr data-mc-conditions="">
+                        <td><code>maxTotal</code>
+                        </td>
+                        <td>Long</td>
+                        <td>Optional</td>
+                        <td>
+                            <p>Tells <span class="_Exstream_Product_NamesHydrogen">Empower</span> to count to the last application  that is returned by the search, or to the  <code>maxTotal</code> number of applications (whichever is larger)</p>
+                            <p>You can use this parameter to decrease the response time for this API call, by limiting the number of applications that are counted during the repository search.</p>
+                            <div class="Admonition_Note">
+                                <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>If you use the <code>maxTotal</code> parameter without specifying  the <code>limit</code> and <code>offset</code> parameters, <span class="_Exstream_Product_NamesHydrogen">Empower</span> sets the default pagination values to <code>limit=maxTotal&amp;offset=0</code>.</p>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="Subheading">Example requests </p>
+            <p>The following examples show how to create various types of requests using some of the parameters that are supported by this API call. Keep in mind that this API call does not support using a request body. </p>
+            <p class="intro_phrase">Example 1:</p>
+            <p>Request a list of all <span class="_Exstream_Product_NamesHydrogen">Empower</span>  applications with no pagination.</p>
+            <table style="margin-left: 0;margin-right: auto;">
+                <col title="COLSPEC9" span="1" />
+                <col title="COLSPEC10" span="1" />
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="1" colspan="1">
+                            <p>Request header</p>
+                        </td>
+                        <td rowspan="1" colspan="1"><code>GET <span class="Basic_Variables_Product_Sample_URI">http://sample-server.example.com</span>:8080/mpw/resource/applications</code>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="intro_phrase">Example 2:</p>
+            <p>Request a single <span class="_Exstream_Product_NamesHydrogen">Empower</span>  application with a specified application ID (if the application exists).</p>
+            <table style="margin-left: 0;margin-right: auto;width: 100%;">
+                <col title="COLSPEC9" span="1" />
+                <col title="COLSPEC10" span="1" />
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="1" colspan="1">
+                            <p>Request header</p>
+                        </td>
+                        <td rowspan="1" colspan="1"><code>GET <span class="Basic_Variables_Product_Sample_URI">http://sample-server.example.com</span>:8080/mpw/resource/applications?appId=51-1115057666-1531728594-0</code>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="intro_phrase">Example 3:</p>
+            <p>Request a list of all <span class="_Exstream_Product_NamesHydrogen">Empower</span>  applications that have been assigned a specified version of the editor, sorted in ascending order by the date that the package was created, and displaying only the first two applications.</p>
+            <table style="margin-left: 0;margin-right: auto;width: 100%;">
+                <col title="COLSPEC9" span="1" />
+                <col title="COLSPEC10" span="1" />
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="1" colspan="1">
+                            <p>Request header</p>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                            <p rowspan="1" colspan="1"><code>GET <span class="Basic_Variables_Product_Sample_URI">http://sample-server.example.com</span>:8080/mpw/resource/applications?editorVersion=1.1.0.7783&amp;sortField=packageCreationDate&amp;limit=2&amp;offset=0</code>
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="intro_phrase">Example 4:</p>
+            <p>Request a list of all <span class="_Exstream_Product_NamesHydrogen">Empower</span>  applications, with pagination that returns applications 51-100 and that counts all of the applications in the repository.</p>
+            <table style="margin-left: 0;margin-right: auto;width: 100%;">
+                <col title="COLSPEC9" span="1" />
+                <col title="COLSPEC10" span="1" />
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="1" colspan="1">
+                            <p>Request header</p>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                            <p rowspan="1" colspan="1"><code>GET <span class="Basic_Variables_Product_Sample_URI">http://sample-server.example.com</span>:8080/mpw/resource/applications?limit=50&amp;offset=50</code>
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Notice that this example uses only the <code>limit</code> and <code>offset</code> parameters. Depending on the size of the applications repository, not including the <code>maxTotal</code> parameter with the <code>limit</code> and <code>offset</code> parameters can result in long response times, because <span class="_Exstream_Product_NamesHydrogen">Empower</span> counts the total number of applications in the repository. However, using only the <code>limit</code> and offset <code>parameter</code> lets you provide your users with the flexibility to go to any page in the results, up to and including the last page.</p>
+            <p>When you use this request example, the integration application interface displays the results on page 2, and lets users move forwards or backwards in the search results, or go to a specific page in the results:</p>
+            <p>
+                <img src="../Resources/Images/maxLimit-unlimited.png" />
+            </p>
+            <p class="intro_phrase">Example 5:</p>
+            <p>Request a list of all <span class="_Exstream_Product_NamesHydrogen">Empower</span>  applications, with pagination that returns documents 101-150 and that counts to the last application  that is returned.</p>
+            <table style="margin-left: 0;margin-right: auto;width: 100%;">
+                <col title="COLSPEC9" span="1" />
+                <col title="COLSPEC10" span="1" />
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="1" colspan="1">
+                            <p>Request header</p>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                            <p rowspan="1" colspan="1"><code>GET <span class="Basic_Variables_Product_Sample_URI">http://sample-server.example.com</span>:8080/mpw/resource/applications?limit=50&amp;offset=100&amp;maxTotal=0</code>
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>In this example, specifying a <code>maxTotal</code> value of <code>0</code> lets you minimize the response time for large application repositories, because <span class="_Exstream_Product_NamesHydrogen">Empower</span> counts only to the last application that is returned. When you view the response for this request, you can look at the <code>exceedsTotal</code> response parameter to determine whether additional matching applications exist.</p>
+            <p>When you use this request example, the integration application interface displays the results on page 3, and lets users move forward in the results one page at a time, or select any of the previous pages in the results:</p>
+            <p>
+                <img src="../Resources/Images/maxLimit-minimum.png" />
+            </p>
+            <p class="intro_phrase">Example 6:</p>
+            <p>Request a list of all <span class="_Exstream_Product_NamesHydrogen">Empower</span>  applications, with pagination that returns applications 101-150, and that counts only 450 applications.</p>
+            <table style="margin-left: 0;margin-right: auto;width: 100%;">
+                <col title="COLSPEC9" span="1" />
+                <col title="COLSPEC10" span="1" />
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="1" colspan="1">
+                            <p>Request header</p>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                            <p rowspan="1" colspan="1"><code>GET <span class="Basic_Variables_Product_Sample_URI">http://sample-server.example.com</span>:8080/mpw/resource/applications?limit=50&amp;offset=100&amp;maxTotal=450</code>
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>In this example, specifying a <code>maxTotal</code> value of <code>450</code> lets you decrease the search response time in large application repositories, because <span class="_Exstream_Product_NamesHydrogen">Empower</span> counts only the first 450 applications that match the search parameters. When you view the response for this request, you can look at the <code>exceedsTotal</code> response parameter to determine whether additional matching applications exist.</p>
+            <p>When you use this request example, the integration application interface displays the results on page 3, and lets users move forwards or backwards in the search results, or go to a specific page in the results up to page 10:</p>
+            <p>
+                <img src="../Resources/Images/maxLimit-limited.png" />
+            </p>
+            <h2 class="title">Response</h2>
+            <p><span class="_Exstream_Product_NamesHydrogen">Empower</span> supports two formats for API response payloads: JSON and XML.</p>
+            <p class="Subheading">Example JSON response</p>
+            <p>Media type: application/json</p>
+            <div class="overview"><pre xml:space="preserve">
+{
+    "header": {
+        "status": {
+            "code": "SERV100I"
+        }
+    },
+    "body": {
+        "applications": [
+            {
+                "appId": "51-1115057666-1531728594-0",
+                "applicationName": "EditAreaTextParagraph",
+                "applicationOI": "3",
+                "applicationPath": "",
+                "databaseId": "c042a721-d414-44eb-8d78-72dd7babba43",
+                "editorVersion": "1.1.0.7783",
+                "engineVersion": "900101",
+                "packageCreationDate": "2014-06-16T18:12:57",
+                "packageFile": "ExstreamPackage.pub",
+                "packageVersion": "900122",
+                "previewPubFile": "dummy.pub",
+                "accessgroupNames": [
+                    "sampleGroup"
+                ]
+            },
+        ],
+        "total": 50,
+        "offset": 0,
+        "limit": 2,
+        "exceedsTotal": true
+    }
+}</pre>
+            </div>
+            <p class="Subheading">Example XML response</p>
+            <p>Media type: application/xml</p>
+            <div><pre xml:space="preserve">
+                <code>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;ResponseContainer&gt;
+    &lt;header&gt;
+        &lt;status code="SERV100I"/&gt;
+    &lt;/header&gt;
+    &lt;body&gt;
+        &lt;application-search-result&gt;
+            &lt;applications&gt;
+                &lt;app appId="51-1115057666-1531728594-0" applicationName="EditAreaTextParagraph" applicationOI="3" applicationPath="" databaseId="c042a721-d414-44eb-8d78-72dd7babba43" editorVersion="1.1.0.7783" engineVersion="900101" packageCreationDate="2014-06-16T18:12:57" packageFile="ExstreamPackage.pub" packageVersion="900122" previewPubFile="dummy.pub" accessgroupNames="sampleGroup"/&gt;
+            &lt;/applications&gt;</code>
+                <code>
+            &lt;exceedsTotal&gt;true&lt;/exceedsTotal&gt;</code>
+                <code>
+            &lt;limit&gt;2&lt;/limit&gt;
+            &lt;offset&gt;0&lt;/offset&gt;
+            &lt;total&gt;50&lt;/total&gt;
+        &lt;/application-search-result&gt;
+    &lt;/body&gt;
+&lt;/ResponseContainer&gt;</code>
+            </pre>
+            </div>
+            <p class="Subheading"><a name="Application_Response_Parameters"></a>Response parameters</p>
+            <p>If a parameter object does not contain a value, a JSON response returns a <code>null</code> value for the object, but an XML response does not include the object.</p>
+            <table style="margin-left: 0;margin-right: auto;">
+                <col title="col1" span="1" />
+                <col title="COLSPEC6" span="1" />
+                <col title="COLSPEC5" span="1" />
+                <thead>
+                    <tr>
+                        <th rowspan="1" colspan="1">Parameter</th>
+                        <th rowspan="1" colspan="1">Data type</th>
+                        <th rowspan="1" colspan="1">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>accessgroupNames</code>
+                        </td>
+                        <td>String</td>
+                        <td>The names of the access groups that control access to documents that are associated with the <span class="_Exstream_Product_NamesHydrogen">Empower</span>  application</td>
+                    </tr>
+                    <tr>
+                        <td><code>appId</code>
+                        </td>
+                        <td>String</td>
+                        <td>The application ID that was generated by <span class="_Exstream_Product_NamesHydrogen">Empower</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>applicationName</code>
+                        </td>
+                        <td>String</td>
+                        <td>The name of the <span class="_Exstream_Product_NamesExstream">Exstream</span> application that was used to design the document</td>
+                    </tr>
+                    <tr>
+                        <td><code>applicationOI</code>
+                        </td>
+                        <td>Number</td>
+                        <td>The Object Identifier (OI) of the <span class="_Exstream_Product_NamesExstream">Exstream</span>  application</td>
+                    </tr>
+                    <tr>
+                        <td><code>applicationPath</code>
+                        </td>
+                        <td>String</td>
+                        <td>
+                            <p>The folder path of the <span class="_Exstream_Product_NamesExstream">Exstream</span>  application in your installation of <span class="_Exstream_Product_NamesDesignManager">Design Manager</span></p>
+                            <div class="Admonition_Note">
+                                <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>If the application is located in the root folder of your installation of <span class="_Exstream_Product_NamesDesignManager">Design Manager</span>, the <code>applicationPath</code> field will be empty.</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>databaseId</code>
+                        </td>
+                        <td>UUID</td>
+                        <td>The database ID stored in the <span class="_Exstream_Product_NamesHydrogen">Empower</span>  application</td>
+                    </tr>
+                    <tr>
+                        <td><code>editorVersion</code>
+                        </td>
+                        <td>String</td>
+                        <td>The version of the editor that is assigned to all new documents</td>
+                    </tr>
+                    <tr>
+                        <td><code>engineVersion</code>
+                        </td>
+                        <td>String</td>
+                        <td>The version of the engine that was used to package the <span class="_Exstream_Product_NamesExstream">Exstream</span>  application</td>
+                    </tr>
+                    <tr data-mc-conditions="">
+                        <td><code>exceedsTotal</code>
+                        </td>
+                        <td>Boolean</td>
+                        <td>The response parameter that indicates whether the total number of <span class="_Exstream_Product_NamesHydrogen">Empower</span>  applications that match your request exceeds the value that is returned for the <code>total</code> response parameter</td>
+                    </tr>
+                    <tr>
+                        <td><code>limit</code>
+                        </td>
+                        <td>Long</td>
+                        <td>
+                            <p>The maximum number of <span class="_Exstream_Product_NamesHydrogen">Empower</span>  applications that the request could have returned (the page size)</p>
+                            <p>If the value of the <code>limit</code> response parameter is <code>0</code>, then no limit was used, and the response included all of the applications that matched your request parameters.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>offset</code>
+                        </td>
+                        <td>Long</td>
+                        <td>The number of results that were skipped before the first result was returned</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><code>packageCreationDate</code>
+                            </p>
+                        </td>
+                        <td>Date</td>
+                        <td>
+                            <p>The date that the package file was created</p>
+                            <p>The date format is <code>YYYY-MM-ddTHH:mm:ss</code>.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>packageFile</code>
+                        </td>
+                        <td>String</td>
+                        <td>The name of the <span class="_Exstream_Product_NamesExstream">Exstream</span>  application package file, including the folder path</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="1">
+                            <p><code>packageVersion</code>
+                            </p>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                            <p>String</p>
+                        </td>
+                        <td rowspan="1" colspan="1">The version of <span class="_Exstream_Product_NamesExstream">Exstream</span> that was used to package the application</td>
+                    </tr>
+                    <tr>
+                        <td><code>previewPubFile</code>
+                        </td>
+                        <td>String</td>
+                        <td>The name of the <span class="_Exstream_Product_NamesExstream">Exstream</span> package file that all new documents will use to generate PDF previews (when Engine&#160;as a Web Service is configured as the preview provider)</td>
+                    </tr>
+                    <tr>
+                        <td><code>total</code>
+                        </td>
+                        <td>Long</td>
+                        <td>
+                            <p>The total number of <span class="_Exstream_Product_NamesHydrogen">Empower</span>  applications that match your request parameters</p>
+                            <p>If your request includes the <code>maxTotal</code> parameter, <span class="_Exstream_Product_NamesHydrogen">Empower</span> counts to the last <span class="_Exstream_Product_NamesHydrogen">Empower</span> application  that is returned by the search, or to the  <code>maxTotal</code> number of applications (whichever is larger).</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>&#160;</p>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear: both; clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;"><a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Copyright © <span class="_IMP_TemplateVarsCopyrightDateRange_CurrentYear">2019</span>&#160;<span class="Branding_Variables_Company_Legal_Name">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="Branding_Variables_Company_Legal_Name">Open&#160;Text</span>.</a>
+                </p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br /><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <!--QCCR1K4298 START-->
+        <div style="display:none;" id="HPb-Branding-Variables" Footer="Yes" Feedback="Yes">&#160;</div>
+        <script>/* <![CDATA[ */
+            var BrandingVariables = document.getElementById("HPb-Branding-Variables");
+            if(BrandingVariables.getAttribute('Footer')=="No"){document.getElementById('Copyright').style.display = 'none';}
+            if(BrandingVariables.getAttribute('Feedback')=="No"){document.getElementById('Feedback').style.display = 'none';}
+        /* ]]> */</script>
+        <!--QCCR1K4298 END-->
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+            var closeIFrame = function() {
+            $('.MCTopicPopupContainer').remove();
+            $("#mc-background-tint").remove();
+            }
+        </script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+        <script src="../Resources/Scripts/_IMP_init.js">
+        </script>
+        <!-- Include the following files in output -->
+        <p style="visibility:hidden"><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js">frontfileref</a><a href="../Resources/Stylesheets/fonts/_IMP_Lato-Regular.ttf">frontfileref</a><a href="../Resources/Stylesheets/fonts/_IMP_Lato-Bold.ttf">frontfileref</a>
+        </p>
+        <script type="text/javascript">/* <![CDATA[ */
+
+				//Set navigation hotkeys within iframe (must be done separately from top level)
+				window.addEventListener('keyup',
+					function(e) {
+						switch (e.key) {
+							case 'ArrowLeft':
+								MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous");
+								break;
+							case 'ArrowRight':
+								MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next");
+						}
+					}
+				, false);
+
+		/* ]]> */</script>
+    </body>
+</html>

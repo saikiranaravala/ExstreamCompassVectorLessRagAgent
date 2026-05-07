@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]|[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="OpenText Exstream (Cloud-Native) Release CE 22.2.0 Web Client Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Configuring roles and permissions</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Configuring roles and permissions</h1>
+                <p>The <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> deployment uses <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> for user authentication. To sign in to the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> web client, a user must be a member of an <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> group that is assigned an <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> role with the required permissions.  </p>
+                <p>Roles are always tenant-specific; however,  access permissions are defined separately for each domain in a tenant. For each domain in a tenant, you <a href="CreatingAndConfiguringDomains.htm#Assignin">configure user permissions</a> by adding <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> groups and assigning roles to those groups. When a user signs in to the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> web client, their level of access is determined by the roles that are assigned to the <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> groups to which they belong. For a user in multiple <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> groups, the level of access is defined by the superset of permissions for all of the groups to which the users belongs. </p>
+                <p>Depending on which features (design tools) are associated with the product key, the process of allocating users to a product key also grants them permission to utilize one of the Named User Seats (known as reserved seats in <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span>) for the web client design applications (<span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span>, <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span>, and <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span>). However, it does not automatically secure the seat until the user accesses a feature for the first time. Once a user is allocated to a seat, that seat stays reserved to that user unless revoked by an administrator in <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span>.</p>
+                <div class="Admonition_Note">
+                    <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>Deleting a user does not automatically release the seat that is assigned to that user. A seat must be revoked in order for the seat to be available for reallocation.</p>
+                </div>
+                <p>For specific information about how licensing works with <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span>, see <span class="docName mc-variable _Exstream_Doc_Names._Product_Prefix variable">OpenText Exstream</span> <span class="docName mc-variable _Exstream_Doc_Names.DNP_Help variable">Design and Production Online Help</span>. For information about <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> users, groups, and partitions, or how to allocate or revoke reserved seats, see <span class="emphasis-italic"><span class="mc-variable _IMP_Product_Names.OTDS_Full variable">OpenText Directory Services</span> Installation and Configuration Guide</span>.</p>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" /></a><a name="Creating"></a><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead" aria-expanded="false">Creating a new role in a tenant</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <ol>
+                            <li value="1">In the <span class="uielement">Roles</span> panel in <span class="mc-variable _Exstream_UI_Names.WEB_TenantMgmtView variable">Tenant management view</span>, click <span class="emphasis-bold">Add</span>.</li>
+                            <li value="2">In the <span class="uielement">Properties</span> panel, specify a name for the new role and optionally, a description, and then click <span class="uielement">Create</span>.</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" /></a><a name="Configur"></a><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead" aria-expanded="false">Configuring permissions for a role</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <ol>
+                            <li value="1">In the <span class="uielement">Roles</span> panel in <span class="mc-variable _Exstream_UI_Names.WEB_TenantMgmtView variable">Tenant management view</span>, select the role.</li>
+                            <li value="2">
+                                <p>In the <span class="uielement">Properties</span> panel, click the <span class="uielement">Permissions</span> tab.</p>
+                                <ol>
+                                    <li value="1">
+                                        <p>In the <span class="uielement">Web client access</span> area, select the permission check boxes for each item in the <span class="uielement">Type</span> list as needed. Note that if you want to provide <span class="uielement">Creator</span> or <span class="uielement">Approver</span> permissions to a user, you must also provide <span class="uielement">Access</span> permission to them.</p>
+                                        <p>The following table describes the permissions that are granted in the web client for each permission type, and whether a Named User Seat is required. If a Named User Seat is required, you must allocate either a <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> or&#160;<span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span><a href="InstallingProductKeys.htm#AllocateUsersGroupsPartitions"> counter</a>&#160;to the user in the <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span>&#160;tenant.</p>
+                                        <table style="width: 100%;margin-left: 0;margin-right: auto;">
+                                            <col style="width: 20%;" />
+                                            <col style="width: 20%;" />
+                                            <col style="width: 20%;" />
+                                            <col style="width: 20%;" />
+                                            <col style="width: 20%;" />
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        <p>Type</p>
+                                                    </th>
+                                                    <th>Named User Seat Required</th>
+                                                    <th>
+                                                        <p>Access </p>
+                                                    </th>
+                                                    <th>
+                                                        <p>Creator </p>
+                                                    </th>
+                                                    <th>
+                                                        <p>Approver </p>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <p><span class="uielement"><span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span></span>
+                                                        </p>
+                                                    </td>
+                                                    <td><span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span>
+                                                    </td>
+                                                    <td>
+                                                        <p>Enables the <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> launcher panel in <span class="mc-variable _Exstream_UI_Names.WEB_CommLauncherView variable">Communication launcher view</span> and allows users to open communications in <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span></p>
+                                                    </td>
+                                                    <td>Allows users to create, update, and delete <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> resources</td>
+                                                    <td>Allows users to approve <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> resources</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p><span class="uielement"><span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span></span>
+                                                        </p>
+                                                    </td>
+                                                    <td><span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span>
+                                                    </td>
+                                                    <td>
+                                                        <p>Enables the <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> launcher panel in <span class="mc-variable _Exstream_UI_Names.WEB_CommLauncherView variable">Communication launcher view</span> and the <span class="uielement">Author</span> tab in the <span class="mc-variable _Exstream_UI_Names.WEB_DesignAssetMgmtView variable">Design asset library view</span>, and allows users to open communications in <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span></p>
+                                                    </td>
+                                                    <td>Allows users to create, update, and delete <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> resources</td>
+                                                    <td>Allows users to approve <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> resources</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p><span class="uielement">Communication asset library</span>
+                                                        </p>
+                                                    </td>
+                                                    <td><span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span>
+                                                    </td>
+                                                    <td>
+                                                        <p>Allows users to access <span class="mc-variable _Exstream_UI_Names.WEB_CommAssetMgmtView variable">Communication asset library view</span> and <span class="mc-variable _Exstream_UI_Names.CDR_MappingView variable">Mapping view</span></p>
+                                                    </td>
+                                                    <td>Allows users to create, update, and delete resources in <span class="mc-variable _Exstream_UI_Names.WEB_CommAssetMgmtView variable">Communication asset library view</span> and to map data sources in <span class="mc-variable _Exstream_UI_Names.CDR_MappingView variable">Mapping view</span></td>
+                                                    <td>Allows users to approve resources in <span class="mc-variable _Exstream_UI_Names.WEB_CommAssetMgmtView variable">Communication asset library view</span> and <span class="mc-variable _Exstream_UI_Names.CDR_MappingView variable">Mapping view</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p><span class="uielement">Design asset library</span>
+                                                        </p>
+                                                    </td>
+                                                    <td><span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span>
+                                                    </td>
+                                                    <td>
+                                                        <p>Allows users to access <span class="mc-variable _Exstream_UI_Names.WEB_DesignAssetMgmtView variable">Design asset library view</span></p>
+                                                    </td>
+                                                    <td>Allows users to create, update, and delete resources on the <span class="uielement">Common</span> tab in <span class="mc-variable _Exstream_UI_Names.WEB_DesignAssetMgmtView variable">Design asset library view</span></td>
+                                                    <td>Allows users to approve resources on the <span class="uielement">Common</span> tab in <span class="mc-variable _Exstream_UI_Names.WEB_DesignAssetMgmtView variable">Design asset library view</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p><span class="uielement">Orchestration asset library</span>
+                                                        </p>
+                                                    </td>
+                                                    <td><span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span>
+                                                    </td>
+                                                    <td>
+                                                        <p>Allows users to access <span class="mc-variable _Exstream_UI_Names.WEB_OrchMgmtView variable">Orchestration asset library view</span></p>
+                                                    </td>
+                                                    <td>Allows users to create, update, and delete resources in <span class="mc-variable _Exstream_UI_Names.WEB_OrchMgmtView variable">Orchestration asset library view</span></td>
+                                                    <td>Allows users to approve resources in <span class="mc-variable _Exstream_UI_Names.WEB_OrchMgmtView variable">Orchestration asset library view</span></td>
+                                                </tr>
+                                                <tr data-mc-conditions="">
+                                                    <td>
+                                                        <p><span class="uielement">Rationalization</span>
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <p>Rationalization must be enabled in your product key and, in order to create migration sets and work with content fragments, you must have a Named User Seat for <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> or&#160;<span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span>.</p>
+                                                        <div class="Admonition_Note">
+                                                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>Licensing for <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> CE Rationalization requires a services engagement with <span class="mc-variable _IMP_Template_Elements._Company_Acronym variable">OpenText</span> Professional Services. For more information, contact your <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> account representative.</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <p>Enables the <span class="mc-variable _Exstream_UI_Names.WEB_MigrationMgmtView variable">Rationalization asset library view</span> launcher panel in <span class="mc-variable _Exstream_UI_Names.WEB_CommLauncherView variable">Communication launcher view</span> for&#160;a <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> or&#160;<span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> user&#160;</p>
+                                                    </td>
+                                                    <td>Allows a <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> or&#160;<span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> user to create, update, and delete resources in <span class="mc-variable _Exstream_UI_Names.WEB_MigrationMgmtView variable">Rationalization asset library view</span>.</td>
+                                                    <td>Allows  a <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> or&#160;<span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> user to approve resourcesin <span class="mc-variable _Exstream_UI_Names.WEB_MigrationMgmtView variable">Rationalization asset library view</span>.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p><span class="uielement">Monitor</span>
+                                                        </p>
+                                                    </td>
+                                                    <td><span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span>
+                                                    </td>
+                                                    <td>
+                                                        <p>Allows users to access <span class="mc-variable _Exstream_UI_Names.WEB_MonitoringView variable">Monitor view</span></p>
+                                                    </td>
+                                                    <td>Not available</td>
+                                                    <td>Not available</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p><span class="uielement">Categories</span>
+                                                        </p>
+                                                    </td>
+                                                    <td><span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span>
+                                                    </td>
+                                                    <td>
+                                                        <p>Allows users to create new category tags outside of <span class="mc-variable _Exstream_UI_Names.WEB_TenantMgmtView variable">Tenant management view</span></p>
+                                                    </td>
+                                                    <td>
+                                                        <p>Not available</p>
+                                                    </td>
+                                                    <td>
+                                                        <p>Not available</p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="Admonition_Note">
+                                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>When you assign the <span class="uielement">Creator</span> permission for some of the asset library types, the <span class="uielement">Approver</span> permission for auto-approved resources in that library type is automatically assigned. </p>
+                                        </div>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li value="3">
+                                <p>(Optional)&#160;To set specific resource permissions,  expand the <span class="uielement">Advanced</span> section in the <span class="uielement">Resource access</span> area, then select <span class="uielement">Create</span>, <span class="uielement">Write</span>, <span class="uielement">Delete</span>, and <span class="uielement">Approve</span> permissions for individual resource types as needed. </p>
+                                <div class="Admonition_Tip">
+                                    <p data-mc-autonum="&lt;b&gt;Tip: &lt;/b&gt;"><span class="autonumber"><span><b>Tip: </b></span></span>To apply a selected permission option to all resources in the DAS&#160;asset library, select the <span class="uielement">All</span> check box in the <span class="uielement">Resource type</span> list. </p>
+                                    <p>Keep in mind that you do not need to explicitly set permissions to read resources in a domain. A user that is assigned a role that has any permission in a domain, for example, <span class="uielement">Access</span> permission for <span class="uielement">Design asset library</span>—or even no permission at all—will also have read access to all resources in that domain. </p>
+                                </div>
+                            </li>
+                            <li value="4">Click <span class="uielement">Save</span>.</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Duplicating a role</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>To duplicate a role, select the role in the <span class="uielement">Roles</span> panel in <span class="mc-variable _Exstream_UI_Names.WEB_TenantMgmtView variable">Tenant management view</span>, and then click <span class="uielement">Duplicate</span>.</p>
+                        <p>When you duplicate a role, the properties of the new role are identical to the role that you duplicated. However, any role assignments for the existing role in any domain are not duplicated for the new role. To assign this role to users in a domain, use the <span class="uielement">Group assignments</span> tab in the <span class="uielement">Properties</span> panel for that domain.</p>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Deleting a role</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>To delete a role, select the role in the <span class="uielement">Roles</span> panel in <span class="mc-variable _Exstream_UI_Names.WEB_TenantMgmtView variable">Tenant management view</span>, and then in the <span class="uielement">Properties</span> panel, click <span class="uielement">Delete</span>.</p>
+                        <p>If a role is assigned to any <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> groups for any existing domains in the tenant, then those role assignments will be removed when you delete the role.</p>
+                    </div>
+                </div>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2022</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

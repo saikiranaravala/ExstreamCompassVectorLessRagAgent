@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="[%=System.LinkedTitle%]|[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="Empower Server Console and API" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Testing&#160;documents before moving into production</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" />
+        <script src="../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <h1>Testing&#160;documents before moving into production</h1>
+            <p>Before you move an <span class="_Exstream_Product_NamesHydrogen">Empower</span> document into production, it is important that you test the document to verify that it behaves as expected. This applies to new <span class="_Exstream_Product_NamesHydrogen">Empower</span> documents, and to existing production documents that have been updated to use a new version of the editor (and therefore need to be validated before being returned to production). To learn more about updating an existing document to use a new version of the editor, see <a href="../ManagingEditors/ChangingtheEditorUsedbyaDocument.htm" class="MCXref xref">Changing the editor used by a document</a>.</p>
+            <p>During the testing phase, you can use the <span class="_Exstream_Product_NamesHydrogen_Admin_Console">Empower Server Console</span> to make sure that you are able to create an <span class="_Exstream_Product_NamesHydrogen">Empower</span>  application using the document, and to make sure that you can upload the document, open the document in the editor, and export the document. Verifying each of these operations helps to ensure that in a production environment, integration applications will be able to upload and export the document, and  end users will be able to open the document for editing.</p>
+            <div class="Admonition_Important">
+                <p data-mc-autonum="&lt;b&gt;Important: &lt;/b&gt;"><span class="autonumber"><span><b>Important: </b></span></span>For best results, you should  avoid testing documents in a production environment. Instead, use one of the following scenarios for testing:</p>
+                <ul>
+                    <li value="1">
+                        <p><span class="emphasis-bold">Test documents using a test server</span>—Use a test server that has the same hardware, software, and configuration settings as your production server. For help with using a test server, contact your system administrator.</p>
+                    </li>
+                    <li value="2">
+                        <p><span class="emphasis-bold">Test documents in maintenance mode</span>—To test documents on your production server, first place the application server into maintenance mode. This lets you test documents without affecting existing or newly-added documents. For help with placing your application server into maintenance mode, contact your system administrator.</p>
+                    </li>
+                </ul>
+            </div>
+            <p>To test a document before moving it into production, you must complete the following tasks:</p>
+            <ol>
+                <li value="1">
+                    <p><a href="#Adding_an_Application" class="MCXref xref">Adding an  application</a>
+                    </p>
+                </li>
+                <li value="2">
+                    <p><a href="#Uploading_a_Document" class="MCXref xref">Uploading a document</a>
+                    </p>
+                </li>
+                <li value="3">
+                    <p><a href="#Opening_a_Document" class="MCXref xref">Opening a document</a>
+                    </p>
+                </li>
+                <li value="4">
+                    <p><a href="#Exporting_a_Document" class="MCXref xref">Exporting a document</a>
+                    </p>
+                </li>
+            </ol>
+            <h2><a name="Adding_an_Application"></a>Adding an  application</h2>
+            <div class="Admonition_Note">
+                <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>If you are testing an existing document that is already associated with an <span class="_Exstream_Product_NamesHydrogen">Empower</span>&#160;application, then you can skip this task.</p>
+            </div>
+            <p><span class="_Exstream_Product_NamesHydrogen">Empower</span> applications store information about the <span class="_Exstream_Product_NamesExstream">Exstream</span> application, the package file, the database, and the <span class="_Exstream_Product_NamesExstream">Exstream</span>  engine that were originally used to create the documents that are associated with an <span class="_Exstream_Product_NamesHydrogen">Empower</span> application. Therefore, before you can test an <span class="_Exstream_Product_NamesHydrogen">Empower</span> document, you must make sure that there is an <span class="_Exstream_Product_NamesHydrogen">Empower</span> application  to support that document.</p>
+            <p>To add an <span class="_Exstream_Product_NamesHydrogen">Empower</span> application:</p>
+            <ol>
+                <li value="1">
+                    <p>In the <span class="_Exstream_Product_NamesHydrogen_Admin_Console">Empower Server Console</span>, click <span class="uielement">APPLICATIONS</span>.<br /></p>
+                </li>
+                <li value="2">
+                    <p>On the <span class="uielement">Applications</span> page, click <span class="uielement">ADD</span>.</p>
+                </li>
+                <li value="3">
+                    <p>In the <span class="uielement">ADD APPLICATION</span> dialog box, configure the following properties as needed:</p>
+                </li>
+                <ul>
+                    <li value="1">
+                        <p><span class="uielement">Editor Version</span>—(Optional) Select the version of <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> that will open documents that are associated with this application. If you do not specify an editor version, then documents that are associated with the application will use the system default version of <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>.</p>
+                    </li>
+                    <li value="2">
+                        <p><span class="uielement">Preview package file</span>—(Optional) If Engine as a Web Service (EWS) is your preview provider, enter the name of the  package file that you want to  use to create previews in <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>.</p>
+                    </li>
+                    <li value="3">
+                        <p><span class="uielement">Access groups</span>—(Optional) Enter the name(s) of an existing access group (or groups) that can edit the <span class="_Exstream_Product_NamesHydrogen">Empower</span> documents that are associated with the application. If you do not specify an access group, then all authenticated users are permitted to open and edit the documents that you associate with this application.</p>
+                        <div class="Admonition_Note">
+                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>You can apply additional access restrictions to an <span class="_Exstream_Product_NamesHydrogen">Empower</span> document by specifying one or more owners for the document. For information about adding document owners, see <a href="ManagingDocumentOwnership.htm" class="MCXref xref">Restricting document ownership</a>.</p>
+                        </div>
+                    </li>
+                </ul>
+                <li value="4">
+                    <p>Click <span class="uielement">DOCUMENT</span>, and use the file selection dialog box to choose the <span class="_Exstream_Product_NamesHydrogen">Empower</span> document that you want to use to create the application.</p>
+                    <p>Keep in mind that the document is used only to extract application metadata and is not uploaded to the repository.</p>
+                </li>
+                <li value="5">
+                    <p>Click <span class="uielement">ADD</span>.</p>
+                </li>
+            </ol>
+            <div class="Admonition_Note">
+                <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>When you add an application, <span class="_Exstream_Product_NamesHydrogen">Empower</span> compares certain attributes of the document that you want to upload to the attributes of applications that already exist in the repository. If the attributes of the document are not found in an existing application, then the new application is added to the repository.</p>
+            </div>
+            <h2><a name="Uploading_a_Document"></a>Uploading a document</h2>
+            <div class="Admonition_Note">
+                <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>If you are testing an existing document that has been updated to use a different version of the editor and you have already uploaded the document to <span class="_Exstream_Product_NamesHydrogen">Empower</span>, then you can skip this task.</p>
+            </div>
+            <ol>
+                <li value="1">
+                    <p>In the <span class="_Exstream_Product_NamesHydrogen_Admin_Console">Empower Server Console</span>, click  <span class="uielement">DOCUMENTS</span>.</p>
+                </li>
+                <li value="2">
+                    <p>On the <span class="uielement">Documents</span> page, click <span class="uielement">UPLOAD</span>.</p>
+                </li>
+                <li value="3">
+                    <p>In the <span class="uielement">DOCUMENT&#160;UPLOAD</span> dialog box, you can optionally enter your own business-defined document identifier in the <span class="uielement">External document ID</span> box. </p>
+                    <p>You can use this identifier to search for your document on the <span class="uielement">Documents</span> page, however, keep in mind that it does not replace the unique document ID that <span class="_Exstream_Product_NamesHydrogen">Empower</span> generates for every <span class="_Exstream_Product_NamesHydrogen">Empower</span>&#160;document. The external document ID cannot be changed after the document is uploaded. </p>
+                </li>
+                <li value="4">
+                    <p>If you want to associate the document with a specific <span class="_Exstream_Product_NamesHydrogen">Empower</span> application,  enter the ID of that application in the <span class="uielement">Application ID</span> box.</p>
+                    <p>You are not required to provide an application ID because <span class="_Exstream_Product_NamesHydrogen">Empower</span> automatically assigns the document to the <span class="_Exstream_Product_NamesHydrogen">Empower</span> application that matches a specific set of document attributes (the Application Object Identifier (OI), the application path, the database ID, and the package creation date).</p>
+                    <div class="Admonition_Note">
+                        <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>Keep in mind that specifying an <span class="_Exstream_Product_NamesHydrogen">Empower</span> application ID that does not match the document can produce unexpected results in a production environment, and should be used for testing purposes only.</p>
+                    </div>
+                </li>
+                <li value="5">
+                    <p>In the <span class="uielement">Document owners</span> box, add a unique identifier for each user that you want to add as a document owner (optional).</p>
+                    <p>The identifier that you enter (such as a user ID or an email address) must match the identifier that your authorization provider passes to <span class="_Exstream_Product_NamesHydrogen">Empower</span> for the user.</p>
+                    <p>If you do not specify a document owner, then all authenticated users are permitted to open and edit the document.</p>
+                    <div class="Admonition_Note">
+                        <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>If access to an <span class="_Exstream_Product_NamesHydrogen">Empower</span> document is restricted by access groups (which are inherited from the <span class="_Exstream_Product_NamesHydrogen">Empower</span> application used to create the document), then each user that you add as a document owner must be a member of an access group that is permitted to open and edit the document.</p>
+                    </div>
+                </li>
+                <li value="6">In the <span class="uielement">User-defined tags</span> box, enter one or more tags for your document (optional).</li>
+                <li value="7">
+                    <p>Click <span class="uielement">DOCUMENT</span>, and use the file selection dialog box to choose the <span class="_Exstream_Product_NamesHydrogen">Empower</span> document that you want to use to create the application.</p>
+                </li>
+                <li value="8">
+                    <p>Click <span class="uielement">UPLOAD</span>.</p>
+                </li>
+            </ol>
+            <h2><a name="Opening_a_Document"></a>Opening a document</h2>
+            <p>When you open documents from the <span class="_Exstream_Product_NamesHydrogen_Admin_Console">Empower Server Console</span>, you automatically enable debugging mode in <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>, which lets you use the developer tools that are included within each supported browser to double-check and validate the logic within the document itself. </p>
+            <p>To learn more about the debugging functionality that is available in <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>, see "<span class="emphasis-italic">Testing Empower documents before moving into production</span>" in <span class="emphasis-italic">Designing for <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span></span> in the  <span class="_Exstream_Product_NamesDesignAndProduction_Full">Exstream Design and Production</span> documentation.</p>
+            <p>To open a document:</p>
+            <ol>
+                <li value="1">
+                    <p>In the <span class="_Exstream_Product_NamesHydrogen_Admin_Console">Empower Server Console</span>, click  <span class="uielement">DOCUMENTS</span>.</p>
+                </li>
+                <li value="2">
+                    <p>On the <span class="uielement">Documents</span> page, use the sorting, filtering, or <a href="SearchingForDocuments.htm">search tools</a> to locate the document that you want to open.</p>
+                    <div class="Admonition_Note">
+                        <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>You can open only active documents. If a document has been added to the trash, you must restore the document from the trash before you can open it. For information about restoring a document that is no longer active, see <a href="RestoringDocumentsFromTheTrash.htm" class="MCXref xref">Restoring documents from the trash </a>.</p>
+                    </div>
+                </li>
+                <li value="3">
+                    <p>To open the details page for the document that you want to open, click the document ID.</p>
+                </li>
+                <li value="4">
+                    <p>To open the document in <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>, click  <span class="uielement">OPEN</span>.</p>
+                    <p>
+                        <p><span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> launches in the browser window, and the document  is displayed in the editor, ready to begin an editing session.</p>
+                    </p>
+                </li>
+            </ol>
+            <h2><a name="Exporting_a_Document"></a>Exporting a document</h2>
+            <div class="Admonition_Note">
+                <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>You can export only active documents. If a document has been added to the trash, you must restore the document from the trash before you can export it. For information about restoring a document that is no longer active, see <a href="RestoringDocumentsFromTheTrash.htm" class="MCXref xref">Restoring documents from the trash </a>.</p>
+            </div>
+            <ol>
+                <li value="1">
+                    <p>From the <span class="_Exstream_Product_NamesHydrogen_Admin_Console">Empower Server Console</span>, click  <span class="uielement">DOCUMENTS</span>.</p>
+                </li>
+                <li value="2">
+                    <p>On the <span class="uielement">Documents</span> page, locate the document that you want to export.</p>
+                    <p>For more information about how to search for <span class="_Exstream_Product_NamesHydrogen">Empower</span> documents, see <a href="SearchingForDocuments.htm" class="MCXref xref">Searching for documents</a>.</p>
+                </li>
+                <li value="3">
+                    <p>To open the details page for the document that you want to export, click the document ID.</p>
+                </li>
+                <li value="4">
+                    <p>To export the document, Click  <span class="uielement">EXPORT</span>.</p>
+                    <p>The document is downloaded based on how your browser is configured to handle file downloads. After the document is downloaded, it is added to the trash.</p>
+                </li>
+            </ol>
+            <p class="Subheading">Related topics:</p>
+            <ul>
+                <li value="1"><a href="../ManagingEditors/AddingaNewVersionoftheEditortoEmpower.htm" class="MCXref xref">Adding a new version of the editor</a>
+                </li>
+                <li value="2"><a href="../ManagingEditors/ChangingtheEditorUsedbyaDocument.htm" class="MCXref xref">Changing the editor used by a document</a>
+                </li>
+            </ul>
+            <p>&#160;</p>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear: both; clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;"><a href="../../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Copyright © <span class="_IMP_TemplateVarsCopyrightDateRange_CurrentYear">2019</span>&#160;<span class="Branding_Variables_Company_Legal_Name">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="Branding_Variables_Company_Legal_Name">Open&#160;Text</span>.</a>
+                </p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br /><a href="../../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <!--QCCR1K4298 START-->
+        <div style="display:none;" id="HPb-Branding-Variables" Footer="Yes" Feedback="Yes">&#160;</div>
+        <script>/* <![CDATA[ */
+            var BrandingVariables = document.getElementById("HPb-Branding-Variables");
+            if(BrandingVariables.getAttribute('Footer')=="No"){document.getElementById('Copyright').style.display = 'none';}
+            if(BrandingVariables.getAttribute('Feedback')=="No"){document.getElementById('Feedback').style.display = 'none';}
+        /* ]]> */</script>
+        <!--QCCR1K4298 END-->
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+            var closeIFrame = function() {
+            $('.MCTopicPopupContainer').remove();
+            $("#mc-background-tint").remove();
+            }
+        </script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+        <script src="../../Resources/Scripts/_IMP_init.js">
+        </script>
+        <!-- Include the following files in output -->
+        <p style="visibility:hidden"><a href="../../Resources/Scripts/_IMP_imageMapResizer.min.js">frontfileref</a><a href="../../Resources/Stylesheets/fonts/_IMP_Lato-Regular.ttf">frontfileref</a><a href="../../Resources/Stylesheets/fonts/_IMP_Lato-Bold.ttf">frontfileref</a>
+        </p>
+        <script type="text/javascript">/* <![CDATA[ */
+
+				//Set navigation hotkeys within iframe (must be done separately from top level)
+				window.addEventListener('keyup',
+					function(e) {
+						switch (e.key) {
+							case 'ArrowLeft':
+								MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous");
+								break;
+							case 'ArrowRight':
+								MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next");
+						}
+					}
+				, false);
+
+		/* ]]> */</script>
+    </body>
+</html>

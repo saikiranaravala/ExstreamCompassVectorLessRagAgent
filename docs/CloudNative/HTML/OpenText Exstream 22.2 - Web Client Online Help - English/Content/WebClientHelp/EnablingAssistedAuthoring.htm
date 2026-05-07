@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="OpenText Exstream (Cloud-Native) Release CE 22.2.0 Web Client Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Enabling Assisted Authoring for a communication</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Enabling <span class="mc-variable _IMP_Product_Names.ExperienceAIServices_AssistedAuthoring variable">Assisted Authoring</span> for a communication</h1>
+                <p>To ensure that the content within  communications is as effective as possible, <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> offers a suite of <span class="mc-variable _IMP_Product_Names.ExperienceAIServices_AssistedAuthoring variable">Assisted Authoring</span> tools that provide text analysis to measure readability, sentiment and tone, and grammar. The <span class="mc-variable _IMP_Product_Names.ExperienceAIServices_AssistedAuthoring variable">Assisted Authoring</span> tools represent an integration with <span class="mc-variable _IMP_Product_Names.ExperienceAIServices_Full variable">OpenText™ Experience AI&#160;Services</span>. The <span class="mc-variable _IMP_Product_Names.ExperienceAIServices_AssistedAuthoring variable">Assisted Authoring</span> tools, which are <a href="CreatingConfigurations.htm">configured</a> for <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> or&#160;<span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> as a whole, are enabled for individual communications in <span class="mc-variable _Exstream_UI_Names.WEB_DesignAssetMgmtView variable">Design asset library view</span>.</p>
+                <div class="Admonition_Important">
+                    <p data-mc-autonum="&lt;b&gt;Important: &lt;/b&gt;"><span class="autonumber"><span><b>Important: </b></span></span>Before you can enable  <span class="mc-variable _IMP_Product_Names.ExperienceAIServices_AssistedAuthoring variable">Assisted Authoring</span> tools for communications, you must separately deploy <span class="mc-variable _IMP_Product_Names.ExperienceAIServices_Short variable">Experience AI&#160;Services</span> into your Kubernetes cluster, and then <a href="CreatingConfigurations.htm">configure</a> <span class="mc-variable _IMP_Product_Names.ExperienceAIServices_Short variable">Experience AI&#160;Services</span> for the tenant.   For information about deploying and configuring <span class="mc-variable _IMP_Product_Names.ExperienceAIServices_Short variable">Experience AI&#160;Services</span>, see <span class="docName mc-variable _IMP_Template_Elements._Company_Acronym variable">OpenText</span> <span class="docName mc-variable _Exstream_Doc_Names.EAIS_InstallGuide variable">Experience AI&#160;Services Configuration Guide</span>, available on <span class="mc-variable _IMP_Template_Elements.SoftwareDownloadCenter variable">My Support</span>.</p>
+                </div>
+                <p>To enable <span class="mc-variable _IMP_Product_Names.ExperienceAIServices_AssistedAuthoring variable">Assisted Authoring</span> for a <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> or&#160;<span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> communication:</p>
+                <ol>
+                    <li value="1">
+                        <p>Sign in to the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> web client as a tenant administrator user at the following URL:</p>
+                        <p><code>https://&lt;host&gt;:&lt;optionalPort&gt;/design?tenant=&lt;tenantName&gt;</code>
+                        </p>
+                    </li>
+                    <li value="2">
+                        <p>In <span class="mc-variable _Exstream_UI_Names.WEB_DesignAssetMgmtView variable">Design asset library view</span>, click the <span class="uielement">Author</span> or<span class="uielement"> Designer</span> panel, and then select a communication from the list.</p>
+                    </li>
+                    <li value="3">
+                        <p>In the <span class="uielement">Properties</span> panel, on the <span class="uielement">Intelligence</span> tab (which is available only if <span class="mc-variable _IMP_Product_Names.ExperienceAIServices_Short variable">Experience AI&#160;Services</span> <a href="CreatingConfigurations.htm">has been set up</a> on the <span class="uielement">Configurations</span> panel for <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> or&#160;<span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> in <span class="mc-variable _Exstream_UI_Names.WEB_TenantMgmtView variable">Tenant management view</span>), use the <span class="uielement">Content language</span> list to set the options available for each supported language. Note that the following languages are available for <span class="mc-variable _IMP_Product_Names.ExperienceAIServices_AssistedAuthoring variable">Assisted Authoring</span>, but not all analysis types are available for each language:</p>
+                        <ul>
+                            <li>
+                                <p><span class="uielement">Dutch</span>
+                                </p>
+                            </li>
+                            <li>
+                                <p><span class="emphasis-bold">English (American)</span>
+                                </p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">English (Australian)</span>
+                                </p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">English (British)</span>
+                                </p>
+                            </li>
+                            <li>
+                                <p><span class="emphasis-bold">French</span>
+                                </p>
+                            </li>
+                            <li>
+                                <p><span class="emphasis-bold">German</span>
+                                </p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Portuguese (Brazilian)</span>
+                                </p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Portuguese</span>
+                                </p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Spanish</span>
+                                </p>
+                            </li>
+                        </ul>
+                        <p><span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> and&#160;<span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> use the language that is set for the  spelling dictionary to determine whether <span class="mc-variable _IMP_Product_Names.ExperienceAIServices_AssistedAuthoring variable">Assisted Authoring</span> tools are available for  users. However, you must configure <span class="mc-variable _IMP_Product_Names.ExperienceAIServices_AssistedAuthoring variable">Assisted Authoring</span> options on the <span class="uielement">Intelligence</span> tab for each supported language before users will see <span class="mc-variable _IMP_Product_Names.ExperienceAIServices_AssistedAuthoring variable">Assisted Authoring</span> options in <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> or&#160;<span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span>. For example, if a user has the spelling dictionary set to French, <span class="mc-variable _IMP_Product_Names.ExperienceAIServices_AssistedAuthoring variable">Assisted Authoring</span> tools will not be available in the communication until the <span class="mc-variable _IMP_Product_Names.ExperienceAIServices_AssistedAuthoring variable">Assisted Authoring</span> settings are configured for French on the <span class="uielement">Intelligence</span> tab. </p>
+                        <p>If an option is not available for a particular language, then you will not be able to configure that option in the UI. If you have questions about which services are available for each language, speak to your <span class="mc-variable _IMP_Product_Names.ExperienceAIServices_Short variable">Experience AI&#160;Services</span> administrator.</p>
+                        <div class="Admonition_Important">
+                            <p data-mc-autonum="&lt;b&gt;Important: &lt;/b&gt;"><span class="autonumber"><span><b>Important: </b></span></span>If you <a href="ManagingDictionaries.htm">add a German dictionary</a> to your deployment, then you must ensure that the language code for the dictionary uses the <kbd>de_DE</kbd> language code used by <span class="mc-variable _IMP_Product_Names.ExperienceAIServices_AssistedAuthoring variable">Assisted Authoring</span>. If you use a different language code, then <span class="mc-variable _IMP_Product_Names.ExperienceAIServices_AssistedAuthoring variable">Assisted Authoring</span> will not work for German content.</p>
+                        </div>
+                    </li>
+                    <li value="4">
+                        <p>Select the following check boxes as needed to enable <span class="mc-variable _IMP_Product_Names.ExperienceAIServices_AssistedAuthoring variable">Assisted Authoring</span> tools for the communication:</p>
+                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Readability analysis</a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p>The readability analysis tool gives business users statistics based on one of two different reading scales—the Flesch Reading Ease scale, and the Flesch-Kincaid Grade Level index. When you enable readability analysis, you can select a service provider as well as the readability scale that you want to use. </p>
+                                <p>To configure readability analysis: </p>
+                                <ol>
+                                    <li value="1">
+                                        <p>After you have selected the <span class="uielement">Readability analysis</span> check box, in the <span class="uielement">Service provider</span> list, select a provider:</p>
+                                        <ul>
+                                            <li>
+                                                <p><span class="uielement">OpenText</span>—Uses <span class="mc-variable _IMP_Template_Elements._Company_Acronym variable">OpenText</span> Magellan to provide readability analysis.</p>
+                                            </li>
+                                            <li>
+                                                <p><span class="uielement">Google</span>—Uses Google Cloud Platform to provide readability analysis.</p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li value="2">
+                                        <p>In the <span class="uielement">Readability scale</span> list, select a readability scale:</p>
+                                        <ul>
+                                            <li>
+                                                <p><span class="uielement">Flesch Reading Ease</span>—The Flesch Reading Ease scale shows statistics based on the average number of words per sentence and the average number of syllables per 100 words.</p>
+                                            </li>
+                                            <li>
+                                                <p><span class="uielement">Flesch-Kincaid Grade Level</span>—The Flesch-Kincaid Grade Level readability index is also based on the number of syllables per word and the number of words per sentence. The resulting number indicates the approximate level of education, based on US guidelines, that is required to read and understand the text. This tool is available only when the spelling dictionary in <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> is set to <span class="uielement">English (American)</span>.</p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li value="3">
+                                        <p>Based on the readability scale that you selected, set parameters in the <span class="uielement">Target range</span> section and in the <span class="uielement">Acceptable range</span> section:</p>
+                                        <ul>
+                                            <li>
+                                                <p><span class="emphasis-bold">Flesch Reading Ease scale:</span>
+                                                </p>
+                                                <table style="width: 100%;margin-left: 0;margin-right: auto;">
+                                                    <col />
+                                                    <col />
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Value</th>
+                                                            <th>Meaning</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>90-100</td>
+                                                            <td>Very easy</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>80-90</td>
+                                                            <td>Easy</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>70-80</td>
+                                                            <td>Fairly easy</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>60-70</td>
+                                                            <td>Standard</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>50-60</td>
+                                                            <td>Fairly difficult</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>30-50</td>
+                                                            <td>Difficult</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>0-30</td>
+                                                            <td>Very difficult</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </li>
+                                            <li>
+                                                <p><span class="emphasis-bold">Flesch-Kincaid Grade Level index:</span>  Select the approximate level of education, based on US guidelines, that is required to read and understand the text.</p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ol>
+                                <p>When users in <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> or&#160;<span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> open the <span class="mc-variable _IMP_Product_Names.ExperienceAIServices_AssistedAuthoring variable">Assisted Authoring</span> tools, they will receive an overall score that compares their content against the parameters that you set. Additionally, when they point to the numerical value for the overall readability of their content, they will see a tooltip that explains the scores for the scale that is being used.</p>
+                            </div>
+                        </div>
+                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Sentiment and tone analysis</a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p>Sentiment and tone analysis uses artificial intelligence provided by either <span class="mc-variable _IMP_Template_Elements._Company_Acronym variable">OpenText</span> Magellan or Google, depending on the option you select, to determine the overall attitude of content—positive,  negative, or neutral—and is represented by a numerical score that ranges from -100 to 100. Keep in mind that the numerical values vary by provider, and they can be configured within <span class="mc-variable _IMP_Product_Names.ExperienceAIServices_Short variable">Experience AI&#160;Services</span>. For example, here are the recommended ranges for sentiment and tone when using <span class="mc-variable _IMP_Template_Elements._Company_Acronym variable">OpenText</span> Magellan as the provider:</p>
+                                <ul>
+                                    <li>
+                                        <p><span class="emphasis-bold">Positive:</span>&#160;A score greater than 33</p>
+                                    </li>
+                                    <li>
+                                        <p><span class="emphasis-bold">Neutral:</span>&#160;A score between -33 and 33</p>
+                                    </li>
+                                    <li>
+                                        <p><span class="emphasis-bold">Negative:</span>&#160;A score less than -33</p>
+                                    </li>
+                                </ul>
+                                <p>For information about configuring settings in <span class="mc-variable _IMP_Product_Names.ExperienceAIServices_Short variable">Experience AI&#160;Services</span>, see <span class="docName mc-variable _IMP_Template_Elements._Company_Acronym variable">OpenText</span> <span class="docName mc-variable _Exstream_Doc_Names.EAIS_InstallGuide variable">Experience AI&#160;Services Configuration Guide</span>.</p>
+                                <p>Magellan also uses artificial intelligence to determine whether each sentence is fact or opinion. The number shown represents a blended score of all sentences that make up the content. Business users can use the navigation arrows on the toolbar to validate each sentence individually to ensure that sentiment and tone are consistent.</p>
+                            </div>
+                        </div>
+                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Grammar analysis</a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p>The grammar tool behaves much like traditional grammar checkers—it identifies issues and then makes individual suggestions to improve the content. In the <span class="uielement">Grammar analysis</span> section, in the <span class="uielement">Service provider</span> list, select either <span class="uielement">LanguageTool</span> or <span class="uielement">GrammarBot</span>. For information about either of these service providers, consult their online documentation. </p>
+                            </div>
+                        </div>
+                        <p>Beside each check box, you'll see an indicator with a descriptive tooltip that shows the level of service that you have licensed for each analysis type. For information about licensing analysis types, see <span class="docName mc-variable _IMP_Template_Elements._Company_Acronym variable">OpenText</span> <span class="docName mc-variable _Exstream_Doc_Names.EAIS_InstallGuide variable">Experience AI&#160;Services Configuration Guide</span>, available on <span class="mc-variable _IMP_Template_Elements.SoftwareDownloadCenter variable">My Support</span>.</p>
+                    </li>
+                    <li value="5">
+                        <p>Click <span class="uielement">Save</span>.</p>
+                    </li>
+                </ol>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2022</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

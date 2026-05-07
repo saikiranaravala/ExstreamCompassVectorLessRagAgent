@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="Exstream Platform (Server-Based) 23.3 Communications Designer Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Design environment</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Design environment</h1>
+                <p>The design environment provides the user interfaces (or views) that you use to set up the structure of your communication and to create and modify your communication design. </p>
+                <p>The design environment comprises the following views—<span class="mc-variable _Exstream_UI_Names.CDR_StructureView variable">Structure view</span>, <span class="mc-variable _Exstream_UI_Names.CDR_DesignView variable">Design view</span>, and <span class="mc-variable _Exstream_UI_Names.WEB_SimulationView variable">Simulation view</span>. </p>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" /><span class="mc-variable _Exstream_UI_Names.CDR_StructureView variable">Structure view</span></a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p><a name="Structur"></a>You use <span class="mc-variable _Exstream_UI_Names.CDR_StructureView variable">Structure view</span> to <a href="SettingUpComms.htm">create communication objects</a> to make up the basic structure of a communication. In <span class="mc-variable _Exstream_UI_Names.CDR_StructureView variable">Structure view</span>, you use the <span class="uielement">Structure map</span> to create communication objects, and use the <span class="uielement">Properties</span> panel to update the properties of the communication and individual communication objects. The structure of your communication is displayed in the <span class="uielement">Structure map</span>, and can contain the following objects: </p>
+                        <ul>
+                            <li>
+                                <p><span class="emphasis-bold">Documents</span> are containers for all of the designs that are required to create a personalized communication. You use documents to logically group together individual designs in a communication, and to specify the output order for those designs. When the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> engine processes a communication, the generated output contains documents in the order that you see in the <span class="uielement">Structure map</span>. You can click and drag a document to place it in the correct output order, and also set timing rules and document rules for the engine in the document properties. To produce valid output, your communication must contain at least one document that contains at least one design.</p>
+                            </li>
+                            <li>
+                                <p><span class="uielement">Designs</span> contain the content that a customer sees. Designs contain both static content as well as the content that can change based on customer data. When the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> engine processes a communication, the generated output contains designs in the order that you see in the <span class="uielement">Structure map</span>. You can click and drag a design to place it in the correct output order, and also add targeting rules to include or exclude the design in the output. To produce valid output, your communication must contain at least one design. You can create designs for page-based and HTML-based output. The type of design that you choose to create depends on your output needs.</p>
+                            </li>
+                            <li><span class="emphasis-bold">Components</span> are reusable design objects that are stored in CAS as named objects and can be inserted in multiple designs. In the <span class="uielement">Structure map</span>, you can see the components that are used in each design. You cannot create new components in <span class="mc-variable _Exstream_UI_Names.CDR_StructureView variable">Structure view</span>; they must be initially created in a design. You can then use <span class="mc-variable _Exstream_UI_Names.CDR_StructureView variable">Structure view</span> to update its properties or to open the component directly in <span class="mc-variable _Exstream_UI_Names.CDR_DesignView variable">Design view</span> and edit it.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" /></a><a name="Design"></a><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead" aria-expanded="false"><span class="mc-variable _Exstream_UI_Names.CDR_DesignView variable">Design view</span></a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>You use <span class="mc-variable _Exstream_UI_Names.CDR_DesignView variable">Design view</span> to design layouts for customer communications. In <span class="mc-variable _Exstream_UI_Names.CDR_DesignView variable">Design view</span>, you can <a href="WorkinginDesignerView.htm">add design objects</a> and insert variables to create personalized communications. <span class="mc-variable _Exstream_UI_Names.CDR_DesignView variable">Design view</span> contains the following user interface elements:</p>
+                        <ul>
+                            <li>
+                                <p>The <span class="uielement">design toolbar</span> lets you edit and configure design objects, apply formatting to text, undo or redo actions, save your design, and so on.</p>
+                                <p>The toolbar displays different user options depending on the type of design object that you are editing, and depending on the fonts and style sheets that are available in your communication. In addition, you can use the hamburger menu (<img src="../images/b_ExstreamWeb_Hamburger.png" style="width: 13px;height: 13px;" class="inline" alt="Hamburger menu icon" />) to access the help, select design units, display version information, or return to the <span class="mc-variable _Exstream_UI_Names.WebApps_ContentLauncher variable">Content Launcher</span>. </p>
+                            </li>
+                            <li>
+                                <p>The <span class="uielement">object palette</span> is a floating toolbar that lets you <a href="InsertingDesignObjects.htm">select objects to add to a design</a>. </p>
+                                <p>
+                                    <img src="../images/t_CommDesigner_ObjectPalette.PNG" style="width: 42px;height: 190px;" alt="Object palette toolbar" title="Object palette toolbar" />
+                                </p>
+                                <p>By default, the object palette appears on the left edge of <span class="mc-variable _Exstream_UI_Names.CDR_DesignView variable">Design view</span>. To change the position of the object palette on your screen, position your mouse cursor on the top edge of the toolbar to change the cursor into a move handle, and then click and drag the toolbar to the desired location. </p>
+                            </li>
+                            <li>
+                                <p>The <span class="uielement">properties panel</span> is a dynamic panel that displays different property cards based on the type of object that is selected. You can use the properties panel to view and modify the properties for a selected object, add variables to your design, and even specify some properties for the design itself, such as targeting rules for that design. The properties panel is always located on the right edge of <span class="mc-variable _Exstream_UI_Names.CDR_DesignView variable">Design view</span>. </p>
+                            </li>
+                            <li>The <span class="uielement">design area</span> contains the layout of your page or email design. The size of the design area varies depending on the type and properties of the design that you are creating. You use the design toolbar, object palette, and properties panel to add and format design elements in this area. </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" /><span class="mc-variable _Exstream_UI_Names.WEB_SimulationView variable">Simulation view</span></a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>You use <span class="mc-variable _Exstream_UI_Names.WEB_SimulationView variable">Simulation view</span> to preview your communications before a production engine run. <span class="mc-variable _Exstream_UI_Names.WEB_SimulationView variable">Simulation view</span> contains the following user elements:</p>
+                        <ul>
+                            <li>
+                                <p>The <span class="uielement">preview toolbar</span> lets you select the type of preview you want to see and includes the option to see the engine messages generated during the preview engine run. The toolbar displays different options depending on the design types in your communication. In addition, you can use the hamburger menu (<img src="../images/b_ExstreamWeb_Hamburger.png" style="width: 13px;height: 13px;" class="inline" alt="Hamburger menu icon" />) to access the help, display version information, or return to the <span class="mc-variable _Exstream_UI_Names.WebApps_ContentLauncher variable">Content Launcher</span>. </p>
+                            </li>
+                            <li>
+                                <p>The <span class="uielement">Simulation</span> list contains a list of the simulations that are available for your communication and lets you switch between different simulations to change the sample data that is used in the communication preview. </p>
+                            </li>
+                            <li>
+                                <p>The <span class="uielement">Data</span> panel lists the available variables and lets you change the sample variable values as needed for a particular preview.</p>
+                            </li>
+                            <li>
+                                <p>The <span class="uielement">preview area</span> contains the communication preview. You use the preview toolbar, the <span class="uielement">Simulation</span> list, and the <span class="uielement">Data</span> panel to customize the preview options that determine what is displayed in this area. </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2023</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

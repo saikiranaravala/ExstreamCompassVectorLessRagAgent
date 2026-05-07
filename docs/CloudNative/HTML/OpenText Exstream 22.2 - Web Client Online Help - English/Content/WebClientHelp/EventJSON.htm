@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]|[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="OpenText Exstream (Cloud-Native) Release CE 22.2.0 Web Client Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Event JSON file</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1><a name="Sending"></a>Event JSON file</h1>
+                <p>When the Orchestration service executes a flow model that contains tracking-enabled communications or output channels, event data from <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> is sent to <span class="mc-variable _IMP_Product_Names.ExperienceInsights_Short variable">Core Experience&#160;Insights</span>.&#160;This event information is sent through a JSON file, with the following attributes: </p>
+                <ul>
+                    <li>
+                        <p>The <code>schemaType</code> parameter is set dynamically depending on the event type. The following table lists the supported event types. The examples that follow provide the sample JSON&#160;for an <a href="#Sample">email event</a> and a <a href="#Sample2">file channel event</a>.</p>
+                        <table style="width: 100%;margin-left: 0;margin-right: auto;">
+                            <col style="width: 20%;" />
+                            <col style="width: 30%;" />
+                            <col style="width: 50%;" />
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <p>Event type</p>
+                                    </th>
+                                    <th>
+                                        <p>Schema type</p>
+                                    </th>
+                                    <th>
+                                        <p>Event description</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p><span class="mc-variable _IMP_Product_Names.DocGen_Short variable">Document Generation</span> event</p>
+                                    </td>
+                                    <td>
+                                        <p><code><span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span>-Generated</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Document generated.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2">
+                                        <p>Delivery events</p>
+                                    </td>
+                                    <td>
+                                        <p><code>Exstream-Email-Submit</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Email delivered through a Notifications email channel. </p>
+                                        <p>The email is submitted to the <span class="mc-variable _IMP_Template_Elements._Company_Acronym variable">OpenText</span> Notifications Service for processing.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><code>Exstream-&lt;channelName&gt;</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Document delivered through any output channel, except the Notifications email channel. </p>
+                                        <p>The communication is delivered to its intended destination. For example, for an output file delivered using the File channel, this indicates that the file has been created in the specified output directory.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>Delivery failure events</p>
+                                    </td>
+                                    <td>
+                                        <p><code>Exstream-&lt;channelName&gt;-Failed</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Document delivery through an output channel failed.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="3">
+                                        <p><span class="mc-variable _IMP_Template_Elements._Company_Acronym variable">OpenText</span> Notifications events</p>
+                                    </td>
+                                    <td>
+                                        <p><code><span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span>-Email-POST</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Email posted to recipient.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><code><span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span>-Email-OPEN</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Email opened by recipient.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><code><span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span>-Email-&lt;status&gt;</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Email delivery status. For example, <code><span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span>-Email-NDLV</code> indicates that the email was not delivered.</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </li>
+                    <li>The <code>schemaSource</code> parameter is set based on the schema source name that is provided in the <a href="ConfiguringEIIngration.htm"><span class="mc-variable _IMP_Product_Names.ExperienceInsights_Short variable">Core Experience&#160;Insights</span> configuration</a> for the corresponding domain.</li>
+                    <li>
+                        <p>The <code>user</code> namespace  includes information from the output manifest, which is a structured data file that contains a comprehensive list of the output composed in an engine run. By default, the file describes the relationship between customers that are included in an engine run and the output files that are generated during that run. The output manifest can also include additional customer-specific data—such as customer name, email address and so on—or additional information about the communications that are being processed, such as campaign IDs. This data can come from the following sources:</p>
+                        <ul>
+                            <li>Information on the <span class="uielement">Delivery</span> tab of any object properties in <span class="mc-variable _IMP_Product_Names.DesignManager variable">Design Manager</span></li>
+                            <li>Information that is defined on the Delivery tag of email designs in <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span></li>
+                            <li>Metadata that is defined on output queue objects in DAS or in <span class="mc-variable _IMP_Product_Names.DesignManager variable">Design Manager</span></li>
+                            <li>Metadata that is defined on DAS&#160;resources, and that is marked for inclusion in the output manifest. </li>
+                        </ul>
+                        <p>For information about defining metadata in <span class="mc-variable _IMP_Product_Names.DesignManager variable">Design Manager</span>, see <span class="docName mc-variable _Exstream_Doc_Names._Product_Prefix variable">OpenText Exstream</span> <span class="docName mc-variable _Exstream_Doc_Names.DNP_Help variable">Design and Production Online Help</span>. For more information about defining metadata in DAS, see <a href="ApplyingMetadata.htm" class="MCXref xref">Applying metadata tags to resources</a>.</p>
+                    </li>
+                </ul>
+                <h2><a name="Sample"></a>Sample email event</h2>
+                <p>The following sample JSON file shows the event data that is sent when an email is opened.</p><pre>
+{
+  "expctr":{
+    "schemaVersion":"1.0",
+    "schemaType":"Exstream-Email-OPEN",
+    "schemaSource":"Sample_Email",
+    "tenant":"24a364c7-64bb-4a50-ac2a-c0082f86b109"
+  },
+  "user":{
+    "CustomerFirstname":"John",
+    "attachments":"${#/queues/Print}=welcome_letter.pdf;${#/queues/invoice}=invoice.pdf;/global/Intel-CacheOverview.pdf=intel.pdf",
+    "DeliveryPreference":"email",
+    "CampaignId":"EmailCampaign",
+    "CustomerEmail":"johnsmith@opentext.com",
+    "CustomerLastname":"Smith",
+    "CustomerInRun":"1",
+    "CustomerId":"d4b5d72b-c54c-44ce-b276-3610a0106050",
+    "Age":"0"
+  },
+  "exstreamEmailStatistics":{
+    "creationTime":"2020-09-30T02:39:04.001Z",
+    "emailProvider":"OpenText Notifications",
+    "customerEmailId":"johnsmith@opentext.com",
+    "campaignId":"EmailCampaign",
+    "domain":"Testdomain",
+    "communicationId":"0e8de48d-8b51-4668-9259-5008faca8662",
+    "eventType":"OPEN"
+  }
+}
+</pre>
+                <h2><a name="Sample2"></a>Sample file channel event</h2>
+                <p><pre>
+{
+  "expctr": {
+    "tenant": "24a364c7-64bb-4a50-ac2a-c0082f86b109",
+    "schemaSource": "Sample_File",
+    "schemaType": "Exstream-FileOutputChannel",
+    "schemaVersion": "1.0",
+    "eventId": "ecaa6646-babc-49cc-8ece-de64c24627bd",
+    "eventDate": "2020-09-30T14:00:26.161Z"
+  },
+  "exstreamJob": {
+    "campaignId": "TestCampaign",
+    "communicationId": "07c9316a-e2d2-4a4c-be89-b86e693ebd30",
+    "contentType": "application/pdf",
+    "creationTime": "2020-09-30T13:55:40.001Z",
+    "domain": "Testdomain",
+    "status": "success"
+},
+  "user": {
+    "CampaignId": "TestCampaign",
+    "City": "Providence",
+    "Employer": "Exstream Seafood",
+    "Metadata2": "TestContent",
+    "QueueFilename": "/mnt/nfs/Sample/Testdomain/jobs/1ed7f5a8-58e9-46a8-a742-4c64675b7a21/ee6fe671-c73b-492d-b4d5-2e04e9a146b2/docgen/82c3a7ef-e039-4550-b206-137ac62e9ead/output/TestQueue/TestLetter",
+    "SYS_Title": "Seafood Special"
+  }
+}
+</pre>
+                </p>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2022</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

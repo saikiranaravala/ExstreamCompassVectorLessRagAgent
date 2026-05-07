@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]|[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="OpenText Exstream (Cloud-Native) Release CE 22.2.0 Web Client Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Prerequisites for using Communications Designer</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1><a name="aanchor1"></a>
+                    <MadCap:concept term="Communications Designer" />Prerequisites for using <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span></h1>
+                <p><span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> lets designers use resources that are set up either in <span class="mc-variable _IMP_Product_Names.DesignManager variable">Design Manager</span> or the DAS asset library to create and customize new communications. To use <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span>, these resources must be set up correctly and accessible to <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> users. </p>
+                <p>Using <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> or <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> with <span class="mc-variable _IMP_Product_Names.DesignAndProduction_Short variable">Design and Production</span> applications relies on the use of design packs created in the application. Alternatively, templates for communications can be based on <a href="ConfiguringCommunicationSets.htm">communication sets</a> created directly in DAS using the Exstream web client. There are advantages to both methods of creating a communication. For instance, a communication set contains only DAS resources, and therefore does not require interaction with <span class="mc-variable _IMP_Product_Names.DesignAndProduction_Short variable">Design and Production</span> tools. Those resources can also be used in any communication within the tenant.</p>
+                <p>On the other hand, <span class="mc-variable _IMP_Product_Names.DesignManager variable">Design Manager</span> design packs currently offer more output queues than are available in DAS, and can support more high-volume functionality, sorting and bundling, and complex data structures (for example, reference and initialization files). Additionally, if you have a lot of existing content that you created in <span class="mc-variable _IMP_Product_Names.DesignAndProduction_Short variable">Design and Production</span>—such as messages, paragraphs, and sections—you’ll need design packs when you migrate that content into DAS.</p>
+                <p>Keep in mind, however, that whenever resources in a design pack need to be updated, the corresponding <span class="mc-variable _IMP_Product_Names.DesignManager variable">Design Manager</span>&#160;application must be repackaged and uploaded to DAS; in contrast, communication sets can be updated directly in DAS.</p>
+                <p>The following table provides an overview of minimum requirements to enable designers to use <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span>:</p>
+                <table style="width: 100%;margin-left: 0;margin-right: auto;caption-side: top;">
+                    <caption>Prerequisites for using <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span></caption>
+                    <col style="width: 30%;" />
+                    <col style="width: 50%;" />
+                    <col style="width: 20%;" />
+                    <thead>
+                        <tr>
+                            <th>Requirement</th>
+                            <th>Explanation</th>
+                            <th>Documentation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <p>A <span class="mc-variable _IMP_Product_Names.DesignManager variable">Design Manager</span> application for use with <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> or equivalent resources in the DAS&#160;asset library</p>
+                            </td>
+                            <td>
+                                <p>Either a <span class="mc-variable _IMP_Product_Names.DesignManager variable">Design Manager</span> application or equivalent DAS library resources are required to create and fulfill a <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> communication. </p>
+                                <ul>
+                                    <li>
+                                        <p><span class="uielement">Using a <span class="mc-variable _IMP_Product_Names.DesignManager variable">Design Manager</span> application</span>—If you are using a <span class="mc-variable _IMP_Product_Names.DesignManager variable">Design Manager</span> application, it must contain the following objects:</p>
+                                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" /></a><a name="Design"></a><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead" aria-expanded="false">Design pack</a></span>
+                                            <div class="MCDropDownBody dropDownBody">
+                                                <p>Design packs contain resources for customizing a communication. At a minimum, it must contain a font or a style sheet, but you can also include colors, rules, and variables. The <span class="mc-variable _IMP_Product_Names.DesignManager variable">Design Manager</span> application must contain at least one design pack. </p>
+                                            </div>
+                                        </div>
+                                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Design views</a></span>
+                                            <div class="MCDropDownBody dropDownBody">
+                                                <p>Design views determine which design categories are available in <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span>. Each design view corresponds to a specific preview device that is configured for use with a particular design type. By default, applications are automatically configured to use the standard design view for page designs. To create email or web designs in <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span>, the application must also include design views for those design types. If a design view is not specified for a particular design type, then the design category and simulation option for that design type will be hidden in <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span>.</p>
+                                            </div>
+                                        </div>
+                                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Output queues</a></span>
+                                            <div class="MCDropDownBody dropDownBody">
+                                                <p>Output queues determine the output types that can be generated when the communication is processed using the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> engine. At least one output queue is required.</p>
+                                            </div>
+                                        </div>
+                                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Data files</a></span>
+                                            <div class="MCDropDownBody dropDownBody">
+                                                <p>At least one customer driver file is required to produce output from the communication. Sample data for the driver file can be mapped in <span class="mc-variable _IMP_Product_Names.DesignManager variable">Design Manager</span> or in the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> web client. To use <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> to <a href="ManagingDataSources.htm">map a sample file</a>, the customer driver file in the <span class="mc-variable _IMP_Product_Names.DesignManager variable">Design Manager</span> application must use the <span class="uielement"><span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span></span> format.</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <p><span class="uielement">Using DAS resources</span>—If you are using only DAS resources to create a <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> communication, you must create the following resources:</p>
+                                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Communication resources</a></span>
+                                            <div class="MCDropDownBody dropDownBody">
+                                                <p>In the <span class="mc-variable _Exstream_UI_Names.WEB_CommAssetMgmtView variable">Communication asset library view</span>, you set up the DAS&#160;output queues, data files, and variables that are to be used with a communication. You must also configure a communication set that contains these resources.</p>
+                                                <p>Output queues determine the output types that can be generated when the communication is processed using the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> engine. They also determine which design categories are available in <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span>.</p>
+                                                <p>At least one customer driver file is required to produce output from the communication. Sample data for the driver file can be <a href="ManagingDataSources.htm">mapped in the <span class="mc-variable _Exstream_UI_Names.CDR_MappingView variable">Mapping view</span></a> of the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> web client.</p>
+                                            </div>
+                                        </div>
+                                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Design resources</a></span>
+                                            <div class="MCDropDownBody dropDownBody">
+                                                <p>In the <span class="mc-variable _Exstream_UI_Names.WEB_DesignAssetMgmtView variable">Design asset library view</span>, you can <a href="AddingDesignAssets.htm">set up design resources</a> such as fonts, images, paper types, barcodes, metadata, sample files, and message types that will be used in the communication. All design resources (except barcodes) can be used for applications that were created using a communication set or those created using a design pack. Barcodes can only be used in applications created using a design pack.</p>
+                                            </div>
+                                        </div>
+                                        <div class="Admonition_Note">
+                                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>If you use only DAS library resources to create a communication, then you must <a href="SettingDefaultFont.htm">set the default font</a> for the tenant in the <span class="uielement">Configurations</span> panel for <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span>.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>
+                                <p><span class="docName mc-variable _Exstream_Doc_Names._Product_Prefix variable">OpenText Exstream</span> <span class="docName mc-variable _Exstream_Doc_Names.DNP_Help variable">Design and Production Online Help</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>A template  or a communication set in the DAS&#160;asset library</p>
+                            </td>
+                            <td>
+                                <p>To create a new <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> communication, users select either a template or a communication set in <span class="mc-variable _Exstream_UI_Names.WEB_CommLauncherView variable">Communication launcher view</span>. Templates and communication sets must be approved in order to be visible in <span class="mc-variable _Exstream_UI_Names.WEB_CommLauncherView variable">Communication launcher view</span>.</p>
+                                <ul>
+                                    <li>
+                                        <p><span class="uielement">Using a template</span>—Package and upload an appropriate <span class="mc-variable _IMP_Product_Names.DesignManager variable">Design Manager</span> application to the DAS asset library and <span class="mc-variable _IMP_Product_Names.DesignManager variable">Design Manager</span> to automatically creates a corresponding template and engine run definition for that application. The engine run definition is required to preview communications in <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span>.</p>
+                                    </li>
+                                    <li>
+                                        <p><span class="uielement">Using a communication set</span>—The <a href="ConfiguringCommunicationSets.htm">communication sets</a> that you create in the <span class="mc-variable _Exstream_UI_Names.WEB_CommAssetMgmtView variable">Communication asset library view</span> are available to users in <span class="mc-variable _Exstream_UI_Names.WEB_CommLauncherView variable">Communication launcher view</span>. Creating a communication set also creates a corresponding engine run definition in the DAS asset library.</p>
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>
+                                <p><a href="StartingCommDesignerCommunications.htm" class="MCXref xref">Starting a Communications Designer communication</a>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>User permissions to access and work in <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span></td>
+                            <td>
+                                <p><span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> users must be members of at least one <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> group that is assigned a role with at least the <span class="uielement">Access</span> and <span class="uielement">Creator</span> web client access permissions enabled for <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> in that domain with the appropriate <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> group and role pairing. For  reviewers, the <span class="uielement">Approver</span> option must also be enabled.</p>
+                            </td>
+                            <td><a href="ManagingUserPermissions.htm" class="MCXref xref">Configuring roles and permissions</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2022</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

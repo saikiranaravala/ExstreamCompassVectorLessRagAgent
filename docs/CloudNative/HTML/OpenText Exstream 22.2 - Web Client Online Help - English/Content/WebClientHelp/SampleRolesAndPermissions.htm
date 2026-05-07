@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="OpenText Exstream (Cloud-Native) Release CE 22.2.0 Web Client Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Default configurations for the sample tenant</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Default configurations for the sample tenant</h1>
+                <p>To provide an example of a typical tenant configuration, the <code>sample</code> tenant contains the following domains:</p>
+                <ul>
+                    <li><code>Testdomain</code>—Defined as a non-production domain. Batch engine runs do not increment the transaction count for the temporary product key. Output generated from all engine runs in this domain will contain the demo watermark. </li>
+                    <li><code>Proddomain</code>—Defined as a production domain.&#160;Batch engine runs in this domain will increment the transaction count for the temporary product key. Output generated from all engine runs in this domain will contain the demo watermark. </li>
+                </ul>
+                <div class="Admonition_Important">
+                    <p data-mc-autonum="&lt;b&gt;Important: &lt;/b&gt;"><span class="autonumber"><span><b>Important: </b></span></span>In an active production domain, the output generated from an engine run does not contain the demo watermark. However, the production domain in the <code>sample</code> tenant does not support this option.</p>
+                </div>
+                <p>To enable user access, the <code>sample</code> tenant also includes default <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> users and groups with specific permissions for various features of the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> deployment.</p>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Default user permissions for <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> web client and DAS</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>In each domain in a tenant, <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> user group and <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> role associations determine the level of access each user has when they sign in to DAS from the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> web client.</p>
+                        <p>The <code>sample</code> tenant includes  default <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span>&#160;user groups that are used for user authentication, and also has a set of default <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> roles with defined access permissions for that tenant.  The level of access in DAS for a user is determined by the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> role that is assigned to the <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> group for that user. For users in multiple <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> groups, the level of access is determined by the group with the highest permissions. </p>
+                        <p>Not all <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> groups have an assigned <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> role by default. If an <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> group does not have an assigned role, then users who are members of only that group cannot sign in to DAS&#160;from the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> web client.</p>
+                        <p>The following table lists the default <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> groups and corresponding users in the <code>sample</code> tenant that can be used to sign in to DAS&#160;from the  web client.</p>
+                        <div class="Admonition_Note">
+                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>The default password is <code>Exstream1!</code> for all users.</p>
+                        </div>
+                        <table style="width: 100%;margin-left: 0;margin-right: auto;caption-side: top;">
+                            <caption>Default user permissions for DAS</caption>
+                            <col style="width: 25%;" />
+                            <col style="width: 25%;" />
+                            <col style="width: 25%;" />
+                            <col style="width: 25%;" />
+                            <thead>
+                                <tr>
+                                    <th><span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> user</th>
+                                    <th><span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> group</th>
+                                    <th><span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> role</th>
+                                    <th>
+                                        <p>Permissions</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p><code>author</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p><code>authors</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p><code>bcauser</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Access the <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> user interface only. </p>
+                                        <p>Users create and edit resources in <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span>, but cannot use the asset library views to manage these resources.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><code>designer</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p><code>designers</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p><code>commdesigner</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Access the <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> user interface only. </p>
+                                        <p>Users can create and edit resources in <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span>, but cannot use the asset library views to manage these resources.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><code>review</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p><code>reviewers</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p><code>reviewer</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Approve <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> and <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span>, and <span class="mc-variable _IMP_Product_Names.DesignManager variable">Design Manager</span> resources</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><code>tenantadmin</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p><code>tenantadmins</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <li><code>superadmin</code>
+                                            </li>
+                                            <li><code>tenantadmin</code>
+                                            </li>
+                                        </ul>
+                                        <div class="Admonition_Note">
+                                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>The <code>superadmin</code> role  is added by default to all new tenants and always has permissions for the <span class="mc-variable _Exstream_UI_Names.WEB_TenantMgmtView variable">Tenant management view</span> in each tenant. </p>
+                                            <p>The <code>tenantadmin</code> role in the <code>sample</code> tenant is a custom role that has the same permissions as the <code>superadmin</code> role. </p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p>Access all views in the client and perform all administrative tasks.&#160;</p>
+                                        <p>Users in this group are the only users who have the permission to manage role and domain settings.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><code>tenantuser</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p><code>tenantusers</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p><code>tenantuser</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Perform all of the tasks that a tenant administrator can perform in the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> web client, except managing roles and domains.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><code>empoweradmin</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p><code>empoweradmins</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p><code>readonly</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Read all DAS&#160;resources and preview  documents in <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span>.</p>
+                                        <p>Users in this group do not have access to any of the views in the web client.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><code>empowereditor</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p><code>empowereditors</code>
+                                        </p>
+                                    </td>
+                                    <td><code>readonly</code>
+                                    </td>
+                                    <td>
+                                        <p>Read all DAS&#160;resources and preview  documents in <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span>.</p>
+                                        <p>Users in this group do not have access to any of the views in the web client.</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Default user permissions for <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span></a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p><span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> user groups also determine the level of access each user has when they sign in to the&#160;<span class="mc-variable _IMP_Product_Names.Hydrogen_Admin_Console variable">Empower Server Console</span> or <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span>. For a user in multiple <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> groups, the level of access is an accumulation of all groups to which the users belongs.</p>
+                        <p>The following table lists the default <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> groups and corresponding users in the <code>sample</code> tenant that can be used to access <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span>: </p>
+                        <div class="Admonition_Note">
+                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>The default password is <code>Exstream1!</code> for all users.</p>
+                        </div>
+                        <table style="width: 100%;margin-left: 0;margin-right: auto;caption-side: top;">
+                            <caption>Default user permissions for <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> users</caption>
+                            <col style="width: 25%;" />
+                            <col style="width: 25%;" />
+                            <col style="width: 50%;" />
+                            <thead>
+                                <tr>
+                                    <th><span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> user</th>
+                                    <th><span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> group</th>
+                                    <th>Permissions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p><code>empoweradmin</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p><code>empoweradmins</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Users are <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> administrators</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><code>empowereditor</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p><code>empowereditors</code>
+                                        </p>
+                                    </td>
+                                    <td>Users are <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span> users</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><code>empowerintegrator</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p><code>empowerintegrators</code>
+                                        </p>
+                                    </td>
+                                    <td>Users are <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> document integrators</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><code>tenantadmin</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p><code>empoweradmins</code>
+                                        </p>
+                                        <p><code>tenantadmins</code>
+                                        </p>
+                                    </td>
+                                    <td>Users are <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> administrators</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Default user permissions for <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span></a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p><span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> user groups also determine the level of access each user has when they sign in to the <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> web client. For users in multiple <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> groups, the level of access is determined by the group with the highest permissions.</p>
+                        <p>The following table lists the default <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> groups and corresponding users that can be used to access the <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> tenant administration options for the  <code>sample</code> tenant: </p>
+                        <div class="Admonition_Note">
+                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>The default password is <code>Exstream1!</code> for all users.</p>
+                        </div>
+                        <table style="width: 100%;margin-left: 0;margin-right: auto;caption-side: top;">
+                            <caption>Default user permissions for <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> groups</caption>
+                            <col style="width: 25%;" />
+                            <col style="width: 25%;" />
+                            <col style="width: 50%;" />
+                            <thead>
+                                <tr>
+                                    <th><span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> user</th>
+                                    <th><span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> group</th>
+                                    <th>Permissions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p><code>admin</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p><code>otadmins</code>
+                                        </p>
+                                        <p><code>otdsadmins</code>
+                                        </p>
+                                    </td>
+                                    <td>Users are system administrators for the <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> tenant</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2022</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

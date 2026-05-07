@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="Exstream Platform (Server-Based) 23.3 Communications Designer Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Using containers to create design layouts</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Using containers to create design layouts</h1>
+                <p><span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> uses containers to define email and web designs in an easy-to-create grid layout for HTML-based output. You can add new containers, modify existing containers, or remove containers in your designs, and <a href="#Add">add design objects</a> (such as text boxes, tables, images, and so on) to each container to customize the layout and design based on your requirements. Because of this container-based nature, email and web designs can be used to create effective <a href="CreatingResponsiveDesigns.htm">responsive designs</a> that scale depending on the screen size of a viewing device.</p>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Changing the design width</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>When you first open an email or web design, the width of your design is set to the value that you specified when you created the design in <span class="mc-variable _Exstream_UI_Names.CDR_StructureView variable">Structure view</span>. You can change the existing value to modify the width of your design. </p>
+                        <p>To change the width, enter the width (in pixels) in the <span class="uielement">&lt;design&gt; width</span> box in the properties panel. </p>
+                        <p>The minimum width that you can enter is 150 pixels. The maximum width is 1200 pixels for email designs and 1920 pixels for web designs. If you modify the width of the design after you have added design objects, <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> attempts to responsively adjust the dimensions and positions of the design objects.</p>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Creating containers</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>To create a new container, you must select an existing container, and then click the appropriate action arrow. Action arrows are clickable icons that appear on a container edge, and the direction of the action arrow that you click determines the position of the new container that is created. When you create a new container, it is always created relative to an existing container in your design. </p>
+                        <div class="Admonition_Note">
+                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>Action arrows are visible only when a container is selected.</p>
+                        </div>
+                        <p>
+                            <img src="../images/e_CommDesigner_EmailContainer.png" alt="Email container with action arrows visible on each edge" />
+                        </p>
+                        <p>The following table lists the different types of action arrows and the placement of the new container that you can create using each type of arrow:</p>
+                        <table style="width: 100%;margin-left: 0;margin-right: auto;" summary="Summary of the location and characteristics of the container that is created when different types of arrow handles are clicked">
+                            <col style="width: 40%;" />
+                            <col style="width: 60%;" />
+                            <thead>
+                                <tr>
+                                    <th>Action arrow </th>
+                                    <th>Container placement</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p>
+                                            <img src="../images/b_CommDesigner_PurpleUp.png" alt="The purple upward-facing arrow that appears on the top edge of a container" style="width: 13px;height: 12px;" class="inline" /> </p>
+                                    </td>
+                                    <td>
+                                        <p>Creates a new container in a new row above the selected container. </p>
+                                        <p>If the selected container is present within a parent container, then the new container is also created within the same parent. </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>
+                                            <img src="../images/b_CommDesigner_PurpleDown.png" alt="The purple downward-facing arrow that appears on the bottom edge of a container" />
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Creates a new container in a new row below the selected container. </p>
+                                        <p>If the selected container is present within a parent container, then the new container is also created within same parent. </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>
+                                            <img src="../images/b_CommDesigner_RedRight.png" alt="The red right-facing arrow that appears on the left edge of a container" />
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Creates a new child container to the left of the selected container. The contents of the existing container are not modified. </p>
+                                        <p>The first time that a new container is added in this manner, both the existing container and the new container become child containers in the initially selected container. Subsequent containers are added to the same row, within the same parent container.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>
+                                            <img src="../images/b_CommDesigner_RedLeft.png" style="width: 13px;height: 13px;" alt="The red left-facing arrow that appears on the right edge of a container" />
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Creates a new child container to the right of the selected container. The contents of the existing container are not modified. </p>
+                                        <p>The first time that a new container is added in this manner, both the existing container and the new container become child containers in the initially selected container. Subsequent containers are added to the same row, within the same parent container.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>
+                                            <img src="../images/b_CommDesigner_RedDown.png" alt="The red downward-facing arrow that appears on the top edge of a container" style="width: 14px;height: 14px;" />
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Creates a new child container in a new row above the selected container. </p>
+                                        <p>The contents of the existing container are not modified. Both the existing container and the new container become child containers in the initially selected container. </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>
+                                            <img src="../images/b_CommDesigner_RedUp.png" alt="The red upward-facing arrow that appears on the bottom edge of a container" />
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Creates a new container in a new row below the selected container. </p>
+                                        <p>The contents of the existing container are not modified. Both the existing container and the new container become child containers in the initially selected container. </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Deleting containers</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>To delete a container, select the container and press <span class="emphasis-bold">Del</span> or <span class="emphasis-bold">Delete</span> on your keyboard. Keep in mind that your design must contain at least one container. You cannot delete a container if it is the only container in a design. </p>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" /></a><a name="Add"></a><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead" aria-expanded="false">Adding an object to a container</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>When you use the object palette to <a href="InsertingDesignObjects.htm">add a design object</a> to a container, keep in mind that you can place only one design object directly in a container; however, you can embed other objects in that design object as needed.</p>
+                        <div class="Admonition_Tip">
+                            <p data-mc-autonum="&lt;b&gt;Tip: &lt;/b&gt;"><span class="autonumber"><span><b>Tip: </b></span></span>Because email and web designs resize automatically, if you need to restrict the way that some objects move when the output is viewed on a smaller screen, you can embed design objects into a table that is placed within a container.</p>
+                        </div>
+                        <p>To see the corresponding container properties for a selected object, click the <span class="uielement">Container properties</span> button <img src="../images/b_CommDesigner_ContainerProps.png" alt="the Container properties button" class="inline" /> in the properties panel to open the <span class="uielement">Container</span> card. When you select a design object inside a container, you can use the properties panel to modify the properties for the object. </p>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Assigning custom HTML&#160;<code>id</code> attributes to objects</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>When you create HTML-based output, the engine automatically applies a sequential <code>id</code> attribute to each element that represents a container or a design object in the generated HTML file. These <code>id</code> values can change with design updates. </p>
+                        <p>To uniquely identify design elements in an HTML file, you can add custom <code>id</code> attribute values to objects except frames. You can use static text to specify an <code>id</code> attribute value. Each custom <code>id</code> attribute value that is used in the design must meet the following criteria:</p>
+                        <ul>
+                            <li>
+                                <p>It must contain at least one character </p>
+                            </li>
+                            <li>
+                                <p>It cannot be longer than 128 characters.</p>
+                            </li>
+                            <li>
+                                <p>It must begin with an ASCII letter.</p>
+                            </li>
+                            <li>
+                                <p>It must contain only ASCII alphanumeric characters, hyphens (-), and underscores (_).</p>
+                            </li>
+                        </ul>
+                        <div class="Admonition_Tip">
+                            <p data-mc-autonum="&lt;b&gt;Tip: &lt;/b&gt;"><span class="autonumber"><span><b>Tip: </b></span></span><span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> does not enforce the use of unique <code>id</code> attribute values. As a best practice, however, you should avoid using the same value for more than one object in a design.</p>
+                        </div>
+                        <p>To assign a custom <code>id</code> attribute value to an object:</p>
+                        <ol>
+                            <li value="1">
+                                <p>In <span class="mc-variable _Exstream_UI_Names.CDR_DesignView variable">Design view</span>, select the object to which you want to add a custom <code>id</code> attribute value.</p>
+                            </li>
+                            <li value="2">
+                                <p>On the <span class="uielement">General</span> card in the properties panel, in the <span class="uielement">HTML id</span> box, enter the attribute value. </p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Copying design objects between containers</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>When you create a new container, you can copy and paste the design objects from an existing container to reuse the layout and content from that container. You can copy only objects that are present in a container; you cannot copy the container itself. Make sure that the destination container is wide enough for the design object that you are copying.</p>
+                        <table style="width: 100%;margin-left: 0;margin-right: auto;" summary="Steps to move or copy design objects between containers">
+                            <col style="width: 20%;" />
+                            <col style="width: 80%;" />
+                            <thead>
+                                <tr>
+                                    <th>Action</th>
+                                    <th>Steps</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> Copy an object to a different container</td>
+                                    <td>
+                                        <ol>
+                                            <li value="1">Select the object, and then press <span class="emphasis-bold">Ctrl + C</span> or click <span class="uielement">Copy</span> in the hamburger menu. </li>
+                                            <li value="2">
+                                                <p>To paste the object, select the destination container, and then press <span class="emphasis-bold">Ctrl + V</span> or click <span class="uielement">Paste</span> in the hamburger menu. </p>
+                                            </li>
+                                        </ol>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Move an object to a different container</td>
+                                    <td>
+                                        <ol>
+                                            <li value="1">
+                                                <p>Select the object, and then press <span class="emphasis-bold">Ctrl + X</span> or click <span class="uielement">Cut</span> in the hamburger menu. </p>
+                                            </li>
+                                            <li value="2">
+                                                <p>To paste the object, select the destination container, and then press <span class="emphasis-bold">Ctrl + V</span> or click <span class="uielement">Paste</span> in the hamburger menu.</p>
+                                            </li>
+                                        </ol>
+                                        <p>Alternatively, to move an object, you can select the object and drag it to the destination container. </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Modifying container properties</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>After you create a container, you can open the <span class="uielement">Container</span> card in the properties panel, and change the following properties on the container:</p>
+                        <table style="width: 100%;margin-left: 0;margin-right: auto;caption-side: top;" summary="The list of container properties that can be modified using the Container properties panel">
+                            <col style="width: 20%;" />
+                            <col style="width: 80%;" />
+                            <thead>
+                                <tr>
+                                    <th>Container property</th>
+                                    <th>Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p><span class="uielement">Background color</span>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>When you apply a background color to a container, the color is visible in all blank areas and through transparent objects, including objects like text boxes and tables that do not have a color applied. By default, a new container does not have a background color applied.</p>
+                                        <p>To apply a background color: </p>
+                                        <ol>
+                                            <li value="1">In the <span class="uielement">Background color</span> setting, select the check box. </li>
+                                            <li value="2">Click the <span class="uielement">Background color</span> color well.</li>
+                                            <li value="3">In the color selector, select a color and click <span class="uielement">Apply</span>.</li>
+                                        </ol>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><span class="uielement">Padding &lt;position&gt;</span>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>The spacing of the design object in a container from the container border is controlled by the padding settings. You can set separate values for the top, right, left, and right borders. The value that you enter into each <span class="uielement">Padding &lt;position&gt;</span> box specifies the distance between the object and the container border. </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><span class="uielement">Alignment</span>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>The position of the design object in a container relative to the container borders is based on its alignment setting, which you can specify using the <span class="uielement">Alignment</span> grid shown in the following image. </p>
+                                        <p>
+                                            <img src="../images/b_CommDesigner_AlignmentGrid.png" style="width: 252px;height: 84px;" alt="image of the Alignment grid with the center alignment position selected" />
+                                            <br />The <span class="uielement">Alignment</span> grid is an intuitive way to select the relative position of the design object in your container. The alignment corresponds to the section of the grid that you select. </p>
+                                        <p>To specify the relative position of the design object, click the corresponding section in the <span class="uielement">Alignment</span> grid.<br /></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="uielement">Column width (%)</span>
+                                    </td>
+                                    <td>
+                                        <p> You can change the width of a container only if that container is one of multiple child containers present in the topmost parent container. If your design contains a single container in each row, the width of that container is always the same as the width of the design body. </p>
+                                        <p>The height of a container is determined by the content present within it. However, if needed, you can use the padding settings to manipulate the height of a container.</p>
+                                        <p>To change the width of a container, select the container, and then enter the width of the container in the <span class="uielement">Column width (%)</span> box. The width of a container is determined as a percentage of the width of its parent container. </p>
+                                        <p>Alternatively, you can click the sizing handles on the container and drag the border to make the container wider or smaller as needed. </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><span class="uielement">Hide on &lt;device&gt;</span>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Use the following settings to control the design elements that are visible on desktop or mobile devices:</p>
+                                        <ul>
+                                            <li><span class="uielement">Hide on mobile</span>—Select this check box to hide the selected container when the design is viewed on a mobile device.</li>
+                                            <li><span class="uielement">Hide on desktop</span>—Select this check box to hide the selected container when the design is viewed on a desktop device.</li>
+                                        </ul>
+                                        <p>When you enable these <a href="CreatingResponsiveDesigns.htm">responsive design features</a>, the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> engine adds media query styles to the <a href="AutomaticallyGeneratedCSSStyles.htm">automatically generated CSS styles</a> that detect the viewport of the viewing device to display only those design elements that are not hidden for that device.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><span class="uielement">Rotate on mobile</span>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>When a design is viewed on a mobile device, by default, any container row with multiple child containers in it is rotated so that the child containers from left to right are vertically stacked top to bottom in the same order. </p>
+                                        <p>To retain the left to right orientation of the child containers even when the design is resized for smaller screens, clear the <span class="uielement">Rotate on mobile</span> check box. </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2023</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

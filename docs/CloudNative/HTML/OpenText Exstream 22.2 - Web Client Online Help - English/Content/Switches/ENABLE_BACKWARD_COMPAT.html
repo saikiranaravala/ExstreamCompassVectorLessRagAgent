@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="Switch reference (English only)|Complete list of switches|[%=System.LinkedTitle%]|Switches E - H" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="OpenText Exstream (Cloud-Native) Release CE 22.2.0 Web Client Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>ENABLE_BACKWARD_COMPAT</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>ENABLE_BACKWARD_COMPAT</h1>
+                <p>Use the ENABLE_BACKWARD_COMPAT engine switch to collectively apply the backward compatibility switches that have been implemented since a previous version of <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> that you specify. When you use the ENABLE_BACKWARD_COMPAT switch, the output that you produce approximates the output that would be produced if you were using the version of the engine that you specify for the switch.</p>
+                <p>For example, suppose that you are using <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> version 9.0.102, but you are producing output using an application that was designed in <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> version 7.0.601. If you notice differences in the output and you want the output to appear the same as the output that you produced using <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> 7.0.601, you can specify <code>-ENABLE_BACKWARD_COMPAT=7.0.601</code>. Then, the engine applies the specific backward compatibility switches that were implemented in versions and maintenance releases later than <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> version 7.0.601.</p>
+                <p>Furthermore, you can specify a second version number in order to exclude backward compatibility switches that were implemented in versions or maintenance releases that are later than that version. That is, the engine applies only the backward compatibility switches that were implemented between the two versions that you specify.</p>
+                <p>The engine also produces a list of all of the specific backward compatibility switches that apply to the version or versions that you specify, as well as a list of a subset of those switches that actually apply to your application. The lists appear either in the engine message file or in the output file that you specify as an argument.</p>
+                <div class="Admonition_Note">
+                    <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>Using the ENABLE_BACKWARD_COMPAT switch or specific backward compatibility switches might roll back software fixes that were applied later than the version that you specify. You should use this switch only for testing output and for temporary use when you want to maintain the appearance of output from existing applications after an upgrade. For best results, make the updates to your application that are necessary to discontinue using backward compatibility switches as your time and business requirements permit.</p>
+                </div>
+                <p>For a list of the specific backward compatibility switches that might be applied when you use the ENABLE_BACKWARD_COMPAT switch, see <a href="LandingPages/_BackwardCompatibilitySwitches.htm" class="noNum MCXref xref xrefnoNum" data-mc-conditions="_Exstream_Conditions_SharedTopicGuideControls.EngineSwitches-Only">Backward compatibility switches</a>.</p>
+                <p class="intro_phrase">Syntax</p>
+                <p><code>-ENABLE_BACKWARD_COMPAT=&lt;version1&gt;,[&lt;version2&gt;],[&lt;filepath&gt;]</code>
+                </p>
+                <p>This switch has no default value. </p>
+                <table style="width: 100%;">
+                    <col style="width: 30%;" />
+                    <col style="width: 10%;" />
+                    <col style="width: 60%;" />
+                    <thead>
+                        <tr>
+                            <th>Argument</th>
+                            <th>Required</th>
+                            <th>Supported values</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <p><code>version1</code>
+                                </p>
+                            </td>
+                            <td>Yes</td>
+                            <td>
+                                <p>The version of <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> with which you want your output to be backward compatible.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p><code>version2</code>
+                                </p>
+                            </td>
+                            <td>No</td>
+                            <td>
+                                <p>The version starting from which you want to exclude backward compatibility switches. You must also use the <code>&lt;version1&gt;</code> argument to specify the initial version starting from which you want to include backward compatibility switches.</p>
+                                <p>By default, if you do not specify the <code>&lt;version2&gt;</code> argument, the engine applies backward compatibility switches from all versions starting from the version that is specified in the <code>&lt;version1&gt;</code> argument. </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p><code>&lt;filepath&gt;</code>
+                                </p>
+                            </td>
+                            <td>No</td>
+                            <td>The fully qualified file name of the output file in which you want to record the applicable backward compatibility switches.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>The arguments that you use in your switch depend on the method that you want to use to apply relevant backward compatibility switches. Use the following table to determine the argument list for your switch: </p>
+                <table style="width: 100%;">
+                    <col style="width: 40%;" />
+                    <col style="width: 60%;" />
+                    <thead>
+                        <tr>
+                            <th>Syntax</th>
+                            <th>Backward compatibility method</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <p><code>-ENABLE_BACKWARD_COMPAT=&lt;version1&gt;</code>
+                                </p>
+                            </td>
+                            <td>
+                                <p>Specify an earlier version of <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> with which you want your output to be backward compatible. When you produce output, the engine applies all backward compatibility switches that were implemented since the version that you specify. The engine adds the lists of applicable switches to the engine message file.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p><code>-ENABLE_BACKWARD_COMPAT=&lt;version1&gt;,&lt;version2&gt;</code>
+                                </p>
+                            </td>
+                            <td>Specify two earlier versions of <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span>, between which you want to apply relevant backward compatibility switches. When you produce output, the engine applies all backward compatibility switches that were implemented since the first version that you specify, but excludes switches that were implemented after the second version that you specify. The engine adds the lists of applicable switches to the engine message file.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p><code>-ENABLE_BACKWARD_COMPAT=&lt;version1&gt;,&lt;filepath&gt;</code>
+                                </p>
+                            </td>
+                            <td>Specify an earlier version of <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> with which you want your output to be backward compatible, and the path of an output file in which you want to record the applicable backward compatibility switches. When you produce output, the engine applies all backward compatibility switches that were implemented since the version that you specify. The engine adds the lists of applicable switches to the output file that you specify.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p><code>-ENABLE_BACKWARD_COMPAT=&lt;version1&gt;,&lt;version2&gt;,&lt;filepath&gt;</code>
+                                </p>
+                            </td>
+                            <td>Specify two earlier versions of <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span>, between which you want to apply relevant backward compatibility switches, and the path of an output file in which you want to record the applicable backward compatibility switches. When you produce output, the engine applies all of the backward compatibility switches that were implemented since the first version that you specify, but excludes switches that were implemented after the second version that you specify. The engine adds the lists of applicable switches to the engine message file. The engine adds the lists of applicable switches to the output file that you specify.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="intro_phrase">Examples</p><pre>-ENABLE_BACKWARD_COMPAT=8.6.102</pre><pre>-ENABLE_BACKWARD_COMPAT=8.6.102,9.0.102</pre><pre>-ENABLE_BACKWARD_COMPAT=8.6.102,C:\logs\switchoutput.txt</pre><pre>-ENABLE_BACKWARD_COMPAT=8.6.102,9.0.102,C:\logs\switchoutput.txt</pre>
+                <p class="intro_phrase">Supported in</p>
+                <ul>
+                    <li>
+                        <p>9.0.102 and later versions</p>
+                    </li>
+                    <li>
+                        <p>8.6.108 and later maintenance releases of 8.6</p>
+                    </li>
+                    <li>
+                        <p>8.0.335 and later maintenance releases of 8.0</p>
+                    </li>
+                </ul>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2022</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

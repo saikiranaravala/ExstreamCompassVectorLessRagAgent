@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="OpenText Exstream (Cloud-Native) Release CE 22.2.0 Web Client Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Overview of the Exstream environment</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Overview of the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> environment</h1>
+                <p><span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> CE  lets you combine classic <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> software (<span class="mc-variable _IMP_Product_Names.DesignAndProduction_Short variable">Design and Production</span>) with a containerized <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> deployment to provide robust capabilities for designing, managing, and delivering customer communications using the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> production engine. </p>
+                <p>The following graphic provides a representation of the components that are included in a typical <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> environment in this release:</p>
+                <p>
+                    <img src="../images/e_architecture_exstreamdeployment.png" alt="" class="screen" />
+                </p>
+                <p>The way your organization installs and implements the components of the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> deployment depends on your specific business requirements.</p>
+                <h2><span class="mc-variable _IMP_Product_Names.DesignAndProduction_Short variable">Design and Production</span>
+                </h2>
+                <p><span class="mc-variable _IMP_Product_Names.DesignAndProduction_Short variable">Design and Production</span> is a central component of any <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> implementation and provides a desktop design environment for creating customer communications that are produced using the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> production engine:</p>
+                <ul>
+                    <li>
+                        <p class="keepWithNext"><span class="emphasis-bold"><span class="mc-variable _IMP_Product_Names.Designer variable">Designer</span></span>—Provides the graphic design interface for creating the design layouts for <span class="mc-variable _IMP_Product_Names.DesignManager variable">Design Manager</span> applications. Designers use this interface to design and format content for pages and messages, create graphic elements, insert variables to customize documents, and put together the overall look and feel for customer communications. </p>
+                    </li>
+                    <li>
+                        <p class="keepWithNext"><span class="emphasis-bold"><span class="mc-variable _IMP_Product_Names.DesignManager variable">Design Manager</span></span>—Lets users create and manage the design objects that make up a <span class="mc-variable _IMP_Product_Names.DesignManager variable">Design Manager</span> application, including design templates, data files, variables, output, output queues, and the production equipment used by the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> engine to produce customer output. Additionally, system administrators use <span class="mc-variable _IMP_Product_Names.DesignManager variable">Design Manager</span> to perform administration tasks, such as managing users and design groups and defining design components. </p>
+                    </li>
+                    <li><span class="emphasis-bold">Design engine</span>—Lets users produce output and test their applications in the desktop environment. The design engine is also called the test engine.</li>
+                    <li><span class="emphasis-bold">Design database</span>—Contains <span class="mc-variable _IMP_Product_Names.DesignAndProduction_Short variable">Design and Production</span> design objects. This database is specific to <span class="mc-variable _IMP_Product_Names.DesignAndProduction_Short variable">Design and Production</span> and cannot be used to store resources for other  components in the containerized <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> deployment.</li>
+                </ul>
+                <h2><span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> deployment components</h2>
+                <p>The <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> deployment includes the following specific components to facilitate the end-to-end functionality for creating and delivering customer communications:</p>
+                <ul>
+                    <li>
+                        <p><span class="emphasis-bold">Design</span>—Provides the environment for users to design and modify communications and manage the production of customer output. Access to the service is controlled using a role-based permission system that uses <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> authentication. The Design service is also called Dynamic Asset Service or DAS. </p>
+                        <p>The <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> web client is the central user interface for interacting with DAS. The web client lets users define tenants in their <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> services, upload <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> engines, manage access permissions for users and domains, configure engine run definitions for communication previews, and manage resources in their DAS asset library. From the  web client, users can also access the following web applications: </p>
+                        <ul>
+                            <li>
+                                <p class="keepWithNext"><span class="emphasis-bold"><span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span></span> lets users design communications in an intuitive web-based design environment. Users can leverage data files and output queues created in <span class="mc-variable _IMP_Product_Names.DesignAndProduction_Short variable">Design and Production</span> to create customer output from communications that are designed in <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span>.</p>
+                            </li>
+                            <li>
+                                <p><span class="emphasis-bold"><span class="mc-variable _IMP_Product_Names.Orchestrator_Short variable">Communications Orchestrator</span></span> lets users create flow models and flow contexts that are used to define engine orchestration jobs for running the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> production engine to produce customer output. </p>
+                            </li>
+                            <li>
+                                <p class="keepWithNext"><span class="emphasis-bold"><span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span></span> lets business users add content to designs that are created in <span class="mc-variable _IMP_Product_Names.DesignAndProduction_Short variable">Design and Production</span> or <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> without requiring them to re-package their applications. <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> communications can be fulfilled directly to produce customer output. </p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><span class="emphasis-bold">Orchestration</span>—Processes the engine orchestration jobs which are configured in <span class="mc-variable _IMP_Product_Names.Orchestrator_Short variable">Communications Orchestrator</span>. The service supports both on-demand (synchronous) and batch (asynchronous)&#160;processing of orchestration flows. </p>
+                        <p>The Orchestration service communicates with <span class="mc-variable _IMP_Product_Names.DocGen_Short variable">Document Generation</span> to run the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> engine using different REST&#160;endpoints to invoke the on-demand or batch service as needed. Orchestration jobs that are triggered using the on-demand REST endpoint use the <span class="mc-variable _IMP_Product_Names.DocGen_Short variable">Document Generation</span> on-demand service for processing. All other orchestration jobs invoke orchestration flows in batch mode, queuing the requests in an internal Rabbit messaging queue.</p>
+                    </li>
+                    <li>
+                        <p><span class="emphasis-bold"><span class="mc-variable _IMP_Product_Names.DocGen_Short variable">Document Generation</span></span>—Manages running the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> engine, and includes the on-demand and batch services for handling synchronous and asynchronous engine processing respectively. Communication preview requests from the web client always use the on-demand service for processing. </p>
+                        <p>The processing method used when the engine run is initiated as part of an orchestration job depends on the how the job was initiated.  Results from on-demand engine runs are returned in a REST response for either immediate display as a preview or for further processing as defined in the corresponding orchestration flows. Results from batch engine runs are asynchronously returned using the Rabbit queue to the Orchestration service for further flow processing.
+</p>
+                    </li>
+                    <li>
+                        <p><span class="emphasis-bold"><span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span></span>—Provides the environment for users to modify fully composed interactive documents that are generated from communications created in <span class="mc-variable _IMP_Product_Names.DesignAndProduction_Short variable">Design and Production</span>, <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span>, and <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span>. This component includes the API that handles communication between <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> backend resources and the <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span> and <span class="mc-variable _IMP_Product_Names.Hydrogen_Admin_Console variable">Empower Server Console</span> user-facing interfaces for <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span>.</p>
+                        <ul>
+                            <li>
+                                <p class="keepWithNext"><span class="emphasis-bold"><span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span></span> is the browser-based interactive editor lets end users interact with customer communications, making selections from predefined options, changing text and images, updating variable data, adding additional documents and recipients, previewing the communications, and then initiating the fulfillment process for their updated communication.</p>
+                            </li>
+                            <li><span class="emphasis-bold"><span class="mc-variable _IMP_Product_Names.Hydrogen_Admin_Console variable">Empower Server Console</span></span> is the browser-based administrative interface for <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> that lets administrators view and manage <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> applications, documents, and editors, and configure system settings.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><span class="uielement">Experience Insights integration</span>—Manages sending event data for <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> communications to <span class="mc-variable _IMP_Product_Names.ExperienceInsights_Full variable">OpenText Core Experience Insights</span> (CXI),&#160;which allows organizations to map customer journeys and track customer activity for every event, across all customer journey touchpoints. When Experience Insights integration is enabled, event data from <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> is sent to <span class="mc-variable _IMP_Product_Names.ExperienceInsights_Short variable">Core Experience&#160;Insights</span> at regular intervals. </p>
+                    </li>
+                    <li>
+                        <p><span class="uielement">Rationalization</span>—In addition to the other components in a typical <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> environment, <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> CE includes an optional <span class="mc-variable _IMP_Product_Names.Rationalization_Short variable">Rationalization</span> component. <span class="mc-variable _IMP_Product_Names.Rationalization_Short variable">Rationalization</span> provides the environment for users to import external PDFs and rationalize them to use the content from those PDFs in <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> communications.</p>
+                        <div class="Admonition_Note">
+                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>Licensing for <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> CE Rationalization requires a services engagement with <span class="mc-variable _IMP_Template_Elements._Company_Acronym variable">OpenText</span> Professional Services. For more information, contact your <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> account representative.</p>
+                        </div>
+                    </li>
+                </ul>
+                <h2>Database services</h2>
+                <p>The  database services provide central access to and storage for the resources that are used in the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> deployment in the Kubernetes environment. Resources for each <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> component are stored in component-specific databases:</p>
+                <ul>
+                    <li><span class="emphasis-bold">Design database</span>—Stores design and production resources that are configured in the Design service.</li>
+                    <li><span class="emphasis-bold">Orchestration database</span>—Stores production artifacts that are generated during <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> engine runs.</li>
+                    <li><span class="emphasis-bold">Empower database</span>—Stores <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span>-specific resources.</li>
+                    <li><span class="uielement">Experience Insights database</span>—Stores the event data that will be sent to <span class="mc-variable _IMP_Product_Names.ExperienceInsights_Short variable">Core Experience&#160;Insights</span>.</li>
+                </ul>
+                <p>This separation of resources can be through schemas in a single database, or through separate databases. The actual physical implementation for your environment will depend on your business needs. </p>
+                <h2><span class="mc-variable _IMP_Product_Names.OTDS_Full variable">OpenText Directory Services</span>
+                </h2>
+                <p class="keepWithNext"><span class="emphasis-bold"><span class="mc-variable _IMP_Product_Names.OTDS_Full variable">OpenText Directory Services</span></span>, is an <span class="mc-variable _IMP_Template_Elements._Company_Acronym variable">OpenText</span> identity management system that provides access control for the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> environment. <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> can synchronize with external identity providers like Microsoft Active Directory to retrieve user and group information, and map that information to <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> access roles, providing secure access to each platform component. <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> can be downloaded from <span class="mc-variable _IMP_Template_Elements.SoftwareDownloadCenter variable">My Support</span> and is installed separately from the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> deployment. Depending on your specific business needs, you can choose to install <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> on an application server or in the Kubernetes environment.</p>
+                <h2>External components</h2>
+                <p>Setting up the containerized <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> deployment also requires the following components:</p>
+                <ul>
+                    <li>
+                        <p><span class="emphasis-bold">Kubernetes</span>—Provides a clustered environment that facilitates deployment, communication, and scaling for the services in the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> deployment.</p>
+                    </li>
+                    <li>
+                        <p><span class="emphasis-bold">Docker</span>—Provides the platform as a service framework for the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> deployment. <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> components are provided for deployment as Docker images.</p>
+                    </li>
+                    <li>
+                        <p><span class="emphasis-bold">Helm</span>—Serves as a package manager for Kubernetes. <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> uses Helm charts to configure its deployment.</p>
+                    </li>
+                    <li>
+                        <p><span class="emphasis-bold">Ingress controller</span>—Provides external access to the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> deployment in Kubernetes and acts as a gateway for external clients to interact with <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> microservices.</p>
+                    </li>
+                    <li>
+                        <p class="keepWithNext"><span class="emphasis-bold">RabbitMQ</span>—Enables the asynchronous processing of batch orchestration jobs. RabbitMQ is a messaging service that is required for engine orchestration.</p>
+                    </li>
+                    <li>
+                        <p><span class="emphasis-bold">NFS&#160;server provisioner</span>—Provides access to shared storage for the resources that are used and generated by the Orchestration and DocGen services. </p>
+                    </li>
+                </ul>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2022</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

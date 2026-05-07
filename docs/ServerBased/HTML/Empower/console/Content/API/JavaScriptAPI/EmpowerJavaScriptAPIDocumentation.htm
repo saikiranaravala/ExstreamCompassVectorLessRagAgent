@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="Empower Server Console and API" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>JavaScript API documentation: The Editor API</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" />
+        <script src="../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <h1>JavaScript API documentation: The Editor API</h1>
+            <p>The <span class="_Exstream_Product_NamesHydrogen">Empower</span> JavaScript API, which currently consists of the Editor API, allows integrators to configure <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> so that it can communicate with other client-side web applications that are hosting <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> sessions.</p>
+            <p>The Editor API is  for automating <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> when it is integrated with other client-side web applications within an iframe. For example, you can use the Editor API so that a parent HTML&#160;page can inspect an <span class="_Exstream_Product_NamesHydrogen">Empower</span> document that is open in an iframe to determine whether the document needs to be saved before ending the <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> session. </p>
+            <div class="Admonition_Note">
+                <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>If you plan to display <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> in an iframe, then you might want to consider configuring additional Spring Security options. Depending on which browsers you expect to use with <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>, it might be necessary for you to configure the <code>X-Frame-Options</code> header, the <code>Content-Security-Policy</code> header, or both in the <code>&lt;headers&gt;</code> element in the <code>customSecurityContext.xml</code> file that comes with <span class="_Exstream_Product_NamesHydrogen">Empower</span>. For information about how to configure these options, see the security response headers section of the current Spring Security Reference documentation on the Spring Security site.</p>
+            </div>
+            <h2>Who Will Use this API</h2>
+            <p><span class="_Exstream_Product_NamesHydrogen">Empower</span> integrators will use the Editor API when integrating <span class="_Exstream_Product_NamesHydrogen">Empower</span> with other client-side web applications.</p>
+            <h2 class="title">Included Files</h2>
+            <p>The following files are located in the <code>EditorAPI</code> directory of the <code>Empower_Server</code> ZIP file: </p>
+            <table style="margin-left: 0;margin-right: auto;">
+                <col />
+                <col />
+                <thead>
+                    <tr>
+                        <th style="text-align: left;">File</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align: left;"><code>EditorAPI.js</code>
+                        </td>
+                        <td>This file contains the code that allows the parent HTML&#160;page to communicate with <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>.  It uses the <code>EditorAPI</code> JavaScript object to expose the API.</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;"><code>EditorAPI_Sample.html</code>
+                        </td>
+                        <td>This is a sample HTML file that lets you test the Editor API before putting it into production.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Implementing the Editor API</h2>
+            <p>To implement the Editor API, complete the following tasks as needed:</p>
+            <ol>
+                <li value="1"><a href="#TestingEEA-API" class="MCXref xref">Testing the Editor API (optional)</a>
+                </li>
+                <li value="2"><a href="#MakingEEA-APIAvailable" class="MCXref xref">Making the Editor API available on your production server</a>
+                </li>
+                <li value="3"><a href="#MakingAPICall" class="MCXref xref">Making an API&#160;call</a>
+                </li>
+            </ol>
+            <p class="Subheading"><a name="TestingEEA-API"></a>Testing the Editor API (optional)</p>
+            <p>You can use the <code>EditorAPI_Sample.html</code> file to test the Editor API before putting it into production.</p>
+            <p>To test the Editor API:</p>
+            <ol>
+                <li value="1">Copy the <code>EditorAPI.js</code> file to your test web server.</li>
+                <li value="2">
+                    <p>Modify the <code>EditorAPI_Sample.html</code> file as follows:</p>
+                    <ol>
+                        <li value="1">Change the <code>&lt;script&gt;</code><code>src</code> attribute to point to the <code>EditorAPI.js</code> file on your test server.</li>
+                        <li value="2">If the <code>EditorAPI_Sample.html</code> file is not hosted on the same server that hosts the <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> session, you must update the <code>window.location.origin</code> argument to reflect the location of the <span class="_Exstream_Product_NamesHydrogen">Empower</span> server (for example, <code>http://myEmpowerServer:9090</code>).</li>
+                        <li value="3">
+                            <p>Change the <code>&lt;iframe&gt;</code><code>src</code> attribute to point to an Empower document (for example, <code>http://myEmpowerServer:9090/hes/resource/docedit/editor/1.0.6.0/locale/en_US/empower-develop.html?docId=774cf2cd-c71f-48cc-a896-31f704618b31#/document/1/page/1</code>).</p>
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+            <p class="Subheading"><a name="MakingEEA-APIAvailable"></a>Making the Editor API available on your production server</p>
+            <p>To make the Editor API&#160;available in production, simply copy the <code>EditorAPI.js</code> file to your production web server.</p>
+            <p class="Subheading"><a name="MakingAPICall"></a>Making an API&#160;call</p>
+            <ol>
+                <li value="1">
+                    <p>Obtain an <code>empowerInstance</code> object:</p>
+                    <p><code>var empowerInstance = EditorAPI.getInstance(document.getElementById("myIframeId").contentWindow, document.location.origin);</code>
+                    </p>
+                </li>
+                <li value="2">
+                    <p>Call the <code>save</code> method, which expects a callback method to be passed:</p><pre class="AllowBreaks">function saveCallback(response) {</pre><pre class="AllowBreaks" xml:space="preserve">  if (response.success === true)</pre><pre class="AllowBreaks" xml:space="preserve">    alert("Success");</pre><pre class="AllowBreaks" xml:space="preserve">  else</pre><pre class="AllowBreaks" xml:space="preserve">    alert("Failed : " + result.message);</pre><pre class="AllowBreaks">}</pre><pre class="AllowBreaks">empowerInstance.document.save(saveCallback);</pre>
+                </li>
+            </ol>
+            <h2>Methods</h2>
+            <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Closed" data-mc-alt2="Open" />EditorAPI.getInstance()</a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <p>
+                        <p><span class="emphasis-bold">Syntax</span>
+                        </p>
+                        <p><code>function getInstance(targetWindow, targetOrigin)</code>
+                        </p>
+                        <p><span class="emphasis-bold">Return value</span>
+                        </p>
+                        <p><code>(empowerInstance)</code>
+                        </p>
+                        <p>The <code>getInstance</code> method returns an <code>empowerInstance</code> object, which is required in order to use the API&#160;functionality.</p>
+                        <p><span class="emphasis-bold">Arguments</span>
+                        </p>
+                        <table style="margin-left: 0;margin-right: auto;">
+                            <col title="COLSPEC9" span="1" />
+                            <col title="COLSPEC10" span="1" />
+                            <thead>
+                                <tr>
+                                    <th>Argument</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p><![CDATA[
+								]]><code>targetWindow (window)</code><![CDATA[                        ]]></p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">The window object obtained from the iframe</td>
+                                </tr>
+                                <tr>
+                                    <td><code>targetOrigin (string)</code><![CDATA[                    ]]></td>
+                                    <td>The origin of the <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> server</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p><span class="emphasis-bold">Example</span>
+                        </p>
+                        <p><code>var empowerInstance = EditorAPI.getInstance(document.getElementById("myIframeId").contentWindow, window.location.origin);</code>
+                        </p>
+                    </p>
+                </div>
+            </div>
+            <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Closed" data-mc-alt2="Open" />empowerInstance.document.hasChanged()</a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <p>
+                        <p><span class="emphasis-bold">Syntax</span>
+                        </p>
+                        <p><code>function hasChanged(fnCallback,includeUncommitedChangesInActiveVarArea)</code>
+                        </p>
+                        <p><span class="emphasis-bold">Return value</span>
+                        </p>
+                        <p>No return value.</p>
+                        <p><span class="emphasis-bold">Parameters</span>
+                        </p>
+                        <table style="margin-left: 0;margin-right: auto;">
+                            <col title="COLSPEC9" span="1" />
+                            <col title="COLSPEC9" span="1" />
+                            <col title="COLSPEC9" span="1" />
+                            <col title="COLSPEC10" span="1" />
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Data type</th>
+                                    <th>Use</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="background-color: #ffffff;padding-left: 0.5em;padding-right: 0.5em;padding-top: 0.5em;padding-bottom: 0.5em;border-right-style: solid;border-right-width: 1px;border-right-color: #cccccc;border-top-style: solid;border-top-width: 1px;border-top-color: #cccccc;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #cccccc;">
+                                        <p><![CDATA[
+								]]><code>fnCallback</code><![CDATA[                        ]]></p>
+                                    </td>
+                                    <td>String</td>
+                                    <td style="background-color: #ffffff;padding-left: 0.5em;padding-right: 0.5em;padding-top: 0.5em;padding-bottom: 0.5em;border-right-style: solid;border-right-width: 0.5px;border-right-color: #a9aeb9;border-top-style: solid;border-top-width: 0.5px;border-top-color: #a9aeb9;border-bottom-style: solid;border-bottom-width: 0.5px;border-bottom-color: #a9aeb9;">Required</td>
+                                    <td>
+                                        <p>This parameter is a callback function provided by the integrator. It will be called when the API method has finished executing. The argument must accept a single argument of type <code>object</code>.
+							When <code>fnCallback</code> is called by the API, a <code>callbackobject</code> argument will be passed to it.  The <code>callbackobject</code> argument has a <code>success</code> member, as well as optional <code>isDirty</code> and <code>message</code> members.</p>
+                                        <ul>
+                                            <li value="1">
+                                                <p><code>isDirty</code>:&#160;This member returns a boolean value. If the value is <code>true</code>, the document needs to be saved; a value of <code>false</code> indicates that the document has not been changed since it was last saved.</p>
+                                            </li>
+                                            <li value="2">
+                                                <p><code>success</code>:&#160;This member returns a boolean value that indicates the success or failure of the <code>hasChanged</code> method.</p>
+                                            </li>
+                                            <li value="3">
+                                                <p><code>message</code>:&#160;This member is a string value that returns an optional failure message.</p>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="background-color: #ffffff;padding-left: 0.5em;padding-right: 0.5em;padding-top: 0.5em;padding-bottom: 0.5em;border-right-style: solid;border-right-width: 1px;border-right-color: #cccccc;border-top-style: solid;border-top-width: 1px;border-top-color: #cccccc;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #cccccc;"><code>includeUncommitedChangesInActiveVarArea</code>
+                                    </td>
+                                    <td>String</td>
+                                    <td style="background-color: #ffffff;padding-left: 0.5em;padding-right: 0.5em;padding-top: 0.5em;padding-bottom: 0.5em;border-right-style: solid;border-right-width: 0.5px;border-right-color: #a9aeb9;border-top-style: solid;border-top-width: 0.5px;border-top-color: #a9aeb9;border-bottom-style: solid;border-bottom-width: 0.5px;border-bottom-color: #a9aeb9;">Optional</td>
+                                    <td>
+                                        <p>By default, <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> does not evaluate a variable edit area for changes until after an end user has navigated away from the area. Therefore, if an <span class="_Exstream_Product_NamesHydrogen_Full">Exstream Empower Editor</span> document is open in an iframe, and the end user is still working in a variable edit area when he or she clicks a button in the parent iframe to save the document, any changes to the variable edit area will be lost if the end user does not navigate away from the area and re-save the document before closing it. </p>
+                                        <p>This parameter instructs the <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> API to look for changes in the active variable edit area when determining the result of the <code>hasChanged</code> method. The parameter can have a value of <code>none</code>, <code>true</code>, or <code>false</code>. A value of <code>true</code> means that <span class="_Exstream_Product_NamesHydrogen_Full">Exstream Empower Editor</span> will take into account any changes to the active variable edit area—as well as any unsaved changes elsewhere in the document—in its results. A value of <code>none</code> or <code>false</code> means that the <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> API will disregard any changes in the active variable edit area and only take into account unsaved changes elsewhere in the document.</p>
+                                        <div class="Admonition_Important">
+                                            <p data-mc-autonum="&lt;b&gt;Important: &lt;/b&gt;"><span class="autonumber"><span><b>Important: </b></span></span>Do not use this parameter if you have implemented autosave in your <span class="_Exstream_Product_NamesHydrogen_Full">Exstream Empower Editor</span> environment. </p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p><span class="emphasis-bold">Example</span>
+                        </p>
+                        <div class="overview"><pre xml:space="preserve" class="AllowBreaks">var empowerInstance = EditorAPI.getInstance(document.getElementById("myIframeId").
+contentWindow, window.location.origin);
+ 
+	function hasChangedCallback(response) {
+		if (response.success === true) {
+			var message = "Success : the document has ";
+			if (response.isDirty)
+				message += "changed.";
+			else
+				message += "not changed.";
+			alert(message);
+		}
+		else
+			alert("Failed : " + result.message);
+	}
+	empowerInstance.document.hasChanged(hasChangedCallback, true);
+}</pre>
+                        </div>
+                    </p>
+                </div>
+            </div>
+            <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Closed" data-mc-alt2="Open" />empowerInstance.document.save()</a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <p>
+                        <p class="Subheading"><a name="empowerInstancesave"></a>
+                        </p>
+                        <p><span class="emphasis-bold">Syntax</span>
+                        </p>
+                        <p><code>function save(fnCallback,includeUncommitedChangesInActiveVarArea)</code>
+                        </p>
+                        <p><span class="emphasis-bold">Return value</span>
+                        </p>
+                        <p>No return value.</p>
+                        <p><span class="emphasis-bold">Parameters</span>
+                        </p>
+                        <table style="margin-left: 0;margin-right: auto;">
+                            <col title="COLSPEC9" span="1" />
+                            <col title="COLSPEC9" span="1" />
+                            <col title="COLSPEC9" span="1" />
+                            <col title="COLSPEC10" span="1" />
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Data type</th>
+                                    <th>Use</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="background-color: #ffffff;padding-left: 0.5em;padding-right: 0.5em;padding-top: 0.5em;padding-bottom: 0.5em;border-right-style: solid;border-right-width: 1px;border-right-color: #cccccc;border-top-style: solid;border-top-width: 1px;border-top-color: #cccccc;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #cccccc;">
+                                        <p><![CDATA[
+								]]><code>fnCallback</code><![CDATA[                        ]]></p>
+                                    </td>
+                                    <td>String</td>
+                                    <td style="background-color: #ffffff;padding-left: 0.5em;padding-right: 0.5em;padding-top: 0.5em;padding-bottom: 0.5em;border-right-style: solid;border-right-width: 0.5px;border-right-color: #a9aeb9;border-top-style: solid;border-top-width: 0.5px;border-top-color: #a9aeb9;border-bottom-style: solid;border-bottom-width: 0.5px;border-bottom-color: #a9aeb9;">Required</td>
+                                    <td>
+                                        <p>This parameter is a function provided by the integrator, and it is called when the API method has finished executing. The argument must accept a single argument of type <code>object</code>.
+							When <code>fnCallback</code> is called by the API, a <code>callbackobject</code> argument will be passed to it.  The <code>callbackobject</code> argument has a <code>success</code> member, as well as an optional <code>message</code> member.</p>
+                                        <ul>
+                                            <li value="1"><code>success</code>: This member returns a boolean value that indicates the success or failure of the <code>save</code> method.</li>
+                                            <li value="2"><code>message</code>: This member is a string value that returns an optional failure message.</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="background-color: #ffffff;padding-left: 0.5em;padding-right: 0.5em;padding-top: 0.5em;padding-bottom: 0.5em;border-right-style: solid;border-right-width: 1px;border-right-color: #cccccc;border-top-style: solid;border-top-width: 1px;border-top-color: #cccccc;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #cccccc;"><code>includeUncommitedChangesInActiveVarArea</code>
+                                    </td>
+                                    <td>String</td>
+                                    <td style="background-color: #ffffff;padding-left: 0.5em;padding-right: 0.5em;padding-top: 0.5em;padding-bottom: 0.5em;border-right-style: solid;border-right-width: 0.5px;border-right-color: #a9aeb9;border-top-style: solid;border-top-width: 0.5px;border-top-color: #a9aeb9;border-bottom-style: solid;border-bottom-width: 0.5px;border-bottom-color: #a9aeb9;">Optional</td>
+                                    <td>
+                                        <p>By default, <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> does not evaluate a variable edit area for changes until after an end user has navigated away from the area. Therefore, if an <span class="_Exstream_Product_NamesHydrogen_Full">Exstream Empower Editor</span> document is open in an iframe, and an end user is still working in a variable edit area when he or she clicks a button in the parent iframe to save the document, any changes to the variable edit area will be lost if the end user does not navigate away from the area and re-save the document before closing it. </p>
+                                        <p>This parameter instructs the <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> API to look for changes in the active variable edit area before saving the <span class="_Exstream_Product_NamesHydrogen_Full">Exstream Empower Editor</span> document. The parameter can have a value of <code>none</code>, <code>true</code>, or <code>false</code>. A value of <code>true</code> means that <span class="_Exstream_Product_NamesHydrogen_Full">Exstream Empower Editor</span> will save any changes to the active variable edit area—as well as any unsaved changes elsewhere in the document—if a function is executed to save an <span class="_Exstream_Product_NamesHydrogen_Full">Exstream Empower Editor</span> document from a parent iframe. A value of <code>none</code> or <code>false</code> means that the <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> API will disregard any changes in the active variable edit area and only unsaved changes elsewhere in the document will be saved.</p>
+                                        <div class="Admonition_Important">
+                                            <p data-mc-autonum="&lt;b&gt;Important: &lt;/b&gt;"><span class="autonumber"><span><b>Important: </b></span></span>Do not use this parameter if you have implemented autosave in your <span class="_Exstream_Product_NamesHydrogen_Full">Exstream Empower Editor</span> environment. </p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p><span class="emphasis-bold">Example</span>
+                        </p>
+                        <div class="overview"><pre xml:space="preserve" class="AllowBreaks">
+var empowerInstance = EditorAPI.getInstance
+(document.getElementById("myIframeId").contentWindow, window.location.origin);
+ 
+	function saveCallback(response) {
+		if (response.success === true)
+			alert("Success");
+		else
+			alert("Failed : " + result.message);
+	}
+	empowerInstance.document.save(saveCallback, true);
+}</pre>
+                        </div>
+                    </p>
+                </div>
+            </div>
+            <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Closed" data-mc-alt2="Open" />empowerInstance.getFirstRequiredEditArea()</a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <p><span class="emphasis-bold">Syntax</span>
+                    </p>
+                    <p><code>function getFirstRequiredEditArea(fnCallback)</code>
+                    </p>
+                    <p><span class="emphasis-bold">Return value</span>
+                    </p>
+                    <p>No return value.</p>
+                    <p><span class="emphasis-bold">Parameters</span>
+                    </p>
+                    <table style="margin-left: 0;margin-right: auto;">
+                        <col title="COLSPEC9" span="1" />
+                        <col title="COLSPEC9" span="1" />
+                        <col title="COLSPEC9" span="1" />
+                        <col title="COLSPEC10" span="1" />
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Data type</th>
+                                <th>Use</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="background-color: #ffffff;padding-left: 0.5em;padding-right: 0.5em;padding-top: 0.5em;padding-bottom: 0.5em;border-right-style: solid;border-right-width: 1px;border-right-color: #cccccc;border-top-style: solid;border-top-width: 1px;border-top-color: #cccccc;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #cccccc;">
+                                    <p><![CDATA[
+								]]><code>fnCallback</code><![CDATA[                        ]]></p>
+                                </td>
+                                <td>Function</td>
+                                <td style="background-color: #ffffff;padding-left: 0.5em;padding-right: 0.5em;padding-top: 0.5em;padding-bottom: 0.5em;border-right-style: solid;border-right-width: 0.5px;border-right-color: #a9aeb9;border-top-style: solid;border-top-width: 0.5px;border-top-color: #a9aeb9;border-bottom-style: solid;border-bottom-width: 0.5px;border-bottom-color: #a9aeb9;">Required</td>
+                                <td>
+                                    <p>This parameter is a callback function provided by the integrator. It will be called when the <span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span> method has finished executing. The callback must accept a single argument of type object. When <code>fnCallback</code> is called by the <span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span>, a <code>callbackobject</code> argument will be passed to it.</p>
+                                    <p>On success, the <code>callbackobject</code> argument has the following form:</p>
+                                    <p><code>{"success":"true","routeIndex":{"doc":2,"page":1},"pageName":"reqNav_miscCases"}</code>
+                                    </p>
+                                    <ul>
+                                        <li value="1"><code>success:</code>  This member returns a boolean value that indicates the success or failure of the <code>getFirstRequiredEditArea</code> method.</li>
+                                        <li value="2"><code>routeIndex</code>: This object points to the first page that contains an untouched required edit area<ul><li value="1">doc: The doc member contains the ordinal of the design document of the first page that contains an untouched required edit area</li><li value="2">page: The page member contains the ordinal of the design document of the first page that contains an untouched required edit area</li></ul></li>
+                                        <li value="3">pageName: This member contains the name of the first page that contains an untouched required edit area</li>
+                                    </ul>
+                                    <p>On failure, the <code>callbackobject</code> argument has the following form:</p>
+                                    <p><code>{"success":"false","reason": "Reason for failure"}</code>
+                                    </p>
+                                    <ul>
+                                        <li value="1"><code>success:</code> This member returns a boolean value that indicates the success or failure of the <code>getFirstRequiredEditArea</code> method.</li>
+                                        <li value="2"><code>reason</code>: This member contains the reason for the failure of the call to <code>getFirstRequiredEditArea</code>.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><span class="emphasis-bold">Example</span><![CDATA[			    ]]></p>
+                    <div class="overview"><pre xml:space="preserve" class="AllowBreaks">
+function onClick_btnReq() {
+	var EmpowerServerOrigin = window.location.origin;
+	var idOfFrameToHostEmpower = "myIframeId";
+	var childIFrame = window.document.getElementById(idOfFrameToHostEmpower);
+	empowerInstance = EditorAPI.getInstance(childIFrame.contentWindow, EmpowerServerOrigin);
+
+	empowerInstance.document.getFirstRequiredEditArea(function(returnValue) {
+		window.BNTempPageParams = returnValue;
+		logMessage("empowerInstance.document.getFirstRequiredEditArea() = " + JSON.stringify(returnValue) + "\n");
+	});
+}</pre>
+                    </div>
+                </div>
+            </div>
+            <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Closed" data-mc-alt2="Open" />empowerInstance.navigateToFirstRequiredEditableArea()</a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <p><span class="emphasis-bold">Syntax</span>
+                    </p>
+                    <p><code>function navigateToFirstRequiredEditableArea(fnCallback, routeIndex)</code>
+                    </p>
+                    <p><span class="emphasis-bold">Return value</span>
+                    </p>
+                    <p>No return value.</p>
+                    <p><span class="emphasis-bold">Parameters</span>
+                    </p>
+                    <table style="margin-left: 0;margin-right: auto;">
+                        <col title="COLSPEC9" span="1" />
+                        <col title="COLSPEC9" span="1" />
+                        <col title="COLSPEC9" span="1" />
+                        <col title="COLSPEC10" span="1" />
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Data type</th>
+                                <th>Use</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="background-color: #ffffff;padding-left: 0.5em;padding-right: 0.5em;padding-top: 0.5em;padding-bottom: 0.5em;border-right-style: solid;border-right-width: 1px;border-right-color: #cccccc;border-top-style: solid;border-top-width: 1px;border-top-color: #cccccc;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #cccccc;">
+                                    <p><![CDATA[
+							]]><code>fnCallback</code><![CDATA[                        ]]></p>
+                                </td>
+                                <td>
+                                    <p>Function</p>
+                                </td>
+                                <td style="background-color: #ffffff;padding-left: 0.5em;padding-right: 0.5em;padding-top: 0.5em;padding-bottom: 0.5em;border-right-style: solid;border-right-width: 0.5px;border-right-color: #a9aeb9;border-top-style: solid;border-top-width: 0.5px;border-top-color: #a9aeb9;border-bottom-style: solid;border-bottom-width: 0.5px;border-bottom-color: #a9aeb9;">
+                                    <p>Required</p>
+                                </td>
+                                <td>
+                                    <p>This parameter is a callback function provided by the integrator. It will be called when the <span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span> method has finished executing. The callback must accept a single argument of type object. When <code>fnCallback</code> is called by the <span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span>, a <code>callbackobject</code> argument will be passed to it.</p>
+                                    <p>On success, the <code>callbackobject</code> argument has the following form:</p>
+                                    <p><code>{"success":"true"}</code>
+                                    </p>
+                                    <ul>
+                                        <li value="1"><code>success:</code> This member returns a boolean value that indicates the success or failure of the <code>getFirstRequiredEditArea</code> method.</li>
+                                    </ul>
+                                    <p>On failure, the <code>callbackobject</code> argument has the following form:</p>
+                                    <p><code>{"success":"false","reason": "Reason for failure"}</code>
+                                    </p>
+                                    <ul>
+                                        <li value="1"><code>success:</code> This member returns a boolean value that indicates the success or failure of the <code>getFirstRequiredEditArea</code> method.</li>
+                                        <li value="2"><code>reason:</code> This member contains the reason for the failure of the call to <code>getFirstRequiredEditArea</code>.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="background-color: #ffffff;padding-left: 0.5em;padding-right: 0.5em;padding-top: 0.5em;padding-bottom: 0.5em;border-right-style: solid;border-right-width: 1px;border-right-color: #cccccc;border-top-style: solid;border-top-width: 1px;border-top-color: #cccccc;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #cccccc;"><code>routeIndex</code>
+                                </td>
+                                <td>Object</td>
+                                <td style="background-color: #ffffff;padding-left: 0.5em;padding-right: 0.5em;padding-top: 0.5em;padding-bottom: 0.5em;border-right-style: solid;border-right-width: 0.5px;border-right-color: #a9aeb9;border-top-style: solid;border-top-width: 0.5px;border-top-color: #a9aeb9;border-bottom-style: solid;border-bottom-width: 0.5px;border-bottom-color: #a9aeb9;">Required</td>
+                                <td>
+                                    <p>This parameter is an object that contains a doc member and a page member. This parameter defines the location in the <span class="_Exstream_Product_NamesHydrogen">Empower</span> application to which the <span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span> will navigate before it finds the first editable area on the page.</p>
+                                    <p><code>e.g. {"doc":2,"page":1}</code>
+                                    </p>
+                                    <ul>
+                                        <li value="1">doc: The doc member contains the ordinal of the design document</li>
+                                        <li value="2">page: The page member contains the ordinal of the composed page</li>
+                                    </ul>
+                                    <div class="Admonition_Note">
+                                        <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>One of the possible sources of the doc and page members is from the result of the <code>getFirstRequiredEditArea</code> call.</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><span class="emphasis-bold">Example</span>
+                    </p>
+                    <div class="overview"><pre xml:space="preserve" class="AllowBreaks">
+function onClick_btnNav() {
+	var EmpowerServerOrigin = window.location.origin;
+	var idOfFrameToHostEmpower = "myIframeId";
+	var childIFrame = window.document.getElementById(idOfFrameToHostEmpower);
+	empowerInstance = EditorAPI.getInstance(childIFrame.contentWindow, EmpowerServerOrigin);
+
+	empowerInstance.document.navigateToFirstRequiredEditableArea(function(returnValue) {
+		console.log("navigateToFirstRequiredEditableArea() callback received " + JSON.stringify(returnValue) + "\n");
+		}, {"doc":2,"page":1});
+}
+					</pre>
+                    </div>
+                </div>
+            </div>
+            <p>&#160;</p>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear: both; clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;"><a href="../../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Copyright © <span class="_IMP_TemplateVarsCopyrightDateRange_CurrentYear">2019</span>&#160;<span class="Branding_Variables_Company_Legal_Name">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="Branding_Variables_Company_Legal_Name">Open&#160;Text</span>.</a>
+                </p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br /><a href="../../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <!--QCCR1K4298 START-->
+        <div style="display:none;" id="HPb-Branding-Variables" Footer="Yes" Feedback="Yes">&#160;</div>
+        <script>/* <![CDATA[ */
+            var BrandingVariables = document.getElementById("HPb-Branding-Variables");
+            if(BrandingVariables.getAttribute('Footer')=="No"){document.getElementById('Copyright').style.display = 'none';}
+            if(BrandingVariables.getAttribute('Feedback')=="No"){document.getElementById('Feedback').style.display = 'none';}
+        /* ]]> */</script>
+        <!--QCCR1K4298 END-->
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+            var closeIFrame = function() {
+            $('.MCTopicPopupContainer').remove();
+            $("#mc-background-tint").remove();
+            }
+        </script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+        <script src="../../Resources/Scripts/_IMP_init.js">
+        </script>
+        <!-- Include the following files in output -->
+        <p style="visibility:hidden"><a href="../../Resources/Scripts/_IMP_imageMapResizer.min.js">frontfileref</a><a href="../../Resources/Stylesheets/fonts/_IMP_Lato-Regular.ttf">frontfileref</a><a href="../../Resources/Stylesheets/fonts/_IMP_Lato-Bold.ttf">frontfileref</a>
+        </p>
+        <script type="text/javascript">/* <![CDATA[ */
+
+				//Set navigation hotkeys within iframe (must be done separately from top level)
+				window.addEventListener('keyup',
+					function(e) {
+						switch (e.key) {
+							case 'ArrowLeft':
+								MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous");
+								break;
+							case 'ArrowRight':
+								MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next");
+						}
+					}
+				, false);
+
+		/* ]]> */</script>
+    </body>
+</html>

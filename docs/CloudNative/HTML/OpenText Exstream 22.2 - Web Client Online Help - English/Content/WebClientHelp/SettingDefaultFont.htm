@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]|[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="OpenText Exstream (Cloud-Native) Release CE 22.2.0 Web Client Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Setting the default font and list formats for Communications Designer</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Setting the default font and list formats for <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span></h1>
+                <p>For communications based on a communication set, you can set the default font to be used when creating designs in <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span>. You can also set the default bullet and numbering formats used for up to four levels of indentation. These defaults will apply to all supported designs created in the tenant.</p>
+                <p>Only approved fonts that have been <a href="AddingFonts.htm">added</a> in the <span class="mc-variable _Exstream_UI_Names.WEB_DesignAssetMgmtView variable">Design asset library view</span> are available to be set as default fonts. If also you want the default font to be available in <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> templates, you must enable that option in the font properties.</p>
+                <p>If a design has already been created using other fonts, the default font will only be applied to content created after the default is set. Likewise, if you change the default font, the new default applies only to text entered after the font change.</p>
+                <p>Similarly, bulleted or numbered lists will only use the default format for lists created after the default is set.</p>
+                <div class="Admonition_Note">
+                    <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>If default bullets are not defined, when a user creates a bulleted list in <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> they will be prompted to contact their administrator to set defaults. However, they will be able to define and use temporary bullet characters.</p>
+                </div>
+                <p class="TaskIntro">To set the default font and list formats:</p>
+                <ol>
+                    <li value="1">
+                        <p>Sign in to the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> web client as a tenant administrator user at the following URL:</p>
+                        <p><code>https://&lt;host&gt;:&lt;optionalPort&gt;/design?tenant=&lt;tenantName&gt;</code>
+                        </p>
+                    </li>
+                    <li value="2">
+                        <p>Click the <span class="uielement">Tenant management</span> <img src="../images/b_WebApps_AppToolbar_AdminIcon.png" class="inline" alt="" /> button to open the <span class="mc-variable _Exstream_UI_Names.WEB_TenantMgmtView variable">Tenant management view</span>.</p>
+                    </li>
+                    <li value="3">
+                        <p>In the <span class="uielement">Configurations</span> panel, click <span class="emphasis-bold"><span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span></span>.</p>
+                    </li>
+                    <li value="4">
+                        <p>In the <span class="uielement">Properties</span> panel, select the <span class="uielement">Text and Fonts</span> tab.</p>
+                    </li>
+                    <li value="5">
+                        <p>Under <span class="uielement">Default font</span>, click <span class="uielement">Set default font</span> and select the font that you want to use.</p>
+                        <p>You can also change the font size, and, if available, apply bold or italic styling.</p>
+                    </li>
+                    <li value="6">
+                        <p class="TaskIntro">Under <span class="uielement">Bullets</span>, you can define the bullet symbol and color for each bullet level.</p>
+                        <p class="TaskIntro">To select the bullet symbol:</p>
+                        <ol style="list-style-type: lower-alpha;">
+                            <li value="1">
+                                <p>Click the box next to the level that you want to change to open the <span class="uielement">Bullet symbol selection</span> dialog box.</p>
+                            </li>
+                            <li value="2">
+                                <p>If you want to change the font used for the bullet, select an approved font in the <span class="uielement">Typeface</span> list.</p>
+                            </li>
+                            <li value="3">
+                                <p>Select the symbol to use as the bullet.</p>
+                            </li>
+                            <li value="4">
+                                <p>Click <span class="uielement">Set</span>.</p>
+                            </li>
+                        </ol>
+                        <p class="TaskIntro">To change the bullet color:</p>
+                        <ol style="list-style-type: lower-alpha;">
+                            <li value="1">
+                                <p>Click the color block next to the bullet box.</p>
+                            </li>
+                            <li value="2">
+                                <p>Use the color selection dialog box to select the bullet color.</p>
+                            </li>
+                            <li value="3">
+                                <p>Click <span class="uielement">Apply</span>.</p>
+                            </li>
+                        </ol>
+                    </li>
+                    <li value="7">
+                        <p>Under <span class="uielement">Numbering</span>, you can select the numbering style and color for each number level.</p>
+                        <p>To change the type of numbering that is used for a particular level, click the arrow next to the numbering example and select the style that you want to use.</p>
+                        <p class="TaskIntro">To change the color that is used for the number:</p>
+                        <ol style="list-style-type: lower-alpha;">
+                            <li value="1">
+                                <p>Click the color block next to the number box.</p>
+                            </li>
+                            <li value="2">
+                                <p>Use the color selection dialog box to select the number color.</p>
+                            </li>
+                            <li value="3">
+                                <p>Click <span class="uielement">Apply</span>.</p>
+                            </li>
+                        </ol>
+                    </li>
+                    <li value="8">
+                        <p>Click <span class="uielement">Save</span>.</p>
+                    </li>
+                </ol>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2022</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

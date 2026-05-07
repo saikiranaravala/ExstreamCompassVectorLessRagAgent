@@ -1,0 +1,1 @@
+define({r:0.5,st:'Stem',n:1,t:[0],u:['../Content/AdminConsole/FindingAccessibilityInformationforOT.htm'],s:['+'],p:[['+',3],['food',18],['specific',7]]});

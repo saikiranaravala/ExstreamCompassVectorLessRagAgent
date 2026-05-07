@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="[%=System.LinkedTitle%]|[%=System.LinkedTitle%]|System settings API calls">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="Empower Server Console and API" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="DocVersion" content="" /><title>Import a secondary dictionary</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <h1 class="chapternum">Import a secondary dictionary</h1>
+            <p>The <code>POST</code> API call for <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> dictionaries imports a Hunspell dictionary file to the <span class="_Exstream_Product_NamesHydrogen_Services">Empower Services Layer</span> and maps it to an existing primary  dictionary as an additional resource. For each language dictionary in <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>, you can specify a secondary dictionary. Note that Empower supports only a single primary dictionary and a single secondary dictionary for each language. </p>
+            <h2>Who can access this call</h2>
+            <p>Access to the <span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span> is defined in the <code>customSecurityContext.xml</code> file during installation, and is controlled by your authorization provider. By default, <span class="_Exstream_Product_NamesHydrogen">Empower</span> supports the <code>administrator</code>, <code>editor</code>, and <code>integrator</code> authorities.</p>
+            <p>Authenticated users with the following authority can use this API call:</p>
+            <ul>
+                <li value="1"><code>administrator</code>
+                </li>
+            </ul>
+            <h2 class="title">Request</h2>
+            <table style="margin-left: 0;margin-right: auto;">
+                <col />
+                <col />
+                <col />
+                <thead>
+                    <tr>
+                        <th style="text-align: left;">Request method</th>
+                        <th style="text-align: left;">Content type</th>
+                        <th style="text-align: left;">Syntax</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align: left;">POST</td>
+                        <td style="text-align: left;">multipart/form-data</td>
+                        <td style="text-align: left;"><code>/&lt;context&gt;/resource/dictionaries</code>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>The <code>&lt;context&gt;</code> variable is configured during  <span class="_Exstream_Product_NamesHydrogen">Empower</span>&#160;installation. </p>
+            <p class="Subheading">Request header</p>
+            <table style="width: 100%;margin-left: 0;margin-right: auto;">
+                <col />
+                <col />
+                <col />
+                <col />
+                <thead>
+                    <tr>
+                        <th>Header</th>
+                        <th>Value</th>
+                        <th>Use</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>X-CSRF-TOKEN</code>
+                        </td>
+                        <td><code>{csrfToken}</code>
+                        </td>
+                        <td>Required</td>
+                        <td>
+                            <p>Provides a session token that authorizes you to access the <code>DELETE</code> and <code>POST</code> API calls</p>
+                            <p>To view the token for your current session, do one of the following:</p>
+                            <ul>
+                                <li value="1">To capture the <code>csrfToken</code> response parameter, see <a href="get_token_api.html" class="MCXref xref">Get security token</a>.</li>
+                                <li value="2"> Retrieve the <code>XSRF-TOKEN</code> cookie after making an API call from a session that is already in progress.</li>
+                            </ul>
+                            <p>Keep in mind that if a session expires or changes, you must acquire a new security token.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>Accept</code>
+                        </td>
+                        <td><code>application/xml</code>
+                        </td>
+                        <td>Optional</td>
+                        <td>Requests that <span class="_Exstream_Product_NamesHydrogen">Empower</span> return an XML response instead of the default JSON response</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="Subheading">Request parameters</p>
+            <table style="margin-left: 0;margin-right: auto;">
+                <col title="col1" span="1" style="width: 93px;" />
+                <col title="COLSPEC6" span="1" />
+                <col title="COLSPEC7" span="1" />
+                <col title="COLSPEC5" span="1" />
+                <thead>
+                    <tr>
+                        <th rowspan="1" colspan="1">Parameter</th>
+                        <th rowspan="1" colspan="1">Data type</th>
+                        <th rowspan="1" colspan="1">Use</th>
+                        <th rowspan="1" colspan="1">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>dictionaryName</code>
+                        </td>
+                        <td>String</td>
+                        <td>Required</td>
+                        <td>Specifies the name of the existing <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> primary dictionary to which the new secondary dictionary file is mapped</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="1">
+                            <p><code>file</code>
+                            </p>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                            <p>File</p>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                            <p>Optional</p>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                            <p rowspan="1" colspan="1">Imports the dictionary file and maps it to the specified primary dictionary</p>
+                            <p>Note that if there is already a secondary dictionary, the dictionary file that you import replaces the existing secondary dictionary.</p>
+                            <p>The maximum file size is 200 MB.</p>
+                            <p><span class="_Exstream_Product_NamesHydrogen">Empower</span> supports Hunspell dictionary files with a <code>.dic</code> extension.</p>
+                            <p>To remove an existing secondary dictionary, run the API call without this parameter.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="Subheading">Example request</p>
+            <table style="margin-left: 0;margin-right: auto;">
+                <col title="COLSPEC9" span="1" />
+                <col title="COLSPEC10" span="1" />
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="1" colspan="1">
+                            <p>Request header</p>
+                        </td>
+                        <td rowspan="1" colspan="1"> <code>POST <span class="Basic_Variables_Product_Sample_URI">http://sample-server.example.com</span>:8080/mpw/resource/dictionaries<br />X-CSRF-TOKEN: 95cf86a3-079f-4860-aa62-dd64f8a8c321</code></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="1">
+                            <p>Request body</p>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                            <p><code>Content-Type: multipart/form-data;</code>
+                            </p>
+                            <p><code>Content-Disposition: form-data; name="file"; filename="en_GB_medical.dic"<br />&lt;actual file content, not shown here&gt;</code>
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2 class="title">Response</h2>
+            <p> <span class="_Exstream_Product_NamesHydrogen">Empower</span> supports two formats for API response payloads: JSON and XML.</p>
+            <p class="Subheading">Example JSON response</p>
+            <p>Media type: application/json</p>
+            <div class="overview"><pre xml:space="preserve">
+{
+    "header": {
+        "status": {
+            "code": "SERV100I"
+        }
+    },
+    "body": {
+        "dictionaryMapping": {
+            "primaryDictionaryLanguage: "English (British)",
+            "primaryDictionaryName": "en_GB",
+            "secondaryDictionaryName": "en_GB_medical"
+        }
+    }
+}</pre>
+            </div>
+            <p class="Subheading">Example XML response</p>
+            <p>Media type: application/xml</p>
+            <div><pre xml:space="preserve">
+        <code>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;ResponseContainer&gt;
+   &lt;header&gt;
+      &lt;status code="SERV100I"/&gt;
+   &lt;/header&gt;
+   &lt;body&gt;
+        &lt;dictionaryMapping primaryDictionaryLanguage="English (British)" primaryDictionaryName="en_GB" secondaryDictionaryName="en_GB_medical"/&gt;
+   &lt;/body&gt;
+&lt;/ResponseContainer&gt;</code>   </pre>
+            </div>
+            <p class="Subheading">Response parameters</p>
+            <p>If a parameter object does not contain a value, a JSON response returns a <code>null</code> value for the object, but an XML response does not include the object.</p>
+            <table style="margin-left: 0;margin-right: auto;width: 100%;">
+                <col title="col1" span="1" />
+                <col title="COLSPEC6" span="1" />
+                <col title="COLSPEC5" span="1" />
+                <thead>
+                    <tr>
+                        <th rowspan="1" colspan="1">Parameter</th>
+                        <th rowspan="1" colspan="1">Data type</th>
+                        <th rowspan="1" colspan="1">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>primaryDictionaryLanguage</code>
+                        </td>
+                        <td>String</td>
+                        <td>
+                            <p>The language of the primary dictionary</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>primaryDictionaryName</code>
+                        </td>
+                        <td>String</td>
+                        <td>
+                            <p>The name of the primary dictionary</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>secondaryDictionaryName</code>
+                        </td>
+                        <td>String</td>
+                        <td>The name of the secondary dictionary file (if one exists)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>&#160;</p>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear: both; clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;"><a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Copyright © <span class="_IMP_TemplateVarsCopyrightDateRange_CurrentYear">2019</span>&#160;<span class="Branding_Variables_Company_Legal_Name">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="Branding_Variables_Company_Legal_Name">Open&#160;Text</span>.</a>
+                </p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br /><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <!--QCCR1K4298 START-->
+        <div style="display:none;" id="HPb-Branding-Variables" Footer="Yes" Feedback="Yes">&#160;</div>
+        <script>/* <![CDATA[ */
+            var BrandingVariables = document.getElementById("HPb-Branding-Variables");
+            if(BrandingVariables.getAttribute('Footer')=="No"){document.getElementById('Copyright').style.display = 'none';}
+            if(BrandingVariables.getAttribute('Feedback')=="No"){document.getElementById('Feedback').style.display = 'none';}
+        /* ]]> */</script>
+        <!--QCCR1K4298 END-->
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+            var closeIFrame = function() {
+            $('.MCTopicPopupContainer').remove();
+            $("#mc-background-tint").remove();
+            }
+        </script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+        <script src="../Resources/Scripts/_IMP_init.js">
+        </script>
+        <!-- Include the following files in output -->
+        <p style="visibility:hidden"><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js">frontfileref</a><a href="../Resources/Stylesheets/fonts/_IMP_Lato-Regular.ttf">frontfileref</a><a href="../Resources/Stylesheets/fonts/_IMP_Lato-Bold.ttf">frontfileref</a>
+        </p>
+        <script type="text/javascript">/* <![CDATA[ */
+
+				//Set navigation hotkeys within iframe (must be done separately from top level)
+				window.addEventListener('keyup',
+					function(e) {
+						switch (e.key) {
+							case 'ArrowLeft':
+								MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous");
+								break;
+							case 'ArrowRight':
+								MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next");
+						}
+					}
+				, false);
+
+		/* ]]> */</script>
+    </body>
+</html>

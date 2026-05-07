@@ -1,0 +1,2370 @@
+/*<meta conditions="_IMP_Conditions.SharedImports" />*/
+
+/* This header may be removed before distributing to customers. 
+
+FILE:         _IMP_IE.css
+DESCRIPTION:  Cascading Style Sheet for Flare documentation projects
+MODIFIED:     December 12, 2019
+VERSION:      1.2
+
+*/
+
+@namespace MadCap "http://www.madcapsoftware.com/Schemas/MadCap.xsd";
+
+html.simpleFooter
+{
+	mc-disabled: true;
+	mc-master-page: url('../MasterPages/_IMP_WebHelpMasterPage.flmsp');
+}
+
+html.simpleFooterBreadCrumbs
+{
+	mc-disabled: true;
+	mc-master-page: url('../MasterPages/_IMP_WebHelpMasterPage_wBreadcrumbs.flmsp');
+}
+
+/* Conditional Text */
+
+[MadCap\0003AConditions*="_IMP_Conditions.Future"],
+[data-mc-conditions*="_IMP_Conditions.Future"]
+{
+	background-color: #eeb111;
+}
+
+/* Paragraphs */
+
+body
+{
+	font-family: Arial, Tahoma, 'Lucida Sans Unicode', sans-serif;
+	font-size: 0.9em;
+	line-height: normal;
+	margin-bottom: 1.1em;
+	margin-top: 1.1em;
+	margin-left: 20px;
+	margin-right: 20px;
+	mc-hyphenate: never;
+	color: #000000;
+}
+
+p
+{
+	margin-top: 0em;
+	margin-bottom: 1.1em;
+}
+
+p.avoidPageBreak
+{
+	page-break-inside: avoid;
+}
+
+p.keepWithNext,
+p.ListIntro,
+p.TaskIntro
+{
+	page-break-after: avoid;
+}
+
+p.Subheading
+{
+	color: #000000;
+	font-family: Arial, Tahoma, 'Lucida Sans Unicode', sans-serif;
+	font-size: 120%;
+}
+
+p.hanging_indent
+{
+	text-indent: -25px;
+	padding-left: 25px;
+}
+
+p.intro_phrase
+{
+	font-weight: bold;
+	font-size: 1.0em;
+}
+
+/* Column Layouts */
+/* column class to create a column layout in a div container */
+
+div.column
+{
+	float: left;
+	width: 100%;
+}
+
+/* twocolumn class to create two-column layout in a div container */
+
+div.twocolumn
+{
+	float: left;
+	width: 50%;
+}
+
+/* threecolumn class to create three-column layout in a div container */
+
+div.threecolumn
+{
+	float: left;
+	width: 33%;
+}
+
+/* fourcolumn class to create four-column layout in a div container */
+
+div.fourcolumn
+{
+	float: left;
+	width: 25%;
+}
+
+/* Clear floats after the columns in a div */
+
+div.row:after
+{
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* Links */
+
+a,
+a.MCXref.xref,
+a.MCDropDownHotspot,
+a.MCDropDownHotSpot_
+{
+	color: #00009F;
+	text-decoration: none;
+}
+
+a > b
+{
+	color: inherit;
+}
+
+a > code
+{
+	color: inherit;
+}
+
+a:link,
+a.MCXref.xref:link,
+a.MCDropDownHotspot:link,
+a.MCDropDownHotSpot_:link
+{
+	color: #00009F;
+	text-decoration: none;
+}
+
+a:visited,
+a.MCXref.xref:visited,
+a.MCDropDownHotspot:visited,
+a.MCDropDownHotSpot_:visited
+{
+	color: #A05FA6;
+	text-decoration: none;
+}
+
+a:hover,
+a.MCXref.xref:hover,
+a.MCDropDownHotspot:hover,
+a.MCDropDownHotSpot_:hover
+{
+	text-decoration: underline;
+}
+
+a.MCTopicPopup,
+a.MCTopicPopupHotSpot
+{
+	background-image: url('images/_IMP_Experience_popup.png');
+	background-position: right;
+	padding-right: 14px;
+}
+
+div.MCTopicPopupContainer
+{
+	min-height: 25%;
+	min-width: 50%;
+	max-height: 100%;
+	max-width: 100%;
+	background-color: #E1E8F6;
+}
+
+a.avoidPrint
+{
+	
+}
+
+p.miniTOC1
+{
+	display: list-item;
+	list-style-position: outside;
+	list-style-type: disc;
+}
+
+/*a.miniTOC1,
+a.MiniTOC2,
+a.MiniTOC3,
+a.MiniTOC4,
+a.MiniTOC5,
+a.MiniTOC6,
+a.MiniTOC7,
+a.MiniTOC8
+{
+	display: list-item;
+	list-style-position: outside;
+	list-style-type: disc;
+}*/
+
+a.MiniTOC1:link,
+a.MiniTOC2:link,
+a.MiniTOC3:link,
+a.MiniTOC4:link,
+a.MiniTOC5:link,
+a.MiniTOC6:link,
+a.MiniTOC7:link,
+a.MiniTOC8:link
+{
+	font-weight: normal;
+	color: #00009F;
+	text-decoration: none;
+}
+
+a.MiniTOC1:visited,
+a.MiniTOC2:visited,
+a.MiniTOC3:visited,
+a.MiniTOC4:visited,
+a.MiniTOC5:visited,
+a.MiniTOC6:visited,
+a.MiniTOC7:visited,
+a.MiniTOC8:visited
+{
+	color: #A05FA6;
+	text-decoration: none;
+	font-weight: normal;
+}
+
+a.MiniTOC1:hover,
+a.MiniTOC2:hover,
+a.MiniTOC3:hover,
+a.MiniTOC4:hover,
+a.MiniTOC5:hover,
+a.MiniTOC6:hover,
+a.MiniTOC7:hover,
+a.MiniTOC8:hover
+{
+	text-decoration: underline;
+}
+
+a.pop
+{
+	color: #00009F;
+	text-decoration: none;
+}
+
+a.pop:visited
+{
+	color: #A05FA6;
+}
+
+a.pop:hover
+{
+	text-decoration: underline;
+}
+
+a.Popup
+{
+	text-decoration: none;
+	content: "\0000a0";
+	padding-right: 18px;
+	background-repeat: no-repeat;
+	background-position: right center;
+	background-image: url('images/_IMP_Experience_popup.png');
+	display: inline;
+}
+
+a.Popup:hover
+{
+	text-decoration: underline;
+}
+
+html.html_popup_only
+{
+	position: relative;
+	mc-master-page: url('../MasterPages/_IMP_masterpage_popup.flmsp');
+}
+
+/* Miscellaneous Styles */
+
+abbr,
+acronym
+{
+	font-variant: normal;
+}
+
+address
+{
+	font-style: inherit;
+}
+
+b
+{
+	color: #000000;
+}
+
+blockquote
+{
+	margin: 0;
+}
+
+div.Hidden_Element
+{
+	display: none;
+}
+
+div.GlossaryPageDefinition
+{
+	padding-bottom: .5em;
+}
+
+pre.AllowBreaks
+{
+	
+}
+
+span.uielement
+{
+	font-weight: bold;
+}
+
+span.emphasis-bold
+{
+	font-weight: bold;
+}
+
+span.emphasis-italic
+{
+	font-style: italic;
+}
+
+span.mc-variable.docName,
+span.docName
+/* displays italic formatting for variable in Flare UI */
+/* adds italic formatting in the output to variables formatted using the variable.docName style */
+{
+	font-style: italic;
+}
+
+/* adds formatting in the output to all variables from the *_Doc_Names variable set*/
+
+span[class*="_Doc_Names"]
+{
+	/*placeholder style*/
+}
+
+/* Headings */
+
+h1
+{
+	color: #000000;
+	font-family: Arial, Tahoma, 'Lucida Sans Unicode', sans-serif;
+	font-weight: bold;
+	font-size: 150%;
+	line-height: normal;
+}
+
+h1.appendix
+{
+	mc-disabled: true;
+}
+
+h1.chapternum
+{
+	mc-disabled: true;
+}
+
+h1.partnum
+{
+	mc-disabled: true;
+}
+
+h2
+{
+	color: #000000;
+	font-family: Arial, Tahoma, 'Lucida Sans Unicode', sans-serif;
+	font-weight: normal;
+	font-size: 130%;
+	line-height: normal;
+	padding-top: 6px;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-color: #E1E8F6;
+}
+
+h2.appendix
+{
+	mc-disabled: true;
+}
+
+h2.chapternum
+{
+	mc-disabled: true;
+}
+
+h3
+{
+	mc-disabled: true;
+}
+
+h4
+{
+	mc-disabled: true;
+}
+
+h5
+{
+	mc-disabled: true;
+}
+
+h6
+{
+	mc-disabled: true;
+}
+
+/* Rules */
+
+hr
+{
+	color: #E5E8E8;
+	height: 0.05em;
+	width: 100%;
+}
+
+/* Images */
+/* img.class controls image formatting in output */
+/* MadCap|img.class controls image formatting in Flare editor */
+
+MadCap|img
+{
+	border: none;
+	max-width: 80%;
+	max-height: auto;
+}
+
+MadCap|img.screen
+{
+	border: none;
+	max-height: 600px;
+	max-width: auto;
+}
+
+MadCap|img,
+img.screen
+{
+	border: none;
+	max-width: 80%;
+	max-height: auto;
+}
+
+MadCap|img.floatLeft,
+img.floatLeft
+{
+	border: none;
+	display: inline;
+	float: left;
+	margin-top: 5px;
+	margin-bottom: 2px;
+	margin-right: 10px;
+}
+
+MadCap|img.floatRight,
+img.floatRight
+{
+	border: none;
+	display: inline;
+	float: right;
+	margin-top: 5px;
+	margin-bottom: 2px;
+}
+
+MadCap|img.GrayBorder,
+img.GrayBorder
+{
+	border: solid 1px #E1E8F6;
+}
+
+MadCap|img.inline,
+img.inline
+{
+	display: inline;
+	vertical-align: middle;
+	height: 20px;
+	max-height: 25px;
+	width: 20px;
+	max-width: 25px;
+}
+
+p.Figure
+{
+	margin-bottom: 2em;
+	mc-next-tag: p;
+}
+
+p.FigureTitle
+{
+	font-family: Arial, Tahoma, 'Lucida Sans Unicode', sans-serif;
+	font-weight: bold;
+	font-size: 0.9em;
+	margin-top: 2em;
+	mc-next-tag: p;
+	mc-next-class: Figure;
+}
+
+/* Definition Lists (used in API docs) */
+
+dl
+{
+	margin: 0;
+}
+
+dt
+{
+	margin-top: 0.8em;
+	font-weight: bold;
+}
+
+dd
+{
+	margin-left: 50px;
+}
+
+/* Lists */
+
+ol
+{
+	margin-left: 20px;
+	padding-left: 0.2em;
+}
+
+ul
+{
+	margin-left: 8px;
+	padding-left: 0.2em;
+}
+
+li
+{
+	margin-top: 1.1em;
+	margin-bottom: 1.1em;
+}
+
+ul.NoBullet
+{
+	list-style-type: none;
+}
+
+ul.NoBullet li
+{
+	display: block;
+}
+
+ol > li
+{
+	list-style-type: decimal;
+}
+
+ul > li
+{
+	list-style-type: disc;
+	margin-left: 0.5em;
+}
+
+ol ol > li,
+ul ol > li
+{
+	list-style-type: lower-alpha;
+}
+
+ol ol ol > li,
+ol ul ol > li,
+ul ol ol > li,
+ul ul ol > li
+{
+	list-style-type: lower-roman;
+}
+
+ul ul > li
+{
+	list-style-type: circle;
+}
+
+ol ol ol ol > li,
+ol ol ul ol > li,
+ol ul ol ol > li,
+ul ol ol ol > li,
+ol ul ul ol > li,
+ul ul ol ol > li,
+ul ol ul ol > li,
+ul ul ul ol > li
+{
+	list-style-type: upper-alpha;
+}
+
+menu
+{
+	margin: 0;
+}
+
+/* Index Paragraph Classes */
+
+p.Index1,
+p.Index2,
+p.Index3,
+p.Index4
+{
+	margin-bottom: 0em;
+	margin-top: 0em;
+	white-space: normal;
+}
+
+/* Related Topics CallOut */
+
+div.CallOut_RelatedTopic_PrintCompatible
+{
+	margin-bottom: 10px;
+	margin-left: 0px;
+	margin-right: 5px;
+	padding-top: 11px;
+	padding-left: 9px;
+	padding-right: 9px;
+	padding-bottom: 0px;
+	background-color: #e1e8f6;
+	border: solid 0.5px #2e3d98;
+	mc-auto-number-format: '{b}Related topics: {/b}';
+	/* Localizable */
+}
+
+/* Admonitions */
+/* To apply color formatting to admonition titles, use '{b}{color #df3324}To-do: {/color}{/b}';*/
+
+div.Admonition_Deprecated,
+div.Admonition_Note,
+div.Admonition_Caution,
+div.Admonition_Tip,
+div.Admonition_Danger,
+div.Admonition_Important
+{
+	margin-bottom: 10px;
+	margin-left: 0px;
+	margin-right: 5px;
+	padding-top: 11px;
+	padding-left: 9px;
+	padding-right: 9px;
+	padding-bottom: 0px;
+	background-color: #e1e8f6;
+	border: solid 0.5px #2e3d98;
+}
+
+div.Admonition_Deprecated > p:first-child
+{
+	mc-auto-number-format: '{b}Deprecated: {/b}';
+	/* Localizable */
+}
+
+div.Admonition_Note > p:first-child
+{
+	mc-auto-number-format: '{b}Note: {/b}';
+	/* Localizable */
+}
+
+div.Admonition_Caution > p:first-child
+{
+	mc-auto-number-format: '{b}Caution: {/b}';
+	/* Localizable */
+}
+
+div.Admonition_Tip > p:first-child
+{
+	mc-auto-number-format: '{b}Tip: {/b}';
+	/* Localizable */
+}
+
+div.Admonition_Danger > p:first-child
+{
+	mc-auto-number-format: '{b}Danger: {/b}';
+	/* Localizable */
+}
+
+div.Admonition_Important > p:first-child
+{
+	mc-auto-number-format: '{b}Important: {/b}';
+	/* Localizable */
+}
+
+/* Internal Admonitions */
+
+div.Admonition_ToDo,
+div.Admonition_InternalDraft
+{
+	mc-conditions: '_IMP_Conditions.InternalUseOnly';
+	margin-bottom: 10px;
+	margin-left: 0px;
+	margin-right: 5px;
+	padding-top: 11px;
+	padding-left: 9px;
+	padding-right: 9px;
+	padding-bottom: 0px;
+	border: solid 0.5px #df3324;
+	color: #df3324;
+}
+
+div.Admonition_InternalDraft > p:first-child
+{
+	mc-auto-number-format: '{b}{color #df3324}Internal: {/color}{/b}';
+	/* Localizable */
+}
+
+div.Admonition_ToDo > p:first-child
+{
+	mc-auto-number-format: '{b}{color #df3324}To-do: {/color}{/b}';
+	/* Localizable */
+}
+
+div.avoidPageBreak
+{
+	page-break-inside: avoid;
+}
+
+div.keepWithNext
+{
+	page-break-after: avoid;
+}
+
+/* Tables */
+
+table
+{
+	color: #222222;
+	background-color: transparent;
+	border: solid 1px #E7EDF8;
+	border-collapse: collapse;
+	caption-side: top;
+	font-size: 1.0em;
+	line-height: normal;
+	width: 100%;
+	margin-bottom: 1.1em;
+	mc-caption-continuation: ', continued';
+	/* Localizable */
+	mc-caption-repeat: true;
+	text-align: left;
+	font-family: 'Arial Narrow', Arial, Tahoma, 'Lucida Sans Unicode', sans-serif;
+}
+
+table.no_lines,
+table.no_lines td
+{
+	border: none;
+	border-collapse: collapse;
+	background-color: transparent;
+	color: #222222;
+}
+
+table.no_lines th
+{
+	border: none;
+	border-collapse: collapse;
+	color: #222222;
+}
+
+caption
+{
+	color: #222222;
+	text-align: left;
+	font-weight: normal;
+	font-family: Arial, Tahoma, 'Lucida Sans Unicode', sans-serif;
+	font-size: 115%;
+	padding-bottom: 1px;
+}
+
+th
+{
+	background-color: #111B58;
+	border-bottom: solid 1px #E7EDF8;
+	border-right: solid 1px #E7EDF8;
+	color: #ffffff;
+	font-weight: normal;
+	padding: 5px;
+	vertical-align: middle;
+	text-align: left;
+	font-family: Arial, Tahoma, 'Lucida Sans Unicode', sans-serif;
+}
+
+th > p
+{
+	margin-bottom: 3px;
+}
+
+th.center
+{
+	text-align: center;
+}
+
+tr
+{
+	page-break-inside: avoid;
+}
+
+tr.allowBreak
+{
+	page-break-inside: auto;
+}
+
+td
+{
+	background-color: transparent;
+	border-top-style: solid;
+	border-top-color: #E7EDF8;
+	border-top-width: 1px;
+	border-right-style: solid;
+	border-right-color: #E7EDF8;
+	border-right-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #E7EDF8;
+	border-bottom-width: 1px;
+	border-spacing: 1px 1px;
+	color: #222222;
+	padding: 3px;
+	vertical-align: top;
+	text-align: left;
+}
+
+td > p:last-child
+{
+	margin-bottom: 1px;
+}
+
+td > ul,
+td > ol,
+td li:first-child
+{
+	margin-top: 0em;
+}
+
+td.center
+{
+	text-align: center;
+}
+
+th.null
+{
+	border: none;
+	color: #ffffff;
+}
+
+td.null
+{
+	border: none;
+	border-collapse: collapse;
+}
+
+/* Paragraph Tag for Code Formatting */
+
+pre
+{
+	color: #000000;
+	font-family: 'Consolas', 'Courier New';
+	font-size: 100%;
+	line-height: 1.25em;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
+pre.hanging_indent
+{
+	text-indent: -25px;
+	padding-left: 25px;
+}
+
+/* Character Tag for Code Formatting */
+
+code
+{
+	color: #000000;
+	font-family: 'Consolas', 'Courier New';
+	font-size: 100%;
+}
+
+/* Example Div - DO NOT USE */
+
+div.example
+{
+	margin-bottom: 10px;
+	margin-left: 0px;
+	margin-right: 5px;
+	overflow: auto;
+	overflow-Y: hidden;
+	padding-top: 11px;
+	padding-left: 9px;
+	padding-right: 9px;
+	padding-bottom: 0px;
+	background-color: #e1e8f6;
+	border: 1px;
+	border-style: solid;
+	border-color: #e1e8f6;
+}
+
+/* MadCap Flare Styles */
+
+MadCap|breadcrumbsProxy
+{
+	margin-bottom: 4px;
+	padding-bottom: 4px;
+	color: #00009F;
+	mc-breadcrumbs-count: 5;
+	mc-breadcrumbs-prefix: ' ';
+	mc-label: '';
+	border-bottom: 1px solid #e1e8f6;
+}
+
+MadCap|breadcrumbsProxy:visited
+{
+	color: #822980;
+}
+
+span.MCBreadcrumbsDivider,
+span.MCBreadcrumbs
+{
+	color: #222222;
+}
+
+MadCap|conceptLink
+{
+	color: #00009F;
+	mc-image: url('images/_IMP_Experience_RelatedTopics.png');
+}
+
+MadCap|conceptLink:link
+{
+	color: #00009F;
+}
+
+MadCap|conceptLink:visited
+{
+	color: #822980;
+}
+
+MadCap|conceptLink:hover
+{
+	text-decoration: underline;
+}
+
+MadCap|conceptLink.ListFormatHeader
+{
+	color: #000000;
+	mc-help-control-display: list;
+	mc-image: none;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+MadCap|conceptLinkControlListItemLink,
+MadCap|keywordLinkControlListItemLink,
+MadCap|relatedTopicsControlListItemLink
+{
+	font-weight: normal;
+}
+
+MadCap|conceptLinkControlListItemLink:hover
+{
+	text-decoration: underline;
+}
+
+MadCap|dropDown
+{
+	margin-bottom: 1.1em;
+	mc-closed-image: url('images/_IMP_Exp_expand.png');
+	mc-open-image: url('images/_IMP_Exp_collapse.png');
+	mc-image-position: left;
+	mc-open-image-alt-text: Click to collapse the drop-down hotspot;
+	mc-closed-image-alt-text: Click to expand the drop-down hotspot;
+}
+
+MadCap|dropDownHead,
+MadCap|dropDownHead.h2,
+MadCap|dropDownHead.subhead,
+MadCap|dropDownHead.boldPrint
+{
+	margin-bottom: 0.5em;
+	page-break-after: avoid;
+	vertical-align: text-top;
+}
+
+MadCap|dropDownBody
+{
+	margin-left: 1.2em;
+	margin-top: 0.7em;
+}
+
+MadCap|dropDownHotspot:hover,
+MadCap|dropDownHead.boldPrint:hover
+{
+	text-decoration: underline;
+}
+
+MadCap|expanding
+{
+	mc-image-position: right;
+	mc-closed-image: url('images/_IMP_DropDownClosed.gif');
+	mc-open-image: url('images/_IMP_DropDownOpen.gif');
+	mc-open-image-alt-text: Click to collapse the expanding text;
+	mc-closed-image-alt-text: Click to expand the expanding text;
+}
+
+MadCap|expandingHead:hover
+{
+	text-decoration: underline;
+}
+
+MadCap|glossaryTerm
+{
+	border: none;
+	color: #00009F;
+	font-weight: normal;
+	mc-image-position: right;
+	text-decoration: none;
+	mc-image: url('images/_IMP_Experience_Glossary.png');
+}
+
+MadCap|glossaryTerm:hover
+{
+	text-decoration: underline;
+}
+
+MadCap|glossaryTerm.Expanding
+{
+	color: #00009F;
+	font-weight: normal;
+}
+
+MadCap|glossaryTerm.Expanding:hover
+{
+	text-decoration: underline;
+}
+
+MadCap|glossaryTerm.Hyperlink
+{
+	color: #00009F;
+}
+
+MadCap|glossaryTerm.Hyperlink:hover
+{
+	text-decoration: underline;
+}
+
+MadCap|glossaryTerm.Popup
+{
+	color: #00009F;
+}
+
+MadCap|glossaryTerm.Popup:hover
+{
+	text-decoration: underline;
+}
+
+MadCap|helpControlMenu
+{
+	background-color: #ffffff;
+	border: solid 1pt #E5E8E8;
+}
+
+MadCap|helpControlMenuItem
+{
+	background-color: #ffffff;
+	background-position: right;
+	border: 1px solid #999999;
+	padding: 2px 2px 2px 2px;
+	color: #00009F;
+	border-color: #ffffff;
+	margin-bottom: 0em;
+	margin-left: 0.50em;
+	list-style-type: none;
+}
+
+MadCap|helpControlMenuItem.Highlighted
+{
+	background-color: #E5E8E8;
+	border-bottom-color: #ffffff;
+	border-top-color: #ffffff;
+	color: #00009F;
+	text-decoration: underline;
+}
+
+MadCap|indexProxy
+{
+	border-top-style: none;
+	border-top-width: 0px;
+}
+
+MadCap|keywordLink
+{
+	color: #00009F;
+	mc-image: url('images/_IMP_Experience_RelatedTopics.png');
+}
+
+MadCap|keywordLink:link
+{
+	color: #00009F;
+}
+
+MadCap|keywordLink:visited
+{
+	color: #822980;
+}
+
+MadCap|keywordLink:hover
+{
+	text-decoration: underline;
+}
+
+MadCap|keywordLink.ListFormatHeader
+{
+	color: #000000;
+	mc-help-control-display: list;
+	mc-image: none;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+MadCap|keywordLinkControlListItemLink:hover
+{
+	text-decoration: underline;
+}
+
+MadCap|miniTocProxy
+{
+	margin-top: -1.7em;
+	border-top: solid 0px #ffffff;
+}
+
+MadCap|popup
+{
+	background-color: #ffffff;
+	border: none;
+	color: #00009F;
+}
+
+MadCap|popup:link
+{
+	color: #00009F;
+	text-decoration: underline;
+}
+
+MadCap|popup:visited
+{
+	color: #822980;
+}
+
+MadCap|popup:hover
+{
+	text-decoration: underline;
+}
+
+MadCap|popupBody
+{
+	background-color: #ffffff;
+	clear: both;
+	float: right;
+	height: auto;
+	margin: 2pt;
+	border: solid 1pt #e1e8f6;
+	border-color: #e1e8f6;
+	text-indent: 0;
+}
+
+MadCap|popupHead
+{
+	color: #00009F;
+	text-decoration: none;
+	content: "\0000a0";
+	padding-right: 18px;
+	display: inline;
+	background-color: #ffffff;
+	background-position: right center;
+	background-repeat: no-repeat;
+	background-image: url('images/_IMP_Experience_popup.png');
+}
+
+MadCap|popupHead:hover
+{
+	text-decoration: underline;
+}
+
+MadCap|relatedTopics
+{
+	color: #00009F;
+	margin: 0em;
+	mc-image: url('images/_IMP_Experience_RelatedTopics.png');
+	mc-use-custom-sort-order: true;
+	text-decoration: none;
+}
+
+MadCap|relatedTopics:hover
+{
+	text-decoration: underline;
+}
+
+MadCap|relatedTopics.ListFormatHeader
+{
+	color: #000000;
+	font-weight: bold;
+	mc-help-control-display: list;
+	mc-image: none;
+	text-decoration: none;
+}
+
+/* controls list bullet colors */
+
+MadCap|relatedTopicsControlList
+{
+	color: #000000;
+}
+
+MadCap|relationshipsProxy
+{
+	font-size: 1.0em;
+}
+
+MadCap|relationshipsHeading
+{
+	font-size: 1.0em;
+	margin-bottom: 0.3em;
+	margin-top: 1.0em;
+}
+
+MadCap|relationshipsHeading.concept
+{
+	font-size: 1.0em;
+}
+
+MadCap|relationshipsHeading.reference
+{
+	font-size: 1.0em;
+}
+
+MadCap|relationshipsHeading.task
+{
+	font-size: 1.0em;
+}
+
+MadCap|relationshipsItem
+{
+	font-size: 1.0em;
+	margin-bottom: 0em;
+	margin-left: 1.2em;
+	display: list-item;
+	list-style-type: disc;
+}
+
+MadCap|slideshow
+{
+	border-style: none;
+	box-shadow: none;
+}
+
+MadCap|tocProxy
+{
+	mc-output-support: pdf;
+}
+
+MadCap|toggler
+{
+	mc-image-position: left;
+	mc-open-image: url('images/_IMP_checked.png');
+	mc-closed-image: url('images/_IMP_unchecked.png');
+}
+
+MadCap|toggler:link
+{
+	color: #00009F;
+}
+
+MadCap|toggler:visited
+{
+	color: #822980;
+}
+
+MadCap|toggler:hover
+{
+	text-decoration: underline;
+}
+
+MadCap|xref
+{
+	color: #00009F;
+	text-decoration: none;
+}
+
+MadCap|xref:link
+{
+	border: none;
+	color: #00009F;
+	text-decoration: none;
+}
+
+MadCap|xref:visited
+{
+	border: none;
+	color: #822980;
+}
+
+MadCap|xref:hover
+{
+	text-decoration: underline;
+}
+
+MadCap|xref.CodeRef
+{
+	color: #00009F;
+	mc-format: '{title}';
+	font-family: monospace;
+}
+
+MadCap|xref.CodeRef:visited
+{
+	color: #A05FA6;
+}
+
+MadCap|xref.noNum
+{
+	border: none;
+	color: #00009F;
+	mc-format: '{para}';
+}
+
+MadCap|xref.noNum:visited
+{
+	border: none;
+	color: #822980;
+	mc-format: '{para}';
+}
+
+MadCap|xref.pageNumOnly
+{
+	mc-format: '{page}';
+}
+
+span.MCExpandingHead
+{
+	color: #00009F;
+}
+
+span.MCPopup > a:link
+{
+	color: #00009F;
+	text-decoration: none;
+	content: "\0000a0";
+	padding-right: 14px;
+	display: inline;
+	background-position: right center;
+	background-repeat: no-repeat;
+	background-image: url('images/_IMP_Experience_popup.png');
+}
+
+span.MCPopup > a:hover
+{
+	text-decoration: underline;
+}
+
+span.MCPopupBody
+{
+	background-color: #ffffff;
+}
+
+span.MCTogglerHotSpot
+{
+	color: #00009F;
+}
+
+span.noGlossary
+{
+	mc-disable-glossary-terms: true;
+}
+
+.hyphenate
+{
+	mc-hyphenate: always;
+}
+
+/* using for Flare workaround to include banner files in output files */
+/* when Target, Advanced tab, Exclude content not linked directly or indirectly from the target is set */
+
+ins
+{
+	background-image: url('../MasterPages/images/_IMP_logo.png');
+	background-image: url('../MasterPages/images/_IMP_banner_graphic_white.png');
+}
+
+/* hides character styles in the XML editor */
+
+abbr,
+acronym,
+b,
+big,
+cite,
+del,
+em,
+i,
+ins,
+samp,
+small,
+span.boolean,
+span.MCBreadcrumbs,
+span.MCBreadcrumbsDivider,
+span.MCPopup,
+span.noGlossary,
+span.SeeAlsoIndex,
+span.SeeAlsoIndexTerms,
+span.SeeIndex,
+span.SeeIndexTerms,
+span.state,
+strong,
+tt,
+u,
+var
+{
+	mc-disabled: true;
+}
+
+MadCap|codeSnippet
+{
+	padding: none;
+	margin-top: 0em;
+	margin-bottom: 1.1em;
+	border: none;
+	font-size: 1em;
+}
+
+MadCap|codeSnippetBody.background
+{
+	background: #e1e8f6;
+	padding-left: 0.25em;
+}
+
+MadCap|codeSnippetBody
+{
+	padding: none;
+	margin-top: 0em;
+	font-family: 'Consolas', 'Courier New';
+	font-size: 100%;
+	mc-code-border: solid 2px #2e3d98;
+}
+
+MadCap|codeSnippetCaption
+{
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 1.0em;
+}
+
+MadCap|codeSnippetCopyButton
+{
+	display: none;
+}
+
+a.xref:hover
+{
+	color: #00009F;
+}
+
+/* Print Output */
+
+@media print
+{
+	/* Paragraphs */
+
+	body
+	{
+		color: #000000;
+		font-family: Arial, Tahoma, 'Lucida Sans Unicode', sans-serif;
+		font-size: 10pt;
+		line-height: normal;
+		mc-hyphenate: never;
+	}
+
+	p
+	{
+		orphans: 2;
+		widows: 2;
+	}
+
+	p.MiniTOC1
+	{
+		font-weight: normal;
+		color: #00009F;
+		text-decoration: none;
+		mc-pagenum-display: all;
+		mc-leader-format: 'none';
+		mc-leader-align: right;
+		mc-auto-number-position: outside-head;
+	}
+
+	p.MiniTOC2,
+	p.MiniTOC3,
+	p.MiniTOC4,
+	p.MiniTOC5,
+	p.MiniTOC6,
+	p.MiniTOC7,
+	p.MiniTOC8,
+	p.MiniTOC9
+	{
+		font-weight: normal;
+		color: #00009F;
+		text-decoration: none;
+		mc-pagenum-display: all;
+		mc-leader-format: 'none';
+		mc-leader-align: right;
+		mc-auto-number-position: outside-head;
+	}
+
+	p.pdf
+	{
+		color: #000000;
+		font-weight: normal;
+		font-size: 10pt;
+		line-height: normal;
+	}
+
+	p.PDFheader
+	{
+		padding-left: -16pt;
+		margin-top: 6pt;
+		margin-bottom: 6pt;
+	}
+
+	p.intro_phrase
+	{
+		font-weight: bold;
+		page-break-after: avoid;
+	}
+
+	p.ListIntro,
+	p.TaskIntro
+	{
+		page-break-after: avoid;
+	}
+
+	p.Subheading
+	{
+		vertical-align: text-top;
+		color: #000000;
+		font-family: Arial, Tahoma, 'Lucida Sans Unicode', sans-serif;
+		font-weight: normal;
+		font-size: 1.40em;
+		page-break-after: avoid;
+		page-break-inside: avoid;
+		margin-bottom: .5em;
+		margin-top: 2em;
+	}
+
+	/* Links */
+
+	a
+	{
+		color: #00009F;
+	}
+
+	a:link
+	{
+		text-decoration: none;
+		color: #00009F;
+	}
+
+	a.avoidPrint
+	{
+		display: none;
+	}
+
+	a.pop
+	{
+		color: #000000;
+		text-decoration: none;
+	}
+
+	a.Popup
+	{
+		text-decoration: none;
+	}
+
+	pre
+	{
+		white-space: pre-wrap;
+		page-break-inside: avoid;
+		widows: 4;
+		orphans: 4;
+	}
+
+	pre.AllowBreaks
+	{
+		page-break-inside: auto;
+	}
+
+	/* Headings */
+
+	h1
+	{
+		color: #000000;
+		font-family: Arial, Tahoma, 'Lucida Sans Unicode', sans-serif;
+		font-weight: bold;
+		font-size: 2.2em;
+		line-height: normal;
+		page-break-before: auto;
+		page-break-after: avoid;
+		margin-top: 2em;
+		margin-bottom: .5em;
+		mc-auto-number-format: 'GH:{chapnum}{ =0}{ =0}   ';
+		mc-auto-number-position: inside-head;
+	}
+
+	h1.noTOC
+	{
+		mc-auto-number-format: 'GH:{ =0}{ =0}';
+	}
+
+	h1.appendix
+	{
+		mc-auto-number-format: 'GH:Appendix {chapnum}: { =0}{ =0}';
+		/* Localizable */
+		mc-auto-number-position: inside-head;
+		page-break-after: avoid;
+	}
+
+	h1.chapternum
+	{
+		mc-auto-number-format: 'GH:Chapter {chapnum}: { =0}{ =0}';
+		/* Localizable */
+		mc-auto-number-position: inside-head;
+		page-break-after: avoid;
+	}
+
+	h1.partnum
+	{
+		mc-auto-number-format: 'Part {volnum}: ';
+		/* Localizable */
+		mc-auto-number-position: inside-head;
+		page-break-after: avoid;
+		padding-left: 0pt;
+	}
+
+	h2
+	{
+		color: #000000;
+		font-family: Arial, Tahoma, 'Lucida Sans Unicode', sans-serif;
+		font-weight: normal;
+		font-size: 200%;
+		page-break-after: avoid;
+		margin-top: 2em;
+		margin-bottom: .5em;
+		mc-auto-number-format: 'GH:{chapnum}.{n+}{ =0}   ';
+		mc-auto-number-position: inside-head;
+		border-top-style: none;
+	}
+
+	h2.appendix
+	{
+		color: #000000;
+		mc-auto-number-format: 'Appendix {chapnum}: ';
+		/* Localizable */
+		mc-auto-number-position: inside-head;
+		page-break-after: avoid;
+		padding-left: 0pt;
+	}
+
+	h2.chapternum
+	{
+		color: #000000;
+		mc-auto-number-format: 'Chapter {chapnum}: ';
+		/* Localizable */
+		mc-auto-number-position: inside-head;
+		page-break-after: avoid;
+		padding-left: 0pt;
+	}
+
+	/* Stop TOC at 3 levels */
+
+	h4,
+	h5,
+	h6
+	{
+		mc-heading-level: 0;
+	}
+
+	h3
+	{
+		color: #000000;
+		font-family: Arial, Tahoma, 'Lucida Sans Unicode', sans-serif;
+		font-weight: normal;
+		font-size: 1.80em;
+		page-break-after: avoid;
+		margin-top: 2em;
+		margin-bottom: .5em;
+		mc-auto-number-format: 'GH:{chapnum}.{n}.{n+}   ';
+		mc-auto-number-position: inside-head;
+	}
+
+	h4
+	{
+		vertical-align: text-top;
+		color: #000000;
+		font-family: Arial, Tahoma, 'Lucida Sans Unicode', sans-serif;
+		font-weight: normal;
+		font-size: 1.40em;
+		page-break-after: avoid;
+		page-break-inside: avoid;
+		margin-bottom: .5em;
+		margin-top: 2em;
+	}
+
+	h5,
+	h6
+	{
+		color: #000000;
+		font-weight: bold;
+		page-break-after: avoid;
+		margin-top: 1em;
+		margin-bottom: .5em;
+	}
+
+	h1.noTOC,
+	h2.noTOC,
+	h3.noTOC,
+	h4.noTOC,
+	h5.noTOC,
+	h6.noTOC
+	{
+		mc-heading-level: 0;
+	}
+
+	/* Rules */
+
+	hr
+	{
+		color: #000000;
+		height: 0.03em;
+	}
+
+	hr.pdfTitle
+	{
+		background-color: #00009F;
+		height: 9pt;
+		width: 504pt;
+	}
+
+	/* Images */
+
+	MadCap|img,
+	img.screen
+	{
+		orphans: 2;
+		widows: 2;
+		float: none;
+		page-break-before: avoid;
+		page-break-inside: avoid;
+		padding-left: 0.25em;
+		padding-right: 0.25em;
+		max-height: auto;
+		max-width: 6in;
+		/* max-width: 100%;   removing due to MadCap defect 88519*/
+	}
+
+	table img
+	{
+		page-break-before: avoid;
+		page-break-inside: avoid;
+		padding-left: 0.25em;
+		padding-right: 0.25em;
+		max-width: 3.5in;
+	}
+
+	p.FigureTitle
+	{
+		page-break-after: avoid;
+		page-break-inside: avoid;
+	}
+
+	p.Figure
+	{
+		page-break-before: avoid;
+		page-break-inside: avoid;
+	}
+
+	/* Lists */
+
+	/* Paddings are carefully set here instead of margins in most cases,
+	because margin collapse seems to cause a bug that causes slightly oversized
+	inline images (i.e., buttons in steps) to break across pages inappropriately */
+
+	ol,
+	ul
+	{
+		margin-top: 1.1em;
+	}
+
+	li > ol,
+	li > ul
+	{
+		margin-top: 1.1em;
+	}
+
+	li
+	{
+		padding-bottom: 1.1em;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	li > div,
+	li div
+	{
+		margin-left: 0;
+		margin-top: 1.1em;
+		margin-bottom: 0;
+		padding-top: 0;
+	}
+
+	li > ul + div,
+	li > ol + div
+	{
+		margin-top: 0em;
+	}
+
+	li > p
+	{
+		margin-left: 0;
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 1.1em;
+	}
+
+	li > p:first-child
+	{
+		padding-top: 0;
+	}
+
+	/* This keeps the last p in a step (which is usually a result statement) */
+
+	li > p:last-child
+	{
+		page-break-before: avoid;
+	}
+
+	ol li
+	{
+		list-style-type: decimal;
+		margin-left: 5pt;
+	}
+
+	ul li
+	{
+		list-style-type: disc;
+		margin-left: 8pt;
+	}
+
+	/* ul ol li,
+	ol ol li
+	{
+		list-style-type: lower-alpha;
+		margin-bottom: 12pt;
+		margin-left: 2pt;
+	}
+
+	ul ul li,
+	ol ul li
+	{
+		list-style-type: disc;
+		margin-bottom: 12pt;
+		margin-left: 6pt;
+	}
+
+	ol ol ol li,
+	ol ul ol li,
+	ul ol ol li,
+	ul ul ol li
+	{
+		list-style-type: lower-roman;
+		margin-bottom: 12pt;
+		margin-left: 8pt;
+	}
+
+	ul ul ul li,
+	ul ol ul li,
+	ol ul ul li,
+	ol ol ul li
+	{
+		list-style-type: disc;
+		margin-bottom: 12pt;
+		margin-left: 8pt;
+	} */
+
+	/* CallOut */
+
+	div.CallOut_RelatedTopic_PrintCompatible
+	{
+		page-break-before: avoid;
+		page-break-inside: avoid;
+		background-color: #e1e8f6;
+		border: solid 0.5px #2e3d98;
+		color: #000000;
+		padding-bottom: 10px;
+		padding-right: 10px;
+	}
+
+	/* Admonitons */
+
+	div.Admonition_Note,
+	div.Admonition_Caution,
+	div.Admonition_Tip,
+	div.Admonition_Danger,
+	div.Admonition_Important,
+	div.Admonition_Deprecated
+	{
+		page-break-before: avoid;
+		page-break-inside: avoid;
+		background-color: #e1e8f6;
+		border: solid 0.5px #2e3d98;
+		color: #000000;
+		padding-bottom: 10px;
+		padding-right: 10px;
+	}
+
+	div.Admonition_InternalDraft,
+	div.Admonition_ToDo
+	{
+		page-break-before: avoid;
+		page-break-inside: avoid;
+		background-color: #F8D6D3;
+		border: solid 0.5px #df3324;
+		color: #000000;
+		padding-bottom: 10px;
+		padding-right: 10px;
+	}
+
+	/* Example Div */
+
+	div.example
+	{
+		background-color: #e1e8f6;
+		border-color: #e1e8f6;
+	}
+
+	/* Table styles */
+
+	table
+	{
+		border-collapse: collapse;
+		border: solid 1px #E7EDF8;
+		width: 100%;
+		font-family: 'Arial Narrow', Arial, Tahoma, 'Lucida Sans Unicode', sans-serif;
+		font-size: 90%;
+		background-color: transparent;
+		mc-hyphenate: inherit;
+	}
+
+	td
+	{
+		border-right: solid 1px #E7EDF8;
+		border-top: solid 1px #E7EDF8;
+		border-bottom: solid 1px #E7EDF8;
+		background-color: transparent;
+		color: #000000;
+		mc-hyphenate: inherit;
+		padding-bottom: 1px;
+		padding-top: 1px;
+	}
+
+	td span,
+	td code,
+	td MadCap|xref,
+	td a,
+	td kbd
+	{
+		/* Prefer not to set this explicitly, but inherit doesn't work here */
+		font-size: .9em;
+	}
+
+	td MadCap|dropDownHead,
+	td MadCap|dropDownHead.h2,
+	td MadCap|dropDownHead.subhead,
+	td MadCap|dropDownHead.boldPrint
+	{
+		font-family: 'Arial Narrow', Arial, Tahoma, 'Lucida Sans Unicode', sans-serif;
+		font-weight: bold;
+		font-size: 0.8em;
+		page-break-after: avoid;
+	}
+
+	td pre
+	{
+		/* Prefer not to set this explicitly, but inherit doesn't work here */
+		font-size: .85em;
+	}
+
+	td.null
+	{
+		border: none;
+		border-collapse: collapse;
+		background-color: transparent;
+	}
+
+	th
+	{
+		border-bottom: solid 1px #E7EDF8;
+		border-right: solid 1px #E7EDF8;
+		border-top: none;
+		color: #ffffff;
+		font-family: Arial, Tahoma, 'Lucida Sans Unicode', sans-serif;
+		font-weight: normal;
+		font-size: 100%;
+		background-color: #111B58;
+	}
+
+	table.no_lines,
+	table.no_lines td
+	{
+		border: none;
+		border-collapse: collapse;
+		color: #000000;
+	}
+
+	table.no_lines th
+	{
+		border: none;
+		border-collapse: collapse;
+		color: #000000;
+	}
+
+	/* MadCap Flare Styles */
+
+	MadCap|footnotesBlock
+	{
+		border: none;
+	}
+
+	a.MCDropDownHotSpot_0:link
+	{
+		color: #000000;
+	}
+
+	MadCap|dropDownHead
+	{
+		page-break-after: avoid;
+		margin-top: 0em;
+	}
+
+	/* MadCap|dropDownHead.h2
+	{
+		margin-bottom: 0.5em;
+		vertical-align: text-top;
+		color: red;
+		font-family: Arial, Tahoma, 'Lucida Sans Unicode', sans-serif;
+		font-weight: bold;
+		font-size: 200%;
+		page-break-after: avoid;
+		page-break-inside: avoid;
+		margin-top: 2em;
+		margin-bottom: .5em;
+		mc-auto-number-format: 'GH:{chapnum}.{n+}{ =0}   ';
+		mc-auto-number-position: inside-head;
+	}*/
+
+	MadCap|dropDownHead.subhead
+	{
+		vertical-align: text-top;
+		color: #000000;
+		font-family: Arial, Tahoma, 'Lucida Sans Unicode', sans-serif;
+		font-weight: normal;
+		font-size: 1.40em;
+		page-break-after: avoid;
+		page-break-inside: avoid;
+		margin-bottom: .5em;
+		margin-top: 2em;
+	}
+
+	MadCap|dropDownHead.boldPrint
+	{
+		/* font-size: 100%; */
+		font-family: Arial, Tahoma, 'Lucida Sans Unicode', sans-serif;
+		font-weight: bold;
+		page-break-after: avoid;
+		margin-top: 1em;
+		margin-bottom: .5em;
+	}
+
+	MadCap|dropDownHead.bulletHeadingInPDF
+	{
+		mc-auto-number-format: '{b}• {/b}';
+		font-weight: bold;
+	}
+
+	MadCap|dropDownBody
+	{
+		margin-left: 0em;
+		margin-bottom: 0em;
+		page-break-after: avoid;
+	}
+
+	MadCap|xref
+	{
+		color: #00009F;
+	}
+
+	MadCap|xref.noNum
+	{
+		color: #00009F;
+	}
+
+	MadCap|popup
+	{
+		color: #000000;
+	}
+
+	MadCap|popupHead
+	{
+		color: #000000;
+		text-decoration: none;
+	}
+
+	MadCap|toggler
+	{
+		color: #000000;
+	}
+
+	/* Modifications to MadCap Flare styles to show drop-down text  */
+	/* Commenting out because Flare shows drop-down text in print by default now */
+
+	/*div.MCDropDownBody,
+	div.MCDropDownBody_0
+	{
+		display: block !important;
+	}
+
+	img.MCDropDownIcon,
+	img.MCDropDownBody_0
+	{
+		display: none !important;
+	}*/
+
+	/* TOC */
+
+	MadCap|tocProxy
+	{
+		border-top-style: none;
+	}
+
+	p.toc1
+	{
+		color: #000000;
+		font-weight: normal;
+		font-size: 12pt;
+		line-height: normal;
+		margin-left: 0in;
+		orphans: 2;
+		widows: 2;
+		margin-top: 2em;
+		margin-bottom: .5em;
+	}
+
+	p.toc2
+	{
+		color: #000000;
+		font-weight: normal;
+		font-size: 10pt;
+		line-height: normal;
+		orphans: 2;
+		widows: 2;
+		margin-left: 0.2in;
+		margin-top: 1em;
+		margin-bottom: .5em;
+	}
+
+	p.toc3
+	{
+		color: #000000;
+		font-weight: normal;
+		font-size: 10pt;
+		line-height: normal;
+		orphans: 2;
+		widows: 2;
+		margin-left: 0.40in;
+		margin-top: .5em;
+		margin-bottom: .5em;
+	}
+
+	p.toc4
+	{
+		color: #000000;
+		font-weight: normal;
+		font-size: 10pt;
+		line-height: normal;
+		orphans: 2;
+		widows: 2;
+		margin-left: 0.6in;
+		margin-top: .5em;
+		margin-bottom: .5em;
+	}
+
+	p.toc5
+	{
+		color: #000000;
+		font-weight: normal;
+		font-size: 10pt;
+		line-height: normal;
+		orphans: 2;
+		widows: 2;
+		margin-left: 0.8in;
+		margin-top: .5em;
+		margin-bottom: .5em;
+	}
+
+	p.toc6
+	{
+		color: #000000;
+		font-weight: normal;
+		font-size: 10pt;
+		line-height: normal;
+		margin-left: 1.0in;
+		orphans: 2;
+		widows: 2;
+		margin-top: .5em;
+		margin-bottom: .5em;
+	}
+
+	/* Glossary and  Index Page Styles */
+
+	MadCap|indexProxy
+	{
+		border-top-style: none;
+		border-top-width: 0px;
+	}
+
+	p.IndexHeading
+	{
+		border: none;
+		color: #000000;
+		text-align: left;
+	}
+
+	MadCap|glossaryProxy
+	{
+		border-top-style: none;
+		border-top-width: 0px;
+	}
+
+	MadCap|glossaryTerm
+	{
+		color: #000000;
+	}
+
+	MadCap|glossaryTerm.Popup
+	{
+		color: #000000;
+	}
+
+	div.GlossaryPageHeading
+	{
+		border: none;
+		color: #000000;
+		font-family: Arial, Tahoma, 'Lucida Sans Unicode', sans-serif;
+		font-size: 10pt;
+		font-weight: bold;
+		line-height: normal;
+		margin-bottom: 1.1em;
+		mc-hyphenate: never;
+	}
+
+	div.GlossaryPageDefinition
+	{
+		color: #000000;
+		font-family: Arial, Tahoma, 'Lucida Sans Unicode', sans-serif;
+		font-size: 10pt;
+		font-weight: normal;
+		line-height: normal;
+		margin-bottom: 1.1em;
+		margin-left: 10pt;
+		mc-hyphenate: never;
+	}
+
+	div.GlossaryPageEntry
+	{
+		font-family: Arial, Tahoma, 'Lucida Sans Unicode', sans-serif;
+		font-size: 10pt;
+		font-weight: bold;
+		line-height: normal;
+		margin-bottom: 1.1em;
+		mc-hyphenate: never;
+		color: #000000;
+	}
+
+	div.GlossaryPageTerm
+	{
+		color: #000000;
+		font-family: Arial, Tahoma, 'Lucida Sans Unicode', sans-serif;
+		font-size: 10pt;
+		font-weight: bold;
+		line-height: normal;
+		margin-bottom: 0em;
+		mc-hyphenate: never;
+	}
+
+	h1.twoCol
+	{
+		mc-heading-level: 0;
+		font-size: 1.8em;
+		frame-break-after: always;
+		margin-top: 0;
+	}
+
+	h2.noTOC
+	{
+		mc-heading-level: 0;
+	}
+
+	h2.twoCol
+	{
+		mc-heading-level: 0;
+		font-size: 1.6em;
+		frame-break-after: always;
+		margin-top: 0;
+	}
+
+	MadCap|miniTocProxy
+	{
+		mc-pagenum-display: none;
+		mc-leader-format: 'none';
+		border-top: solid 0px #ffffff;
+		margin-top: 1em;
+	}
+}
+
+@media PartChapNum
+{
+	h1.appendix
+	{
+		mc-disabled: false;
+	}
+
+	h1.chapternum
+	{
+		mc-disabled: false;
+	}
+
+	h1.partnum
+	{
+		mc-disabled: false;
+	}
+}
+
+MadCap|xref.Title
+{
+	mc-format: '{title}';
+}
+

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="Exstream Platform (Server-Based) 23.3 Communications Designer Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Adding fonts to CAS</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Adding fonts to CAS</h1>
+                <p>You can use the <span class="uielement">Design asset management</span> page to add fonts to the common asset service (CAS) for use in a communication. These fonts supplement any fonts that are included in your <a href="HelpPopUps/Definition_Designpack.htm" class="MCTopicPopup MCTopicPopupHotSpot a">design pack</a>, and will be available for all <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> users. Keep in mind that if the design pack that you are using includes a style sheet, <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> honors the font information that is included in the style sheet over fonts from CAS.</p>
+                <p>To access the <span class="uielement">Design asset management</span> page, in <span class="mc-variable _Exstream_UI_Names.WebApps_ContentLauncher variable">Content Launcher</span>, on the toolbar, click the <span class="uielement">Design assets</span> button <img src="../images/b_WebApps_SettingsIcon.png" title="Design assets button on the Content Launcher toolbar" alt="Design assets button on the Content Launcher toolbar" class="inline" />.</p>
+                <div class="Admonition_Note">
+                    <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>Only those <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> user roles that have the proper workflow control permissions allow access to the <span class="uielement">Design asset management</span> page. If you have questions about your access privileges, talk to your system administrator.</p>
+                </div>
+                <p>When you add a font file to <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span>, you are technically adding a <span class="emphasis-italic">font family</span>, rather than just an individual font. Some font families are made up of two or more subfamilies. This means that if you add a font, and then later add another font file that is part of a subfamily in that font (such as a bold serif version of the font), it will not appear as a separate font in the <span class="uielement">Design assets</span> list. Instead, it will be added to the properties of the original font family. The distinction between family and subfamily can vary based on the font and how it was created.</p>
+                <p>If you add a variable font in the form of an OpenType Font Variations (TTF) file, you will see only the default font face in the <span class="mc-variable _Exstream_UI_Names.CDR_DesignView variable">Design view</span> font list (for example, "Regular"). Any subfamily font faces that are incorporated in the font file—such as a bold or italic version—will not be available for use.</p>
+                <p>Each user needs to have a local installation of any fonts that are used in the communication that they are editing. If a user's workstation does not have a font that is used in the design, then the default font for the application will be used instead. Because fonts are generally distributed in the same manner as software—that is, they are licensed rather than sold outright—many font licenses place restrictions on how fonts can be used. Before installing and using any fonts in your communication, be sure that you are complying with any font licensing restrictions. For example, while some fonts cannot be embedded as part of a file, others can be embedded but not edited—instead, they are used only for the purposes of printing or previewing a file. Conversely, fonts without licensing restrictions can be edited, printed, and added to end users' systems without limitations.</p>
+                <div class="Admonition_Note">
+                    <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span> If you have questions about font installation or licensing restrictions, talk to your system administrator. For information about the licensing restrictions of a particular font, contact the vendor that supplied the font.</p>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Adding a font</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <ol>
+                            <li value="1">
+                                <p>On the <span class="uielement">Design asset management</span> page, click the <span class="uielement">Add asset</span> button.</p>
+                            </li>
+                            <li value="2">
+                                <p>Browse to the font you want to add, then click <span class="uielement">Open</span>.</p>
+                                <div class="Admonition_Note">
+                                    <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>Only OTF and TTF formats are supported.</p>
+                                </div>
+                                <p>A <span class="uielement">Create new font file</span> area opens in the <span class="uielement">Properties</span> panel.</p>
+                            </li>
+                            <li value="3">
+                                <p>Optionally, in the <span class="uielement">Description</span> box, enter a brief description for the font family.</p>
+                            </li>
+                            <li value="4">
+                                <p>Click <span class="uielement">Create</span>.</p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Viewing the references for a font</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>You can use the <span class="uielement">Used by</span> tab in the <span class="uielement">Properties</span> panel to see which <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Components,_Exstream_Snippets.Webapps_Fonts">designs</MadCap:conditionalText> use a selected <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Fonts">font</MadCap:conditionalText>. </p>
+                        <p>To find where a <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Fonts">font</MadCap:conditionalText> is used: </p>
+                        <ol>
+                            <li value="1">
+                                <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_DesignAsset">On the <span class="uielement">Design asset management</span> page</MadCap:conditionalText>, select the <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Fonts">font</MadCap:conditionalText>. </li>
+                            <li value="2">
+                                <p>In the <span class="uielement">Properties</span> panel, click the <span class="uielement">Used by</span> tab. </p>
+                                <p>The list shows all of the <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Components,_Exstream_Snippets.Webapps_Fonts">designs</MadCap:conditionalText> that use that <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Fonts">font</MadCap:conditionalText>.</p>
+                            </li>
+                            <li value="3">
+                                <p>Use the indicator in the <span class="uielement">Status</span> column to determine whether the parent <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Components,_Exstream_Snippets.Webapps_Fonts">design</MadCap:conditionalText> is available for editing:</p>
+                                <ul>
+                                    <li>A green indicator (<img src="../images/i_ExstreamWeb_Status_GreenDot.png" alt="green status indicator" title="green status indicator" />) means that the parent <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Components,_Exstream_Snippets.Webapps_Fonts">design</MadCap:conditionalText> is available for editing.</li>
+                                    <li>A red indicator (<img src="../images/i_ExstreamWeb_Status_RedDot.png" title="red status indicator" alt="red status indicator" />) means that the parent <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Components,_Exstream_Snippets.Webapps_Fonts">design</MadCap:conditionalText> is locked for editing by another user.</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Deleting a font</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>If a font is not needed, and is not used in any communication objects, it can be deleted from <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span>. This action will also delete it from the CAS repository.</p>
+                        <p>To delete a font, on the <span class="uielement">Design asset management</span> page, on the <span class="uielement">Design assets</span> tab, select the font you want to delete and click <span class="uielement">Remove</span>.</p>
+                        <div class="Admonition_Tip">
+                            <p data-mc-autonum="&lt;b&gt;Tip: &lt;/b&gt;"><span class="autonumber"><span><b>Tip: </b></span></span>If the <span class="uielement">Remove</span> button is not available, click the <span class="uielement">Used by</span> tab in the <span class="uielement">Properties</span> panel to see if the selected font is used in the current version of a communication object.</p>
+                            <p>If no objects are listed in the properties panel, then the font is used in a previous version of a communication object. Review the properties of the font in <span class="mc-variable _IMP_Product_Names.WorkShop_Short variable">Workshop</span> to determine where it is used. For more information about using <span class="mc-variable _IMP_Product_Names.WorkShop_Short variable">Workshop</span>, see <span class="docName mc-variable _Exstream_Doc_Names._Product_Prefix variable">OpenText Exstream</span> <span class="docName mc-variable _Exstream_Doc_Names.Workshop_Guide variable">Workshop User Guide</span>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2023</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

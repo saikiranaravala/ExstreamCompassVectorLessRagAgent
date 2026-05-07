@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]|[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="OpenText Exstream (Cloud-Native) Release CE 22.2.0 Web Client Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Setting up PDF output</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Setting up PDF output</h1>
+                <p>After you <a href="CreatingAnOutputObject.htm">create the output object</a>, you can use the <span class="uielement">Properties</span> panel to view and modify the following PDF output object properties. After making changes, click <span class="uielement">Save</span>, or the changes will be lost.</p>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />General settings</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>The table below includes information about the general PDF output options.</p>
+                        <table style="width: 100%;margin-left: 0;margin-right: auto;">
+                            <col style="width: 15%;" />
+                            <col style="width: 85%;" />
+                            <thead>
+                                <tr>
+                                    <th>Option</th>
+                                    <th>Use</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Version</td>
+                                    <td>
+                                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Specify a PDF version</a></span>
+                                            <div class="MCDropDownBody dropDownBody">
+                                                <p>The PDF version of PDF output is used to identify the output's compatibility with different PDF viewers, process tools, and utilities. For example, for maximum accessibility and reuse, PDF output that you intend to archive generally uses PDF version 1.3 so that the PDF is compatible with any version of Acrobat 4.0 or later. To determine the PDF version required for your production and delivery needs, consult the documentation for any PDF viewer, processing tool, or utility your organization uses.</p>
+                                                <p class="ListIntro">From <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span>, you can create PDF output using any of the following PDF versions:</p>
+                                                <ul>
+                                                    <li>
+                                                        <p>Version 1.3 (compatible with Acrobat version 4.0 and later)</p>
+                                                    </li>
+                                                    <li>
+                                                        <p>Version 1.4 (compatible with Acrobat version 5.0 and later)</p>
+                                                    </li>
+                                                    <li>
+                                                        <p>Version 1.5 (compatible with Acrobat version 6.0 and later)</p>
+                                                    </li>
+                                                    <li>
+                                                        <p>Version 1.6 (compatible with Acrobat version 7.0 and later)</p>
+                                                    </li>
+                                                    <li>
+                                                        <p>Version 1.7 (compatible with Acrobat version 8.0 and later)</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>PDF preset</td>
+                                    <td>
+                                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Apply a PDF preset</a></span>
+                                            <div class="MCDropDownBody dropDownBody">
+                                                <p>A PDF preset automatically sets up a PDF output object to create PDF output with the optimal PDF size, resource inclusion, and output quality for common delivery methods. For example, if you are delivering content through email, applying an <span class="uielement">Email Delivery</span> preset can ensure that you get the smallest possible file size so that you do not overcrowd customer inboxes.</p>
+                                                <p>Before making a final decision to apply a preset, you can review preset settings to make sure that the settings meet your output needs. This can be useful if you are updating an existing PDF output object and you want to review how your current PDF output settings compare to using a specific preset.</p>
+                                                <p>If needed, you can change any preset setting after a preset has been applied. When you change a setting that is associated with a preset, the <span class="uielement">PDF preset</span> value is changed to <span class="uielement">Custom</span> to indicate that full preset settings are no longer in use. Keep in mind that custom PDF output settings cannot be stored as a preset for future use. If you have custom output settings and later apply a preset, you will not be able to restore the previous custom settings.</p>
+                                                <p class="TaskIntro">To apply a PDF preset:</p>
+                                                <ol class="task">
+                                                    <li value="1">
+                                                        <p>Click the <span class="uielement">General</span> tab.</p>
+                                                    </li>
+                                                    <li value="2">
+                                                        <p>Click the box under the <span class="uielement">PDF preset</span> heading.</p>
+                                                    </li>
+                                                    <li value="3">
+                                                        <p>In the <span class="uielement">PDF presets</span> list, select one of the following preset options:</p>
+                                                        <ul>
+                                                            <li>
+                                                                <p><span class="uielement">Print (Standard)</span>—This preset optimizes PDF output for standard printing. Some key features of this preset include an equal balance between files size and print quality.</p>
+                                                            </li>
+                                                            <li>
+                                                                <p><span class="uielement">Print (High Quality)</span>—This preset optimizes PDF output for high quality printing. Some key features of this preset include a high output resolution and higher quality rendering of fonts and images included in the output.</p>
+                                                            </li>
+                                                            <li>
+                                                                <p><span class="uielement">Email Delivery</span>—This preset optimizes PDF output for delivery to customers through email. Some key features of this preset include a reduced file size and referenced resources for easier delivery.</p>
+                                                            </li>
+                                                            <li>
+                                                                <p><span class="uielement">Web Delivery</span>—This preset optimizes PDF output for viewing over the web. Some key features of this preset include a reduced file size and linearization for faster viewing over the web.</p>
+                                                            </li>
+                                                            <li>
+                                                                <p><span class="uielement">Archive</span>—This preset optimizes PDF output for archival storage. Some key features of this preset include embedded fonts and image resources for ease of access.</p>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li value="4">
+                                                        <p>In the <span class="uielement">Changes</span> area, review the settings that will be applied with the preset.</p>
+                                                    </li>
+                                                    <li value="5">
+                                                        <p>To approve the settings, click <span class="uielement">OK</span>.</p>
+                                                        <p>The PDF preset settings are applied to the PDF output object.</p>
+                                                    </li>
+                                                </ol>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Resolution (DPI)</td>
+                                    <td>
+                                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Specify the output resolution</a></span>
+                                            <div class="MCDropDownBody dropDownBody">
+                                                <p>You can customize the output resolution settings for output to ensure that output is clear and readable. The output resolution specifies the sharpness of text and graphics, measured in dots per inch (dpi). If you are generating printed output, use a dpi at or lower than the maximum resolution supported by the output device you are using for the best processing performance.</p>
+                                                <p>In the <span class="uielement">Resolution</span> list, select the dpi setting you want to use from the available options.</p>
+                                                <p>If you select <span class="uielement">Custom</span> in this list, in the <span class="uielement">Custom</span> box, enter the custom image resolution you want to use. The minimum valid resolution you can set is <kbd class="userinput">72</kbd>, and the maximum valid resolution is <kbd class="userinput">2400</kbd>.</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Simplex/Duplex</td>
+                                    <td>
+                                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Set up simplex or duplex output</a></span>
+                                            <div class="MCDropDownBody dropDownBody">
+                                                <p>In the <span class="uielement">Simplex/Duplex</span> list, select one of the following:</p>
+                                                <ul>
+                                                    <li>
+                                                        <p><span class="uielement">Simplex</span>—Prints only on one side of a page</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><span class="uielement">Duplex</span>—Prints on both sides of a page</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Color mode</td>
+                                    <td>
+                                        <p>Specify the way color is produced in output</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Color model</td>
+                                    <td>Specify whether to use RGB or CMYK colors in output</td>
+                                </tr>
+                                <tr>
+                                    <td>Accessibility standard</td>
+                                    <td>
+                                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Enable accessibility features</a></span>
+                                            <div class="MCDropDownBody dropDownBody">
+                                                <p class="ListIntro">To enable PDF output to include any <a href="../CommDesignerHelp/CreatingAccessiblePages.htm">accessibility features created in a design</a>, in the <span class="uielement">Accessibility standard</span> list, select either <span class="uielement">WCAG 2.0</span> or <span class="uielement">PDF/UA</span>, as required by your organization.</p>
+                                                <p>For both options, <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> applies the default accessibility tagging for objects in your design to the output. However, you can also customize these settings and other accessibility objects in your design as needed</p>
+                                                <div class="Admonition_Important">
+                                                    <p data-mc-autonum="&lt;b&gt;Important: &lt;/b&gt;"><span class="autonumber"><span><b>Important: </b></span></span>Selecting the <span class="uielement">PDF/UA</span> option  does not automatically make your document PDF/UA-compliant. At a minimum, you must design your document so that it is compliant with PDF/UA guidelines and standards. For information about PDF/UA documentation guidelines, see the PDF/UA documentation that your organization references. </p>
+                                                    <p> Keep in mind that <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> does not validate your documentation that you design for PDF/UA compliance. If you create a document that is rejected by a PDF validation tool, then you must go back and fix your design using the design customization tools in <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span>.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a name="Characte"></a>Character fidelity</td>
+                                    <td>
+                                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Make sure fonts appear correctly in output</a></span>
+                                            <div class="MCDropDownBody dropDownBody">
+                                                <p><span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> pulls metrics, such as height and width, from the font. By default, the engine uses integer measurements (which are used most often by bitmap fonts); however, rounding errors can cause the cursor position in your output to be different from what you expected (especially if you use outline fonts). Usually, this issue can be corrected by increasing the output resolution. If this solution does not work, you can adjust the character fidelity.</p>
+                                                <p>For best results, use the default settings for character positioning. If you are experiencing issues with overlapping text or incorrect spacing between words or characters, try adjusting your resolution settings first. If you are using multiple output queues for production, some character fidelity settings might be affected.</p>
+                                                <p class="ListIntro">To adjust character fidelity settings, in the <span class="uielement">Character fidelity</span> list, select one of the following options to specify how text is placed:</p>
+                                                <ul>
+                                                    <li>
+                                                        <p><span class="uielement">Auto, character</span>—This option is the default. Use this setting unless you are having issues with overlapping text or incorrect spacing in your output.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><span class="uielement">Auto, word</span>—Adds positioning commands for each word in the output only if required; otherwise, positioning commands are added for each line of text. This option should allow you to set a lower print resolution, which reduces the size of images in output.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><span class="uielement">Auto, line</span>—Adds positioning commands for each line of text and automatically positions text within that line. This option produces the smallest output size.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><span class="uielement">Position every word</span>—Applies placement logic to every word in the output, which increases print sizes. This setting forces <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> to apply a new x/y coordinate for every word, rather than one x/y coordinate per line of text.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><span class="uielement">Position every character</span>—Applies placement logic to every character in the output, which significantly increases print sizes. This setting forces <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> to apply a new x/y coordinate for every character, rather than one x/y coordinate per line of text. If you choose this option for any output driver in a multiple queue production run, the setting is applied to the text on all charts (for example, data labels).</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Text position adjustment</td>
+                                    <td>
+                                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Accommodate font differences between output drivers</a></span>
+                                            <div class="MCDropDownBody dropDownBody">
+                                                <p>If you are using more than one output queue, you can adjust the text position with the text position adjustment feature to accommodate for font differences between the output drivers that are associated with those output queues. You can use the text position adjustment feature to make output that uses an outline font look like output that uses bitmap fonts.</p>
+                                                <p class="ListIntro">In the <span class="uielement">Text position adjustment</span> list, select one of the following options:</p>
+                                                <ul>
+                                                    <li>
+                                                        <p><span class="uielement">No adjustment</span>—Text output is not changed.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><span class="uielement">Adjust at word boundaries</span>— <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> inserts position commands as necessary at word boundaries.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><span class="uielement">Adjust characters</span>— <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> inserts position commands as necessary on a per-character basis. Text is not searchable when you select <span class="uielement">Adjust characters</span>.</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>PDF bookmarks</td>
+                                    <td>
+                                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Control how bookmark entries are included in output</a></span>
+                                            <div class="MCDropDownBody dropDownBody">
+                                                <p>You can control how bookmark entries are included in output by using the PDF  output object properties. The properties allow you to suppress bookmarks even if they are already set up for communication objects or design objects. In addition, you can specify whether bookmarks will be generated based on customers, documents, pages, or objects. You can also use the properties to maintain the existing bookmarks in dynamically imported PDF content when producing <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span>-generated output.</p>
+                                                <p class="ListIntro">To control how bookmark entries are included in PDF output, in the <span class="uielement">PDF bookmarks</span> area, select one or more check boxes to include bookmarks for the objects in the communication:</p>
+                                                <ul>
+                                                    <li>
+                                                        <p><span class="uielement">Customers</span>—Bookmarks are generated for each customer.</p>
+                                                        <p>Without any customization, the customer bookmarks are blank in the PDF output. To  customize customer bookmarks, you can add sequential numbering (which is useful if your PDF contains multiple customers) by selecting the <span class="uielement">Include numbering for customers</span> check box. The numbers added to the customer bookmarks are determined by the order in which the customer appears in the output file. The bookmark for the first customer in the file is <code>1</code>, the bookmark for the second customer is <code>2</code>, and so on.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><span class="uielement">Documents</span>—Bookmarks are generated for documents using either the name of the document or the variable specified by the <span class="uielement">ID for bookmark</span> option on the document properties.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><span class="uielement">Pages</span>—Bookmarks are generated using the name of the pages.</p>
+                                                    </li>
+                                                </ul>
+                                                <p>If you do not select any check boxes, no bookmarks will be generated in the output, even if you have set up variables or bookmark markers.</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>PDF controls</td>
+                                    <td>
+                                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Specify the encoding option for compressed data</a></span>
+                                            <div class="MCDropDownBody dropDownBody">
+                                                <p>For PDF output, you can specify how compressed data should be encoded in the PDF print stream. <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> allows either binary or ASCII85 formats. In general, binary data creates smaller files.</p>
+                                                <p>To include binary data (such as images) in the PDF file, select the <span class="uielement">Binary allowed</span> check box. If you clear the <span class="uielement">Binary allowed</span> check box, <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> uses ASCII85 format to encode binary data.</p>
+                                            </div>
+                                        </div>
+                                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Create linearized PDF output for faster online viewing</a></span>
+                                            <div class="MCDropDownBody dropDownBody">
+                                                <p>Unlike normal PDF files, the first pages of a linearized PDF file appear on-screen before the entire PDF has downloaded. Linearized PDF lets you optimize the viewing speed for PDF files, which is helpful if you have large PDF files or if you intend to send PDF files over the internet through email or for downloading.</p>
+                                                <p>To create linearized PDF output, select the <span class="uielement">Linearized</span> check box.</p>
+                                            </div>
+                                        </div>
+                                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Compress PDF files</a></span>
+                                            <div class="MCDropDownBody dropDownBody">
+                                                <p>You can compress PDF files to reduce the file size of the final customer PDF. This can be useful if you are creating PDF files for electronic delivery (such as PDFs posted online or delivered through email). You can select a compression level <span class="uielement">1</span> through <span class="uielement">9</span> (where <span class="uielement">1</span> is the lowest and <span class="uielement">9</span> is the highest) or <span class="uielement">Max</span> (version 1.5 or higher).</p>
+                                                <p class="ListIntro">When selecting a compression level, keep in mind the following:</p>
+                                                <ul>
+                                                    <li>
+                                                        <p>Compression levels <span class="uielement">1</span> through <span class="uielement">9</span> compress the content of the PDF (such as text, tables, or images). Higher compression levels typically result in smaller file sizes, with no impact on visual fidelity. However, a higher compression level can potentially increase the time that it takes to decompress the file.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p>A compression level of <span class="uielement">Max</span> compresses the content of the PDF using a level <span class="uielement">9</span> compression and applies additional object compression to the PDF. Object compression compresses the content in the object streams of the PDF (such as dictionaries of pages, annotations, or fonts), which are not yet included in the print stream.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p>Standard PDF output typically uses a compression level of <span class="uielement">6</span>.</p>
+                                                    </li>
+                                                </ul>
+                                                <p class="TaskIntro">To compress PDF files:</p>
+                                                <ol class="task">
+                                                    <li value="1">
+                                                        <p>Select the <span class="uielement">Compress</span> check box.</p>
+                                                    </li>
+                                                    <li value="2">
+                                                        <p>In the <span class="uielement">Compression level</span> list, select a compression level.</p>
+                                                    </li>
+                                                </ol>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Resources</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Font management</a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p>Depending on how tightly you need to control the design and which fonts are included on your output device or viewing software, you might need to either embed some or all of the fonts used in a communication in the print stream. For more information about which fonts are included, refer to the documentation for your output device or the viewing software.</p>
+                                <p>The table below includes information about managing font resources.</p>
+                                <table style="width: 100%;margin-left: 0;margin-right: auto;">
+                                    <col style="width: 15%;" />
+                                    <col style="width: 85%;" />
+                                    <thead>
+                                        <tr>
+                                            <th>Option</th>
+                                            <th>Use</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Font usage</td>
+                                            <td>
+                                                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Specify whether to embed or reference fonts</a></span>
+                                                    <div class="MCDropDownBody dropDownBody">
+                                                        <p class="ListIntro">Select one of the following options to indicate whether fonts used in a communication should be included in the output:</p>
+                                                        <ul>
+                                                            <li>
+                                                                <p><span class="uielement">Embed all fonts</span>—All the fonts used in an application are embedded in the output. Using this option results in a larger file size, but it does not affect processing time and provides <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> the most control over the printed output.</p>
+                                                            </li>
+                                                            <li>
+                                                                <p><span class="uielement">Reference all fonts</span>—None of the fonts in a communication are included in the output. Referencing all fonts can help make the print file as small as possible. Keep in mind that when you reference fonts, your output might look slightly different from your design. For example, if you send files to customers who do not have the same output device or viewing software, these customers might not have the same fonts, in which case the output device or viewing software might either substitute a different font, or they might receive errors.</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Font type</td>
+                                            <td>
+                                                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Specify the type of font to embed in the communication</a></span>
+                                                    <div class="MCDropDownBody dropDownBody">
+                                                        <p class="ListIntro"><span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> supports any font loaded on your system and converts it to the correct font type for your output device. If you choose to embed fonts, for the best results, embed fonts as Type 1 whenever possible. <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> builds the characters needed for your application (such as East European or Western) as Type 1 fonts and includes them in the output. This setting provides the following benefits:</p>
+                                                        <ul>
+                                                            <li>
+                                                                <p>It reduces file size by packaging only the characters required in the communication, instead of building and loading all characters of a font.</p>
+                                                            </li>
+                                                            <li>
+                                                                <p>It offers enhanced font metrics that can correct spacing errors with another font type, such as TrueType.</p>
+                                                            </li>
+                                                        </ul>
+                                                        <p>For more information on the best font embedding choice, consult the documentation for your output device or viewing software.</p>
+                                                        <p>In the <span class="uielement">Font type</span> list, select one of the following options to specify the type of font to embed:</p>
+                                                        <ul>
+                                                            <li>
+                                                                <p><span class="uielement">Build Type 1 fonts</span>—Embeds the characters in the current Windows code page, up to 256 characters per font, as Type 1 fonts</p>
+                                                            </li>
+                                                            <li>
+                                                                <p><span class="uielement">Build Subset fonts (CFF)</span>—Embeds only those characters in each font used in the output file, which reduces the output file size</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Include standard fonts</td>
+                                            <td>
+                                                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Include standard fonts in the print stream</a></span>
+                                                    <div class="MCDropDownBody dropDownBody">
+                                                        <p>Select the this option to include Standard (Base 14) fonts in the print stream. These fonts are not normally needed in the print stream. This option is especially helpful for archiving electronic output or for viewing output in a nonstandard reader (for example, if you are viewing PDF output in a program other than Adobe Acrobat). Adding standard fonts increases the output file size.</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Image management</a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p> Static images can be placed at different places in the print stream. The options that you use to specify where static images are placed depend on the output device or viewing software that you will use. For example, some output devices can read resources from the top of the file into memory and then reuse them each time that the image is called.</p>
+                                <p class="ListIntro">To specify where to place static images, in the <span class="uielement">Image processing</span> list, select one of the following options:</p>
+                                <ul>
+                                    <li>
+                                        <p><span class="uielement">Include on each page</span>—Includes a copy in your output file of all of the images that are used in the application  on each page where they occur</p>
+                                    </li>
+                                    <li>
+                                        <p><span class="uielement">Place at top of print stream</span>—Includes a copy of the images at the top of the print stream for insertion as needed. This option can increase production processing speed.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" /></a><a name="File"></a><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead" aria-expanded="false">File resource management</a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p>You can choose to include all available resources (for example, fonts and images) in your output, or you can include only the resources that are used.</p>
+                                <p class="ListIntro">To control which resources are included in your output, select one of the following options in the <span class="uielement">Resource inclusion</span> list:</p>
+                                <ul>
+                                    <li>
+                                        <p><span class="uielement">Default</span>—All available resources that are designed in your communication are included in the output file, even if they are not used. For example, if you have used rules to exclude some content, the resources in that content are still included in the output file.</p>
+                                    </li>
+                                    <li>
+                                        <p><span class="uielement">Used resources only</span>—Only the resources used by your communication are included in the output file. If you select this option, programs can reference resources as needed rather than loading all available resources for each page. The <span class="uielement">Used resources only</span> option can slow the engine run; however, it can also reduce the file size, depending on the number of resources used by your application.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2022</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

@@ -1,4 +1,8 @@
-docs/
+# Docs — exclude large/binary content, keep HTML for demo search
+docs/**/PDFs/
+docs/**/*.pdf
+docs/**/*.PDF
+docs/ServerBased/HTML/DesignAndProduction/
 
 # Python
 __pycache__/

@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebHelpSystem DefaultUrl="Content/Cover/WebClient.htm" Toc="Data/Tocs/WEB_Main_TOC.js" Index="Data/Index.js" Concepts="Data/Concepts.js" Glossary="Data/Glossary.js" SearchDatabase="Data/Search.js" Alias="Data/Alias.xml" Synonyms="Data/Synonyms.xml" SearchFilterSet="Data/Filters.js" PathToScriptsFolder="Resources/Scripts/" SkinName="_IMP_HTML5_GHS" SkinID="_IMP_HTML5_GHS" Multilingual="false" Skins="_IMP_HTML5_GHS" BuildTime="4/10/2022 4:20:39 PM" BuildVersion="17.1.7881.20138" TargetType="WebHelp2" SkinTemplateFolder="Skin/" InPreviewMode="false" TopNavTocPath="true" MoveOutputContentToRoot="false" ReplaceReservedCharacters="false" MakeFileLowerCase="false" UseCustomTopicFileExtension="false" PreventExternalUrls="false" EnableResponsiveOutput="false" IncludeGlossarySearchResults="true" ResultsPerPage="20" xml:lang="en-us" LanguageName="English" SearchEngine="MadCapSearch" IncludeCSHRuntime="true" DebugMode="false" ShowMadCapBacklink="false" HasELearning="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <CatapultSkin Version="4" SkinType="WebHelp2" Comment="HTML5 skin" Anchors="Width,Height" Width="800" Height="600" Top="0" Left="0" Bottom="0" Right="0" Tabs="TOC" DefaultTab="TOC" UseBrowserDefaultSize="True" UseDefaultBrowserSetup="true" NavigationLinkTop="false" AutoSyncTOC="true" Title="" NavigationLinkBottom="false" CommentsInTopic="false" DisplayCommunitySearchResults="false" SkinID="_IMP_HTML5_GHS" EnableResponsiveOutput="false" conditions="_IMP_Conditions.SharedImports" RemoveImagesOnSave="true" Name="_IMP_HTML5_GHS" SkinClass="_Skins__IMP_HTML5_GHS" HideNavOnStartup="False" LogoUrl="">
+        <Toolbar EnableCustomLayout="true" Buttons="RemoveHighlight|Print|Home|Filler|PreviousTopic|NextTopic"> //QCCR1K4347, QCCR1K3864, QCCR1K4294
+ 
+    <Script>
+	
+	var navClosedByUser = false;
+	var navClosedByScript = false;
+	var navForcedOpenByUser = false;
+	
+	$(document).ready(function () {
+	
+		// Add styles to page
+		// Fix issue with cut off selection highlights in TocEntry
+		// Normal font weight for bottom nodes
+		
+		$("&lt;style/&gt;")
+		.prop("type", "text/css")
+		.html("\
+			ul.tree {\
+				overflow: hidden;\
+			}\
+			li.tree-node-leaf div {\
+				font-weight: normal;\
+			}\
+		")
+		.appendTo("head");
+		
+		
+		// Reposition logo and add wordmark (which is "Help", and not the actual product name)
+	
+		$('#header&gt;a').css('color','black');
+		$('#header&gt;a&gt;h1')
+		.css({
+			'position': 'relative',
+			'left': '50%',
+			'margin-left': '-130px',
+			'float': 'left'
+		});
+		$('&lt;div/&gt;')
+			.attr('id','wordmarkDivider')
+			.css({
+				'position': 'relative',
+				'border-left': 'thick solid black',
+				'border-left-width': '1px',
+				'left': '50%',
+				'margin-left': '8px',
+				'margin-top': '18px',
+				'height': '24px',
+				'float': 'left'
+			})
+			.insertAfter( $('#header&gt;a&gt;h1') );
+		$('&lt;div/&gt;')
+			.attr('id','wordmark')
+			.css({
+				'position': 'relative',
+				'margin-left': '8px',
+				'margin-top': '18px',
+				'left': '50%',
+				'height': '25px',
+				'float': 'left',
+				'font-size': '20px'
+			})
+			.html('Help') // NEEDS TO BE VARIABLE FOR LOCALIZATION
+			.insertAfter( $('#wordmarkDivider') );
+		
+		
+		// Create search panel in nav pane
+		
+		$('&lt;div/&gt;')
+			.attr('id','searchPanel')
+			.css({
+				'background-color': '#ececec',
+				'height': '63px',
+				'width': '100%',
+				'border-top': '1px #cccbcb solid',
+				'border-bottom': '1px #cccbcb solid'
+			})
+			.prependTo('#navigation');
+			
+		
+		// Create space for doc tabs in content pane
+		
+		$('&lt;div/&gt;')
+			.attr('id','docMenu')
+			.css({
+				'background-color': '#ececec',
+				'height': '63px',
+				'border-top': '1px #cccbcb solid',
+				'border-bottom': '1px #cccbcb solid',
+				'margin-left': '-5px'
+			})
+			.prependTo('#contentBody');
+			
+		
+		// Add doc tab
+		
+		$('&lt;div/&gt;')
+			.attr('id','activeDocTab')
+			.css({
+				'background-color': '#ffffff',
+				'position': 'absolute',	
+				'height': '63px',
+				'width': 'auto',
+				'padding': '0 20px',
+				'overflow': 'hidden',
+				'white-space': 'nowrap',
+				'border-bottom': '1px #cccbcb solid',
+			})
+			.appendTo('#docMenu');
+			
+		
+		// Loading from bannerTitle.html doesn't work locally, use header-title meta tag from target instead (https://forums.madcapsoftware.com/viewtopic.php?f=9&amp;t=18878)
+		
+		var headerTitle = $("meta[name='header-title']").attr("content");
+		
+		
+		// Add doc title to tab
+		
+		$('&lt;p/&gt;')
+			.attr('id','activeDocTab')
+			.text(headerTitle)
+			.css({
+				'font-size': '13px',
+				'font-weight': 'bold',
+				'margin': '0',
+				'height': '34px',
+				'padding-top': '25px',
+				'border-bottom': '4px #0072aa solid'
+			})
+			.appendTo('#activeDocTab');
+		
+		
+		// Move search box to nav pane
+		
+		$('.search-bar')
+			.prependTo( $('#searchPanel') )
+			.css({
+				'top': '7px',
+				'margin': '7px',
+				'left': '0px',
+				'width': 'calc(100% - 14px)'
+			});
+		$('#search-field')
+			.css({
+				'width': 'calc(100% - 42px)',
+				'padding-left': '8px'
+			});
+		
+		
+		// Make space for search box above nav pane (tabs-panel), other box and appearance adjustments
+		
+		$('.tabs-panel').css('top', '65px');
+		$('#body').css('top', '71px');
+		$('#contentBodyInner')
+			.css({
+				'top': '72px',
+				'bottom': '42px',
+				'border': 'none'
+			});
+		$('#toc').css({
+			'top': '0',
+			'right': '0',
+			'left': '0',
+		});
+		
+		
+		// Fix issue with "Contents" tab name appearing in white
+		
+		$('.tabs-nav').css('display', 'none');
+		
+		
+		// Move navigation buttons to footer
+		// Can't adjust to bottom of iframe contents due to same-origin policy and local usage
+		
+		$('&lt;div/&gt;')
+			.attr('id', 'navfooter')
+			.css({
+				'background-color': '#EEE',
+				'position': 'absolute',
+				'left': '0',
+				'right': '0',
+				'bottom': '0',
+				'height': '40px',
+				'margin-left': '0',
+				'margin-right': '8px',
+				'overflow': 'hidden'
+			})
+			.appendTo('#contentBody')
+			.append( $('.toolbar-buttons') );
+			
+		
+		// Adjust toolbar buttons and keep from wrapping
+		// Because of floats used for left/right buttons, the right buttons still wrap below the
+		// left as a whole, but this only happens in extreme/unlikely circumstances
+		
+		$('.button-group-container-left')
+			.css({
+				'overflow': 'hidden',
+				'white-space': 'nowrap'
+			});
+		$('.button-group-container-right')
+			.css({
+				'overflow': 'hidden',
+				'white-space': 'nowrap'
+			});
+		$('.button')
+			.css({
+				'display': 'inline-block',
+				'float': 'none',
+				'margin': '0px 1px'
+			});
+		
+		// Determine whether navigation pane is closed and set global variable
+		navClass = $('#navigation').attr('class');
+		if ( navClass == 'nav-closed' ){
+					navClosedByUser = true;
+				} else {
+					navClosedByUser = false;
+				}
+		
+		// Determine whether nav pane should be open based on current window size
+		setTimeout(checkNavPaneAfterResize, 200);
+		
+		//Set navigation hotkeys
+		$(document).keyup(function(e) {
+		  switch (e.key) {
+			case 'ArrowLeft':
+				prevTopic();
+				break;
+			case 'ArrowRight':
+				nextTopic();
+		  }
+		});
+			
+	});
+	
+	var rtime;
+	var timeout = false;
+	var delta = 200;
+	
+	// Set timeout to determine end of resize action
+	$(window).resize(function() {
+		rtime = new Date();
+		if (timeout === false) {
+			var win = $(window);
+			var navClass = $('#navigation').attr('class');
+			if ( win.width() &gt;= 768 ) {
+				if ( navClass == 'nav-closed' &amp;&amp; navClosedByScript == false){
+						navClosedByUser = true;
+						navForcedOpenByUser = false;
+					} else {
+						navClosedByUser = false;
+						navForcedOpenByUser = false;
+					}
+				} else {
+					if ( navClass != 'nav-closed' &amp;&amp; navClosedByScript == true){
+						navForcedOpenByUser = true;
+					} else {
+						navForcedOpenByUser = false;
+					}
+				}
+			timeout = true;
+			setTimeout(resizeEnd, delta);
+		}
+	});
+	
+	// Determine whether nav pane should close at end of resize action
+	function resizeEnd() {
+		if (new Date() - rtime &lt; delta) {
+			setTimeout(resizeEnd, delta);
+		} else {
+			timeout = false;
+			checkNavPaneAfterResize();
+		}               
+	}
+	
+	function checkNavPaneAfterResize() {
+		var win = $(window);
+		var navClass = $('#navigation').attr('class');
+		if (win.width() &lt; 768) {
+			if ( navClass != 'nav-closed' &amp;&amp; navForcedOpenByUser == false ){
+				$('#show-hide-navigation').click();
+				navClosedByScript = true;
+			}
+		} else {
+			navClosedByScript = false;
+			if ( navClass == 'nav-closed' &amp;&amp; navClosedByUser == false){
+				$('#show-hide-navigation').click();
+			}
+		}
+	}
+
+	//Topic navigation
+	function nextTopic() {
+		$(".next-topic-button").click()
+	}
+	
+	function prevTopic() {
+		$(".previous-topic-button").click()
+	}
+	
+		
+</Script></Toolbar>
+        <WebHelpOptions NavigationPanePosition="Left" />
+    </CatapultSkin>
+</WebHelpSystem>

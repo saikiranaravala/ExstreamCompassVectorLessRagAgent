@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="OpenText Exstream (Cloud-Native) Release CE 22.2.0 Web Client Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Rationalizing external content</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Rationalizing external content</h1>
+                <p><span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> provides the ability to import and rationalize ZIP&#160;files that contain external content that you <a href="MakingRationalizedContentAvailable.htm" data-mc-exclude-action="unbind" data-mc-conditions="_Exstream_Conditions.DAS_Only,_Exstream_Conditions.WebClientOnly">want to use</a> in <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> and <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> communications. Because it is uniquely a design tool, <span class="mc-variable _IMP_Product_Names.Rationalization_Short variable">Rationalization</span> cannot be used in <a href="CreatingAndConfiguringDomains.htm#Production" data-mc-exclude-action="unbind" data-mc-conditions="_Exstream_Conditions.WebClientOnly">production domains</a>.</p>
+                <div class="Admonition_Note">
+                    <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>Licensing for <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> CE Rationalization requires a services engagement with <span class="mc-variable _IMP_Template_Elements._Company_Acronym variable">OpenText</span> Professional Services. For more information, contact your <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> account representative.</p>
+                </div>
+                <p>For example, suppose that you have a set of PDF&#160;output files that were generated using a different design tool, but which contain content that you would like to use in communications that you design in <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span>. To do so, create a ZIP&#160;file that contains the PDF&#160;output files and any XML driver files that were used to create the PDF&#160;output, and then use <span class="mc-variable _Exstream_UI_Names.WEB_MigrationMgmtView variable">Rationalization asset library view</span> to <a href="#Adding" data-mc-exclude-action="unbind" data-mc-conditions="_Exstream_Conditions.WebClientOnly">import this ZIP&#160;file</a> as a migration set.  You can then use <span class="mc-variable _IMP_Product_Names.Rationalization_Short variable">Rationalization</span> to analyze the imported files in the migration set, and identify the content fragments and variables in those files. Fragments can include either text or image content. </p>
+                <p>If you include XML&#160;driver files with your PDFs, <span class="mc-variable _IMP_Product_Names.Rationalization_Short variable">Rationalization</span> detects and includes variables in your rationalized content. If XML driver files are not included, the rationalization tool can suggest variables for use, if appropriate.</p>
+                <p>Migration sets can be <a href="MakingRationalizedContentAvailable.htm" data-mc-exclude-action="unbind" data-mc-conditions="_Exstream_Conditions.WebClientOnly">linked</a> to DAS data sources and to <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> and <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> communications.</p>
+                <ul>
+                    <li>
+                        <p>For  communications that use a DAS&#160;data source with a linked migration set, that migration set is also linked to the communication.</p>
+                    </li>
+                    <li>
+                        <p>For  communications that use a design pack, you can link a DAS migration set directly to the communication.</p>
+                    </li>
+                </ul>
+                <p>In <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> and <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span>, you can then insert the fragments and variables from that migration set in your designs.</p>
+                <p>For more information about using content fragments in <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> or <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span>, see <span class="docName mc-variable _Exstream_Doc_Names._Product_Prefix variable">OpenText Exstream</span> <span class="docName mc-variable _Exstream_Doc_Names.CDR_Help variable">Communications Designer Online Help</span> or <span class="docName mc-variable _Exstream_Doc_Names._Product_Prefix variable">OpenText Exstream</span> <span class="docName mc-variable _Exstream_Doc_Names.BCA_Help variable">Content Author Online Help</span>.</p>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" /></a><a name="Adding2"></a><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead" aria-expanded="false">Adding a migration set</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p><a name="Adding"></a>When you add a migration set, you are importing either PDF and XML driver files or template files within a ZIP file to make them available for <span class="mc-variable _IMP_Product_Names.Rationalization_Short variable">Rationalization</span>. After you add a migration set, you must <a href="#Rationalizing">rationalize the set</a> in order to create the fragments that can be used in <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> and <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span>.</p>
+                        <p>To add a migration set:</p>
+                        <ol>
+                            <li value="1">
+                                <p>In the <span class="uielement">Migration sets</span> panel in <span class="mc-variable _Exstream_UI_Names.WEB_MigrationMgmtView variable">Rationalization asset library view</span>, click <span class="uielement">Add</span>.</p>
+                            </li>
+                            <li value="2">
+                                <p>In the <span class="uielement">Properties</span> panel, specify a name, and optionally, a description for the new migration set.</p>
+                            </li>
+                            <li value="3">
+                                <p>In the <span class="uielement">Migration type</span> list, select the source of the content to be rationalized:</p>
+                                <ul>
+                                    <li>
+                                        <p><span class="uielement">PDF</span>—If your source content comes from PDF output, you have the option to select a <span class="uielement">Communication type</span> as well. This option allows you to designate the type of communication base—communication set or design pack—that you plan to use with the rationalized content. In turn, this can help you reduce the possible number of duplicate fragments that the rationalization process creates.</p>
+                                        <p>If you select <span class="uielement">Design pack</span> as the communication type, you can further narrow the duplicates by selecting a specific design pack that was imported to DAS in the <span class="uielement">Design pack</span> list.</p>
+                                    </li>
+                                    <li>
+                                        <p><span class="uielement">Template</span>—This option is currently a placeholder for future platform formats such as StreamServe.</p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li value="4">
+                                <p>Click <span class="uielement">Import files</span>.</p>
+                            </li>
+                            <li value="5">
+                                <p>In the file browser, select the ZIP&#160;file containing either your PDF&#160;output files or your template files, and then click <span class="uielement">Open</span>.</p>
+                                <p>The contents of the ZIP file are listed in the <span class="uielement">Properties</span> panel.</p>
+                            </li>
+                            <li value="6">
+                                <p>Optionally, in the <span class="uielement">Current rationalization set tolerance</span> area, use the slide or enter a value in the box to set the rationalization tolerance. This value determines how similar different fragments must be before <span class="mc-variable _IMP_Product_Names.Rationalization_Short variable">Rationalization</span> considers them to be a match—a higher number requires them to be more alike, and a lower number requires them to be less alike. You can also set this value before you rationalize the newly created migration set.</p>
+                            </li>
+                            <li value="7">
+                                <p>Click <span class="uielement">Create</span>.</p>
+                            </li>
+                        </ol>
+                        <p>In the Properties panel for the migration set, the <a href="#Indicators">status indicator</a> for the set is gray. To use the content from this migration set in a design, you must first <a href="#Rationalizing">run the rationalization process</a> to identify the content fragments in the imported&#160;files. </p>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" /></a><a name="Rational"></a><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead" aria-expanded="false">Rationalizing a migration set</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p><a name="Rationalizing"></a>After you have <a href="#Adding">added a migration set</a>, you must rationalize the content to create the fragments that can be used in <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> and <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span>.</p>
+                        <p>To rationalize a migration set:</p>
+                        <ol>
+                            <li value="1">In the <span class="uielement">Migration sets</span> panel in <span class="mc-variable _Exstream_UI_Names.WEB_MigrationMgmtView variable">Rationalization asset library view</span>, select a migration set.</li>
+                            <li value="2">
+                                <p>In the <span class="uielement">Properties</span> panel, perform the following tasks: </p>
+                                <ol>
+                                    <li value="1">In the <span class="uielement">Current rationalization set tolerance</span> area, use the slide or enter a value in the box to set the rationalization tolerance, and then click <span class="uielement">Save</span>. This value determines how alike that different fragments must be before <span class="mc-variable _IMP_Product_Names.Rationalization_Short variable">Rationalization</span> considers them to be a match—a higher number requires them to be more alike, and a lower number requires them to be less alike.</li>
+                                    <li value="2">Click <span class="uielement">Run</span> to initiate the rationalization process. </li>
+                                </ol>
+                            </li>
+                        </ol>
+                        <p>In the <span class="uielement">Migration sets</span> panel, the <a href="#Indicators">indicator</a> in the <span class="uielement">Status</span> column changes to show the current status of the rationalization process. After the rationalization process is complete, you can click <span class="uielement">Open</span> to open the migration set in <span class="mc-variable _IMP_Product_Names.Rationalization_Short variable">Rationalization</span> to identify and edit the content fragments in that set. </p>
+                        <p>For information about how to work with rationalized content, see <span class="docName mc-variable _Exstream_Doc_Names._Product_Prefix variable">OpenText Exstream</span> <span class="docName mc-variable _Exstream_Doc_Names.Rationalization_Help variable">Rationalization Online Help</span>.</p>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Understanding the status indicators for migration sets</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p><a name="Indicators"></a>You can use the color indicators to quickly check the status for a migration set. You can point to any of the indicators to see a tooltip that provides more information.</p>
+                        <p>The following list shows the indicator colors that are available for migration sets, and what each color means:</p>
+                        <ul>
+                            <li>
+                                <p><span class="emphasis-bold">Gray:</span>&#160;The migration set was created (or is in the process of being created), but it has not yet been <a href="#Rationalizing">rationalized</a>.</p>
+                            </li>
+                            <li>
+                                <p><span class="emphasis-bold">Yellow:</span> The migration set was rationalized but is not yet associated with a communication or data source.</p>
+                            </li>
+                            <li>
+                                <p><span class="emphasis-bold">Green:</span>&#160;The migration set was rationalized and is associated with a communication or data source.</p>
+                            </li>
+                        </ul>
+                        <div class="Admonition_Tip">
+                            <p data-mc-autonum="&lt;b&gt;Tip: &lt;/b&gt;"><span class="autonumber"><span><b>Tip: </b></span></span>While rationalization is in progress, you can view the percent completed by positioning the pointer over the indicator.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2022</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

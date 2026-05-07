@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="OpenText Exstream (Cloud-Native) Release CE 22.2.0 Web Client Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Updating engine run definitions</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Updating engine run definitions</h1>
+                <p>Engine run definitions provide instructions to the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> engine for  producing output, and contain the following information:</p>
+                <ul>
+                    <li>Engine version</li>
+                    <li>Input files and output queues</li>
+                    <li>Switches for customizing the engine run</li>
+                </ul>
+                <p>Depending on their purpose, run definitions can be of the following types:</p>
+                <ul>
+                    <li>
+                        <p><span class="uielement">Production run definitions</span>—Created when you <a href="PublishingFlows.htm">publish a flow model</a>. Production run definitions are required for orchestration jobs that run the engine to produce customer output and are included in the flows that are processed by the Orchestration service. The run definition for a communication in a flow model is based on the corresponding communication settings that are defined in a  flow context. </p>
+                        <p>For information about defining communication settings in <span class="mc-variable _IMP_Product_Names.Orchestrator_Short variable">Communications Orchestrator</span>, see <span class="docName mc-variable _Exstream_Doc_Names._Product_Prefix variable">OpenText Exstream</span> <span class="docName mc-variable _Exstream_Doc_Names.Orchestrator_Guide variable">Communications Orchestrator User Guide</span>.</p>
+                    </li>
+                    <li><span class="uielement">Preview run definitions</span>—Created either when you  package and upload a <span class="mc-variable _IMP_Product_Names.DesignManager variable">Design Manager</span> application that contains a design pack or when you create a communication set. Preview run definitions contain the information that is required to run the engine to generate  previews for <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> and generate simulations for  <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> or <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> communications that are based on the corresponding application template. Preview run definitions are configured in DAS and can be modified in the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> web client. </li>
+                </ul>
+                <p>To modify a preview run definition:</p>
+                <ol>
+                    <li value="1">In the <span class="uielement">Run definitions</span> panel in the <span class="mc-variable _Exstream_UI_Names.WEB_OrchMgmtView variable">Orchestration asset library view</span>, select a run definition.</li>
+                    <li value="2">
+                        <p>In the <span class="uielement">Properties</span> panel, update the following settings as needed:</p>
+                        <table style="width: 100%;margin-left: 0;margin-right: auto;">
+                            <col style="width: 20%;" />
+                            <col style="width: 80%;" />
+                            <thead>
+                                <tr>
+                                    <th>Option</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p><span class="uielement">Name</span>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>The name of the run definition</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><span class="uielement">Description</span>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>The description of the run definition</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><span class="uielement">Data source associations</span>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>The sample data files that are associated with the run definition. </p>
+                                        <p>To update an associated file, click the <span class="uielement">Update &lt;type&gt; file</span> button and select a different sample file. Make sure that you select a file of the appropriate file type.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><span class="uielement">Engine</span>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>The engine version that is used to generate output. Click the list and select the engine version that you want to use.</p>
+                                        <div class="Admonition_Note">
+                                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>The engine version must match or be later than the version that is specified in the package file that will be processed using this run definition.</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><span class="uielement">Engine switches</span>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>The engine switches that are used to customize the engine run. By default, the run definition for a communication created by a template contains at least the following required switches:</p>
+                                        <ul>
+                                            <li><a href="../Switches/FILEMAP_Engine.html" class="noNum MCXref xref xrefnoNum">FILEMAP</a>—Specifies the input file that is used to produce output. By default, the sample file that was included the <span class="mc-variable _IMP_Product_Names.DesignManager variable">Design Manager</span> application is used.</li>
+                                            <li><a href="../Switches/PACKAGEFILE.html" class="MCXref xref">PACKAGEFILE</a>—Specifies the associated <span class="mc-variable _IMP_Product_Names.DesignManager variable">Design Manager</span> application package. </li>
+                                        </ul>
+                                        <p>To add a new switch, click in the <span class="uielement">Add new switch</span> box and enter the switch and any required arguments. To remove a switch, click the <span class="uielement">Remove</span> button <img src="../images/b_WebApps_RemoveSetting.png" alt="" class="inline" />.</p>
+                                        <div class="Admonition_Note">
+                                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>Some engine switches are <a href="../Switches/LandingPages/_RestrictedSwitchesForDocGen.htm">not supported</a> when you use the Document Generation service to run the engine. For additional information about engine switches, see <a href="../Switches/_AboutSwitchesWEB.htm" class="MCXref xref">Switch reference</a>.</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </li>
+                </ol>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2022</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

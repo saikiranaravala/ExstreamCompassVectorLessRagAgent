@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="[%=System.LinkedTitle%]|[%=System.LinkedTitle%]|Applications API calls">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="Empower Server Console and API" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="DocVersion" content="" /><title>Update an application</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <h1 class="chapternum">Update an application</h1>
+            <p>The <code>POST</code> API call for applications edits the attributes of an <span class="_Exstream_Product_NamesHydrogen">Empower</span>&#160;application.</p>
+            <h2>Who can access this call</h2>
+            <p>Access to the <span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span> is defined in the <code>customSecurityContext.xml</code> file during installation, and is controlled by your authorization provider. By default, <span class="_Exstream_Product_NamesHydrogen">Empower</span> supports the <code>administrator</code>, <code>editor</code>, and <code>integrator</code> authorities.</p>
+            <p>Authenticated users with the following authority can use this API call:</p>
+            <ul>
+                <li value="1"><code>administrator</code>
+                </li>
+            </ul>
+            <h2 class="title">Request</h2>
+            <table style="margin-left: 0;margin-right: auto;">
+                <col />
+                <col />
+                <col />
+                <thead>
+                    <tr>
+                        <th style="text-align: left;">Request method</th>
+                        <th style="text-align: left;">Content type</th>
+                        <th style="text-align: left;">Syntax</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align: left;">POST</td>
+                        <td style="text-align: left;">application/x-www-form-urlencoded</td>
+                        <td style="text-align: left;"><code>/&lt;context&gt;/resource/applications/{appId}</code>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>The <code>&lt;context&gt;</code> variable is configured during  <span class="_Exstream_Product_NamesHydrogen">Empower</span>&#160;installation.</p>
+            <p>The <code>{appId}</code> is the ID of the existing <span class="_Exstream_Product_NamesHydrogen">Empower</span>&#160;application.</p>
+            <p>The maximum  string length of the <code>{appId}</code> parameter is 43 characters.</p>
+            <p>The <code>{appId}</code> parameter supports the <code>\p{XDigit}{1,10}-\p{XDigit}{1,10}-\p{XDigit}{1,10}-\p{XDigit}{1,10}</code>&#160;characters.</p>
+            <p class="Subheading">Request header</p>
+            <table style="width: 100%;margin-left: 0;margin-right: auto;">
+                <col />
+                <col />
+                <col />
+                <col />
+                <thead>
+                    <tr>
+                        <th>Header</th>
+                        <th>Value</th>
+                        <th>Use</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>X-CSRF-TOKEN</code>
+                        </td>
+                        <td><code>{csrfToken}</code>
+                        </td>
+                        <td>Required</td>
+                        <td>
+                            <p>Provides a session token that authorizes you to access the <code>DELETE</code> and <code>POST</code> API calls</p>
+                            <p>To view the token for your current session, do one of the following:</p>
+                            <ul>
+                                <li value="1">To capture the <code>csrfToken</code> response parameter, see <a href="get_token_api.html" class="MCXref xref">Get security token</a>.</li>
+                                <li value="2"> Retrieve the <code>XSRF-TOKEN</code> cookie after making an API call from a session that is already in progress.</li>
+                            </ul>
+                            <p>Keep in mind that if a session expires or changes, you must acquire a new security token.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>Accept</code>
+                        </td>
+                        <td><code>application/xml</code>
+                        </td>
+                        <td>Optional</td>
+                        <td>Requests that <span class="_Exstream_Product_NamesHydrogen">Empower</span> return an XML response instead of the default JSON response</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="Subheading">Request parameters</p>
+            <p>You must use at least one of the following parameters in your request:</p>
+            <table style="margin-left: 0;margin-right: auto;width: 100%;">
+                <col title="col1" span="1" style="width: 93px;" />
+                <col title="COLSPEC6" span="1" />
+                <col title="COLSPEC7" span="1" />
+                <col title="COLSPEC5" span="1" />
+                <thead>
+                    <tr>
+                        <th rowspan="1" colspan="1">Parameter</th>
+                        <th rowspan="1" colspan="1">Data type</th>
+                        <th rowspan="1" colspan="1">Use</th>
+                        <th rowspan="1" colspan="1">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <p><code>accessgroupName</code>
+                            </p>
+                        </td>
+                        <td>
+                            <p>String</p>
+                        </td>
+                        <td>Optional</td>
+                        <td>
+                            <p>Updates the application with the access group (or groups) that will be used to restrict access to all new documents that are created using this application</p>
+                            <p>If no access groups are specified, then all authenticated users are permitted to open and edit the documents that are associated with this application.</p>
+                            <p>The maximum  string length is 250 characters.</p>
+                            <p>This parameter supports the <code>^[\\p{L}\\p{M}\\p{N}_\\-\\.\\*\\s"\\\\]*$</code>&#160;characters.</p>
+                            <p rowspan="1" colspan="1">To add multiple access groups to an application, include multiple <kbd class="NoWrap">accessgroupName</kbd> parameters in the request.</p>
+                            <p rowspan="1" colspan="1"><span class="emphasis-bold">Example:</span>
+                            </p>
+                            <p><code>accessgroupName=Group1&amp;accessgroupName=Group2&amp;accessgroupName=Group3</code>
+                            </p>
+                            <p>To remove all of the existing access groups, use this parameter with no values specified.</p>
+                            <p><span class="emphasis-bold">Example:</span>
+                            </p>
+                            <p><code>accessgroupName=</code>
+                            </p>
+                            <div class="Admonition_Note">
+                                <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>You can apply additional access restrictions to an <span class="_Exstream_Product_NamesHydrogen">Empower</span> document by specifying one or more owners for the document. For information about using the <code>ownerId</code> parameter, see <a href="update_doc_api.html" class="MCXref xref">Update a document</a>.</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="1">
+                            <p><code>editorVersion</code>
+                            </p>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                            <p>String</p>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                            <p>Optional</p>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                            <p rowspan="1" colspan="1">Updates the version of the editor that is stored in an <span class="_Exstream_Product_NamesHydrogen">Empower</span> application and that is assigned to all new documents</p>
+                            <p rowspan="1" colspan="1">The maximum  string length is 250 characters.</p>
+                            <p rowspan="1" colspan="1">This parameter supports the <code>^[a-zA-Z0-9\.]*$</code>&#160;characters.</p>
+                            <div class="Admonition_Note">
+                                <p rowspan="1" colspan="1" data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>You must specify an active version of the editor.</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>previewPubFile</code>
+                        </td>
+                        <td>String</td>
+                        <td>Optional</td>
+                        <td>
+                            <p>Updates the name of the <span class="_Exstream_Product_NamesExstream">Exstream</span> package file that all new documents will use to generate PDF previews (when Engine&#160;as a Web Service is configured as the PDF preview provider)</p>
+                            <p rowspan="1" colspan="1">The maximum  string length is 250 characters.</p>
+                            <p rowspan="1" colspan="1">This parameter supports the <code>^[\p{L}\p{M}\p{N}_\-\.\s]*$</code>&#160;characters.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="Subheading">Example request </p>
+            <table style="margin-left: 0;margin-right: auto;">
+                <col title="COLSPEC9" span="1" />
+                <col title="COLSPEC10" span="1" />
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="1" colspan="1">
+                            <p>Request header</p>
+                        </td>
+                        <td rowspan="1" colspan="1"><code>POST <span class="Basic_Variables_Product_Sample_URI">http://sample-server.example.com</span>:8080/mpw/resource/applications/51-1115057666-1497528466-0<br />X-CSRF-TOKEN: 95cf86a3-079f-4860-aa62-dd64f8a8c321</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Request body</td>
+                        <td><code>Content-Type: application/x-www-form-urlencoded;</code>
+                            <p><code>editorVersion=1.1.0.7783&amp;accessgroupName=newGroup</code>
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2 class="title">Response</h2>
+            <p><span class="_Exstream_Product_NamesHydrogen">Empower</span> supports two formats for API response payloads: JSON and XML.</p>
+            <p class="Subheading">Example JSON response</p>
+            <p>Media type: application/json</p>
+            <div class="overview"><pre xml:space="preserve">
+{
+    "header": {
+        "status": {
+            "code": "SERV100I"
+        }
+    },
+    "body": {
+        "app": {
+            "appId": "1607-1977328685-1587697889-1803439060",
+            "applicationName": "Empower Claim Letters",
+            "applicationOI": "29",
+            "applicationPath": "CLM - Insurance Claims",
+            "databaseId": "e5ca926b-b3c3-4593-b2c9-fbd2ccccef34",
+            "editorVersion": "1.1.0.7783",
+            "engineVersion": "900102",
+            "packageCreationDate": "2014-08-04T19:42:55",
+            "packageFile": "Claims.pub",
+            "packageVersion": "900125",
+            "previewPubFile": "dummy.pub",
+            "accessgroupNames": [
+                "newGroup"
+            ]
+        }
+    }
+}</pre>
+            </div>
+            <p class="Subheading">Example XML response</p>
+            <p>Media type: application/xml</p>
+            <div><pre xml:space="preserve">
+                <code>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+ResponseContainer&gt;
+    &lt;header&gt;
+        &lt;status code="SERV100I"/&gt;
+    &lt;/header&gt;
+    &lt;body&gt;
+        &lt;app appId="1607-1977328685-1587697889-1803439060" applicationName="Empower Claim Letters" applicationOI="29" applicationPath="CLM - Insurance Claims" databaseId="e5ca926b-b3c3-4593-b2c9-fbd2ccccef34" editorVersion="1.1.0.7783" engineVersion="900102" packageCreationDate="2014-08-04T19:42:55" packageFile="Claims.pub" packageVersion="900125" previewPubFile="dummy.pub" accessgroupNames="newGroup"/&gt;
+    &lt;/body&gt;
+&lt;/ResponseContainer&gt;</code>
+            </pre>
+            </div>
+            <div><pre xml:space="preserve">  </pre>
+            </div>
+            <p class="Subheading">Response parameters</p>
+            <p>If a parameter object does not contain a value, a JSON response returns a <code>null</code> value for the object, but an XML response does not include the object.</p>
+            <table style="margin-left: 0;margin-right: auto;">
+                <col title="col1" span="1" />
+                <col title="COLSPEC6" span="1" />
+                <col title="COLSPEC5" span="1" />
+                <thead>
+                    <tr>
+                        <th rowspan="1" colspan="1">Parameter</th>
+                        <th rowspan="1" colspan="1">Data type</th>
+                        <th rowspan="1" colspan="1">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>accessgroupNames</code>
+                        </td>
+                        <td>String</td>
+                        <td>The names of the access groups that control access to documents that are associated with the <span class="_Exstream_Product_NamesHydrogen">Empower</span>  application</td>
+                    </tr>
+                    <tr>
+                        <td><code>appId</code>
+                        </td>
+                        <td>String</td>
+                        <td>The application ID that was generated by <span class="_Exstream_Product_NamesHydrogen">Empower</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>applicationName</code>
+                        </td>
+                        <td>String</td>
+                        <td>The name of the <span class="_Exstream_Product_NamesExstream">Exstream</span> application that was used to design the document</td>
+                    </tr>
+                    <tr>
+                        <td><code>applicationOI</code>
+                        </td>
+                        <td>Number</td>
+                        <td>The Object Identifier (OI) of the <span class="_Exstream_Product_NamesExstream">Exstream</span>  application</td>
+                    </tr>
+                    <tr>
+                        <td><code>applicationPath</code>
+                        </td>
+                        <td>String</td>
+                        <td>
+                            <p>The folder path of the <span class="_Exstream_Product_NamesExstream">Exstream</span>  application in your installation of <span class="_Exstream_Product_NamesDesignManager">Design Manager</span></p>
+                            <div class="Admonition_Note">
+                                <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>If the application is located in the root folder of your installation of <span class="_Exstream_Product_NamesDesignManager">Design Manager</span>, the <code>applicationPath</code> field will be empty.</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>databaseId</code>
+                        </td>
+                        <td>UUID</td>
+                        <td>The database ID stored in the <span class="_Exstream_Product_NamesHydrogen">Empower</span>  application</td>
+                    </tr>
+                    <tr>
+                        <td><code>editorVersion</code>
+                        </td>
+                        <td>String</td>
+                        <td>The version of the editor that is assigned to all new documents</td>
+                    </tr>
+                    <tr>
+                        <td><code>engineVersion</code>
+                        </td>
+                        <td>String</td>
+                        <td>The version of the engine that was used to package the <span class="_Exstream_Product_NamesExstream">Exstream</span>  application</td>
+                    </tr>
+                    <tr data-mc-conditions="">
+                        <td><code>exceedsTotal</code>
+                        </td>
+                        <td>Boolean</td>
+                        <td>The response parameter that indicates whether the total number of <span class="_Exstream_Product_NamesHydrogen">Empower</span>  applications that match your request exceeds the value that is returned for the <code>total</code> response parameter</td>
+                    </tr>
+                    <tr>
+                        <td><code>limit</code>
+                        </td>
+                        <td>Long</td>
+                        <td>
+                            <p>The maximum number of <span class="_Exstream_Product_NamesHydrogen">Empower</span>  applications that the request could have returned (the page size)</p>
+                            <p>If the value of the <code>limit</code> response parameter is <code>0</code>, then no limit was used, and the response included all of the applications that matched your request parameters.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>offset</code>
+                        </td>
+                        <td>Long</td>
+                        <td>The number of results that were skipped before the first result was returned</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><code>packageCreationDate</code>
+                            </p>
+                        </td>
+                        <td>Date</td>
+                        <td>
+                            <p>The date that the package file was created</p>
+                            <p>The date format is <code>YYYY-MM-ddTHH:mm:ss</code>.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>packageFile</code>
+                        </td>
+                        <td>String</td>
+                        <td>The name of the <span class="_Exstream_Product_NamesExstream">Exstream</span>  application package file, including the folder path</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="1">
+                            <p><code>packageVersion</code>
+                            </p>
+                        </td>
+                        <td rowspan="1" colspan="1">
+                            <p>String</p>
+                        </td>
+                        <td rowspan="1" colspan="1">The version of <span class="_Exstream_Product_NamesExstream">Exstream</span> that was used to package the application</td>
+                    </tr>
+                    <tr>
+                        <td><code>previewPubFile</code>
+                        </td>
+                        <td>String</td>
+                        <td>The name of the <span class="_Exstream_Product_NamesExstream">Exstream</span> package file that all new documents will use to generate PDF previews (when Engine&#160;as a Web Service is configured as the preview provider)</td>
+                    </tr>
+                    <tr>
+                        <td><code>total</code>
+                        </td>
+                        <td>Long</td>
+                        <td>
+                            <p>The total number of <span class="_Exstream_Product_NamesHydrogen">Empower</span>  applications that match your request parameters</p>
+                            <p>If your request includes the <code>maxTotal</code> parameter, <span class="_Exstream_Product_NamesHydrogen">Empower</span> counts to the last <span class="_Exstream_Product_NamesHydrogen">Empower</span> application  that is returned by the search, or to the  <code>maxTotal</code> number of applications (whichever is larger).</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>&#160;</p>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear: both; clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;"><a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Copyright © <span class="_IMP_TemplateVarsCopyrightDateRange_CurrentYear">2019</span>&#160;<span class="Branding_Variables_Company_Legal_Name">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="Branding_Variables_Company_Legal_Name">Open&#160;Text</span>.</a>
+                </p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br /><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <!--QCCR1K4298 START-->
+        <div style="display:none;" id="HPb-Branding-Variables" Footer="Yes" Feedback="Yes">&#160;</div>
+        <script>/* <![CDATA[ */
+            var BrandingVariables = document.getElementById("HPb-Branding-Variables");
+            if(BrandingVariables.getAttribute('Footer')=="No"){document.getElementById('Copyright').style.display = 'none';}
+            if(BrandingVariables.getAttribute('Feedback')=="No"){document.getElementById('Feedback').style.display = 'none';}
+        /* ]]> */</script>
+        <!--QCCR1K4298 END-->
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+            var closeIFrame = function() {
+            $('.MCTopicPopupContainer').remove();
+            $("#mc-background-tint").remove();
+            }
+        </script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+        <script src="../Resources/Scripts/_IMP_init.js">
+        </script>
+        <!-- Include the following files in output -->
+        <p style="visibility:hidden"><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js">frontfileref</a><a href="../Resources/Stylesheets/fonts/_IMP_Lato-Regular.ttf">frontfileref</a><a href="../Resources/Stylesheets/fonts/_IMP_Lato-Bold.ttf">frontfileref</a>
+        </p>
+        <script type="text/javascript">/* <![CDATA[ */
+
+				//Set navigation hotkeys within iframe (must be done separately from top level)
+				window.addEventListener('keyup',
+					function(e) {
+						switch (e.key) {
+							case 'ArrowLeft':
+								MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous");
+								break;
+							case 'ArrowRight':
+								MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next");
+						}
+					}
+				, false);
+
+		/* ]]> */</script>
+    </body>
+</html>

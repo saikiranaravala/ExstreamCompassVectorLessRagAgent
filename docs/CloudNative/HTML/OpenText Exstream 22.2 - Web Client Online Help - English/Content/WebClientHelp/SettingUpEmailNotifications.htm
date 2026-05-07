@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]|[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="OpenText Exstream (Cloud-Native) Release CE 22.2.0 Web Client Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Setting up email notifications for workflow changes</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Setting up email notifications for workflow changes</h1>
+                <p>You can use <span class="mc-variable _Exstream_UI_Names.WEB_TenantMgmtView variable">Tenant management view</span> to configure your <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> deployment to send out notifications to specified email distribution lists when specific design resources are submitted for approval. For example, when a user submits a <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> communication for approval, an automated email notification is sent to approvers on a distribution list to prompt them to review that communication. </p>
+                <p>Notification emails contain content and use settings that you specify on the <span class="uielement">Notifications</span> panel. Each notification email also automatically includes a redirect link for the submitted resource so that approvers can access and review the resource directly. From the redirect link, resources open in the context that makes the most sense for each type—for example, <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> communications open in <span class="mc-variable _Exstream_UI_Names.BCA_CommunicationView variable">Communications view</span> in <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span>; <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> pages open in <span class="mc-variable _Exstream_UI_Names.CDR_DesignView variable">Design view</span> in <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span>; and so on.</p>
+                <p>To prevent an excessive number of emails being sent to a distribution list, when a resource is approved or rejected, an email is sent only to the user who originally submitted the resource for approval. In that case, <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> checks <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> for the email address that is associated with the user who submitted the resource for approval. If no email address is available in <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span>, then <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> does not send a notification. You should ensure that approvers on a distribution list do not have the <a href="ManagingUserPermissions.htm">permissions</a> required to change the workflow state for a submitted resource back to draft. If an approver returns a submitted resource to draft state, then no email notifications will be sent to any user about the change.</p>
+                <div class="Admonition_Important">
+                    <p data-mc-autonum="&lt;b&gt;Important: &lt;/b&gt;"><span class="autonumber"><span><b>Important: </b></span></span>If more than one notification exists for a resource type, then the user who submits a resource of that type for approval will receive more than one email when the resource is approved or rejected. For example, suppose that a notification is configured for only <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> resource types, but another is configured for both <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> and <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> resource types. In that scenario, when a user submits a <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> resource for approval, then that user will receive two email notifications for the same resource.</p>
+                </div>
+                <p> There are three basic steps involved in setting up a new notification: </p>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Step 1:&#160;Specify parameters and activate the notification</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <ol>
+                            <li value="1">
+                                <p>In the <span class="uielement">Notifications</span> panel in <span class="mc-variable _Exstream_UI_Names.WEB_TenantMgmtView variable">Tenant management view</span>, click <span class="uielement">Add</span>.</p>
+                            </li>
+                            <li value="2">
+                                <p>In the  <span class="uielement">Approver distribution list</span> box, enter the email address for the distribution list that will receive notifications. The address for the distribution list is not validated or maintained in DAS; it must exist in your mail server. If the distribution list is incorrect or does not exist, then the notification will not be sent.</p>
+                            </li>
+                            <li value="3">
+                                <p>In the <span class="uielement">Resource types</span> section, select the types of resources that will be included in the notifications:</p>
+                                <ul>
+                                    <li>
+                                        <p><span class="uielement">All</span>—Select this option to send notifications whenever any of the resources in the list are submitted for approval. Note that selecting no options in the list is the same as selecting <span class="uielement">All</span>.</p>
+                                    </li>
+                                    <li>
+                                        <p><span class="uielement"><span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span></span>—Select this option to send notifications whenever a <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> asset is submitted for approval. <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> assets are listed on the <span class="uielement">Designer</span> panel in <a href="AboutAssetManagementViews.htm#DesignAssetView"><span class="mc-variable _Exstream_UI_Names.WEB_DesignAssetMgmtView variable">Design asset library view</span></a>.</p>
+                                    </li>
+                                    <li>
+                                        <p><span class="uielement"><span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span></span>—Select this option to send notifications whenever a <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> asset is submitted for approval. <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> assets are listed on the <span class="uielement">Author</span> panel in <a href="AboutAssetManagementViews.htm#DesignAssetView"><span class="mc-variable _Exstream_UI_Names.WEB_DesignAssetMgmtView variable">Design asset library view</span></a>.</p>
+                                    </li>
+                                    <li>
+                                        <p><span class="uielement">Communication Asset</span>—Select this option to send notifications whenever a communication asset is submitted for approval. Communication assets are listed on the panels found in <a href="AboutAssetManagementViews.htm#CommAssetView"><span class="mc-variable _Exstream_UI_Names.WEB_CommAssetMgmtView variable">Communication asset library view</span></a>.</p>
+                                    </li>
+                                    <li>
+                                        <p><span class="uielement">Design Asset</span>—Select this option to send notifications whenever a design asset is submitted for approval. Design assets are listed on the <span class="uielement">Common</span> panel in <a href="AboutAssetManagementViews.htm#DesignAssetView"><span class="mc-variable _Exstream_UI_Names.WEB_DesignAssetMgmtView variable">Design asset library view</span></a>.</p>
+                                    </li>
+                                    <li>
+                                        <p><span class="uielement">Orchestration Asset</span>—Select this option to send notifications whenever an orchestration asset is submitted for approval. Orchestration assets are listed on the panels in <a href="AboutAssetManagementViews.htm#OrchAssetView"><span class="mc-variable _Exstream_UI_Names.WEB_OrchMgmtView variable">Orchestration asset library view</span></a>.</p>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Step 2:&#160;Set up the global SMTP&#160;configuration</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>The <span class="uielement">Global</span> panel is available on each notification, but the settings affect all notifications. If you have created notifications previously, then the fields on this panel will be populated already and do not need to be changed.</p>
+                        <div class="Admonition_Note">
+                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>If you delete all notifications from a tenant, the SMTP&#160;settings will persist in the DAS database. To clear SMTP settings from your DAS database, you should delete the global SMTP&#160;settings before you delete all notifications. </p>
+                        </div>
+                        <p>To set up the global SMTP&#160;configuration:</p>
+                        <ol>
+                            <li value="1">
+                                <p>In the <span class="uielement">Properties</span> panel, click the <span class="uielement">Global</span> panel, and then specify the following settings to configure the SMTP email server that DAS uses to send email notifications: </p>
+                                <ul>
+                                    <li><span class="uielement">Host</span>—The host name of the SMTP&#160;server</li>
+                                    <li><span class="uielement">Port</span>—The SMTP&#160;listener port</li>
+                                    <li><span class="uielement">Username</span>—The user name that is used to establish an authenticated connection to the SMTP server</li>
+                                    <li><span class="uielement">Password</span>—The password that is used to establish an authenticated connection to the SMTP server</li>
+                                </ul>
+                            </li>
+                            <li value="2">
+                                <p>Click <span class="uielement">Save</span>.</p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" /></a><a name="Step3"></a><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead" aria-expanded="false">Step 3:&#160;Configure the email layout</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <ol>
+                            <li value="1">
+                                <p>In the <span class="uielement">Properties</span> panel, click the <span class="uielement">Layout</span> panel. </p>
+                            </li>
+                            <li value="2">
+                                <p>Enter the subject line and content of the email notification in the <span class="uielement">Email subject</span> box and <span class="uielement">Email body</span> box, respectively. These are required fields and cannot be blank. </p>
+                                <p>When you place your cursor in the <span class="uielement">Email subject</span> or the <span class="uielement">Email body</span> box, you can also enter resource properties from the <span class="uielement">Resource property variables</span> list. These properties are treated as resource-specific variables where they appear in the email content. When each notification is sent, the variable values are populated with the current information for the resource that triggered the notification. The following table lists the resource properties that are available as variables. No other variables can be used in email notifications.</p>
+                                <div class="Admonition_Note">
+                                    <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>The variables that appear in the <span class="uielement">Resource property variables</span> list have user-friendly names that don't necessarily match the information inside the brackets after you place a variable. For example, the <span class="uielement">Updated by</span> variable in the list appears as <kbd>{{lastModifiedBy}}</kbd> when placed in the <span class="uielement">Email subject</span> or <span class="uielement">Email body</span> fields. The names in the brackets represent actual field names in the DAS database.</p>
+                                </div>
+                                <table style="width: 100%;margin-left: 0;margin-right: auto;" summary="List of resource properties and their descriptions">
+                                    <col style="width: 30%;">
+                                    </col>
+                                    <col style="width: 70%;">
+                                    </col>
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <p>Resource property</p>
+                                            </th>
+                                            <th>
+                                                <p>Description</p>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <p><span class="uielement">Created By</span>
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p>The user that created the resource</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p><span class="uielement">Description</span>
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p>The description of the resource, if any</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p><span class="uielement">Domain</span>
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p>The domain in which the resource was created or updated</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p><span class="uielement">Effective date</span>
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p>The start date on which the resource is available to be included in customer output. This option is available in the list only if effectivity is enabled for the current tenant.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p><span class="uielement">Expiration date</span>
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p>The date on which the resource is no longer available to be included in customer output. This option is available in the list only if effectivity is enabled for the current tenant.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p><span class="uielement">ID</span>
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p>The DAS resource identifier string for the resource</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p><span class="uielement">Name</span>
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p>The name of the resource</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p><span class="uielement">Updated</span>
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p>The date and time when the resource was last updated</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p><span class="uielement">Updated by</span>
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p>The user that last modified the resource</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p><span class="uielement">Version</span>
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p>The current version of the resource</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p><span class="uielement">Workflow comment</span>
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p>The comment, if any, in the workflow state change that triggered the notification</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+                            <li value="3">
+                                <p>Click <span class="uielement">Create</span>.</p>
+                                <p>The notification is created. On the <span class="uielement">General</span> tab, the <span class="uielement">Active</span> indicator in the <span class="uielement">Notification status</span> section turns green to indicate that the notification has been activated. To deactivate the notification in the future, simply click the <span class="uielement">Inactive</span> indicator.</p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <p>With the notification in place, whenever a specified resource type is submitted for approval, an email will be sent to the distribution list. The email body will contain the text that you specified, including any populated variables. Additionally, the email will contain a link to the object that was submitted so that it can be accessed directly from the notification email.</p>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2022</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="OpenText Exstream (Cloud-Native) Release CE 22.2.0 Web Client Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Making content editable in Empower Editor</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Making content editable in <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span></h1>
+                <p>In some cases, content that you create or edit in <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> will be made available later for editing in <span class="mc-variable _IMP_Product_Names.Hydrogen_Full variable">Exstream Empower Editor</span>. Like <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span>, <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span> is a browser-based application that lets users edit content that has been designed and packaged in <span class="mc-variable _IMP_Product_Names.DesignAndProduction_Full variable">Exstream Design and Production</span> and that will eventually be sent to customers. However, where <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> deals with smaller, more self-contained pieces of content (like graphic <a href="ContentAuthorPopUps/Definition_Messages.htm" class="MCTopicPopup MCTopicPopupHotSpot a aPopup" data-mc-width="auto" data-mc-height="auto">messages</a> or <a href="ContentAuthorPopUps/Definition_Clauses.htm" class="MCTopicPopup MCTopicPopupHotSpot a aPopup" data-mc-width="auto" data-mc-height="auto">clauses</a>), <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span> provides a more word processor-like user interface that lets users edit longer-form documents that tend to incorporate many different pieces of content.</p>
+                <p>As an example of a typical use case, suppose that you work in the corporate office for an insurance company and that you are putting together the body of a letter that will be sent to customers who are making insurance claims. You need to include text that can be personalized for individual customers, as well as boilerplate legal information about the company that will remain the same for all customers. In that scenario, you might make one clause editable in <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span> for the part of the letter that can be personalized for each customer. But, because you do not want the boilerplate legal information changed, you would make the other clause non-editable in <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span>. You would use <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> to set the properties for each clause, and then the insurance agents in field offices who use <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span> to update the letter can edit only the clause that you specified as editable.</p>
+                <p>If you have questions about whether content will eventually be used as part of an <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> document, you should talk to the person who designed the communication.</p>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ boldPrint MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Making content editable in <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span></a><br /></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <ol>
+                            <li value="1">
+                                <p>Open a clause in <span class="mc-variable _Exstream_UI_Names.BCA_AuthoringView variable">Authoring view</span>. </p>
+                            </li>
+                            <li value="2">
+                                <p>Set interactive properties for a text selection, or for the whole clause:</p>
+                                <ul>
+                                    <li>
+                                        <p><span class="emphasis-bold">For a text selection:</span>&#160;To set interactive properties for text within the clause, select the text that will be editable, and then click <img src="../images/b_WebApps_Cards_InteractiveProps.png" alt="Empower properties button" title="Empower properties button" class="inline" /> on the toolbar. You can set interactive properties for multiple text selections within a clause, but they must be contained within a single paragraph because interactive properties cannot span multiple paragraphs.</p>
+                                    </li>
+                                    <li>
+                                        <p><span class="emphasis-bold">For the clause as a whole:</span>&#160;To set interactive properties for a clause, in the <span class="uielement">Clause properties</span> pane, click <img src="../images/b_WebApps_Cards_InteractiveProps.png" alt="Empower properties button" title="Empower properties button" class="inline" />. If you set interactive properties for the clause as a whole, you cannot set different interactive properties for individual text selections within the clause. However, within a clause that is editable in <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span>, you can add an embedded text box and then set interactive properties on text selections within the text box.</p>
+                                    </li>
+                                </ul>
+                                <div class="Admonition_Tip">
+                                    <p data-mc-autonum="&lt;b&gt;Tip: &lt;/b&gt;"><span class="autonumber"><span><b>Tip: </b></span></span>When you make a text selection interactive, the text will appear with an underline bracket. If the text selection is also highlighted, then you will not be able to use the ENTER&#160;key to add a line break, even though the cursor appears to be at the end of the line. If the text selection is highlighted and you want to add a line break, you must press the right arrow key until the text selection is no longer highlighted. At that point, you can press the ENTER key to add a line break. </p>
+                                </div>
+                            </li>
+                            <li value="3">
+                                <p>Specify interactive options as needed:</p>
+                                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ boldPrint MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" /></a><a name="Decide"></a><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ boldPrint" aria-expanded="false">Decide whether users can make changes to content in <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span></a></span>
+                                    <div class="MCDropDownBody dropDownBody">
+                                        <ol>
+                                            <li value="1">Select an option from the <span class="uielement">Changes allowed</span> list: </li>
+                                            <ul>
+                                                <li>
+                                                    <p><span class="emphasis-bold">No changes—</span>This is the default option. Clauses that use this setting will not be editable in <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span>.</p>
+                                                </li>
+                                                <li>
+                                                    <p><span class="emphasis-bold">Change is optional—</span>Use this option if you want users to be able to decide whether to change the content in the clause.</p>
+                                                </li>
+                                                <li>
+                                                    <p><span class="emphasis-bold">Change is required—</span>Use this option if the content in the clause must be changed before it is included in customer output. You might select this option if, for example, your clause contains only placeholder text that should not be sent to customers.</p>
+                                                </li>
+                                            </ul>
+                                            <li value="2">
+                                                <p>If you want <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> users to be able to change both the content and the text formatting in the clause, select the <span class="uielement">Allow changes to text formatting</span> check box.</p>
+                                            </li>
+                                        </ol>
+                                        <div class="Admonition_Important">
+                                            <p data-mc-autonum="&lt;b&gt;Important: &lt;/b&gt;"><span class="autonumber"><span><b>Important: </b></span></span>If you embed objects such as tables or images in a clause, those embedded objects will not be editable in <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span>; however, <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> users will be able to delete those items.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ boldPrint MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />(Inline text only) Add a selection control</a></span>
+                                    <div class="MCDropDownBody dropDownBody">
+                                        <p><a name="Pick"></a>If you want to streamline the editing experience for users in <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span>, you can add selection controls to provide more options for entering data. Selection controls—such as drop-down lists, calendars, and free-form entry boxes—let users select from multiple options, instead of simply altering a text string.</p>
+                                        <p>Select an option from the <span class="uielement">Add selection control</span> list:</p>
+                                        <ul>
+                                            <li>
+                                                <p><span class="emphasis-bold">None—</span><span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> will not apply a selection control to the selected text.</p>
+                                            </li>
+                                            <li>
+                                                <p><span class="emphasis-bold">Use drop-down list—</span>Specify multiple text options that users will select from a list. If you select this option, do the following to create a list:</p>
+                                                <ol>
+                                                    <li value="1">
+                                                        <p>Click <span class="uielement">Create list</span>.</p>
+                                                    </li>
+                                                    <li value="2">
+                                                        <p>In the <span class="uielement">Interactive list</span> dialog box, add list items as needed, and then click <span class="uielement">Save</span>.</p>
+                                                        <p>The list items are associated with the editable area and will appear in the <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> document when you create output. You can edit or delete the list by clicking <span class="uielement">Edit list</span> on the <span class="uielement">Apply <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> settings</span> dialog box.</p>
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                            <li>
+                                                <p><span class="emphasis-bold">Calendar—</span>Users can select a date from a graphical representation of a calendar. </p>
+                                            </li>
+                                            <li>
+                                                <p><span class="emphasis-bold">Calendar and free-form entry—</span>Users can either select a date from a graphical representation of a calendar, or else they can type the date in a text box. </p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ boldPrint MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" /></a><a name="Include"></a><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ boldPrint" aria-expanded="false">Include an optional tooltip</a></span>
+                                    <div class="MCDropDownBody dropDownBody">
+                                        <p>If you want to provide instructions to users who are editing the content that you create, you can include an informational tooltip that will appear when  users point to the content in <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span>. The tooltips that you specify for <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span> will look much the same as the tooltips in <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span>. To see an example, simply point to a button on the <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> toolbar. </p>
+                                        <p>Enter the information for your tooltip:</p>
+                                        <ul>
+                                            <li>
+                                                <p><span class="emphasis-bold">Tooltip title—</span>Add a title, which will appear in bold above the body of the tooltip in <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span>. </p>
+                                            </li>
+                                            <li>
+                                                <p><span class="emphasis-bold">Tooltip description—</span>Add the body of the tooltip, which will appear below the title of the tooltip in <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span>. </p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ boldPrint MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Add editable variables</a></span>
+                                    <div class="MCDropDownBody dropDownBody">
+                                        <p><a name="InteractiveVariables"></a>You can also allow end users in <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span> to change variable values or make selections based on variables. Several of the options that are available for interactive variables are the same as for other interactive elements (for example, configuring which <a href="#Decide">changes are allowed</a>, setting the <a href="#Pick">editing options</a>, and adding <a href="#Include">tooltips</a>). One difference, however, is that you can specify a list of options from which end users can select text, number, and currency variables. You can also select the data-entry type for date variables.</p>
+                                        <p>To add variables that end users can edit in <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span>:</p>
+                                        <ol>
+                                            <li value="1">
+                                                <p> Double-click the variable in the content to select it, and then click <img src="../images/b_WebApps_Cards_InteractiveProps.png" alt="Empower properties button" title="Empower properties button" class="inline" />.</p>
+                                            </li>
+                                            <li value="2">
+                                                <p>To make the variable editable, select an option from the <span class="uielement">Changes allowed</span> list.</p>
+                                            </li>
+                                            <li value="3">
+                                                <p>Specify a list of options or a data entry type for the variable:</p>
+                                                <table style="width: 100%;">
+                                                    <col />
+                                                    <col />
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Task</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Specify a list of options for text, number, or currency variables</td>
+                                                            <td>
+                                                                <ol>
+                                                                    <li value="1">
+                                                                        <p>Select the <span class="uielement">Use drop-down list</span> check box, and then click <span class="uielement">Create list</span>.</p>
+                                                                    </li>
+                                                                    <li value="2">
+                                                                        <p>In the <span class="uielement">Interactive list</span> dialog box, add list items as needed, and then click <span class="uielement">Save</span>.</p>
+                                                                        <p>The list items are associated with the variable and will appear in the <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> document when you create output. You can edit or delete the list by clicking <span class="uielement">Edit list</span> on the card for the variable.</p>
+                                                                    </li>
+                                                                </ol>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Specify a data-entry type for date variables</td>
+                                                            <td>
+                                                                <p>Select an option from the <span class="uielement">Data-entry type</span> list:</p>
+                                                                <ul>
+                                                                    <li>
+                                                                        <p><span class="uielement">Calendar</span>—Users can select a date from a graphical representation of a calendar.</p>
+                                                                    </li>
+                                                                    <li>
+                                                                        <p><span class="uielement">Calendar and free-form entry</span>—Users can either select a date from a graphical representation of a calendar, or else they can type the date in a text box.</p>
+                                                                    </li>
+                                                                    <li>
+                                                                        <p><span class="uielement">Free-form entry only</span>—Users can type the date in a text box.</p>
+                                                                    </li>
+                                                                </ul>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                </div>
+                                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ boldPrint MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />(Clauses only) Set visibility in <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span></a></span>
+                                    <div class="MCDropDownBody dropDownBody">
+                                        <p>By default, clauses from <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> are always visible in <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span>. However, you can allow end users to control the visibility of clauses in an <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> document, which also determines which clauses are included in customer output. If you change the default <span class="uielement">Content visibility</span> setting for a clause, then a check box is added next to the clause in <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> that lets end users choose whether to show or hide the content in the <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> document and in customer output. End users can show or hide hidden content in an <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> document by clicking a button on the Menu bar.</p>
+                                        <p>Select a visibility option for the clause:</p>
+                                        <ul>
+                                            <li>
+                                                <p><span class="emphasis-bold">Always show content—</span>This is the default setting. If you use this setting, then the clause will be visible to end users in <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span>, and it will appear in customer output.</p>
+                                            </li>
+                                            <li>
+                                                <p><span class="emphasis-bold">Initially show content—</span>When end users open an <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> document, if the clause qualifies for placement, then <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span> will show the clause. End users can select or clear the check box next to the clause to determine whether to include or exclude the clause in customer output.</p>
+                                            </li>
+                                            <li>
+                                                <p><span class="emphasis-bold">Initially hide content—</span>When end users open an <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> document, if the clause qualifies for placement, then <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span> will initially hide the clause. End users can show or hide hidden content in an <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> document by clicking a button on the Menu bar. With the clause showing, end users can then select or clear the check box next to the content to determine whether to include or exclude the clause in customer output.</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li value="4">
+                                <p> Optionally, </p>
+                            </li>
+                            <li value="5">
+                                <p>Add content to the clause as needed, and then click <img src="../images/b_WebApps_Close_SaveChanges.png" class="inline" alt="" /> next to the clause to save your changes and return to <span class="mc-variable _Exstream_UI_Names.BCA_CommunicationView variable">Communications view</span>. </p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ boldPrint MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Creating an <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> selection group from a section</a><br /></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p><a name="EmpowerSelectionGroups"></a>Selection groups let <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span> users easily add or remove blocks of content that were created in <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span>. Within <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span>, a section correlates to a selection group in <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span>, and a clause correlates to a block of content within the selection group. With a selection group in place, end users click an icon in the <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> document that opens the selection group dialog, where they can simply click to include or exclude clauses in the <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> document.</p>
+                        <p>Selection groups are particularly useful if you have blocks of approved content that are available to be included in an <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> document, but you want to let <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> users decide which blocks to include. For example, suppose that you work in the marketing department for your company, and you're in charge of the language used to describe the products that your company sells. After you complete your work, salespeople in regional offices will use the marketing-approved language to create sales brochures for potential customers. However, the salespeople need to target the brochures for individual customers. In that scenario, you can use selection groups to make the marketing-approved content available to salespeople, who can then use <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span> to build sales brochures that include only the product information that each customer needs to see.</p>
+                        <p>Keep in mind that you can't create an <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> selection group if the target section is configured to allow nested sections. However, you can create a selection group from a child section within another section. If you use a section to create an <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> selection group and you later add a nested section within that section, the selection group won't appear in any <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> documents that include the parent section.</p>
+                        <div class="Admonition_Important">
+                            <p data-mc-autonum="&lt;b&gt;Important: &lt;/b&gt;"><span class="autonumber"><span><b>Important: </b></span></span>If your selection group settings specify a number of clauses that is less than the number of clauses in the section, then some clauses will be excluded whenever the section is previewed in <span class="mc-variable _Exstream_UI_Names.BCA_CommunicationView variable">Communications view</span> or in <span class="mc-variable _Exstream_UI_Names.WEB_SimulationView variable">Simulation view</span>.  For example, with a selection group that contains five clauses, the fourth and fifth clauses will be excluded if the <span class="uielement">Select range (required)</span>&#160;setting is <span class="uielement">between 1 and 3</span>. When you save the section, these clauses will be excluded in all of the following places:</p>
+                            <ul>
+                                <li>
+                                    <p>The communication preview in <span class="mc-variable _Exstream_UI_Names.BCA_CommunicationView variable">Communications view</span></p>
+                                </li>
+                                <li>
+                                    <p>The communication preview in <span class="mc-variable _Exstream_UI_Names.WEB_SimulationView variable">Simulation view</span></p>
+                                </li>
+                                <li>
+                                    <p>All <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> documents created from this communication </p>
+                                </li>
+                            </ul>
+                            <p>In such a scenario, if you need a clause to be visible in all cases, then you should place the clause outside of the selection group or within the parameters of the selection group settings.</p>
+                        </div>
+                        <p>To create an <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> selection group from a section:</p>
+                        <ol>
+                            <li value="1">
+                                <p>In <span class="mc-variable _Exstream_UI_Names.BCA_CommunicationView variable">Communications view</span>, create a section and then add any clauses that you want to make available in <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span>. Alternatively, you can also add clauses to the section after you open it in <span class="mc-variable _Exstream_UI_Names.BCA_AuthoringView variable">Authoring view</span> in step 2.</p>
+                            </li>
+                            <li value="2">
+                                <p>On the card for the frame, double-click the section, or click <img src="../images/b_WebApps_EditContent.png" class="inline" /> to open the section in <span class="mc-variable _Exstream_UI_Names.BCA_AuthoringView variable">Authoring view</span>.</p>
+                            </li>
+                            <li value="3">
+                                <p>In the section properties, clear the <span class="uielement">Allow nested sections</span> check box, and then click <img src="../images/b_WebApps_Cards_InteractiveProps.png" alt="Empower properties button" title="Empower properties button" class="inline" /> to open the selection group properties for the section.</p>
+                            </li>
+                            <li value="4">
+                                <p>Choose an option to determine how the selection group will behave in <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span>:</p>
+                                <ul>
+                                    <li>
+                                        <p><span class="uielement">None</span>—This is the default option. If you select this option, the section will not be used as a selection group in <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span>.</p>
+                                    </li>
+                                    <li>
+                                        <p><span class="uielement">Select one clause (optional)</span>—If you select this option, <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> users can add a single clause from the section to their <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> document, but they are not required to.</p>
+                                    </li>
+                                    <li>
+                                        <p><span class="uielement">Select specific number (required)</span>—If you select this option, end users will be required to include the number of clauses that you specify. When you select this option, the box to specify a number becomes available.</p>
+                                    </li>
+                                    <li>
+                                        <p><span class="uielement">Select range (required)</span>—If you select this option, end users can add the number of clauses within the range that you specify. When you select this option, the boxes to specify a range become available.</p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li value="5">
+                                <p>Include an optional tooltip that will appear when end users point to the selection group icon in <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span>:</p>
+                                <ul>
+                                    <li>
+                                        <p><span class="emphasis-bold">Tooltip title—</span>Add a title, which will appear in bold above the body of the tooltip in <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span>. </p>
+                                    </li>
+                                    <li>
+                                        <p><span class="emphasis-bold">Tooltip description—</span>Add the body of the tooltip, which will appear below the title of the tooltip in <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span>. </p>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ boldPrint MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Identifying editable areas in <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span></a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>When Theme view is enabled in <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span>, the following colors indicate editable areas so that end users can find them more easily:</p>
+                        <table>
+                            <col style="width: 20px;" />
+                            <col />
+                            <thead>
+                                <tr>
+                                    <th>Color</th>
+                                    <th>Type of editable area</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="background-color: #c8c8fa;padding-left: 0.5em;padding-right: 0.5em;padding-top: 0.5em;padding-bottom: 0.5em;border-right-style: solid;border-right-width: 1px;border-right-color: #cccccc;border-top-style: solid;border-top-width: 1px;border-top-color: #cccccc;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #cccccc;">&#160;</td>
+                                    <td>Optional editable areas</td>
+                                </tr>
+                                <tr>
+                                    <td style="background-color: #e8eefa;padding-left: 0.5em;padding-right: 0.5em;padding-top: 0.5em;padding-bottom: 0.5em;border-right-style: solid;border-right-width: 1px;border-right-color: #cccccc;border-top-style: solid;border-top-width: 1px;border-top-color: #cccccc;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #cccccc;">&#160;</td>
+                                    <td>Optional editable areas that have been edited</td>
+                                </tr>
+                                <tr>
+                                    <td style="background-color: #ffff00;padding-left: 0.5em;padding-right: 0.5em;padding-top: 0.5em;padding-bottom: 0.5em;border-right-style: solid;border-right-width: 1px;border-right-color: #cccccc;border-top-style: solid;border-top-width: 1px;border-top-color: #cccccc;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #cccccc;">&#160;</td>
+                                    <td>Required editable areas</td>
+                                </tr>
+                                <tr>
+                                    <td style="background-color: #ffffc0;padding-left: 0.5em;padding-right: 0.5em;padding-top: 0.5em;padding-bottom: 0.5em;border-right-style: solid;border-right-width: 1px;border-right-color: #cccccc;border-top-style: solid;border-top-width: 1px;border-top-color: #cccccc;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #cccccc;">&#160;</td>
+                                    <td>Required editable areas that have been edited</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>To toggle theme view in <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span>, end users can click <img src="../images/B_EmpowerEditor_ThemeView.png" alt="Theme view" title="Theme view" /> on the <span class="uielement">View</span> Menu bar.</p>
+                    </div>
+                </div>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2022</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

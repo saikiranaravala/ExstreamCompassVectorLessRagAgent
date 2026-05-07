@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="OpenText Exstream (Cloud-Native) Release CE 22.2.0 Web Client Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Enabling effectivity for Content Author</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Enabling effectivity for <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span></h1>
+                <p>Effectivity lets <MadCap:conditionalText data-mc-conditions="_Exstream_Conditions.ContentAuthorOnly">business users</MadCap:conditionalText> in <span class="mc-variable _IMP_Product_Names.BCA_Short variable" data-mc-conditions="_Exstream_Conditions.ContentAuthorOnly">Content Author</span> send personalized information to customers based on date ranges. Effective dates in <span class="mc-variable _IMP_Product_Names.BCA_Short variable" data-mc-conditions="_Exstream_Conditions.ContentAuthorOnly">Content Author</span> specify a date range during which a version of a <MadCap:conditionalText data-mc-conditions="_Exstream_Conditions.ContentAuthorOnly">message, clause, or section</MadCap:conditionalText> is eligible to be included in customer output. For example, your organization might send a new version of a particular communication out to customers each month. For a communication that would be sent to customers in March, then, business users can specify that the <MadCap:conditionalText data-mc-conditions="_Exstream_Conditions.ContentAuthorOnly">messages, clauses, and sections</MadCap:conditionalText> in that communication are eligible to be included in customer output only from March 1 until March 31. That way, content intended for March will not accidentally be included in the customer communication for other months.
+		</p>
+                <p>Additionally, this functionality helps your organization manage content that is subject to governmental regulation by ensuring that expired or ineligible content does not get included in customer output.</p>
+                <p>You can set effective and expiration dates on <MadCap:conditionalText data-mc-conditions="_Exstream_Conditions.ContentAuthorOnly">messages, clauses, and sections</MadCap:conditionalText> in <span class="mc-variable _Exstream_UI_Names.WEB_DesignAssetMgmtView variable">Design asset library view</span>. <MadCap:conditionalText data-mc-conditions="_Exstream_Conditions.ContentAuthorOnly">Business users</MadCap:conditionalText> will be able to set or edit effectivity dates  in <span class="mc-variable _IMP_Product_Names.BCA_Short variable" data-mc-conditions="_Exstream_Conditions.ContentAuthorOnly">Content Author</span>.</p>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Some important considerations when using effective dates with content</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <ul>
+                            <li>
+                                <p>You can set effective and expiration dates on a piece of content, but you do not need to set both. For example, you might specify an effective date for a piece of content but not an expiration date. In that case, the content would become eligible for inclusion in customer output on the effective date, but the content will not expire.</p>
+                            </li>
+                            <li data-mc-conditions="_Exstream_Conditions.ContentAuthorOnly">
+                                <p>If the effective dates on sections and the clauses that they contain do not match, then whole sections can be inadvertently excluded from customer output. For example, if you set an expiration date on a section, but a clause within the section has an earlier expiration date, then the whole section will be excluded from customer output starting on the expiration date of the clause.</p>
+                            </li>
+                            <li data-mc-conditions="_Exstream_Conditions.ContentAuthorOnly">
+                                <p>When there are multiple versions of a piece of content, the latest approved version with qualifying effective dates will be used in customer output. If there is not a qualifying version of a piece of content, then customer output cannot be created.</p>
+                            </li>
+                            <li>
+                                <p>If you are creating <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> communications&#160;from templates that were created in <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> and&#160;you want to use the <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> effective dates in the <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span>&#160;communications, then you must enable effectivity for  <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span>. If you do not, then <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> will&#160;ignore any effectivity settings in content that comes from <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span>.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Enabling effectivity for <MadCap:dropDownHotspot><span class="mc-variable _IMP_Product_Names.BCA_Short variable" data-mc-conditions="_Exstream_Conditions.ContentAuthorOnly">Content Author</span></MadCap:dropDownHotspot></a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>Note that effectivity is <MadCap:conditionalText data-mc-conditions="_Exstream_Conditions.ContentAuthorOnly">enabled</MadCap:conditionalText> by default for <span class="mc-variable _IMP_Product_Names.BCA_Short variable" data-mc-conditions="_Exstream_Conditions.ContentAuthorOnly">Content Author</span>. <MadCap:conditionalText data-mc-conditions="_Exstream_Conditions.ContentAuthorOnly">If you want to turn off this functionality, you can use these instructions to clear the <span class="uielement">Use effectivity</span> check box in step 4.</MadCap:conditionalText></p>
+                        <p>To enable effectivity for <span class="mc-variable _IMP_Product_Names.BCA_Short variable" data-mc-conditions="_Exstream_Conditions.ContentAuthorOnly">Content Author</span>:</p>
+                        <ol>
+                            <li value="1">
+                                <p>Sign in to the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> web client as a tenant administrator user at the following URL:</p>
+                                <p><code>https://&lt;host&gt;:&lt;optionalPort&gt;/design?tenant=&lt;tenantName&gt;</code>
+                                </p>
+                            </li>
+                            <li value="2">
+                                <p>Click the <span class="uielement">Tenant management</span>&#160;<img src="../images/b_WebApps_AppToolbar_AdminIcon.png" class="inline" alt="" /> button to open the <span class="mc-variable _Exstream_UI_Names.WEB_TenantMgmtView variable">Tenant management view</span>.</p>
+                            </li>
+                            <li value="3">
+                                <p>In the <span class="uielement">Configurations</span> panel, click <span class="emphasis-bold" data-mc-conditions="_Exstream_Conditions.ContentAuthorOnly">Content Author</span>.</p>
+                            </li>
+                            <li value="4">
+                                <p>On the <span class="uielement">General</span> tab of the <span class="uielement">Properties</span> panel, select the <span class="uielement">Use effectivity</span> check box.</p>
+                            </li>
+                            <li value="5">
+                                <p>Click <span class="uielement">Save</span>.</p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2022</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

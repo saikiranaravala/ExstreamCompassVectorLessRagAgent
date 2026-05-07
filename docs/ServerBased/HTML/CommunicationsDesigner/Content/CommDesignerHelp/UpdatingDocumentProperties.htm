@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="Exstream Platform (Server-Based) 23.3 Communications Designer Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Updating document properties</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Updating document properties</h1>
+                <p>After you <a href="AddingDocuments.htm">create a document</a> in your communication structure, you can use the <span class="uielement">Properties</span> panel to view and modify the document properties.</p>
+                <p>In addition to the properties that are described in this section, you can also use <span class="mc-variable _Exstream_UI_Names.CDR_StructureView variable">Structure view</span> to view the <a href="UsingApprovalWorkflow.htm">workflow history</a> for each document.</p>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Updating basic properties</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>In the <span class="uielement">Properties</span> panel, you can use the <span class="uielement">General</span> tab to rename a <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Documents">document</MadCap:conditionalText>, and to add or modify a description for it. Keep in mind that updating the name and description will also update the name and description of the corresponding object in the common asset service (CAS). </p>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Changing the document type</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>By default, when you add a document to a communication, the document type is set to <span class="uielement">Design</span>. You can add designs to this type of document to create the communication structure. If you want use a document as a placeholder to insert external PDF content or <a href="EmpowerPlaceholderDocument.htm"><span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> output</a> in your communication at engine run time, then you must set the document type to <span class="uielement">Placeholder</span>. </p>
+                        <p>To set the document type to <span class="uielement">Placeholder</span>, you must have set up the appropriate placeholder variable in <span class="mc-variable _IMP_Product_Names.DesignManager variable">Design Manager</span> and included it in the design pack that is associated with your communication. You might need to talk to an <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> system administrator or another user to set placeholder variables. For information about creating these variables, see <span class="docName mc-variable _Exstream_Doc_Names.DNP_ExtContent variable">Importing External Content</span> in <span class="docName mc-variable _Exstream_Doc_Names._Product_Prefix variable">OpenText Exstream</span> <span class="docName mc-variable _Exstream_Doc_Names.DNP_Help variable">Design and Production Online Help</span>.</p>
+                        <p>To change the document type:</p>
+                        <ol>
+                            <li value="1">
+                                <p>In the <span class="uielement">Properties</span> panel, on the <span class="uielement">General</span> tab, select one of the following options in the <span class="uielement">Document type</span> list:</p>
+                                <ul>
+                                    <li><span class="uielement">Design</span>
+                                    </li>
+                                    <li><span class="uielement">Placeholder</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li value="2">
+                                <p>If you select <span class="uielement">Placeholder</span>, then in the <span class="uielement">Placeholder variable</span> list, select the variable that references the file that you want to insert in your communication. </p>
+                            </li>
+                        </ol>
+                        <div class="Admonition_Note">
+                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>When you change the document type to <span class="uielement">Placeholder</span> for a document that contains one or more designs, then those designs are removed from that document and are no longer visible in the <span class="uielement">Structure map</span>. These designs are, however, not deleted in CAS and can be added to a different document. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Controlling the page numbering in a document</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>By default, when you produce page-based output, the value of the system variables that are used for page numbering increases sequentially until the end of a customer is reached. Because the documents that you create for customers might be complex, you can choose to restart page numbers for each document within a customer, rather than allowing page numbering to continue sequentially through all of the documents.</p>
+                        <p>To restart page numbering for the selected document, in the <span class="uielement">Properties</span> panel, on the <span class="uielement">General</span> tab, select the <span class="uielement">Restart page numbers</span> check box.</p>
+                        <p>Selecting this check box affects the values of the following system variables only: </p>
+                        <ul>
+                            <li>SYS_PagePrintedValue</li>
+                            <li>SYS_PagePrint</li>
+                            <li>SYS_PageTotalPrinted</li>
+                        </ul>
+                        <div class="Admonition_Note">
+                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>These variables must be present in the design pack that is associated with your communication for you to use them in page designs. If the variables are not present, you might need to talk to an <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> system administrator or another user to add them to the design pack. For information about creating and configuring design packs, see <span class="docName mc-variable _Exstream_Doc_Names.DNP_ExstreamWebApps variable">Designing for Exstream Web Applications</span> in <span class="docName mc-variable _Exstream_Doc_Names._Product_Prefix variable">OpenText Exstream</span> <span class="docName mc-variable _Exstream_Doc_Names.DNP_Help variable">Design and Production Online Help</span>.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Specifying PDF bookmarks for documents</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>When you produce PDF output, the default bookmark names for documents are the same as the document name in the <span class="uielement">Structure map</span>. For example, if a document is named <code>Notice</code> in the <span class="uielement">Structure map</span>, the corresponding bookmark in PDF output will be <code>Notice</code>.</p>
+                        <p>To create more meaningful bookmark names for the bookmarks and make it easier for customers to navigate the file, you can use a variable to specify a custom bookmark name. You can use anything from a simple static string variable to a more complex formula variable to specify the bookmark name. For example, to make a document easier to understand in the PDF output, you might create a string variable with a more descriptive name, such as <code>Privacy Notice</code>. </p>
+                        <p>To use a variable for the document bookmark name, in the <span class="uielement">Properties</span> panel, on the <span class="uielement">General</span> tab, click the <span class="uielement">ID for bookmark</span> list, then select the variable that you want to use. </p>
+                        <p>The <span class="uielement">ID for bookmark</span> list contains variables that are present in the design pack that is associated with the communication. If a <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> data source is associated with your communication, then the <span class="uielement">ID for bookmark</span> list also contains the variables that are mapped in that data source.</p>
+                        <div class="Admonition_Note">
+                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>By default, PDF output settings in <span class="mc-variable _IMP_Product_Names.DesignManager variable">Design Manager</span> are configured so that <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> automatically produces bookmarks for each document in the output. However, this setting can be disabled on the output object in <span class="mc-variable _IMP_Product_Names.DesignManager variable">Design Manager</span>. Talk to an <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> system administrator or another user if you have questions about the output settings. For information about configuring output settings, see <span class="docName mc-variable _Exstream_Doc_Names.DNP_Output variable">Creating Output</span> in <span class="docName mc-variable _Exstream_Doc_Names._Product_Prefix variable">OpenText Exstream</span> <span class="docName mc-variable _Exstream_Doc_Names.DNP_Help variable">Design and Production Online Help</span>.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" /></a><a name="Viewing"></a><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead" aria-expanded="false">Viewing advanced details for a document</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>In <span class="mc-variable _Exstream_UI_Names.CDR_StructureView variable">Structure view</span>, you can select <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Documents">a document</MadCap:conditionalText> and see additional information about it that is stored in the common asset service (CAS).</p>
+                        <p>To see these advanced details for a selected <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Documents">document</MadCap:conditionalText>, click the <span class="uielement">Advanced</span> button on the <span class="uielement">General</span> tab in the <span class="uielement">Properties</span> panel. The <span class="uielement"><MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Documents">Document</MadCap:conditionalText> details</span> dialog box opens and displays the following information:</p>
+                        <ul>
+                            <li><span class="uielement">Name</span>—The name of the <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Documents">document</MadCap:conditionalText> object in CAS</li>
+                            <li><span class="uielement">Version</span>—The current version of the <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Documents">document</MadCap:conditionalText>. The version number is incremented every time that a new draft is created from an approved version of the <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Documents">document</MadCap:conditionalText>.</li>
+                            <li><span class="uielement">Description</span>—The description of the <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Documents">document</MadCap:conditionalText>, if available</li>
+                            <li><span class="uielement">Created</span>—The <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> user that created the <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Documents">document</MadCap:conditionalText>, and the date and time that it was created</li>
+                            <li><span class="uielement">Last updated</span>—The <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> user that last updated the <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Documents">document</MadCap:conditionalText>, and the date and time that it was updated</li>
+                            <li><span class="uielement">Reserved by</span>—The <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> user that has reserved the <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Documents">document</MadCap:conditionalText>. This information is available only if the selected <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Documents">document</MadCap:conditionalText> is locked for editing.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Specifying targeting rules</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>Targeting rules determine whether a document is included in the output when you run the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span>engine. By default, rules are executed when the object to which the rule is applied is composed by the engine. However, you can delay rules for the inclusion or exclusion of the document until after all other processing is complete. For example, you might want to determine whether a customer receives a document based on the customer's account totals, which will not be known until the end of processing. </p>
+                        <div class="Admonition_Important">
+                            <p data-mc-autonum="&lt;b&gt;Important: &lt;/b&gt;"><span class="autonumber"><span><b>Important: </b></span></span>Library rules and variables that are available for creating custom rules depend on the design pack and the data source (if any) that is associated with your communication. If you insert <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Documents">documents</MadCap:conditionalText> into your communication from other communications that use different design packs, targeting rules on the inserted <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Documents">documents</MadCap:conditionalText> might not function correctly.</p>
+                        </div>
+                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ boldPrint MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Adding a new targeting rule</a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <ol>
+                                    <li value="1">
+                                        <p>On the <span class="uielement">Targeting</span> tab<MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_StructureView">, in the <span class="uielement" data-mc-conditions="_Exstream_Snippets.Webapps_Documents">Document rule</span> area</MadCap:conditionalText>, click <span class="uielement">Add</span>.</p>
+                                    </li>
+                                    <li value="2">
+                                        <p>In the <span class="uielement">Rule Composer</span>, select the type of rule that you want to apply:</p>
+                                        <ul>
+                                            <li><span class="uielement">Library rule</span>—Use this tab to select a rule from the list of available rules. You can also use the <span class="uielement">Search</span> box to filter the list of rules. </li>
+                                            <li><span class="uielement">Custom rule</span>—Use this tab to define a custom targeting rule using the variables that are available in that communication.</li>
+                                        </ul>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ boldPrint MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Updating an existing targeting rule</a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <ol>
+                                    <li value="1">
+                                        <p>On the <span class="uielement">Targeting</span> tab<MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_StructureView">, in the <span class="uielement" data-mc-conditions="_Exstream_Snippets.Webapps_Documents">Document rule</span> area</MadCap:conditionalText>, click <span class="uielement">Edit</span>.</p>
+                                    </li>
+                                    <li value="2">
+                                        <p>In the <span class="uielement">Rule Composer</span>, you can choose to modify or remove the existing rule:</p>
+                                        <ul>
+                                            <li>To modify the rule, make any needed changes, then click <span class="uielement">Insert</span>.</li>
+                                            <li>To remove the rule, click <span class="uielement">Remove</span>.</li>
+                                        </ul>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ boldPrint MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Specifying the rule timing</a></span>
+                            <div class="MCDropDownBody dropDownBody">
+                                <p>In the <span class="uielement">Rule timing</span> list, select the timing option that you want to use to process rules:</p>
+                                <ul>
+                                    <li><span class="uielement">Normal</span>—Use this option to process the document targeting rules when the document is composed. This is the default option. If you select this option, all documents are composed at customer run time and removed at the queue level after they are composed.</li>
+                                    <li><span class="uielement">At end</span>—Use this option to delay processing the document targeting rules until after all other customer processing is complete. When you delay the rule run time of the document, the document is composed at customer run time; however, it is not removed from the output queue until after all other processing is complete and after the <span class="uielement">At end</span> rule is executed.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Viewing references for a document</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>You can use the <span class="uielement">Used by</span> tab in the <span class="uielement">Properties</span> panel to see which <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Documents,_Exstream_Snippets.Webapps_DataSources">communications</MadCap:conditionalText> use a selected <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Documents">document</MadCap:conditionalText>. </p>
+                        <p>To find where a <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Documents">document</MadCap:conditionalText> is used: </p>
+                        <ol>
+                            <li value="1">
+                                <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_StructureView">In the <span class="uielement">Structure map</span></MadCap:conditionalText>, select the <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Documents">document</MadCap:conditionalText>. </li>
+                            <li value="2">
+                                <p>In the <span class="uielement">Properties</span> panel, click the <span class="uielement">Used by</span> tab. </p>
+                                <p>The list shows all of the <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Documents,_Exstream_Snippets.Webapps_DataSources">communications</MadCap:conditionalText> that use that <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Documents">document</MadCap:conditionalText>.</p>
+                            </li>
+                            <li value="3">
+                                <p>Use the indicator in the <span class="uielement">Status</span> column to determine whether the parent <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Documents,_Exstream_Snippets.Webapps_DataSources">communication</MadCap:conditionalText> is available for editing:</p>
+                                <ul>
+                                    <li>A green indicator (<img src="../images/i_ExstreamWeb_Status_GreenDot.png" alt="green status indicator" title="green status indicator" />) means that the parent <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Documents,_Exstream_Snippets.Webapps_DataSources">communication</MadCap:conditionalText> is available for editing.</li>
+                                    <li>A red indicator (<img src="../images/i_ExstreamWeb_Status_RedDot.png" title="red status indicator" alt="red status indicator" />) means that the parent <MadCap:conditionalText data-mc-conditions="_Exstream_Snippets.Webapps_Documents,_Exstream_Snippets.Webapps_DataSources">communication</MadCap:conditionalText> is locked for editing by another user.</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2023</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

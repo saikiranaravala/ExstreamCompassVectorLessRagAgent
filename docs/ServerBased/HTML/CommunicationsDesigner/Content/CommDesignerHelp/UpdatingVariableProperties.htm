@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]|[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="Exstream Platform (Server-Based) 23.3 Communications Designer Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Updating variable properties</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Updating variable properties</h1>
+                <p>After you <a href="CreatingVariables.htm">create a variable</a>, you can use the <span class="uielement">Properties</span> panel to view and modify the variable properties. You can modify only those variables that were created in <span class="mc-variable _Exstream_UI_Names.CDR_MappingView variable">Mapping view</span>. To modify variables from your design pack, make your changes in <span class="mc-variable _IMP_Product_Names.DesignManager variable">Design Manager</span>.</p>
+                <p>In <span class="mc-variable _Exstream_UI_Names.CDR_MappingView variable">Mapping view</span>, to edit the properties of a variable, either select the variable in the <span class="uielement">Variables</span> panel or select the variable chip in the <span class="uielement">Data Source Editor</span> area. You can use the cards in the <span class="uielement">Variable properties</span> panel to view and modify the variable properties.</p>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Modifying general properties</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>In the <span class="uielement">Variable properties</span> panel, click the <span class="uielement">General</span> card <img src="../images/b_DatMap_varprop_general.png" title="General properties" alt="General properties icon" class="inline" /> to view and modify the variable properties described in the following table:</p>
+                        <table style="width: 100%;margin-left: 0;margin-right: auto;caption-side: top;" summary="The table properties that can be modified using the Table properties panel">
+                            <col style="width: 20%;" />
+                            <col style="width: 80%;" />
+                            <thead>
+                                <tr>
+                                    <th>Property</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p><span class="uielement">Name</span>
+                                        </p>
+                                    </td>
+                                    <td>The name of the variable</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="uielement">Type</span>
+                                    </td>
+                                    <td>
+                                        <p>The type of data that is represented by the variable</p>
+                                        <div class="Admonition_Note">
+                                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>The variable type cannot be changed after a variable is created.</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="uielement">Array</span>
+                                    </td>
+                                    <td>
+                                        <p>Indicates that the variable can represent more than one value per customer. </p>
+                                        <p>For placeholder variables, select the <span class="uielement">Array</span> check box if the variable references more than one external file.	</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="uielement">Placeholder type</span>
+                                    </td>
+                                    <td>
+                                        <p>The type of file that you want to import at run time. The <span class="uielement">Placeholder type</span> list is active only when the variable type is <span class="uielement">Placeholder</span>. You can select from the following options:</p>
+                                        <ul>
+                                            <li><span class="uielement">Image resource</span>—For images from a printer resource (such as PostScript TIFF images or Metacode IMGs)</li>
+                                            <li><span class="uielement">EPS</span>—For EPS files</li>
+                                            <li><span class="uielement">JPEG</span>—For JPEG files</li>
+                                            <li><span class="uielement">PNG</span>—For PNG files</li>
+                                            <li><span class="uielement">TIFF (B&amp;W G4 or uncomp)</span>—For Group 4 Tiff Standard or 1-bit uncompressed black and white TIFF images</li>
+                                            <li><span class="uielement">TIFF (Color)</span>—For full-color TIFF files</li>
+                                        </ul>
+                                        <div class="Admonition_Note">
+                                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>If you want to import images that include transparency, the images must be in PNG format.</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="uielement">CAS resource</span>
+                                    </td>
+                                    <td>
+                                        <p>Indicates that the variable is a placeholder for a CAS resource. The <span class="uielement">CAS resource</span> check box is active only when the variable type is <span class="uielement">Placeholder</span>. </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><span class="uielement">Each customer file is unique</span>
+                                        </p>
+                                    </td>
+                                    <td>Indicates that the file to be imported is different for each customer. The <span class="uielement">Each customer file is unique</span> check box is active only when the variable type is <span class="uielement">Placeholder</span>.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="uielement">Design sample</span>
+                                    </td>
+                                    <td>
+                                        <p>(Optional) The text string that you want to appear when the variable is placed in a design</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="uielement">Description</span>
+                                    </td>
+                                    <td>(Optional)&#160;A description of the variable </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="uielement">Output format</span>
+                                    </td>
+                                    <td>
+                                        <p>The formatting method to use for the variable in final output. Depending on the variable type, you can select from the following options:</p>
+                                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />String</a></span>
+                                            <div class="MCDropDownBody dropDownBody">
+                                                <ul>
+                                                    <li><span class="uielement">Keep blanks</span>—Preserves spaces as they appear in the string</li>
+                                                    <li><span class="uielement">Trim blanks</span>—Removes all of the spaces found before the first character and after the last character of the string</li>
+                                                    <li><span class="uielement">Lower, keep blanks</span>—Converts the string to all lowercase characters and preserve all of the spaces as they appear in the string</li>
+                                                    <li><span class="uielement">Lower + exceptions, keep blanks</span>—Converts the string to all lowercase characters, except those words found in an exceptions file, and preserve all of the spaces as they appear in the string</li>
+                                                    <li><span class="uielement">Upper, keep blanks</span>—Converts the string to all uppercase characters and preserve all of the spaces as they appear in the string</li>
+                                                    <li><span class="uielement">Upper + exceptions, keep blanks</span>—Converts the string to all uppercase characters, except those words found in an exceptions file, and preserve all of the spaces as they appear in the string</li>
+                                                    <li><span class="uielement">InitCap, keep, blanks</span>—Converts the string so that each word begins with an uppercase character and preserve all of the spaces as they appear in the string</li>
+                                                    <li><span class="uielement">InitCap + exceptions, keep blanks</span>—Converts the string so that each word begins with an uppercase character, except those words found in an exceptions file, and preserve all of the spaces as they appear in the string</li>
+                                                    <li><span class="uielement">Sentence, keep blanks</span>—Converts the string so that only the first word of a sentence begins with an uppercase character and preserve all of the spaces as they appear in the string</li>
+                                                    <li><span class="uielement">Sentence + exceptions, keep blanks</span>—Converts the string so that only the first word of a sentence begins with an uppercase character, except those words found in an exceptions file, and preserve all of the spaces as they appear in the string</li>
+                                                    <li><span class="uielement">Exceptions only, keep blanks</span>—Converts the words found in the exception file to match their format in the file and preserve all of the spaces as they appear in the string</li>
+                                                    <li><span class="uielement">Phone number (999) 999-9999</span>—Converts string values to a telephone number with parentheses around the area code and with a hyphen between the first three and last four digits of the number</li>
+                                                    <li><span class="uielement">Phone number (999) 999 9999</span>—Converts string values to a telephone number with parentheses around the area code and with a space between the first three and last four digits of the number</li>
+                                                    <li><span class="uielement">Phone number 999 999-9999</span>—Converts string values to a telephone number with no parentheses around the area code and with a hyphen between the first three and last four digits of the number</li>
+                                                    <li><span class="uielement">Phone number 999 999 9999</span>—Converts string values to a telephone number with no parentheses around the area code and with a space between the first three and last four digits of the number</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ boldPrint MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Integer</a></span>
+                                            <div class="MCDropDownBody dropDownBody">
+                                                <ul>
+                                                    <li><span class="uielement">General number</span>—Uses simple numbers</li>
+                                                    <li><span class="uielement">Percentage</span>—Adds a percent (%) symbol to the end of the number</li>
+                                                    <li><span class="uielement">Text upper (ONE, TWO)</span>—Converts integer values to uppercase words</li>
+                                                    <li><span class="uielement">Text mixed (One, Two)</span>—Converts integer values to mixed-case words</li>
+                                                    <li><span class="uielement">Text lower (one two)</span>—Converts integer values to lowercase words</li>
+                                                    <li><span class="uielement">Alpha upper (A, B, C)</span>—Converts integer values to uppercase alpha characters</li>
+                                                    <li><span class="uielement">Alpha lower (a b, c)</span>—Converts integer values to lowercase alpha characters</li>
+                                                    <li><span class="uielement">Roman upper (I, II, III)</span>—Converts integer values to uppercase Roman numerals</li>
+                                                    <li><span class="uielement">Roman lower (i, ii, iii)</span>—Converts integer values to lowercase Roman numerals</li>
+                                                    <li><span class="uielement">Fixed decimal with currency</span>—Inserts a fixed decimal point and the proper currency symbol for the locale</li>
+                                                    <li><span class="uielement">Fixed or integer with currency</span>—Inserts a whole number if the number does not have a fraction and inserts the proper currency symbol for the locale. If the number has a fraction, the engine formats it as a floating number and inserts the proper currency symbol for the locale.</li>
+                                                    <li><span class="uielement">Absolute value</span>—Converts the values to the absolute value. This option lets you produce a negative number without a negative sign. For example, both <code>1</code> and <code>-1</code> appear as <code>1</code>.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ boldPrint MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Boolean</a></span>
+                                            <div class="MCDropDownBody dropDownBody">
+                                                <ul>
+                                                    <li><span class="uielement">T/F</span>—Returns <code>T</code> when the condition is true or <code>F</code> when the condition is false</li>
+                                                    <li><span class="uielement">Y/N</span>—Returns <code>Y</code> when the condition is true or <code>N</code> when the condition is false</li>
+                                                    <li><span class="uielement">1/0</span>—Returns <code>1</code> when the condition is true or <code>0</code> when the condition is false</li>
+                                                    <li><span class="uielement">TRUE/FALSE</span>—Returns <code>True</code> when the condition is true or <code>False</code> when the condition is false</li>
+                                                    <li><span class="uielement">YES/NO</span>—Returns <code>Yes</code> when the condition is true or <code>No</code> when the condition is false</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ boldPrint MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Float</a></span>
+                                            <div class="MCDropDownBody dropDownBody">
+                                                <ul>
+                                                    <li><span class="uielement">General number</span>—Uses simple numbers</li>
+                                                    <li><span class="uielement">Percentage</span>—Adds a percent (%) symbol to the end of the number</li>
+                                                    <li><span class="uielement">Percentage x 100</span>—Adds a percent (%) symbol at the end of the number and multiply by 100. This option lets you format fractions as percents. For example, <kbd>.75</kbd> appears as <kbd>75%</kbd>.</li>
+                                                    <li><span class="uielement">Fixed decimal</span>—Adds zeros to pad the number of digits after the decimal point</li>
+                                                    <li><span class="uielement">Fixed decimal with currency</span>—Inserts a fixed decimal point and the proper currency symbol for the locale</li>
+                                                    <li><span class="uielement">Fixed or integer with currency</span>—Inserts a whole number if the number does not have a fraction and inserts the proper currency symbol for the locale. If the number has a fraction, the engine formats it as a floating number and inserts the proper currency symbol for the locale.</li>
+                                                    <li><span class="uielement">Significant decimal</span>—Inserts the least number of decimal values possible after the whole number</li>
+                                                    <li><span class="uielement">Fixed or integer</span>—Inserts a whole number if the number does not have a fraction. If the number has a fraction, the engine formats it as a floating number.</li>
+                                                    <li><span class="uielement">Absolute value</span>—Converts the values to the absolute value. This option lets you produce a negative number without a negative sign. For example, both <kbd>1</kbd> and <kbd>-1</kbd> appear as <kbd>1</kbd>.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ boldPrint MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Date</a></span>
+                                            <div class="MCDropDownBody dropDownBody">
+                                                <p><span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> provides multiple options for formatting date values. For example: <code>mm-dd-yy</code>, <code>dd/mm/yyyy</code>, <code>mm/yyyy</code>.</p>
+                                            </div>
+                                        </div>
+                                        <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ boldPrint MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Currency</a></span>
+                                            <div class="MCDropDownBody dropDownBody">
+                                                <ul>
+                                                    <li><span class="uielement">General number</span>—Uses simple numbers</li>
+                                                    <li><span class="uielement">Fixed decimal</span>—Adds zeros to pad the number of digits after the decimal point</li>
+                                                    <li><span class="uielement">Fixed decimal with currency</span>—Inserts a fixed decimal point and the proper currency symbol for the locale</li>
+                                                    <li><span class="uielement">Fixed or integer with currency</span>—Inserts a whole number if the number does not have a fraction and inserts the proper currency symbol for the locale. If the number has a fraction, the engine formats it as a floating number and inserts the proper currency symbol for the locale.</li>
+                                                    <li><span class="uielement">Significant decimal</span>—Inserts the least number of decimal values possible after the whole number</li>
+                                                    <li><span class="uielement">Fixed or integer</span>—Inserts a whole number if the number does not have a fraction. If the number has a fraction, the engine formats it as a floating number.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Modifying value properties</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>In the <span class="uielement">Variable properties</span> panel, click the <span class="uielement">Value</span> card <img src="../images/b_DatMap_varprop_value.png" title="Value properties" alt="Value properties icon" class="inline" /> to view and modify the variable properties described in the following table:</p>
+                        <table style="width: 100%;margin-left: 0;margin-right: auto;caption-side: top;" summary="The table properties that can be modified using the Table properties panel">
+                            <col style="width: 20%;" />
+                            <col style="width: 80%;" />
+                            <thead>
+                                <tr>
+                                    <th>Property</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p><span class="uielement">Initial value</span>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>The default or initial value of the variable. If the variable type is <span class="uielement">Boolean</span>, the <span class="uielement">Initial value</span> can be either <code>false</code> or <code>true</code>.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><span class="uielement">Source</span>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>The method used to access or calculate the variable. You can select from the following options:</p>
+                                        <ul>
+                                            <li><span class="uielement">User value</span>—The variable value is specified in the variable properties</li>
+                                            <li><span class="uielement">File only</span>—The variable value is read from a data file</li>
+                                            <li><span class="uielement">Counter</span>—The variable value counts events</li>
+                                            <li><span class="uielement">Crossref page number</span>—The variable value is the page number of the target that references this variable. This option is active only when the variable type is <span class="uielement">Integer</span>.</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><span class="uielement">Reset timing</span>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Specifies when the variable value is reinitialized (reset to zero). You can select from the following options:</p>
+                                        <ul>
+                                            <li><span class="uielement">Automatically</span>—Resets before each customer</li>
+                                            <li><span class="uielement">Before each customer</span>—Resets only before each customer is read</li>
+                                            <li><span class="uielement">Never reset</span>—Resets only at the beginning of each engine run</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><span class="uielement">Watch level</span>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Specifies when the engine should write information to a debug file. You can select from the following options:</p>
+                                        <ul>
+                                            <li><span class="uielement">None</span>—The engine disables watch level activities</li>
+                                            <li><span class="uielement">Changed</span>—The engine writes information each time the variable changes</li>
+                                            <li><span class="uielement">Set</span>—The engine writes information when the variable is set</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><span class="uielement">Validation method</span>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>The method for automatically validating the value of the variable for both the initial value and values that are mapped in the data source. This option is not active when the variable type is <span class="uielement">Placeholder</span> or <span class="uielement">Boolean</span>. You can select from the following options:</p>
+                                        <ul>
+                                            <li><span class="uielement">None</span>—The variable value is not validated when the value changes</li>
+                                            <li><span class="uielement">Equal to</span>—Specify a precise valid value</li>
+                                            <li><span class="uielement">Not equal to</span>—Specify a precise value that is not valid</li>
+                                            <li><span class="uielement">Greater than</span>—Specify a value that the variable value must be greater than</li>
+                                            <li><span class="uielement">Greater than or equal to</span>—Specify a value that the variable value must be greater than or equal to</li>
+                                            <li><span class="uielement">Less than</span>—Specify a value that the variable value must be less than</li>
+                                            <li><span class="uielement">Less than or equal to</span>—Specify a value that the variable value must be less than or equal to</li>
+                                            <li><span class="uielement">Value range</span>—Specify the range of valid values</li>
+                                            <li><span class="uielement">Length range</span>—Specify the minimum and maximum lengths of the variable. This option is active only if the variable type is <span class="uielement">String</span>.</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><span class="uielement">Validation value</span>
+                                        </p>
+                                    </td>
+                                    <td>The validation value to check against. 
+										This box is active only if the <span class="uielement">Validation method</span> is set, and is not a range.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><span class="uielement">From</span>
+                                        </p>
+                                    </td>
+                                    <td>The lower value in a validation range</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><span class="uielement">To</span>
+                                        </p>
+                                    </td>
+                                    <td>The upper value in a validation range</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><span class="uielement">Action if invalid</span>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>The type of error processing to perform if the value is invalid. This option is active only if the <span class="uielement">Validation method</span> is set.</p>
+                                        <ul>
+                                            <li><span class="uielement">Message, continue</span>—You receive a message and the engine continues processing</li>
+                                            <li><span class="uielement">Message, set to default</span>—You receive a message and the engine resets the variable to its default value and continues processing</li>
+                                            <li><span class="uielement">Message, stop</span>—You receive a message and the engine stops processing</li>
+                                            <li><span class="uielement">Message, skip document</span>—The engine skips the document if the variable is not valid or is not found in the data</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" /></a><a name="Used"></a><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead" aria-expanded="false">Viewing references for a selected variable </a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>In the <span class="uielement">Variable properties</span> panel, click the <span class="uielement">Used by</span> card <img src="../images/b_DatMap_varprop_usedby.png" title="Used by" alt="Used by icon" class="inline" /> to view the data sources and <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> communications that reference the selected variable. </p>
+                        <p>The information that is displayed on the <span class="uielement">Used by</span> card is not editable. This information can provide you with some impact control, in that it is useful in determining how a change to any of the variable properties might affect other referenced objects, such as data sources and communication objects.</p>
+                    </div>
+                </div>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2023</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

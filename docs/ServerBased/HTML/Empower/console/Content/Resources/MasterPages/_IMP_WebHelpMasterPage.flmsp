@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <style>            
+            p.footerlink  {font-size: 85%;text-align: right;}<!--QCCR1K4344--></style>
+    </head>
+    <body>
+        <div style="max-width: 1280px"> 
+        <MadCap:bodyProxy />
+        <p>&#160;</p>
+        <hr width="100%" size="4" align="center" padding-bottom="0" style="clear: both; clear:both; height:1px; border:none; background-color: #e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;"><a href="_IMP_Legal_Notices.htm#1"><MadCap:snippetText src="../Snippets/Required/_IMP_CopyrightShort.flsnp" /></a>
+                </p>
+            </div>
+        </div>
+        <table style="border: none; border-collapse: collapse; width: 100%; margin-left: 0; margin-right: auto; margin-top: 0; padding-top: 0" summary="Copyright statement">
+            <col MadCap:conditions="_IMP_Conditions.Internal" />
+            <tr>
+                <td style="border: none; border-collapse: collapse;">
+                    <p id="Copyright" style="font-size: 85%; text-align: left;direction: ltr;"><a href="_IMP_Legal_Notices.htm#1"><MadCap:snippetText src="../Snippets/Required/_IMP_CopyrightShort.flsnp" /></a>
+                    </p>
+                </td>
+            </tr>
+        </table>
+        <br />
+        <br />
+        <p MadCap:conditions="_IMP_Conditions.Internal" style="font-size: 85%;text-align: center;">The ID of this help topic is <MadCap:variable name="System.SourceFile"></MadCap:variable></p>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <p style="text-align: left;" MadCap:conditions="_IMP_Conditions.Internal">
+        </p><a href="./_IMP_HTML5_bannerTitle.htm" style="visibility:hidden">_IMP_HTML5_bannerTitle.htm</a>
+        <!--QCCR1K4298 START-->
+        <div style="display:none;" id="HPb-Branding-Variables" Footer="mcvariable:Branding_Variables._Copyright" Feedback="mcvariable:Branding_Variables._Feedback_Link">&#160;</div>
+        <script>
+			var BrandingVariables = document.getElementById("HPb-Branding-Variables");
+			if(BrandingVariables.getAttribute('Footer')=="No"){document.getElementById('Copyright').style.display = 'none';}
+			if(BrandingVariables.getAttribute('Feedback')=="No"){document.getElementById('Feedback').style.display = 'none';}
+		</script>
+        <!--QCCR1K4298 END-->
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+			var closeIFrame = function() {
+			$('.MCTopicPopupContainer').remove();
+			$("#mc-background-tint").remove();
+			}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+        <!-- imageMapResizer JS moved to toolbar in skin -->
+        <!-- Include the following files in Flare output -->
+        <p style="visibility:hidden"><a href="../Scripts/_IMP_imageMapResizer.min.js">frontfileref</a><a href="../Stylesheets/fonts/_IMP_Lato-Regular.ttf">frontfileref</a><a href="../Stylesheets/fonts/_IMP_Lato-Bold.ttf">frontfileref</a>
+        </p>
+        <script type="text/javascript">
+
+				//Set navigation hotkeys within iframe (must be done separately from top level)
+				window.addEventListener('keyup',
+					function(e) {
+						switch (e.key) {
+							case 'ArrowLeft':
+								MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous");
+								break;
+							case 'ArrowRight':
+								MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next");
+						}
+					}
+				, false);
+
+		</script>
+    </body>
+</html>

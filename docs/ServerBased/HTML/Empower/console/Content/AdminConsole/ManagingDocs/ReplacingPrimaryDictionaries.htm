@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="[%=System.LinkedTitle%]|[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="Empower Server Console and API" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Replacing primary dictionaries</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" />
+        <script src="../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <h1>Replacing primary dictionaries</h1>
+            <p>As of version 16.2, the following primary dictionaries are not included with <span class="_Exstream_Product_NamesHydrogen">Empower</span>: Danish, German, Hebrew, Hindi, Indonesian, Italian, Malay, and Vietnamese. In order to have spell checking available in <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> for any of the affected languages, you will need to manually add Hunspell dictionary files to the <span class="_Exstream_Product_NamesHydrogen_Server">Empower Server</span>.</p>
+            <p>For information about how to obtain or create Hunspell dictionary files, refer to the Hunspell documentation on the SourceForge website.</p>
+            <p>To replace primary dictionaries:</p>
+            <ol>
+                <li value="1">In the application server that hosts <span class="_Exstream_Product_NamesHydrogen">Empower</span>, locate the folder where the <span class="_Exstream_Product_NamesHydrogen">Empower</span> primary dictionaries are stored. For example, the folder path for TomEE+ in a Windows environment is <code>CATALINA_HOME\webapps\empower&lt;xx.x.xxxx&gt;\dictionaries</code>.</li>
+                <li value="2">Within the <code>dictionaries</code> folder, create a subfolder for each of the primary dictionaries that you need to add:<br /><br /><table style="width: 100%;"><col /><col /><thead><tr><th>For this language</th><th>Create this subfolder</th></tr></thead><tbody><tr><td>Danish</td><td><p><code>da_DK</code></p></td></tr><tr><td>German</td><td><code>de_DE</code></td></tr><tr><td>Hebrew</td><td><code>he_IL</code></td></tr><tr><td>Hindi</td><td><code>hi</code></td></tr><tr><td>Indonesian</td><td><code>id_ID</code></td></tr><tr><td>Italian</td><td><code>it_IT</code></td></tr><tr><td>Malay</td><td><code>ms_MY</code></td></tr><tr><td>Vietnamese</td><td><code>vi_VN</code></td></tr></tbody></table><div class="Admonition_Important"><p data-mc-autonum="&lt;b&gt;Important: &lt;/b&gt;"><span class="autonumber"><span><b>Important: </b></span></span><span class="_Exstream_Product_NamesHydrogen">Empower</span> supports replacing only the primary dictionaries in this list. You cannot add primary dictionaries that are not included in the installation package or in this list.</p></div></li>
+                <li value="3">Place the appropriate Hunspell dictionary files inside each of the subfolders that you created.</li>
+                <li value="4">Restart your application server. <br /></li>
+            </ol>
+            <p>&#160;</p>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear: both; clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;"><a href="../../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Copyright © <span class="_IMP_TemplateVarsCopyrightDateRange_CurrentYear">2019</span>&#160;<span class="Branding_Variables_Company_Legal_Name">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="Branding_Variables_Company_Legal_Name">Open&#160;Text</span>.</a>
+                </p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br /><a href="../../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <!--QCCR1K4298 START-->
+        <div style="display:none;" id="HPb-Branding-Variables" Footer="Yes" Feedback="Yes">&#160;</div>
+        <script>/* <![CDATA[ */
+            var BrandingVariables = document.getElementById("HPb-Branding-Variables");
+            if(BrandingVariables.getAttribute('Footer')=="No"){document.getElementById('Copyright').style.display = 'none';}
+            if(BrandingVariables.getAttribute('Feedback')=="No"){document.getElementById('Feedback').style.display = 'none';}
+        /* ]]> */</script>
+        <!--QCCR1K4298 END-->
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+            var closeIFrame = function() {
+            $('.MCTopicPopupContainer').remove();
+            $("#mc-background-tint").remove();
+            }
+        </script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+        <script src="../../Resources/Scripts/_IMP_init.js">
+        </script>
+        <!-- Include the following files in output -->
+        <p style="visibility:hidden"><a href="../../Resources/Scripts/_IMP_imageMapResizer.min.js">frontfileref</a><a href="../../Resources/Stylesheets/fonts/_IMP_Lato-Regular.ttf">frontfileref</a><a href="../../Resources/Stylesheets/fonts/_IMP_Lato-Bold.ttf">frontfileref</a>
+        </p>
+        <script type="text/javascript">/* <![CDATA[ */
+
+				//Set navigation hotkeys within iframe (must be done separately from top level)
+				window.addEventListener('keyup',
+					function(e) {
+						switch (e.key) {
+							case 'ArrowLeft':
+								MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous");
+								break;
+							case 'ArrowRight':
+								MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next");
+						}
+					}
+				, false);
+
+		/* ]]> */</script>
+    </body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="Empower Server Console and API" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Configuration</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <h1>Configuration</h1>
+            <p>You can use the Configuration page of the <span class="_Exstream_Product_NamesHydrogen_Admin_Console">Empower Server Console</span> to view and manage the following settings:</p>
+            <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Closed" data-mc-alt2="Open" />Setting an alternative language for the browser<![CDATA[         ]]></a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <p>The <span class="uielement">Alternative language</span> setting determines what language to use for <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> and the editor online help if a user's browser is configured for a language that is not supported by <span class="_Exstream_Product_NamesHydrogen">Empower</span>.</p>
+                    <p>To select an alternative language:</p>
+                    <ol>
+                        <li value="1">
+                            <p>In the <span class="_Exstream_Product_NamesHydrogen_Admin_Console">Empower Server Console</span>, click <span class="uielement">CONFIGURATION</span>.</p>
+                        </li>
+                        <li value="2">
+                            <p>On the <span class="uielement">Configuration Settings</span> page, select one of the languages in the <span class="uielement">Alternative language</span> list.</p>
+                        </li>
+                        <li value="3">
+                            <p>Click <span class="uielement">UPDATE</span>.</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Closed" data-mc-alt2="Open" />Managing previews        </a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <p>The preview service is enabled by default if you configure a preview provider when you set up <span class="_Exstream_Product_NamesHydrogen">Empower</span>. If you do not want <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>&#160;end users to be able to generate previews of the documents they are editing, then you can disable the preview service. </p>
+                    <p>To manage the preview service:</p>
+                    <ol>
+                        <li value="1">
+                            <p>In the <span class="_Exstream_Product_NamesHydrogen_Admin_Console">Empower Server Console</span>, click <span class="uielement">CONFIGURATION</span>.</p>
+                        </li>
+                        <li value="2">
+                            <p>On the <span class="uielement">Configuration Settings</span> page, complete the following tasks as needed:</p>
+                            <ul>
+                                <li value="1">
+                                    <p>To disable the preview service, clear the <span class="uielement">Preview</span> check box. When the preview service is disabled, <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span> end users will not see the preview option.</p>
+                                </li>
+                                <li value="2">
+                                    <p>To enable the preview service (if it has been disabled previously), select the <span class="uielement">Preview</span> check box. Keep in mind that you can enable previews only if a preview provider was configured during <span class="_Exstream_Product_NamesHydrogen">Empower</span> setup.</p>
+                                </li>
+                                <li value="3">
+                                    <p>To adjust the timeout setting, in the <span class="uielement">Preview timeout</span> box, specify the amount of time (in seconds) that <span class="_Exstream_Product_NamesHydrogen">Empower</span> will wait for a preview to be returned. The timeout interval should allow enough time for a document to be sent to EWS, for output to be produced by  the <span class="_Exstream_Product_NamesExstream">Exstream</span> engine, and for the output to be returned to the browser.</p>
+                                    <div class="Admonition_Note">
+                                        <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>If <span class="_Exstream_Product_NamesHydrogen">Empower</span> is running on an IBM WebSphere  application server, changing the preview timeout setting in the <span class="_Exstream_Product_NamesHydrogen_Admin_Console">Empower Server Console</span> will not affect the amount of time that <span class="_Exstream_Product_NamesHydrogen">Empower</span> waits for previews to generate, because the timeout setting on the application server overrides the setting that is specified in <span class="_Exstream_Product_NamesHydrogen">Empower</span>. To change the timeout setting in WebSphere, consult your WebSphere administrator.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li value="3">
+                            <p>Click <span class="uielement">UPDATE</span>.</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Closed" data-mc-alt2="Open" />Designating a support email address<![CDATA[         ]]></a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <p>To specify a support email address to receive informational messages from <span class="_Exstream_Product_NamesHydrogen">Empower</span>:</p>
+                    <ol>
+                        <li value="1">
+                            <p>In the <span class="_Exstream_Product_NamesHydrogen_Admin_Console">Empower Server Console</span>, click <span class="uielement">CONFIGURATION</span>.</p>
+                        </li>
+                        <li value="2">
+                            <p>On the <span class="uielement">Configuration Settings</span> page, enter an email address in the <span class="uielement">Support email</span> box.</p>
+                        </li>
+                        <li value="3">
+                            <p>Click <span class="uielement">UPDATE</span>.</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Closed" data-mc-alt2="Open" />Configuring the cleanup schedule<![CDATA[        ]]></a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <p><span class="_Exstream_Product_NamesHydrogen">Empower</span> comes with an automated cleanup process that by default runs once a week to remove unused documents and deactivated editors. If you need the cleanup process to run more frequently, you can use the <span class="_Exstream_Product_NamesHydrogen_Admin_Console">Empower Server Console</span> to customize the cleanup schedule, so that it runs on certain days or at specific intervals.</p>
+                    <div class="Admonition_Note">
+                        <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>If your workflow includes a process that uses an API call to set the cleanup schedule, the cleanup schedule settings that are displayed in the <span class="_Exstream_Product_NamesHydrogen_Admin_Console">Empower Server Console</span> might not reflect those values. Keep in mind that using the <span class="_Exstream_Product_NamesHydrogen_Admin_Console">Empower Server Console</span> to change the cleanup schedule  will override any values that were set previously by an API call that is part of another process. </p>
+                    </div>
+                    <p>Before you begin configuring the cleanup process, it is helpful to understand how the process works.</p>
+                    <p>Depending on which options you choose, the following actions are performed when the  cleanup process runs:</p>
+                    <ol>
+                        <li value="1">
+                            <p>The cleanup process searches for documents that have not been edited within a specified number of days, and places those documents in the trash (optional).</p>
+                        </li>
+                        <li value="2">
+                            <p>The cleanup process checks for documents that have been retained in the trash for a specified number of days, and permanently deletes any documents that exceed the trash retention period.</p>
+                        </li>
+                        <li value="3">
+                            <p>The cleanup process checks for editors that have been deactivated, and uninstalls deactivated editors that are no longer assigned to a document.</p>
+                            <div class="Admonition_Important">
+                                <p data-mc-autonum="&lt;b&gt;Important: &lt;/b&gt;"><span class="autonumber"><span><b>Important: </b></span></span>When you uninstall an editor that is assigned to one or more documents, <span class="_Exstream_Product_NamesHydrogen">Empower</span> deactivates the editor, but does not remove it immediately. Instead, <span class="_Exstream_Product_NamesHydrogen">Empower</span> retains the deactivated editor until the last document that uses the editor is permanently deleted. After the last document is permanently deleted, the scheduled cleanup process removes the deactivated editor. For information about uninstalling an editor, see <a href="ManagingEditors/UninstallingaVersionofEmpowerEditor.htm" class="MCXref xref">Uninstalling a version of the editor</a></p>
+                            </div>
+                        </li>
+                    </ol>
+                    <p>To minimize the impact of document repository changes that can occur during the cleanup process, schedule the cleanup process to run outside of business hours.</p>
+                    <p>To configure the cleanup process:</p>
+                    <ol>
+                        <li value="1">
+                            <p>In the <span class="_Exstream_Product_NamesHydrogen_Admin_Console">Empower Server Console</span>, click <span class="uielement">CONFIGURATION</span>.</p>
+                        </li>
+                        <li value="2">
+                            <p>In the <span class="uielement">Cleanup schedule</span> area, complete one of the following sets of steps:</p>
+                            <table style="width: 100%;">
+                                <col />
+                                <col />
+                                <thead>
+                                    <tr>
+                                        <th>To</th>
+                                        <th>Do this</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Schedule cleanup to run once a day on specific days of the week</td>
+                                        <td>
+                                            <ol>
+                                                <li value="1">In the <span class="emphasis-bold">Frequency</span>  list, select <span class="emphasis-bold">Daily</span>.</li>
+                                                <li value="2"> In the <span class="uielement">Days</span> section, select the days of the week on which you want the cleanup process to run. To run the cleanup process every day, select <span class="uielement">All</span>.</li>
+                                            </ol>
+                                            <ol data-mc-continue="true">
+                                                <li value="3">In the <span class="uielement">Start time</span> boxes, specify when the cleanup process will begin. For example, if you select a start time of <code>11:00</code>, the cleanup process will begin at 11:00 AM on the days that you selected. If you select a start time of <code>23:00</code>, the cleanup process will begin at 11:00 PM on the days that you selected.</li>
+                                            </ol>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Schedule cleanup to run daily at set intervals</td>
+                                        <td>
+                                            <ol>
+                                                <li value="1">In the <span class="emphasis-bold">Frequency</span> list, select <span class="emphasis-bold">Hourly</span>.</li>
+                                                <li value="2">In the <span class="emphasis-bold">Interval (hours)</span> box, specify how often you want to run cleanup. The cleanup process will start running at midnight, and then run on the interval you set. For example, if you select <code>4</code>, the cleanup process will run every four hours.</li>
+                                            </ol>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                        <li value="3">
+                            <p>If you want <span class="_Exstream_Product_NamesHydrogen">Empower</span> to search for documents that have not been edited within a specified number of days and add them to the trash when the cleanup process runs, select the <span class="uielement">Idle document cleanup</span> check box.</p>
+                            <p>If you do not want documents to be automatically added to the trash when the scheduled cleanup process runs, make sure that this check box is cleared.</p>
+                            <p>For information about how to manually add documents to the trash, see <a href="ManagingDocs/ManuallyDeletingDocuments.htm" class="MCXref xref">Manually deleting documents</a>.</p>
+                        </li>
+                        <li value="4">
+                            <p>If you have enabled idle document cleanup, in the <span class="uielement">Idle document retention (days)</span> box, specify the number of days that an idle document will be retained before it is added to the trash. An idle document is one that has not been edited during the retention period.</p>
+                        </li>
+                        <li value="5">
+                            <p>In the <span class="uielement">Trash retention (days)</span> box, specify the number of days that objects will be retained in the trash before being permanently removed from <span class="_Exstream_Product_NamesHydrogen">Empower</span>. </p>
+                        </li>
+                        <li value="6">
+                            <p>Click <span class="uielement">UPDATE</span>.</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0);" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Closed" data-mc-alt2="Open" />Generating a user report<![CDATA[        ]]></a></span>
+                <div class="MCDropDownBody dropDownBody">
+                    <p>You can generate a comma-separated list of <span class="_Exstream_Product_NamesHydrogen">Empower</span> users who have opened a document in <span class="_Exstream_Product_NamesHydrogenEditor">Empower Editor</span>. The list includes the date and time of the most recent sign in for each user, and you can configure it to report activity for up to 365 previous days.</p>
+                    <p>To generate a user report:</p>
+                    <ol>
+                        <li value="1">
+                            <p>In the <span class="_Exstream_Product_NamesHydrogen_Admin_Console">Empower Server Console</span>, click <span class="uielement">CONFIGURATION</span>.</p>
+                        </li>
+                        <li value="2">
+                            <p>On the <span class="uielement">Configuration Settings</span> page, in the <span class="uielement">User management</span> area, click <span class="uielement">USER REPORT</span>.</p>
+                        </li>
+                        <li value="3">
+                            <p>In the <span class="uielement">USER&#160;REPORT</span>&#160;dialog box, in the <span class="uielement">Days to include</span> box, enter the number of previous days to include in the report, beginning with the current date. You can include up to 365 previous days of activity.</p>
+                        </li>
+                        <li value="4">
+                            <p>In the <span class="uielement">Report file name</span> box, enter a name for the report.</p>
+                        </li>
+                        <li value="5">
+                            <p>Click <span class="uielement">OK</span>.</p>
+                        </li>
+                        <li value="6">
+                            <p>When prompted, select a location to save the report and then click <span class="uielement">Save</span>.</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <p>&#160;</p>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear: both; clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;"><a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Copyright © <span class="_IMP_TemplateVarsCopyrightDateRange_CurrentYear">2019</span>&#160;<span class="Branding_Variables_Company_Legal_Name">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="Branding_Variables_Company_Legal_Name">Open&#160;Text</span>.</a>
+                </p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br /><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <!--QCCR1K4298 START-->
+        <div style="display:none;" id="HPb-Branding-Variables" Footer="Yes" Feedback="Yes">&#160;</div>
+        <script>/* <![CDATA[ */
+            var BrandingVariables = document.getElementById("HPb-Branding-Variables");
+            if(BrandingVariables.getAttribute('Footer')=="No"){document.getElementById('Copyright').style.display = 'none';}
+            if(BrandingVariables.getAttribute('Feedback')=="No"){document.getElementById('Feedback').style.display = 'none';}
+        /* ]]> */</script>
+        <!--QCCR1K4298 END-->
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+            var closeIFrame = function() {
+            $('.MCTopicPopupContainer').remove();
+            $("#mc-background-tint").remove();
+            }
+        </script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+        <script src="../Resources/Scripts/_IMP_init.js">
+        </script>
+        <!-- Include the following files in output -->
+        <p style="visibility:hidden"><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js">frontfileref</a><a href="../Resources/Stylesheets/fonts/_IMP_Lato-Regular.ttf">frontfileref</a><a href="../Resources/Stylesheets/fonts/_IMP_Lato-Bold.ttf">frontfileref</a>
+        </p>
+        <script type="text/javascript">/* <![CDATA[ */
+
+				//Set navigation hotkeys within iframe (must be done separately from top level)
+				window.addEventListener('keyup',
+					function(e) {
+						switch (e.key) {
+							case 'ArrowLeft':
+								MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous");
+								break;
+							case 'ArrowRight':
+								MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next");
+						}
+					}
+				, false);
+
+		/* ]]> */</script>
+    </body>
+</html>

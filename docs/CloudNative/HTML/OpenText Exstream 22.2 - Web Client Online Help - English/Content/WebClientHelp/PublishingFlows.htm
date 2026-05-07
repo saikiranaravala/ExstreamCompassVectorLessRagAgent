@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="OpenText Exstream (Cloud-Native) Release CE 22.2.0 Web Client Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Publishing orchestration flows</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Publishing orchestration flows</h1>
+                <p>Flow models and flow contexts determine the manner in which the engine processes communications or package files to produce customer output. </p>
+                <p>Flow models and flow contexts are created in the <span class="mc-variable _Exstream_UI_Names.WEB_OrchMgmtView variable">Orchestration asset library view</span> and configured using <span class="mc-variable _IMP_Product_Names.Orchestrator_Short variable">Communications Orchestrator</span>. For more information about configuring these resources, see <span class="docName mc-variable _Exstream_Doc_Names._Product_Prefix variable">OpenText Exstream</span> <span class="docName mc-variable _Exstream_Doc_Names.Orchestrator_Guide variable">Communications Orchestrator User Guide</span>.</p>
+                <p>Publishing a flow model or a flow context makes the resource available for processing by the Orchestration service in the following way:</p>
+                <ul>
+                    <li>Publishing a flow context activates its settings in the Orchestration service. This means that the input and output channels, outcome mappings, and communications that are defined in that flow context can be used in published flow models.</li>
+                    <li>
+                        <p>Publishing a flow model activates it for execution in the Orchestration service. This means that data sent to an input channel used in a published flow model will trigger the execution of that flow model. Publishing a flow model also generates engine run definitions for communications that are used in that flow model. Engine run definitions are provided to <span class="mc-variable _IMP_Product_Names.DocGen_Short variable">Document Generation</span> to run the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> engine. When you publish a flow model that uses settings from multiple flow contexts, make sure that you have first published all of those flow contexts.</p>
+                    </li>
+                </ul>
+                <div class="Admonition_Note">
+                    <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>Regardless of the resource version that is selected, publishing a flow model or flow context always makes the latest approved version of the resource available to the Orchestration service.&#160;When you publish a resource, review these considerations:</p>
+                    <ul>
+                        <li>To publish the latest version of the resource, make sure that you approve the resource before you publish.</li>
+                        <li>To publish an older version of the resource, promote that version of the resource and approve it before you publish.</li>
+                    </ul>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Publishing a flow model or flow context</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>When you work with versioned resources, the publishing behavior is different for flow models and flow contexts:</p>
+                        <ul>
+                            <li>
+                                <p>For flow models, if you publish the latest version of a resource while a previous version is in a published state, the previous version will be automatically unpublished. </p>
+                            </li>
+                            <li>For flow contexts, if you publish the latest version of a resource while a previous version is in a published state, then both versions are available in published state. </li>
+                        </ul>
+                        <div class="Admonition_Important">
+                            <p data-mc-autonum="&lt;b&gt;Important: &lt;/b&gt;"><span class="autonumber"><span><b>Important: </b></span></span>To ensure correct flow execution, make sure that you unpublish previous versions before you publish the latest version of a flow model or a flow context. Otherwise, you might see unexpected results.</p>
+                        </div>
+                        <p>To publish a flow model or flow context:</p>
+                        <ol>
+                            <li value="1">
+                                <p>In <span class="mc-variable _Exstream_UI_Names.WEB_OrchMgmtView variable">Orchestration asset library view</span>, in the <span class="uielement">Flows</span> panel, select a flow model or flow context. </p>
+                            </li>
+                            <li value="2">
+                                <p>On the <span class="uielement">General</span> tab in the <span class="uielement">Properties</span> panel, click <span class="uielement">Publish</span>. </p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Unpublishing a published resource</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <ol>
+                            <li value="1">In <span class="mc-variable _Exstream_UI_Names.WEB_OrchMgmtView variable">Orchestration asset library view</span>, in the <span class="uielement">Flows</span> panel, select the resource. </li>
+                            <li value="2">
+                                <p>On the <span class="uielement">General</span> tab in the <span class="uielement">Properties</span> panel, click <span class="uielement">Unpublish</span>. </p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" /></a><a name="FlowDeleteConsiderations"></a><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead" aria-expanded="false">Considerations for deleting flow resources</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <div class="Admonition_Note">
+                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>You cannot delete a flow model or a flow context if any version of that resource that is in a published state.</p>
+                        </div>
+                        <p>When only one version of an unpublished flow model or flow context exists, you can simply click <span class="uielement">Delete</span> in the <span class="uielement">Properties</span> panel in <span class="mc-variable _Exstream_UI_Names.WEB_OrchMgmtView variable">Orchestration asset library view</span> to delete the resource from the asset library. </p>
+                        <p>When multiple versions of a flow model or flow context exist, you can choose to delete either a specific version that you select in the version selector in the <span class="uielement">Properties</span> panel, or you can choose to delete all versions of the resource. To do so, select the <span class="uielement">Delete all versions</span> check box in the confirmation dialog box that appears when you click <span class="uielement">Delete</span>. </p>
+                        <p>When&#160;you unpublish and delete the latest version of a flow model or flow context, you must then republish the previous version of the resource if you want to make it available to the Orchestration service.</p>
+                    </div>
+                </div>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2022</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

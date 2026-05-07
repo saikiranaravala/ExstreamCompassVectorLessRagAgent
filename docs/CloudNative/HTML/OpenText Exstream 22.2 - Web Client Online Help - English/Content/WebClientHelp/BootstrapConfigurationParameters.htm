@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]|[%=System.LinkedTitle%]|[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="OpenText Exstream (Cloud-Native) Release CE 22.2.0 Web Client Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Specifying bootstrap configuration parameters</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Specifying bootstrap configuration parameters</h1>
+                <p>At a very high level, the bootstrap configuration is provided in the following format:</p>
+                <div class="codeSnippet"><a class="codeSnippetCopyButton" role="button" href="javascript:void(0);">Copy</a>
+                    <div class="codeSnippetCaption">
+                        <p>Bootstrap parameter block</p>
+                    </div>
+                    <div class="codeSnippetBody" data-mc-continue="False" data-mc-line-number-start="1" data-mc-use-line-numbers="False"><pre><code>bootstrap:<br />&#160;&#160;&#160;&#160;enabled: true<br />&#160;&#160;&#160;&#160;config:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;otdsAdmin:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;OTDS administrator credentials&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;createOauthClients: true | false<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tenants:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;tenant&gt;:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;Custom configuration for the new tenant&gt;</code></pre>
+                    </div>
+                </div>
+                <p>Use the following information as a handy reference for specific parameter values and formatting as you create your custom bootstrap configuration. </p>
+                <h2>bootstrap.config.otdsAdmin</h2>
+                <p>In <code>bootstrap.config.otdsAdmin</code>, you provide <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> system administrator credentials that the bootstrap can use to access your <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> instance. The following table describes the parameters in this parameter block.</p>
+                <table style="width: 100%;margin-left: 0;margin-right: auto;caption-side: top;">
+                    <caption>Parameter descriptions</caption>
+                    <col style="width: 30%;" />
+                    <col style="width: 70%;" />
+                    <thead>
+                        <tr>
+                            <th>
+                                <p>Parameter</p>
+                            </th>
+                            <th>
+                                <p>Description</p>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <p><code>username</code>
+                                </p>
+                            </td>
+                            <td>
+                                <p>Enter the user name of the <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> system administrator user. For example: <code>otadmin@otds.admin</code></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p><code>password</code>
+                                </p>
+                            </td>
+                            <td>
+                                <p>Enter the password of the <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> system administrator user.</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h2>bootstrap.config.createOauthClients</h2>
+                <p>The <code>bootstrap.config.createOauthClients</code> parameter determines how you create OAuth clients for the new tenants that will be created with the bootstrap configuration. You can set  <code>bootstrap.config.createOauthClients</code> to one of the following values:</p>
+                <ul>
+                    <li><code>true</code>—Automatically creates OAuth clients in <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> for the new tenants as needed. This is the default value if you do not explicitly set a value.</li>
+                    <li><code>false</code>—Does not create OAuth clients in <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> for the new tenants</li>
+                </ul>
+                <h2>bootstrap.config.tenants</h2>
+                <p>In  <code>bootstrap.config.tenants</code>, you provide the configuration information for each new tenant that you want to create. Tenant configuration parameters are provided in the following parameter block: </p>
+                <div class="codeSnippet"><a class="codeSnippetCopyButton" role="button" href="javascript:void(0);">Copy</a>
+                    <div class="codeSnippetCaption">
+                        <p>Tenant configuration parameter block</p>
+                    </div>
+                    <div class="codeSnippetBody" data-mc-continue="False" data-mc-line-number-start="1" data-mc-use-line-numbers="False"><pre><code>tenants:<br />&#160;&#160;&#160;&#160;&lt;tenant&gt;:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;otds:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;OTDS tenant configuration settings&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;das:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;Design tenant configuration settings&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;orchestration:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;Orchestration tenant configuration settings&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;empower:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;Empower tenant configuration settings&gt;</code></pre>
+                    </div>
+                </div>
+                <p>To create multiple tenants using the same bootstrap configuration, use the following format to add the configuration parameters for each tenant in separate blocks:</p>
+                <div class="codeSnippet"><a class="codeSnippetCopyButton" role="button" href="javascript:void(0);">Copy</a>
+                    <div class="codeSnippetCaption">
+                        <p>Multiple tenant configuration</p>
+                    </div>
+                    <div class="codeSnippetBody" data-mc-continue="False" data-mc-line-number-start="1" data-mc-use-line-numbers="False"><pre><code>tenants:<br />&#160;&#160;&#160;&#160;&lt;tenant1&gt;:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;Configuration settings for tenant1&gt;<br />&#160;&#160;&#160;&#160;&lt;tenant2&gt;:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;Configuration settings for tenant2&gt;<br />&#160;&#160;&#160;&#160;.<br />&#160;&#160;&#160;&#160;.<br />&#160;&#160;&#160;&#160;.<br />&#160;&#160;&#160;&#160;&lt;tenantN&gt;:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;Configuration settings for tenantN&gt;</code></pre>
+                    </div>
+                </div>
+                <div class="Admonition_Tip">
+                    <p data-mc-autonum="&lt;b&gt;Tip: &lt;/b&gt;"><span class="autonumber"><span><b>Tip: </b></span></span>When creating multiple tenants, you can alternatively use separate YAML files for each tenant. </p>
+                </div>
+                <p>The following sections describe the configuration settings that you specify in each <code>bootstrap.config.tenants.&lt;tenant&gt;</code> block.</p>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ boldPrint MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />bootstrap.config.tenants.&lt;tenant&gt;.otds</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>In <code>bootstrap.config.tenants.&lt;tenant&gt;.otds</code>, you provide the <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> information that is required to configure the tenant in <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span>. These tenant configuration settings are provided in the following format:</p>
+                        <div class="codeSnippet"><a class="codeSnippetCopyButton" role="button" href="javascript:void(0);">Copy</a>
+                            <div class="codeSnippetCaption">
+                                <p>OTDS tenant configuration</p>
+                            </div>
+                            <div style="mc-code-lang: Python;" class="codeSnippetBody" data-mc-continue="False" data-mc-line-number-start="1" data-mc-use-line-numbers="False"><pre><code>otds:<br />&#160;&#160;&#160;&#160;admin:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;username:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;password:<br />&#160;&#160;&#160;&#160;exstreamAdmin:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;username:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;password:<br />&#160;&#160;&#160;&#160;partitions:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;partition&gt;:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;groups:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- name:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;users:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- username<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;password:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;membership: [ &lt;group1&gt;,&lt;group2&gt;,...,&lt;groupN&gt; ]<br />&#160;&#160;&#160;&#160;resources:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- name:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;description:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;licenses:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- username:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;partition:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;prodLicense:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;file:</code></pre>
+                            </div>
+                        </div>
+                        <p>The following table describes the parameters in this parameter block.</p>
+                        <table style="width: 100%;margin-left: 0;margin-right: auto;caption-side: top;">
+                            <caption>Parameter descriptions</caption>
+                            <col style="width: 30%;" />
+                            <col style="width: 70%;" />
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <p>Parameter</p>
+                                    </th>
+                                    <th>
+                                        <p>Description</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p><code>admin</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Creates a new&#160;<span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> system administrator user that will be created in the new tenant. This user is a member of the <code>otadmins@otds.admin</code> group in the new tenant and can manage the <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> tenants. Specify the following parameters:</p>
+                                        <ul>
+                                            <li><code>username</code>—Enter the user name of the new user.</li>
+                                            <li><code>password</code>—Enter the password of the new user.</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><code>exstreamAdmin</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Creates a new <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> tenant administrator user that will be created in the new tenant. This user is a member of the <code>tenantadmins@otds.admin</code> group in the new tenant and can manage the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> tenant environment. Specify the following parameters:</p>
+                                        <ul>
+                                            <li><code>username</code>—Enter the user name of the new user.</li>
+                                            <li><code>password</code>—Enter the password of the new user.</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><code>partitions</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Creates a partition in the new tenant that will contain the users and groups for the tenant. In the <code>partitions.&lt;partition&gt;</code> block, specify the following parameters to configure the new partition:</p>
+                                        <ul>
+                                            <li>
+                                                <p><a name="Partitions"></a><code>groups</code>—Specify the following parameter to create a new group, and repeat it for each subsequent group that you want to create:</p>
+                                                <ul>
+                                                    <li><code>name</code>—Enter the name of the  new group.</li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <p><code>users</code>—Specify the following parameters to create a new user and assign it to an <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> group, and repeat them for each subsequent user that you want to create:</p>
+                                                <ul>
+                                                    <li><code>username</code>—Enter the name of the new user.</li>
+                                                    <li><code>password</code>—Enter the password of the new user.</li>
+                                                    <li>
+                                                        <p><code>membership</code>—Enter the <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> groups to which the new user belongs.</p>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><code>resources</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Creates an <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> resource that will be used to store the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> product key for the new tenant. Specify the following parameters to create a resource, and repeat them for each subsequent resource that you want to create:</p>
+                                        <ul>
+                                            <li><code>name</code>—Enter a name for the new resource.</li>
+                                            <li><code>description</code>—Optionally, enter a description for the resource.</li>
+                                            <li>
+                                                <p><code>licenses</code>—Specify the product key with the following parameters:</p>
+                                                <ul>
+                                                    <li>
+                                                        <p><code>username</code>—Enter the user name of a tenant administrator user for this tenant. This can be the same as the user name that you specified in the <code>exstreamAdmin</code> parameter block.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><code>partition</code>—Enter the partition in which to create the <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> resource for this product key.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><code>prodLicense</code>—Set to <code>true</code> if the resource will be assigned a production key. Otherwise, set to <code>false</code>.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p><code>name</code>—Enter the name for the product key. This parameter is especially useful if you create non-production and production license key objects in OTDS for the same tenant.  Specify a separate  parameter for each key file that you are installing in the tenant. </p>
+                                                    </li>
+                                                    <li>
+                                                        <p><code>file</code>—Enter the contents of the key file to be installed in this tenant, or use <code>--set-file</code> in your Helm command to set a product key as this parameter value.</p>
+                                                        <div class="Admonition_Note">
+                                                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>If you use this parameter with <code>--set-file</code>, make sure you comment it out in the bootstrap configuration.</p>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ boldPrint MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />bootstrap.config.tenants.&lt;tenant&gt;.das</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>In <code>bootstrap.config.tenants.&lt;tenant&gt;.das</code>, you provide the  information that is required to configure the tenant for the Design service. These tenant configuration settings are provided in the following parameter block:</p>
+                        <div class="codeSnippet"><a class="codeSnippetCopyButton" role="button" href="javascript:void(0);">Copy</a>
+                            <div class="codeSnippetCaption">
+                                <p>Design tenant configuration</p>
+                            </div>
+                            <div class="codeSnippetBody" data-mc-continue="False" data-mc-line-number-start="1" data-mc-use-line-numbers="False"><pre><code>das:<br />&#160;&#160;&#160;&#160;databaseInfo:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;schema:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;username:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;password:<br />&#160;&#160;&#160;&#160;roles:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- name:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;appPermissions: [ ALL or &lt;app1&gt;,&lt;app2&gt;,...,&lt;appN&gt; ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;permissions:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- permissions: [ ALL or CREATE, READ, WRITE, DELETE, APPROVE ]<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;types: [ ALL or &lt;type1&gt;,&lt;type2&gt;,...,&lt;typeN&gt; ]<br />&#160;&#160;&#160;&#160;domains:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- id:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;production: true | false<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;roleMappings:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;- role:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;groups:</code></pre>
+                            </div>
+                        </div>
+                        <p>The following table describes the parameters in this parameter block.</p>
+                        <table style="width: 100%;margin-left: 0;margin-right: auto;caption-side: top;">
+                            <caption>Parameter descriptions</caption>
+                            <col style="width: 30%;" />
+                            <col style="width: 70%;" />
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <p>Parameter</p>
+                                    </th>
+                                    <th>
+                                        <p>Description</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p><code>databaseInfo</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Provides the Design tenant schema information for the tenant. This parameter block is required only if you are using manual schema management for your <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> databases. You must have first <a href="SettingUpTenantSchemas.htm">created the tenant schemas</a> in your database. If you are using automatic schema management, the bootstrap process creates the tenant schemas for the new tenant. </p>
+                                        <p>Specify the schema information in the following parameters:&#160;</p>
+                                        <ul>
+                                            <li><code>schema</code>—Enter the name of the Design tenant schema.</li>
+                                            <li><code>username</code>—Enter the user name of the schema owner.</li>
+                                            <li><code>password</code>—Enter the password of the new user.</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><a name="Roles"></a><code>roles</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Creates <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> roles that are used to define user permissions in each domain in the tenant. Specify the following parameters to create a role, and repeat them for each subsequent role that you want to create:</p>
+                                        <ul>
+                                            <li><code>name</code>—Enter a name for the new role.</li>
+                                            <li>
+                                                <p><code>appPermissions</code>—Enter the specific application permissions that you want to assign to the new role. To assign all permissions, enter <code>ALL</code>. Otherwise, select from the following supported application permissions:</p>
+                                                <ul>
+                                                    <li><code>COMM_DESIGNER</code>—Enables access to <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span></li>
+                                                    <li><code>CONTENT_AUTHOR</code>—Enables access to <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span></li>
+                                                    <li><code>DATA_MAPPER</code>—Enables access to <span class="mc-variable _Exstream_UI_Names.WEB_CommAssetMgmtView variable">Communication asset library view</span></li>
+                                                    <li><code>DESIGNER_ASSET_MANAGER</code>—Enables access to <span class="mc-variable _Exstream_UI_Names.WEB_DesignAssetMgmtView variable">Design asset library view</span></li>
+                                                    <li><code>ORCHESTRATION_MANAGEMENT</code>—Enables access to <span class="mc-variable _Exstream_UI_Names.WEB_CommAssetMgmtView variable">Communication asset library view</span></li>
+                                                    <li><code>ORCHESTRATOR</code>—Enables access to <span class="mc-variable _Exstream_UI_Names.WEB_OrchMgmtView variable">Orchestration asset library view</span></li>
+                                                    <li><code>MONITOR</code>—Enables access to <span class="mc-variable _Exstream_UI_Names.WEB_MonitoringView variable">Monitor view</span></li>
+                                                    <li><code>EDIT_CATEGORIES</code>—Enables access to creating category tags in supported views</li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <p><code>permissions</code>—Specify resource permissions with the following parameters:</p>
+                                                <ul>
+                                                    <li><code>permissions</code>—Enter the specific resource permissions that you want to assign to the new role. To assign all permissions, enter <code>ALL</code>. Otherwise, select from <code>CREATE</code>, <code>READ</code>, <code>WRITE</code>, <code>DELETE</code>, and <code>APPROVE</code>.</li>
+                                                    <li>
+                                                        <p><code>types</code>—Enter the resource types to which you want to apply the selected permissions. To apply permissions to all DAS&#160;resource types, enter <code>ALL</code>. Otherwise, select from the following supported resource types:</p>
+                                                        <ul>
+                                                            <li><code>documentdefinition</code>—Enables resource permissions for <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> communications</li>
+                                                            <li><code>enginerundef</code>—Enables resource permissions for engine run definitions</li>
+                                                            <li><code>exstrapplication</code>—Enables resource permissions for <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> communications</li>
+                                                            <li><code>exstrbarcode</code>—Enables resource permissions for barcodes</li>
+                                                            <li><code>exstrcommunicationset</code>—Enables resource permissions for communication sets</li>
+                                                            <li><code>exstrcomponentobj</code>—Enables resource permissions for <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> components</li>
+                                                            <li><code>exstrdatasource</code>—Enables resource permissions for data sources</li>
+                                                            <li><code>exstrdocument</code>—Enables resource permissions for <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> documents</li>
+                                                            <li><code>exstremail</code>—Enables resource permissions for <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> email designs</li>
+                                                            <li><code>exstrengine</code>—Enables resource permissions for <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> engines</li>
+                                                            <li><code>exstrgraphicalmessage</code>—Enables resource permissions for <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> graphic messages</li>
+                                                            <li><code>exstrhtml5</code>—Enables resource permissions for <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> web designs</li>
+                                                            <li><code>exstrmessagetype</code>—Enables resource permissions for message types</li>
+                                                            <li><code>exstrmetadata</code>—Enables resource permissions for metadata tags</li>
+                                                            <li><code>exstrmigrationset</code>—Enables resource permissions for migration sets</li>
+                                                            <li><code>exstroutput</code>—Enables resource permissions for DAS outputs</li>
+                                                            <li><code>exstroutputqueue</code>—Enables resource permissions for DAS output queues</li>
+                                                            <li><code>exstrpackage</code>—Enables resource permissions for <span class="mc-variable _IMP_Product_Names.DesignManager variable">Design Manager</span> application package files and subpackage files.</li>
+                                                            <li><code>exstrpage</code>—Enables resource permissions for <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> page designs</li>
+                                                            <li><code>exstrpapertype</code>—Enables resource permissions for paper types</li>
+                                                            <li><code>exstrparagraph</code>—Enables resource permissions for <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> clauses</li>
+                                                            <li><code>exstrparagraphsection</code>—Enables resource permissions for <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> sections</li>
+                                                            <li><code>exstrtextmessage</code>—Enables resource permissions for <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> text messages</li>
+                                                            <li><code>exstrvariablebase</code>—Enables resource permissions for DAS variables</li>
+                                                            <li><code>flowmodel</code>—Enables resource permissions for flow models</li>
+                                                            <li><code>fontdefinition</code>—Enables resource permissions for fonts</li>
+                                                            <li><code>font</code>—Enables resource permissions for DAS font faces</li>
+                                                            <li><code>image</code>—Enables resource permissions for images</li>
+                                                            <li><code>orcsettings</code>—Enables resource permissions for flow contexts</li>
+                                                            <li><code>resourcepack</code>—Enables resource permissions for design packs</li>
+                                                            <li><code>samplefile</code>—Enables resource permissions for sample files</li>
+                                                            <li><code>versionedtemplate</code>—Enables resource permissions for  templates</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><code>domains</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Creates and configures the domains in the new tenant. Specify the following parameters to create a domain and repeat them for each subsequent domain that you want to create:</p>
+                                        <ul>
+                                            <li><code>id</code>—Enter the name of the new domain.</li>
+                                            <li><code>production</code>—Set to <code>true</code> if the domain will be used for production engine runs. Otherwise, set to <code>false</code>.</li>
+                                            <li>
+                                                <p><code>roleMappings</code>—Specify the following parameters to assign a specific role to one or more <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> groups and repeat them for each subsequent role that you want to assign to <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> groups:</p>
+                                                <ul>
+                                                    <li><code>role</code>—Enter a role that exists in this tenant. You use the <a href="#Roles"><code>roles</code> parameter block</a> to create roles in the tenant.</li>
+                                                    <li><code>groups</code>—Enter the existing <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> groups to which this role should be assigned, separating each group name with a comma. You use <a href="#Partitions">the <code>groups</code> parameter</a> in the <code>partitions</code> parameter block in the <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span> tenant configuration to create new groups in <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ boldPrint MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />bootstrap.config.tenants.&lt;tenant&gt;.orchestation</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>In <code>bootstrap.config.tenants.&lt;tenant&gt;.orchestration</code>, you provide the  information that is required to configure the tenant for the Orchestration service. These tenant configuration settings are provided in the following parameter block:</p>
+                        <div class="codeSnippet"><a class="codeSnippetCopyButton" role="button" href="javascript:void(0);">Copy</a>
+                            <div class="codeSnippetCaption">
+                                <p>Orchestration tenant configuration</p>
+                            </div>
+                            <div style="mc-code-lang: Python;" class="codeSnippetBody" data-mc-continue="False" data-mc-line-number-start="1" data-mc-use-line-numbers="False"><pre><code>orchestration:<br />&#160;&#160;&#160;&#160;databaseInfo:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;schema:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;username:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;password:</code></pre>
+                            </div>
+                        </div>
+                        <p>The following table describes the parameters in this parameter block.</p>
+                        <table style="width: 100%;margin-left: 0;margin-right: auto;caption-side: top;">
+                            <caption>Parameter descriptions</caption>
+                            <col style="width: 30%;" />
+                            <col style="width: 70%;" />
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <p>Parameter</p>
+                                    </th>
+                                    <th>
+                                        <p>Description</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p><code>databaseInfo</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Provides the Orchestration tenant schema information for the tenant. This parameter block is required only if you are using manual schema management for your <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> databases. You must have first <a href="SettingUpTenantSchemas.htm">created the tenant schemas</a> in your database. If you are using automatic schema management, the bootstrap process creates the tenant schemas for the new tenant. </p>
+                                        <p>Specify the schema information in the following parameters:&#160;</p>
+                                        <ul>
+                                            <li><code>schema</code>—Enter the name of the tenant schema.</li>
+                                            <li><code>username</code>—Enter the user name of the schema owner.</li>
+                                            <li><code>password</code>—Enter the password of the new user.</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ boldPrint MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />bootstrap.config.tenants.&lt;tenant&gt;.empower</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <div class="Admonition_Note">
+                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>This section is required only if your <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> deployment includes <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span>. Otherwise, remove this section or comment it out in your bootstrap configuration.</p>
+                        </div>
+                        <p>In <code>bootstrap.config.tenants.&lt;tenant&gt;.empower</code>, you provide the  information that is required to configure the tenant for the <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> service. These tenant configuration settings are provided in the following parameter block:</p>
+                        <div class="codeSnippet"><a class="codeSnippetCopyButton" role="button" href="javascript:void(0);">Copy</a>
+                            <div class="codeSnippetCaption">
+                                <p>Empower tenant configuration</p>
+                            </div>
+                            <div style="mc-code-lang: Python;" class="codeSnippetBody" data-mc-continue="False" data-mc-line-number-start="1" data-mc-use-line-numbers="False"><pre><code>empower:<br />&#160;&#160;&#160;&#160;databaseInfo:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;schema:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;username:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;password:</code></pre>
+                            </div>
+                        </div>
+                        <p>The following table describes the parameters in this parameter block.</p>
+                        <table style="width: 100%;margin-left: 0;margin-right: auto;caption-side: top;">
+                            <caption>Parameter descriptions</caption>
+                            <col style="width: 30%;" />
+                            <col style="width: 70%;" />
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <p>Parameter</p>
+                                    </th>
+                                    <th>
+                                        <p>Description</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p><code>databaseInfo</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Provides the <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> tenant schema information for the tenant. This parameter block is required only if you are using manual schema management for your <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> databases. You must have first <a href="SettingUpTenantSchemas.htm">created the tenant schemas</a> in your database. If you are using automatic schema management, the bootstrap process creates the tenant schemas for the new tenant. </p>
+                                        <p>Specify the schema information in the following parameters:&#160;</p>
+                                        <ul>
+                                            <li><code>schema</code>—Enter the name of the tenant schema.</li>
+                                            <li><code>username</code>—Enter the user name of the schema owner.</li>
+                                            <li><code>password</code>—Enter the password of the new user.</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadboldPrint"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ boldPrint MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />bootstrap.config.tenants.&lt;tenant&gt;.ei</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <div class="Admonition_Note">
+                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>This section is required only if your <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> deployment includes <span class="mc-variable _IMP_Product_Names.ExperienceInsights_Short variable">Core Experience&#160;Insights</span> integration. Otherwise, remove this section or comment it out in your bootstrap configuration.</p>
+                        </div>
+                        <p>In <code>bootstrap.config.tenants.&lt;tenant&gt;.ei</code>, you provide the  information that is required to configure the tenant for the <span class="mc-variable _IMP_Product_Names.ExperienceInsights_Short variable">Core Experience&#160;Insights</span> integration service. These tenant configuration settings are provided in the following parameter block:</p>
+                        <div class="codeSnippet"><a class="codeSnippetCopyButton" role="button" href="javascript:void(0);">Copy</a>
+                            <div class="codeSnippetCaption">
+                                <p>Experience Insights integration tenant configuration</p>
+                            </div>
+                            <div style="mc-code-lang: Python;" class="codeSnippetBody" data-mc-continue="False" data-mc-line-number-start="1" data-mc-use-line-numbers="False"><pre><code>ei:<br />&#160;&#160;&#160;&#160;databaseInfo:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;schema:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;username:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;password:</code></pre>
+                            </div>
+                        </div>
+                        <p>The following table describes the parameters in this parameter block.</p>
+                        <table style="width: 100%;margin-left: 0;margin-right: auto;caption-side: top;">
+                            <caption>Parameter descriptions</caption>
+                            <col style="width: 30%;" />
+                            <col style="width: 70%;" />
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <p>Parameter</p>
+                                    </th>
+                                    <th>
+                                        <p>Description</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p><code>databaseInfo</code>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>Provides the <span class="mc-variable _IMP_Product_Names.ExperienceInsights_Short variable">Core Experience&#160;Insights</span> tenant schema information for the tenant. This parameter block is required only if you are using manual schema management for your <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> databases. You must have first <a href="SettingUpTenantSchemas.htm">created the tenant schemas</a> in your database. If you are using automatic schema management, the bootstrap process creates the tenant schemas for the new tenant. </p>
+                                        <p>Specify the schema information in the following parameters:&#160;</p>
+                                        <ul>
+                                            <li><code>schema</code>—Enter the name of the tenant schema.</li>
+                                            <li><code>username</code>—Enter the user name of the schema owner.</li>
+                                            <li><code>password</code>—Enter the password of the new user.</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2022</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

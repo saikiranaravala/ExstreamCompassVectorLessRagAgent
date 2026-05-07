@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="OpenText Exstream (Cloud-Native) Release CE 22.2.0 Web Client Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Filtering searches</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Filtering searches</h1>
+                <p>When you search in <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span>, you can click the arrow in the <span class="uielement">Search</span> box to open the <span class="uielement">Advanced search options</span> dialog box and then select filters to apply to your search results. The filters  limit your results to content that matches the search term that you enter in the <span class="uielement">Search</span> box (if any) and the filters that you select.</p>
+                <div class="Admonition_Note">
+                    <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>Search results include matches found in content properties only, such as name and description, unless your deployment supports the filter <a href="#Search_text_within_content"><span class="uielement">Search text within content</span></a>.</p>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Applying search filters</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>The search filters that you can apply depend on the content that you search for and where you search for that content.</p>
+                        <p class="TaskIntro">To apply search filters:</p>
+                        <ol>
+                            <li value="1">
+                                <p>(Optional) Enter a search term in the <span class="uielement">Search</span> box.</p>
+                                <ul>
+                                    <li>
+                                        <p>A valid search term can contain letters, numerals, spaces, and the following characters:</p>
+                                        <p><code>~ ` @ $ ^ ( ) _ - = ; " ' , .</code>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>A search term cannot contain any of these characters:</p>
+                                        <p><code>! # % &amp; * + | \ / &lt; &gt; : ?</code>
+                                        </p>
+                                        <div class="Admonition_Tip">
+                                            <p data-mc-autonum="&lt;b&gt;Tip: &lt;/b&gt;"><span class="autonumber"><span><b>Tip: </b></span></span>If  the <span class="uielement">Search</span> box outline is red and the search button <img src="../images/b_WebApps_Search.png" class="inline" /> is unavailable, remove invalid characters from the search term and try your search again.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li value="2">
+                                <p>Click the arrow in the <span class="uielement">Search</span> box.</p>
+                            </li>
+                            <li value="3">
+                                <p>In the <span class="uielement">Advanced search options</span> dialog box, select the search filters to apply, and then click <span class="uielement">Search</span> at the bottom of the dialog box.</p>
+                                <p>In the <span class="uielement">Search</span> box, the search button <img src="../images/b_WebApps_Search.png" class="inline" /> changes to the filtered search button <img src="../images/b_WebApps_SearchAdvanced.png" class="inline" /> to indicate that one or more search filters are applied.</p>
+                            </li>
+                            <li value="4">
+                                <p>To search again with the same filters applied and a new search term, enter the new term in the <span class="uielement">Search</span> box and then click the filtered search button <img src="../images/b_WebApps_SearchAdvanced.png" class="inline" />. </p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Advanced search options</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p class="TaskIntro">You can select one or more of the following search filters in the <span class="uielement">Advanced search options</span> dialog box:</p>
+                        <table style="width: 100%;">
+                            <col />
+                            <col />
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <p>Search&#160;filter</p>
+                                    </th>
+                                    <th>
+                                        <p>Affect</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p><a name="Case_sensitive_search"></a>Case sensitive search</p>
+                                    </td>
+                                    <td>
+                                        <p>Limits results to content that matches the case of letters in the search term.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Show unavailable content</td>
+                                    <td>Extends results to include content that you cannot access. For example, the results can include older versions of content and content that is reserved by a different user.</td>
+                                </tr>
+                                <tr>
+                                    <td><a name="Search_text_within_content"></a>Search text within content</td>
+                                    <td>
+                                        <p>Limits results to content that contains text that matches the search term. For example, if the search term is a word or phrase, the results can include messages, clauses, and sections that contain that word or phrase.</p>
+                                        <p>If your deployment supports this filter, you can search for text within content in the following views only:</p>
+                                        <ul>
+                                            <li data-mc-conditions="_Exstream_Conditions.WebClientOnly">
+                                                <p><span class="mc-variable _Exstream_UI_Names.WEB_DesignAssetMgmtView variable">Design asset library view</span>
+                                                </p>
+                                            </li>
+                                            <li data-mc-conditions="_Exstream_Conditions.CommDesignerOnly">
+                                                <p><span class="mc-variable _Exstream_UI_Names.CDR_StructureView variable">Structure view</span>
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <p><span class="mc-variable _Exstream_UI_Names.BCA_AuthoringView variable">Authoring view</span>, when you add or edit content in the <span class="uielement">Content Composer </span>dialog box.</p>
+                                            </li>
+                                        </ul>
+                                        <div class="Admonition_Note">
+                                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>If you do not see this filter, contact your <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> administrator about adding it to your deployment.</p>
+                                            <p data-mc-conditions="_Exstream_Conditions.WebClientOnly">The <span class="uielement">Search text within content</span> filter connects your <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> deployment to an instance of Apache Solr™ running in the Apache Solr cloud. </p>
+                                            <p data-mc-conditions="_Exstream_Conditions.WebClientOnly">For more information about Apache Solr, see the <span class="docName">Apache Solr Reference Guide</span>. You can download this guide from the Apache Solr website at <a href="https://solr.apache.org/">solr.apache.org</a></p>
+                                            <p data-mc-conditions="_Exstream_Conditions.WebClientOnly">For more information about integrating Apache Solr with <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span>, see the <span class="docName mc-variable _Exstream_Doc_Names._Product_Prefix variable">OpenText Exstream</span> <span class="docName mc-variable _Exstream_Doc_Names.EXS_CommonInstall variable">Installation Guide</span>.</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Workflow state</td>
+                                    <td>Limits results to content that matches the selected workflow state or states: Draft, Submitted for approval, Approved, or Rejected.</td>
+                                </tr>
+                                <tr>
+                                    <td>Quick tags</td>
+                                    <td>Limits results to content that has the selected category tags or metadata tags applied.</td>
+                                </tr>
+                                <tr>
+                                    <td>My objects</td>
+                                    <td>
+                                        <p> Limits results to content that you created, reserved, or last updated.</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2022</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

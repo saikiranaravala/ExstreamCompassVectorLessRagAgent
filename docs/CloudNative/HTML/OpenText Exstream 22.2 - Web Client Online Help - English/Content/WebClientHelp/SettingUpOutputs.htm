@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="OpenText Exstream (Cloud-Native) Release CE 22.2.0 Web Client Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Setting up outputs</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Setting up outputs</h1>
+                <p>You can use the asset library panel in the <span class="mc-variable _Exstream_UI_Names.WEB_CommAssetMgmtView variable">Communication asset library view</span> to add outputs objects to the asset library for use with a communication. Output objects are communication assets to which you assign an output driver. After you assign an output driver to an output object, you can customize the settings specific to output production. </p>
+                <table style="margin-left: 0;margin-right: auto;caption-side: top;width: 75%;">
+                    <caption>Output types available in <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span></caption>
+                    <col style="width: 50%" />
+                    <col style="width: 50%" />
+                    <thead>
+                        <tr>
+                            <th>Delivery method</th>
+                            <th>Output format</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Electronic output formats</td>
+                            <td>
+                                <ul>
+                                    <li>HTML</li>
+                                    <li>HTML Email</li>
+                                    <li>Messaging</li>
+                                    <li><span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Print output format</td>
+                            <td>PDF</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />HTML</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>The HTML output driver produces HTML files that use Cascading Style Sheets (CSS) and JPEG images. These files are used for web-based communications.</p>
+                        <p><span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> provides HTML output that supports text and images as output for presentation on the Internet, intranets, or other electronic networks. With HTML output, you can produce web pages and other browser-based communications. You can deploy <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span>-generated HTML pages on the web, in eLearning sessions, for online help programs, and in other communications that use standard web browsers.</p>
+                        <p>The HTML content that you produce from <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> is HTML5. This lets you produce output to which you can, using external systems, add any of the new features that are specified by the HTML5 recommendation. You can also include accessibility tags so that your HTML output can be read by a screen reader or text-to-speech converter.</p>
+                        <p>HTML5 uses Cascading Style Sheets, level 3 (CSS3) for styles and object positioning. With HTML5 output, all styles are defined in an external CSS file or within the <code>style</code> element in the HTML itself, depending on how the HTML output object is configured. Individual elements use class selectors to apply styles. The separation of styles in HTML5 output lets you more easily change styles to adjust the look and feel of your existing output, without producing new output.</p>
+                        <p class="ListIntro">If you create an HTML output object for your communication, when the engine runs, <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> produces the following set of files:</p>
+                        <ul>
+                            <li>
+                                <p><span class="emphasis-bold">HTML output file (.html)</span>—The source HTML file</p>
+                            </li>
+                            <li>
+                                <p><span class="emphasis-bold">JPEG (.jpg)</span>—These are the images that are imported into the design in their original format (such as JPEG or PNG).</p>
+                            </li>
+                            <li>
+                                <p><span class="emphasis-bold">External Cascading Style Sheets files (.css)</span> (Optional)—These files contain the styles that are used in the output. You receive multiple CSS files if you are delivering container designs in the output and you are using additional cascading style sheets to control the final appearance of your container design. </p>
+                            </li>
+                            <li>
+                                <p><span class="emphasis-bold">External JavaScript files</span> (Optional)—These files contain any JavaScript code used within the design.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />HTML Email</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>The HTML Email output driver produces HTML files that are used for email-based communications. </p>
+                        <p class="ListIntro">If you create an HTML Email output object for your communication, when the engine runs, <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> produces the following set of files:</p>
+                        <ul>
+                            <li>
+                                <p><span class="emphasis-bold">HTML Email output file (.html)</span>—The source HTML file</p>
+                            </li>
+                            <li>
+                                <p><span class="emphasis-bold">JPEG (.jpg)</span>—These are the images that are imported into the design in their original format (such as JPEG or PNG). </p>
+                            </li>
+                        </ul>
+                        <p>In HTML Email output, all of the text and paragraph styles that you applied in <span class="mc-variable _Exstream_UI_Names.CDR_DesignView variable">Design view</span> are embedded in the <code>*.html</code> output files, either inline with the HTML elements or within the <code>&lt;head&gt;</code> element at the top of the files. Because all of the styles are embedded with the content in the <code>*.html</code> files, you do not receive a separate CSS file in the output.</p>
+                        <p>You can also include accessibility tags so that your HTML Email output can be read by a screen reader or text-to-speech converter.</p>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Messaging</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>The Messaging output driver produces plain text output, which can be used for communications such as Short Message Service (SMS) text messages.</p>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" /><span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span></a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>The <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> output driver produces documents that can be opened in <span class="mc-variable _IMP_Product_Names.HydrogenEditor variable">Empower Editor</span>. It contains the settings that control the appearance and format of <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> documents.</p>
+                        <div class="Admonition_Note">
+                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>Using <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> output objects created prior to <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> version 21.4.0 may result in incorrect behavior in <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span>. <span class="mc-variable _IMP_Template_Elements._Company_Acronym variable">OpenText</span> recommends that you create a new <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span> output object to use with your communication.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />PDF</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>The PDF output driver produces fully composed Portable Document Format (PDF) files that are automatically bookmarked and are searchable using Adobe Acrobat Reader. The PDF output driver supports  binary compression, font management, and other standard PDF features. You can add accessibility tags to these files to control and optimize the way the document is read by a screen reader or text-to-speech converter.</p>
+                        <p><span class="mc-variable _IMP_Product_Names.CommDesigner_Full variable">Exstream Communications Designer</span> supports PDF version 1.3 and later for standard PDF output.</p>
+                        <p class="ListIntro">When you produce PDF-based output, you can do the following:</p>
+                        <ul>
+                            <li>
+                                <p>You can send or post your PDF documents on the web for customer access.</p>
+                            </li>
+                            <li>
+                                <p>A growing number of high-volume print vendors can use your PDF files to complete production runs.</p>
+                            </li>
+                            <li>
+                                <p>Customers can easily view PDF output by either downloading the free Acrobat Reader from the Adobe website or purchasing the full Acrobat program. Customers can view, print, or change PDF documents depending on the Acrobat program they use.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2022</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="Exstream Platform (Server-Based) 23.3 Communications Designer Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Creating effective responsive designs</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Creating effective responsive designs</h1>
+                <p>When you design communications for HTML-based output, a major part of the design process is ensuring that the end result responds to your customer's device screen size and orientation, as well as the browser or email client that they are using. Effective responsive designs have flexible layouts that automatically adjust to the viewing device, whether it is a desktop, a laptop, a tablet, or a mobile phone. </p>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" /></a><a name="Viewing"></a><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead" aria-expanded="false">Creating design layouts for mobile and desktop devices</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>When you design for large screens, you might want to place content side by side in multiple columns to take full advantage of the available screen space. You can achieve this by creating a multi-column <a href="WorkingWithContainers.htm">container layout</a> in your design. On small screens, however, a single-column layout is usually needed to present content legibly, without requiring the user to scroll horizontally.</p>
+                        <p>In <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span>, the output from the designs that you create will automatically reflow into a single column from a multi-column layout when viewed on a device with a viewport that is smaller than 480 pixels. When the output is restructured in this manner, by default, any container row with multiple child containers in it is rotated so that the child containers from left to right are vertically stacked top to bottom in the same order, as shown in the following image. </p>
+                        <p class="FigureTitle">Example of container stacking based on device screen size</p>
+                        <p>
+                            <img src="../images/e_CellStackingOrder.png" alt="Multi-column HTML output on a large desktop device appears as a single-column layout when viewed on a smaller mobile device" title="Example of container stacking based on device screen size" />
+                        </p>
+                        <p>In <span class="mc-variable _Exstream_UI_Names.CDR_DesignView variable">Design view</span>, you can choose to see your design in the desktop layout view or the mobile layout view. You can also use <span class="mc-variable _Exstream_UI_Names.WEB_SimulationView variable">Simulation view</span> to <a href="PreviewingCommunications.htm">preview</a> how the layout will reflow when you view the output on mobile and desktop devices. The desktop layout view shows the design in the standard layout as it would appear on devices with a viewport greater than 480 pixels. The mobile layout view reflows the design into a single-column responsive layout, and shows the design as it would appear on devices with a viewport smaller than 480 pixels. </p>
+                        <p>By default, <span class="mc-variable _Exstream_UI_Names.CDR_DesignView variable">Design view</span> always opens to the desktop layout view. To change the layout view, select from the following options on the design toolbar:</p>
+                        <ul>
+                            <li><span class="uielement">Mobile view</span> button <img src="../images/b_CommDesigner_MobileView.png" class="inline" alt="Mobile view button" title="Mobile view button" />—Displays the design in the mobile layout view. </li>
+                            <li><span class="uielement">Desktop view</span> button <img src="../images/b_CommDesigner_DesktopView.png" class="inline" alt="Desktop view button" title="Desktop view button" />—Displays the design in the desktop layout view. </li>
+                        </ul>
+                        <div class="Admonition_Note">
+                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>You cannot add new containers or split existing containers when you are in the mobile layout view. </p>
+                        </div>
+                        <p>When you switch between these layout view options, you can see how your design elements change position relative to screen size. Make sure that you place content so that the output is still correctly structured when the design elements reflow on different viewing devices. If you determine that you do not want some multi-column layout elements of your design to be changed to the stacked single-column layout, you can specify those settings as well. </p>
+                        <p>To prevent a selected multi-column container from being rotated in mobile view, on the <span class="uielement">Container properties</span> card <img src="../images/b_CommDesigner_ContainerProps.png" alt="the Container properties button" class="inline" />, clear the <span class="uielement">Rotate on mobile</span> check box.</p>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Showing and hiding design elements on mobile and desktop devices</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>When you create a design for HTML-based output, you might want to consider how the output appears on various device sizes. If you begin with a design that is intended to be viewed on a large desktop screen, some design elements in the output might not be as easily readable on mobile devices like tablets or smartphones. </p>
+                        <p><span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> lets you control the design elements that are visible on desktop or mobile devices to create effective responsive designs. For example, you can choose to hide content that is not easily readable when scaled to a smaller size (such as a banner image) when your design is viewed on a mobile device. You can also specify a different smaller image that is visible only on mobile devices and is hidden when the design is viewed on a desktop. </p>
+                        <p>When you enable these features, the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> engine adds media query styles to the <a href="AutomaticallyGeneratedCSSStyles.htm">automatically generated CSS styles</a>. These styles detect the viewport of the viewing device to display only those containers that are not hidden for that device.</p>
+                        <p>To set the device-specific visibility for a selected container, on the <span class="uielement">Container properties</span> card <img src="../images/b_CommDesigner_ContainerProps.png" alt="the Container properties button" class="inline" />, select from the following options:</p>
+                        <ul>
+                            <li><span class="uielement">Hide on mobile</span>—Select this check box to hide the selected container when the design is viewed on a device with a viewport smaller than 480 pixels.</li>
+                            <li><span class="uielement">Hide on desktop</span>—Select this check box to hide the selected container when the design is viewed on a device with a viewport greater than 480 pixels.</li>
+                        </ul>
+                        <p>The first time that you open a design, you will see all hidden containers in the <a href="#Viewing">selected layout view</a>. To hide the containers that are set to be hidden, click the <span class="uielement">Toggle hidden containers</span> button <img src="../images/b_CommDesigner_ToggleHidden.png" class="inline" alt="Toggle hidden containers button in the inactive state" title="Toggle hidden containers button in the inactive state" /> . When this option is active (<img src="../images/b_CommDesigner_ToggleHidden_Active.png" class="inline" title="Toggle hidden containers button in the active state" alt="Toggle hidden containers button in the active state" />), containers set to be hidden are not visible. When this option is not active (<img src="../images/b_CommDesigner_ToggleHidden.png" class="inline" alt="Toggle hidden containers button in the inactive state" title="Toggle hidden containers button in the inactive state" />), containers set to be hidden in a specific layout are visible and are shaded red in that layout view. When you save and close the design, the current state of the <span class="uielement">Toggle hidden containers</span> option is also saved and persists until it is changed.</p>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Scaling design elements in the output when viewed on different devices</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>A key responsive design feature is scaling design objects and containers so that they resize automatically to accommodate different devices and screen orientations. In <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span>, the designs that you create will automatically scale up or down based on the screen size of the viewing device. This automatic resizing is supported for all design objects that you can use in email and web designs except embedded objects. </p>
+                        <div class="Admonition_Tip">
+                            <p data-mc-autonum="&lt;b&gt;Tip: &lt;/b&gt;"><span class="autonumber"><span><b>Tip: </b></span></span>Because email and web designs resize automatically, if you need to restrict the way that some objects resize when the output is viewed on a smaller screen, you can embed design objects into a table that is placed within a container.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2023</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

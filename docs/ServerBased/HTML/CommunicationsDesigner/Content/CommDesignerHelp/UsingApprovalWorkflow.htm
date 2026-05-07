@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="Exstream Platform (Server-Based) 23.3 Communications Designer Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Using the approval workflow</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Using the approval workflow</h1>
+                <p>The approval workflow is the progression of content or of a communication from initial version to final approval. Using an approval workflow helps to ensure that new and updated content is properly reviewed for accuracy and conforms to company standards. </p>
+                <p>Before you can produce output from <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> communications, the entire communication must be approved by a reviewer and then <a href="PreparingForProduction.htm">published</a> to the appropriate application domain. This includes the communication and all of its associated resources, such as images that are used in designs and the sample files and simulations that are referenced by the communication.</p>
+                <div class="Admonition_Note">
+                    <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>Your ability to move content or communications through an approval workflow is determined by access privileges within your organization’s <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> environment. If you have questions about your access privileges, talk to your system administrator.</p>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Understanding the approval process</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>When approving communication resources, all child resources must be approved before a parent resource; that is, the reviewer must approve components before designs, designs before documents, and documents before the communication.</p>
+                        <p>At a high level, the approval process is as follows:</p>
+                        <ol>
+                            <li value="1">A designer creates or makes updates to a communication object, such as a page or email.</li>
+                            <li value="2">When the designer is finished editing, they submit the communication, or individual communication objects, for approval.</li>
+                            <li value="3">A reviewer either approves or rejects the updates. If the reviewer accepts updates for all of the resources that are associated with the communication, the communication is approved and ready to be fulfilled. If the reviewer rejects any of the updates, then the designer must return the rejected content to draft status make additional changes, and submit those changes for approval.</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Determining current workflow states</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>You can quickly determine the current workflow status of a communication object or of the entire communication using the corresponding workflow state indicator: </p>
+                        <ul>
+                            <li>
+                                <p>In <span class="mc-variable _Exstream_UI_Names.CDR_StructureView variable">Structure view</span>, the workflow state for the communication and for each communication object appears on the corresponding object in the <span class="uielement">Structure map</span> area.</p>
+                            </li>
+                            <li>
+                                <p>In <span class="mc-variable _Exstream_UI_Names.CDR_DesignView variable">Design view</span>, the <span class="uielement">Change workflow state</span> button in the design area displays the current workflow state of the communication object that you are editing. For components, the workflow state is also displayed in the properties panel on the <span class="uielement">General</span> card.</p>
+                            </li>
+                            <li>
+                                <p>If your communication includes a data source, the current workflow state of the data source is displayed in the <span class="uielement">Communication asset management</span> widget.</p>
+                                <div class="Admonition_Note">
+                                    <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>Variables that are created in <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> are automatically approved when they are created or updated. </p>
+                                </div>
+                            </li>
+                        </ul>
+                        <p>The following table lists the symbols that are used to indicate the different workflow states and describes the meaning of each symbol:</p>
+                        <table style="width: 100%;caption-side: top;">
+                            <caption>Workflow state indicators</caption>
+                            <col style="width: 10%;" />
+                            <col style="width: 20%;" />
+                            <col style="width: 70%;" />
+                            <thead>
+                                <tr>
+                                    <th>Indicator</th>
+                                    <th>State</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img src="../images/B_ExstreamWeb_Workflow_Draft.png" alt="Indicator for object in draft state" title="Indicator for object in draft state" style="width: 36px;height: 36px;" />
+                                    </td>
+                                    <td>Draft</td>
+                                    <td>The object is available for editing.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="../images/B_ExstreamWeb_Workflow_Submitted.png" style="width: 34px;height: 34px;" title="Indicator for object that is submitted for approval" alt="Indicator for object that is submitted for approval" />
+                                    </td>
+                                    <td>Submitted for approval</td>
+                                    <td>
+                                        <p>The object has been submitted for approval and cannot be edited. To make changes, you must return the object to a draft state.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="../images/B_ExstreamWeb_Workflow_Approved.png" title="Indicator for object in approved state" alt="Indicator for object in approved state" style="width: 37px;height: 37px;" />
+                                    </td>
+                                    <td>Approved</td>
+                                    <td>
+                                        <p>The object is approved and is ready to be used in customer output. To make changes, you must create a new draft.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="../images/B_ExstreamWeb_Workflow_Rejected.png" style="width: 37px;height: 37px;" title="Indicator for object in rejected state" alt="Indicator for object in rejected state" />
+                                    </td>
+                                    <td>Rejected</td>
+                                    <td>The object has been rejected and cannot be edited. To make changes, you must return the object to a draft state.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Moving through the approval process</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>When communications or communication objects move through the approval workflow, they are assigned incremental whole numbers for versioning. Each time a new draft is created from an approved object, the version number for that object is incremented. For example, when a designer creates a new communication object, this is version 1 of the object, and this version is in draft state. When a reviewer approves this object, version 1 of the object is in the approved state. If a designer then creates a new draft of the approved object, then that draft is version 2 of the object. However, if a reviewer rejects version 1 of the object, and a designer then returns it to a draft state, the version number of the object is not incremented. </p>
+                        <p>As you move through the approval process, keep in mind that only communications and communication objects that are in draft state can be edited. After an object has been submitted for approval or rejected, you must return that object to a draft state in order to update it. Similarly, if an object has already been approved, you must create a new draft of the object in order to add to or update it. </p>
+                        <p>If you try to approve a communication or a parent communication object that contains unapproved child objects (or objects that do not have a previously approved version), you will receive a message indicating that you must first approve all of the child objects before you can approve the parent object. However, you can submit a communication or a parent communication object for approval even if some of the child objects are in a draft state. The workflow state of the parent communication object does not affect the workflow state of the objects that it contains. For example, if you approve a communication that contains objects that are currently in a draft state but have previously approved versions, the draft versions of the children do not automatically get approved. For fulfillment, the approved communication will use the latest approved versions of the communication objects, not the draft versions.</p>
+                        <div class="Admonition_Note">
+                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>Your ability to move content or communications through an approval workflow is determined by access privileges within your organization’s <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> environment. If you have questions about your access privileges, speak to your system administrator.</p>
+                        </div>
+                        <p>To move a communication object or a communication through the approval process:</p>
+                        <ol>
+                            <li value="1">
+                                <p>When you have finished <a href="WorkinginDesignerView.htm">creating your design</a>, do one of the following:</p>
+                                <ul>
+                                    <li>In the <span class="uielement">Communication asset management</span> widget, click the <span class="uielement">Change workflow state</span> button for the appropriate data source.</li>
+                                    <li>In <span class="mc-variable _Exstream_UI_Names.CDR_StructureView variable">Structure view</span>, click the workflow status icon on the object in the <span class="uielement">Structure map</span> area.</li>
+                                    <li>
+                                        <p> In <span class="mc-variable _Exstream_UI_Names.CDR_DesignView variable">Design view</span>, click the <span class="uielement">Change workflow state</span> button in the design area. If you accessed a component from within a design, you can change the workflow state of that component by clicking the <span class="uielement">Change workflow state</span> button next to the component name on the <span class="uielement">General</span> card in the properties panel.</p>
+                                        <div class="Admonition_Note">
+                                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>You can use <span class="mc-variable _Exstream_UI_Names.CDR_DesignView variable">Design view</span> to change the workflow state of designs and components only.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li value="2">
+                                <p>Depending on the current workflow state of the communication or the communication object, select one of the following actions to move it through the approval process:</p>
+                                <table style="width: 100%;margin-left: 0;margin-right: auto;" summary="Options for moving an object through the approval process depending on its current workflow state">
+                                    <col style="width: 20%;" />
+                                    <col style="width: 30%;" />
+                                    <col style="width: 50%;" />
+                                    <thead>
+                                        <tr>
+                                            <th>Current state</th>
+                                            <th>Option</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <p>Draft</p>
+                                            </td>
+                                            <td>
+                                                <p>In <span class="mc-variable _Exstream_UI_Names.CDR_StructureView variable">Structure view</span> or for data sources: <span class="uielement">Submit for approval</span></p>
+                                                <p>In <span class="mc-variable _Exstream_UI_Names.CDR_DesignView variable">Design view</span>: <span class="uielement">Submit</span></p>
+                                            </td>
+                                            <td>
+                                                <p>Submit the draft version for approval.</p>
+                                                <p>After you submit a version for approval, you can no longer make changes to it. In order to make changes, you must return the content to a draft state, and then submit the updated draft for approval when ready.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>Submitted for approval</p>
+                                            </td>
+                                            <td>
+                                                <p><span class="uielement">Approve</span>
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p>Approve the submitted object.</p>
+                                                <p>Select this option only for objects that are ready to be used in customer output. Only approved objects will be included in customer output.</p>
+                                                <p>You can approve an object only if all of the child objects that are associated with that object have also been approved. For example, to approve a document, you must first approve all of the designs that are contained within that object and any components or CAS resources that are used in those designs.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>Submitted for approval</p>
+                                            </td>
+                                            <td>
+                                                <p><span class="uielement">Reject</span>
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p>Reject the submitted object.</p>
+                                                <p>Select this option if the object must be changed before it can be used in customer output. When you reject an object, designers must then return the rejected object to a draft state and submit the updated draft for approval after making any required changes.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>Submitted for approval</p>
+                                                <p>or</p>
+                                                <p>Rejected</p>
+                                            </td>
+                                            <td>
+                                                <p>In <span class="mc-variable _Exstream_UI_Names.CDR_StructureView variable">Structure view</span> or for data sources: <span class="uielement">Return to draft</span></p>
+                                                <p>In <span class="mc-variable _Exstream_UI_Names.CDR_DesignView variable">Design view</span>: <span class="uielement">Draft</span></p>
+                                            </td>
+                                            <td>
+                                                <p>Return the submitted or rejected object to a draft state. </p>
+                                                <p>Select this option to make updates to content that has already been submitted for approval or that has been rejected. <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> does not treat an object that is returned to a draft state as a new version; it simply resets the approval workflow process. </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>Approved</p>
+                                            </td>
+                                            <td>
+                                                <p>In <span class="mc-variable _Exstream_UI_Names.CDR_StructureView variable">Structure view</span> or for data sources: <span class="uielement">Make new draft</span></p>
+                                                <p>In <span class="mc-variable _Exstream_UI_Names.CDR_DesignView variable">Design view</span>: <span class="uielement">Draft</span></p>
+                                            </td>
+                                            <td>
+                                                <p>Create a new draft version of a previously approved object.</p>
+                                                <p>When you create a draft, <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable">Communications Designer</span> creates a new version of the content that must go through the approval process in order to be used in customer output.</p>
+                                                <p>If your communication is in the approved state, creating a new draft of a communication object does not change the workflow status of the communication. If you fulfill an approved communication that contains communication objects that are in a draft state, the latest approved version of those objects will be included in the output. </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Draft</td>
+                                            <td>
+                                                <p>In <span class="mc-variable _Exstream_UI_Names.CDR_StructureView variable">Structure view</span> or for data sources: <span class="uielement">Discard draft</span></p>
+                                                <p>In <span class="mc-variable _Exstream_UI_Names.CDR_DesignView variable">Design view</span>: <span class="uielement">Discard draft</span> (components only)</p>
+                                            </td>
+                                            <td>
+                                                <p>Discard a draft version without moving it through the approval process. </p>
+                                                <p>You can delete a draft version of an object at any point before it has been submitted for approval. When you discard a draft version, you lose your edits, and the object is replaced by the latest approved version. </p>
+                                                <p>This option is available only if a previously approved version of the object exists.</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+                            <li value="3">
+                                <p>In the <span class="uielement">Workflow state change</span> dialog box that opens, enter an optional workflow comment to help other users understand any changes or decisions that you made, and then click <span class="uielement">Change</span>.</p>
+                                <p>To see the workflow comments for a selected communication object in the design environment:</p>
+                                <ul>
+                                    <li>
+                                        <p>In <span class="mc-variable _Exstream_UI_Names.CDR_StructureView variable">Structure view</span> or on the <span class="uielement">Communication asset management</span> page, in the <span class="uielement">Properties</span> panel, click the <span class="uielement">Workflow</span> tab.</p>
+                                    </li>
+                                    <li>
+                                        <p>In <span class="mc-variable _Exstream_UI_Names.CDR_DesignView variable">Design view</span>, click <span class="uielement">Workflow history</span> at the bottom of the design area. </p>
+                                    </li>
+                                </ul>
+                                <p>To see the workflow comments for a selected data source on the <span class="uielement">Communications assets</span> page, in the <span class="uielement">Properties</span> panel, click the <span class="uielement">Workflow</span> tab.</p>
+                                <div class="Admonition_Tip">
+                                    <p data-mc-autonum="&lt;b&gt;Tip: &lt;/b&gt;"><span class="autonumber"><span><b>Tip: </b></span></span>To see the workflow history, audit logging must be enabled for your <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> environment, and must allow the service gateway audit logs to be stored in the database. For more information about enabling audit logging, see the <span class="docName mc-variable _Exstream_Doc_Names._Product_Prefix variable">OpenText Exstream</span> <span class="docName mc-variable _Exstream_Doc_Names.CommServer_Help variable" data-mc-conditions="_IMP_Conditions.ScreenOnly">Control Center Online Help</span> or speak to a system administrator.</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2023</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

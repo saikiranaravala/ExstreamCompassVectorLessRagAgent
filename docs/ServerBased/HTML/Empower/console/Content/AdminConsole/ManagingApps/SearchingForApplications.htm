@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="[%=System.LinkedTitle%]|[%=System.LinkedTitle%]">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="Empower Server Console and API" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Searching for applications</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" />
+        <script src="../../../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <h1>Searching for applications</h1>
+            <p><span class="_Exstream_Product_NamesHydrogen">Empower</span> applications store information about the <span class="_Exstream_Product_NamesExstream">Exstream</span> application, the package file, the database, and the engine that were used to create the documents that are associated with an <span class="_Exstream_Product_NamesHydrogen">Empower</span> application. Therefore, before you can test an <span class="_Exstream_Product_NamesHydrogen">Empower</span> document, you must add an <span class="_Exstream_Product_NamesHydrogen">Empower</span> application to <span class="_Exstream_Product_NamesHydrogen">Empower</span> to support that document.&#160;During testing, you might need to find a particular application so that you can make changes to the editor used by a document, or you might want to delete an application from <span class="_Exstream_Product_NamesHydrogen">Empower</span> after testing. </p>
+            <p>To find a particular application in the <span class="_Exstream_Product_NamesHydrogen">Empower</span> repository, you can use the <span class="_Exstream_Product_NamesHydrogen_Admin_Console">Empower Server Console</span> to search for specific text in the fields of the application properties that are stored in <span class="_Exstream_Product_NamesHydrogen">Empower</span>. Keep in mind that you cannot search the contents of the applications.</p>
+            <p>This page includes the following topics:</p>
+            <ul>
+                <li value="1"><a href="#Searching_for_Text_in_Application_Fields" class="MCXref xref">Searching for text in application fields</a>
+                </li>
+                <li value="2"><a href="#Which_Application_Fields" class="MCXref xref">Which application fields does Empower search?</a>
+                </li>
+                <li value="3"><a href="#Best_Practices_When_Searching_Applications" class="MCXref xref">Best practices when searching for applications</a>
+                </li>
+                <li value="4"><a href="#Viewing_Large_Sets_of_Results" class="MCXref xref">Viewing large sets of results</a>
+                </li>
+            </ul>
+            <h2><a name="Searching_for_Text_in_Application_Fields"></a>Searching for text in application fields</h2>
+            <ol>
+                <li value="1">
+                    <p>From the <span class="_Exstream_Product_NamesHydrogen_Admin_Console">Empower Server Console</span>, click <span class="uielement">APPLICATIONS</span>.</p>
+                </li>
+                <li value="2">
+                    <p>In the <span class="uielement">Search table columns...</span> box, enter the text to use for the search, and click <span class="uielement">SEARCH</span>.</p>
+                    <p>The table is updated to include only the applications that have a field that contains your text.</p>
+                    <p>For more information about the specific fields that <span class="_Exstream_Product_NamesHydrogen">Empower</span> searches, see <a href="#Which_Application_Fields" class="MCXref xref">Which application fields does Empower search?</a>?</p>
+                    <p>For more information about <span class="_Exstream_Product_NamesHydrogen">Empower</span> advanced search techniques, see <a href="../../API/get_doc_api.html#Using_search_operators">Using search operators</a>. </p>
+                </li>
+                <li value="3">
+                    <p>By default, search results are sorted in ascending order by application name. To sort your search results by a specific field, click the table header of the field that you want to use to sort the list of results. </p>
+                    <p>The blue column heading indicates the field by which your application list is currently sorted. When you click a blue heading, the list is toggled between ascending and descending order, as indicated by the up or down arrow in the heading. </p>
+                    <p>When you click a gray column heading, the table is sorted in ascending order by the values in that column. </p>
+                </li>
+                <li value="4">
+                    <p>To further refine your results so that you see only <span class="_Exstream_Product_NamesHydrogen">Empower</span>  applications that use a specific version of the editor,  select the version of the editor that you want to use to filter the results from the drop-down list. If there is more than one version of the editor installed, the default value for this setting is <span class="uielement">Show all</span>.</p>
+                </li>
+            </ol>
+            <p>Additional information about your search results is displayed in the <span class="_Exstream_Product_NamesHydrogen_Admin_Console">Empower Server Console</span> footer at the bottom of the <span class="uielement">Applications</span> page:</p>
+            <p>
+                <img src="../../Resources/Images/empower-pagination-showing-items.png" />
+            </p>
+            <p>In this example, the search returned 125 applications. The first 100 applications are displayed on the first page, and applications 101-125 are displayed on the second page.</p>
+            <h2><a name="Which_Application_Fields"></a>Which application fields does <span class="_Exstream_Product_NamesHydrogen">Empower</span> search?</h2>
+            <p>When you search for applications in <span class="_Exstream_Product_NamesHydrogen">Empower</span> using&#160;the <span class="_Exstream_Product_NamesHydrogen_Admin_Console">Empower Server Console</span>, your search results might include applications that do not appear to match your search criteria. This is because some of the fields that <span class="_Exstream_Product_NamesHydrogen">Empower</span> searches&#160; might not be displayed in the applications table, but are included in the <span class="uielement">Application Details</span> page. </p>
+            <p><span class="_Exstream_Product_NamesHydrogen">Empower</span> searches the following application fields for the specified text:</p>
+            <ul>
+                <li value="1">Access group</li>
+                <li value="2">Application ID</li>
+                <li value="3">Application name</li>
+                <li value="4">Application OI</li>
+                <li value="5">Application path</li>
+                <li value="6">Database ID</li>
+                <li value="7">Editor version</li>
+                <li value="8">Engine version</li>
+                <li value="9">Package file name</li>
+                <li value="10">Package version</li>
+                <li value="11">Preview package file</li>
+            </ul>
+            <p>For more information about <span class="_Exstream_Product_NamesHydrogen">Empower</span> application fields, see the corresponding API parameter descriptions in the <a href="../../API/get_app_api.html" class="MCXref xref">Get applications</a> API&#160;call. Keep in mind that application field names might differ slightly between the <span class="_Exstream_Product_NamesHydrogen_Admin_Console">Empower Server Console</span> and the <span class="_Exstream_Product_NamesHydrogen_API">Empower&#160;API</span>.</p>
+            <p>For information about advanced search techniques, see <a href="../../API/get_doc_api.html#Using_search_operators">Using search operators</a>. </p>
+            <h2><a name="Best_Practices_When_Searching_Applications"></a>Best practices when searching for applications</h2>
+            <p>When you use the search box or click a table heading to refine your <span class="_Exstream_Product_NamesHydrogen">Empower</span>  application list, the <span class="_Exstream_Product_NamesHydrogen_Admin_Console">Empower Server Console</span> retrieves real-time data from the repository, based on your search and sorting criteria. This means that if there are application changes in the repository after your initial search, your search results will also change. </p>
+            <p>Use the following best practices to ensure that your search results are as up-to-date as possible and that they appear as expected:</p>
+            <ul>
+                <li value="1"><span class="emphasis-bold">View search results on a single page</span>—Because <span class="_Exstream_Product_NamesHydrogen">Empower</span> retrieves real-time data from the repository each time you move from one page to another in your search results, the results can change when you move between pages. To produce search results that can be viewed on a single page, use the search parameters to narrow your search, or use the <span class="uielement">Page Size</span> drop-down list to increase the number of results that can be displayed in the table. </li>
+                <li value="2">
+                    <p><span class="emphasis-bold">Refresh your search results</span>—It is a good idea to periodically refresh your search results to reflect application changes that have been made by other users (especially in environments where there are many applications changes). To refresh your search results without losing your search and filter selections, click <span class="uielement">REFRESH</span>.</p>
+                    <div class="Admonition_Important">
+                        <p data-mc-autonum="&lt;b&gt;Important: &lt;/b&gt;"><span class="autonumber"><span><b>Important: </b></span></span>Do not use the browser refresh button to refresh your search results. If you use the browser refresh button to refresh the page, your search and filter selections will be lost.</p>
+                    </div>
+                </li>
+                <li value="3"><span class="emphasis-bold">Remove unneeded applications</span>—To help reduce the amount of time that it takes <span class="_Exstream_Product_NamesHydrogen">Empower</span> to search for applications, you can delete applications that are no longer needed. For information about removing unneeded applications, see <a href="DeletingApplications.htm" class="MCXref xref">Deleting applications</a>. </li>
+            </ul>
+            <h2><a name="Viewing_Large_Sets_of_Results"></a>Viewing large sets of results</h2>
+            <p>If your <span class="_Exstream_Product_NamesHydrogen">Empower</span> repository includes a large number of applications, the list of applications might be split across several pages of results. Keep in mind that the <span class="_Exstream_Product_NamesHydrogen_Admin_Console">Empower Server Console</span>&#160;returns only the first 500 applications that match your search criteria. If there are more than 500 applications that match your search, <span class="_Exstream_Product_NamesHydrogen">Empower</span>&#160;displays the plus symbol next to the total number of items and next to the last page number, to indicate that additional items exist. However, those additional items are not displayed as part of your initial set of search results. You can move forwards or backwards within the search results, or you can go to a specific page in the results: </p>
+            <p>
+                <img src="../../Resources/Images/empower-pagination.png" alt="empower-pagination.png" />
+            </p>
+            <p>In this example, the search returned more than 500 results. To view application 501 and beyond, you can go to the last page (Page 20) and then click the <span class="uielement">Next Page</span> button. You can continue to advance through the results a page at a time until you reach the last application that matches your search.</p>
+            <p>&#160;</p>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear: both; clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;"><a href="../../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Copyright © <span class="_IMP_TemplateVarsCopyrightDateRange_CurrentYear">2019</span>&#160;<span class="Branding_Variables_Company_Legal_Name">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="Branding_Variables_Company_Legal_Name">Open&#160;Text</span>.</a>
+                </p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br /><a href="../../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <!--QCCR1K4298 START-->
+        <div style="display:none;" id="HPb-Branding-Variables" Footer="Yes" Feedback="Yes">&#160;</div>
+        <script>/* <![CDATA[ */
+            var BrandingVariables = document.getElementById("HPb-Branding-Variables");
+            if(BrandingVariables.getAttribute('Footer')=="No"){document.getElementById('Copyright').style.display = 'none';}
+            if(BrandingVariables.getAttribute('Feedback')=="No"){document.getElementById('Feedback').style.display = 'none';}
+        /* ]]> */</script>
+        <!--QCCR1K4298 END-->
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+            var closeIFrame = function() {
+            $('.MCTopicPopupContainer').remove();
+            $("#mc-background-tint").remove();
+            }
+        </script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+        <script src="../../Resources/Scripts/_IMP_init.js">
+        </script>
+        <!-- Include the following files in output -->
+        <p style="visibility:hidden"><a href="../../Resources/Scripts/_IMP_imageMapResizer.min.js">frontfileref</a><a href="../../Resources/Stylesheets/fonts/_IMP_Lato-Regular.ttf">frontfileref</a><a href="../../Resources/Stylesheets/fonts/_IMP_Lato-Bold.ttf">frontfileref</a>
+        </p>
+        <script type="text/javascript">/* <![CDATA[ */
+
+				//Set navigation hotkeys within iframe (must be done separately from top level)
+				window.addEventListener('keyup',
+					function(e) {
+						switch (e.key) {
+							case 'ArrowLeft':
+								MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous");
+								break;
+							case 'ArrowRight':
+								MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next");
+						}
+					}
+				, false);
+
+		/* ]]> */</script>
+    </body>
+</html>

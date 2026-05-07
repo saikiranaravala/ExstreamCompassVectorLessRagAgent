@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="OpenText Exstream (Cloud-Native) Release CE 22.2.0 Web Client Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Using approval workflows</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Using approval workflows</h1>
+                <p>In <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span>, the term "approval workflow" refers to the progression of content or of a communication from initial version to final approval. You can use a workflow to approve the individual pieces of content that make up  communications, or to approve entire communications (including content). Using an approval workflow helps to ensure that new and updated content is properly reviewed for accuracy and conforms to company standards.</p>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Types of approval workflows</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>Your <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> administrator configures <span class="mc-variable _IMP_Product_Names.CommDesigner_Short variable" data-mc-conditions="_Exstream_Conditions.CommDesignerOnly">Communications Designer</span><span class="mc-variable _IMP_Product_Names.BCA_Short variable" data-mc-conditions="_Exstream_Conditions.ContentAuthorOnly">Content Author</span> to use one of the following types of approval workflows<MadCap:conditionalText data-mc-conditions="_Exstream_Conditions.CommDesignerOnly"> in each domain</MadCap:conditionalText>: </p>
+                        <ul>
+                            <li>
+                                <p>Standard workflow—requires you to submit your changes for approval.</p>
+                            </li>
+                            <li>
+                                <p>Simple workflow—allows you to skip the "submit for approval" step and approve your own changes.</p>
+                            </li>
+                            <li>
+                                <p>No workflow—allows you to skip the approval workflow or use a different approval workflow that your organization defines.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Approval workflows for content and communications</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>In the standard and simple workflows, the approval workflow for content is separate from the approval workflow for communications. The approval workflow for communications comes into play only when you add, reorder, or remove content. Keep in mind that a customer communication might also include content that is managed by other business units, outside of the <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> environment. If you have questions about the content in a customer communication, you should talk to the person who designed the communication.</p>
+                        <div class="Admonition_Note">
+                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>Your ability to move content or communications through an approval workflow is determined by access privileges within your organization’s <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> environment. If you have questions about your access privileges, speak to your system administrator.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Approval workflow steps</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p class="TaskIntro"> You  follow these steps to apply the standard or simple workflow  to the content and communications that you manage  in <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span>:</p>
+                        <ol>
+                            <li value="1">
+                                <p>Start the workflow by changing a piece of content or a communication.</p>
+                                <div class="Admonition_Note">
+                                    <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>A content creator might only be able to change some pieces of content in a communication. The other pieces might be managed by business units outside of <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span>.</p>
+                                </div>
+                            </li>
+                            <li value="2">
+                                <p>Save your changes to the content or communication.</p>
+                            </li>
+                            <li value="3">
+                                <p>If you use the standard workflow, then submit your changes for approval.</p>
+                                <ul>
+                                    <li>If the changes are rejected, then return content or communication to draft status, update the returned draft, and resubmit the changes for approval.</li>
+                                    <li>
+                                        <p>If the changes are accepted, then the content or communication is ready for customer output.</p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li value="4">If you use the simple workflow, then approve your changes. The content or communication is ready for customer output.</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" /></a><a name="ApprovalSectionsClauses"></a><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead" aria-expanded="false">Approval considerations for sections and clauses</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>Adding a clause to a parent section associates the clause itself with the section—not a particular version of the clause. As result, you can approve a parent section if each clause in the section has at least one approved version. The approved version of each clause can be the latest version or any older version.  </p>
+                        <p>For example, suppose you create a section and then add two clauses to it. After you have approved both clauses, you then approve the parent section. If you later realize that you need to change the content in one of the clauses, you do not need to create a draft version of the section. Instead, you can simply create a draft version of the  clause and then guide that clause through approval workflow in <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span>. In that scenario, the workflow state of the section does not change. When the new version of the clause is approved, it will appear automatically in any output that uses the section.</p>
+                        <p>If you need to make structural changes to an approved section, such as adding, removing, or reordering clauses within the section,  then you must create a draft version of the section and then guide it through the approval process. </p>
+                        <div class="Admonition_Note">
+                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>All clauses within a section must have at least one previously approved version before the section can be approved. If you try to approve a section that contains a clause that has never been approved, <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> issues an error message and the section does not move into an approved state.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" /></a><a name="ReserveCommunicationForEditing"></a><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead" aria-expanded="false">Reserving a communication for editing</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>Because other users in your organization might need to work on a communication at the same time that you do, you should always make sure that you are the only one working on a communication before you make changes. You automatically reserve communications by making structural changes to them (such as adding, moving, or deleting content). If you try to make changes to a communication that someone else has reserved, you will receive a message and will be unable to make changes. To make sure that no one else has a communication reserved, simply refresh your browser in <span class="mc-variable _Exstream_UI_Names.BCA_CommunicationView variable">Communications view</span>.   </p>
+                        <p class="TaskIntro">To reserve a communication for editing, or to see who has a communication reserved:</p>
+                        <ol>
+                            <li value="1">
+                                <p>With a communication open in <span class="mc-variable _Exstream_UI_Names.BCA_CommunicationView variable">Communications view</span>, refresh your browser session. Refreshing your browser ensures not only that you know whether the communication is currently reserved by another user, but also that you are looking at the most up-to-date content in the communication. It is particularly important to refresh your browser if multiple users are working in a communication at the same time.</p>
+                            </li>
+                            <li value="2">
+                                <p>On the toolbar, check the status indicator for the communication:</p>
+                                <ul>
+                                    <li>If you see <img src="../images/b_WebApps_Designer_LockedResource.png" class="inline" />, then the communication is currently reserved. You can point to the lock icon to see who currently has the communication reserved.</li>
+                                    <li>If you see <img src="../images/b_WebApps_UnlockedResource.png" class="inline" />, then the communication is available for editing. You can either make a structural change (such as adding, moving, or deleting content) to automatically reserve the communication, or you can click the slider to toggle between reserving and releasing the communication.</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead" style="page-break-before: always;"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false" style="page-break-before: always;"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Workflow symbols on workflow state buttons</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>You can select the <span class="uielement">Change workflow state</span> button  next to a piece of content or a communication to move the content or communication to its next workflow state. The symbol on the button indicates the current workflow state for the content or the communication. </p>
+                        <p class="keepWithNext">The following table tells you what each workflow symbol means and which workflow types it can appear in:</p><a name="WorkflowSymbols"></a>
+                        <table style="width: 100%;">
+                            <col />
+                            <col />
+                            <col />
+                            <col />
+                            <col />
+                            <thead>
+                                <tr>
+                                    <th rowspan="2" style="vertical-align: bottom;padding-left: 5px;padding-right: 5px;padding-top: 5px;padding-bottom: 5px;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">
+                                        <p>&#160;</p>
+                                        <p>Symbol</p>
+                                    </th>
+                                    <th rowspan="2" style="vertical-align: bottom;padding-left: 5px;padding-right: 5px;padding-top: 5px;padding-bottom: 5px;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">
+                                        <p>&#160;</p>
+                                        <p> State</p>
+                                    </th>
+                                    <th colspan="2" style="vertical-align: bottom;text-align: center;padding-left: 5px;padding-right: 5px;padding-top: 5px;padding-bottom: 5px;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">
+                                        <p colspan="2" style="text-align: center;">Workflow type</p>
+                                    </th>
+                                    <th rowspan="2" style="vertical-align: bottom;padding-left: 5px;padding-right: 5px;padding-top: 5px;padding-bottom: 5px;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">&#160;<p>What it means</p></th>
+                                </tr>
+                                <tr>
+                                    <th style="vertical-align: bottom;text-align: center;padding-left: 5px;padding-right: 5px;padding-top: 5px;padding-bottom: 5px;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">
+                                        <p>Standard</p>
+                                    </th>
+                                    <th style="vertical-align: bottom;text-align: center;padding-left: 5px;padding-right: 5px;padding-top: 5px;padding-bottom: 5px;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">
+                                        <p>Simple</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img src="../images/b_WebApps_Workflow_Draft.png" alt="Draft workflow state indicator" title="Draft workflow state indicator" />
+                                    </td>
+                                    <td>Draft</td>
+                                    <td style="padding-left: 3px;padding-right: 3px;padding-top: 3px;padding-bottom: 3px;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-top-style: solid;border-top-width: 1px;border-top-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;font-family: Wingdings;font-size: 12pt;text-align: center;"><span style="font-family: 'Wingdings'; font-size: 12pt;">ü</span>
+                                    </td>
+                                    <td style="border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;font-family: Wingdings;font-size: 12pt;text-align: center;"><span style="font-family: Wingdings;">ü</span>
+                                    </td>
+                                    <td>The content or communication is available for editing.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="../images/B_WebApps_Workflow_Submitted.png" />
+                                    </td>
+                                    <td>
+                                        <p>Submitted for approval</p>
+                                    </td>
+                                    <td style="border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;font-family: Wingdings;font-size: 12pt;text-align: center;"><span style="font-family: Wingdings;">ü</span>
+                                    </td>
+                                    <td style="text-align: center;">&#160;</td>
+                                    <td>
+                                        <p>The content or communication has been submitted for approval and cannot be edited. To make changes to content or to a communication that has been submitted for approval, you must return the content or communication to a draft state.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="../images/B_WebApps_Workflow_Approved.png" />
+                                    </td>
+                                    <td>Approved</td>
+                                    <td style="border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;font-family: Wingdings;font-size: 12pt;text-align: center;"><span style="font-family: Wingdings;">ü</span>
+                                    </td>
+                                    <td style="border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;font-family: Wingdings;font-size: 12pt;text-align: center;"><span style="font-family: Wingdings;">ü</span>
+                                    </td>
+                                    <td>The content or communication is approved and is ready to be used in customer output. To make changes to content or to a communication that has been approved, you must create a new draft.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="../images/B_WebApps_Workflow_Rejected.png" />
+                                    </td>
+                                    <td>
+                                        <p>Rejected</p>
+                                    </td>
+                                    <td style="border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;font-family: Wingdings;font-size: 12pt;text-align: center;"><span style="font-family: Wingdings;">ü</span>
+                                    </td>
+                                    <td style="text-align: center;">&#160;</td>
+                                    <td>
+                                        <p>The content or communication has been rejected and cannot be edited. To make changes to content or to a communication that has been rejected, you must return the content or communication to a draft state.</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="ListIntro">You can find these symbols on <span class="uielement">Change workflow state</span> buttons in the following places:</p>
+                        <ul>
+                            <li>
+                                <p>In <span class="mc-variable _Exstream_UI_Names.BCA_CommunicationView variable">Communications view</span>,  a workflow state button for the communication appears next to the name of the communication on the <span class="uielement">Selected Communication</span> card.</p>
+                            </li>
+                            <li>
+                                <p>In <span class="mc-variable _Exstream_UI_Names.BCA_AuthoringView variable">Authoring view</span>, a workflow state button appears next to each piece of content on the <span class="uielement">Applied Content</span> card. When you are editing content, you can see the workflow state button for that content at the bottom of the canvas.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Moving content through the approval workflow</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p><a name="Content"></a>As you move content through the approval workflow, keep in mind that only draft content that is not currently being edited by another user can be edited. In the standard workflow, after content has been either submitted for approval or rejected, you must return the content to a draft state in order to add to or update it. In the standard or simple workflow, if content has already been approved, you must create a new draft of the content in order to add to or update it. </p>
+                        <p>If a red line appears just below the content canvas in <span class="mc-variable _Exstream_UI_Names.BCA_AuthoringView variable">Authoring view</span> and the editing tools are not available, it is either because the content  is no longer in a draft state or another user is currently editing it. </p>
+                        <p>To check the current workflow state of the content, simply look for the <a href="#WorkflowSymbols">workflow symbol</a> on the <span class="uielement">Change workflow state</span> button at the bottom right of the content canvas.</p>
+                        <div class="Admonition_Note">
+                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>Your ability to move content or communications through an approval workflow is determined by access privileges within your organization’s <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> environment. If you have questions about your access privileges, speak to your system administrator.</p>
+                        </div>
+                        <p class="TaskIntro">To move content through the approval workflow:</p>
+                        <ol>
+                            <li value="1">
+                                <p>When you have finished <a href="EditingContentAndComms.htm">editing your content</a>, select a workflow task option in <span class="mc-variable _Exstream_UI_Names.BCA_AuthoringView variable">Authoring view</span> or <span class="mc-variable _Exstream_UI_Names.BCA_CommunicationView variable">Communications view</span> as follows:</p>
+                                <ul>
+                                    <li>
+                                        <p>In <span class="mc-variable _Exstream_UI_Names.BCA_AuthoringView variable">Authoring view</span>, to the right of the content canvas, select the <span class="uielement">Change workflow state</span> button and then select an option in the <span class="uielement">Workflow state change</span> dialog box.</p>
+                                    </li>
+                                    <li>
+                                        <p>In <span class="mc-variable _Exstream_UI_Names.BCA_CommunicationView variable">Communications view</span>, on the <span class="uielement">Applied Content</span> card, select the <span class="uielement">Change workflow state</span> button next to the highlighted content name, and then select an option on the menu below the button.</p>
+                                    </li>
+                                </ul>
+                                <p class="ListIntro">The following table lists the workflow task options and the workflow types in which they are available:</p>
+                                <table style="width: 100%;">
+                                    <col />
+                                    <col />
+                                    <col />
+                                    <col />
+                                    <col />
+                                    <col />
+                                    <thead>
+                                        <tr>
+                                            <th rowspan="2" style="vertical-align: bottom;padding-left: 5px;padding-right: 5px;padding-top: 5px;padding-bottom: 5px;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">&#160; Task</th>
+                                            <th colspan="2" style="text-align: center;vertical-align: bottom;padding-left: 5px;padding-right: 5px;padding-top: 5px;padding-bottom: 5px;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">
+                                                <p colspan="2">&#160; &#160;Option in view</p>
+                                            </th>
+                                            <th colspan="2" style="text-align: center;vertical-align: bottom;padding-left: 5px;padding-right: 5px;padding-top: 5px;padding-bottom: 5px;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">
+                                                <p colspan="2">Workflow type</p>
+                                            </th>
+                                            <th rowspan="2" style="vertical-align: bottom;padding-left: 5px;padding-right: 5px;padding-top: 5px;padding-bottom: 5px;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">&#160; What it does</th>
+                                        </tr>
+                                        <tr>
+                                            <th style="vertical-align: bottom;padding-left: 5px;padding-right: 5px;padding-top: 5px;padding-bottom: 5px;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;"><span class="mc-variable _Exstream_UI_Names.BCA_CommunicationView variable">Communications view</span>
+                                            </th>
+                                            <th style="vertical-align: bottom;padding-left: 5px;padding-right: 5px;padding-top: 5px;padding-bottom: 5px;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;"><span class="mc-variable _Exstream_UI_Names.BCA_AuthoringView variable">Authoring view</span>
+                                            </th>
+                                            <th style="text-align: center;vertical-align: bottom;padding-left: 5px;padding-right: 5px;padding-top: 5px;padding-bottom: 5px;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">Standard</th>
+                                            <th style="text-align: center;vertical-align: bottom;padding-left: 5px;padding-right: 5px;padding-top: 5px;padding-bottom: 5px;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">Simple</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Create a draft of previously approved content</td>
+                                            <td>
+                                                <p><span class="uielement">Make new draft</span>
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p><span class="uielement">Draft</span>
+                                                </p>
+                                            </td>
+                                            <td style="text-align: center;"><span style="font-family: Wingdings;">ü</span>
+                                            </td>
+                                            <td style="text-align: center;"><span style="font-family: Wingdings;">ü</span>
+                                            </td>
+                                            <td>
+                                                <p>Creates a new draft of previously approved content. When you create a draft, <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> creates a new version of the content that must go through the approval process in order to be used in customer output.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>Submit a draft for approval</p>
+                                            </td>
+                                            <td>
+                                                <p><span class="uielement">Submit for approval</span>
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p><span class="uielement">Submit</span>
+                                                </p>
+                                            </td>
+                                            <td style="text-align: center;"><span style="font-family: Wingdings;">ü</span>
+                                            </td>
+                                            <td style="text-align: center;">&#160;</td>
+                                            <td>
+                                                <p>Moves content to the next step in the workflow process. After you submit content for approval, you can no longer make changes to the content. In order to make changes to submitted content, you must return the content to a draft state, and then submit the updated draft for approval when ready.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Approve content</td>
+                                            <td>
+                                                <p><span class="uielement">Approve</span>
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p><span class="uielement">Approve</span>
+                                                </p>
+                                            </td>
+                                            <td style="text-align: center;"><span style="font-family: Wingdings;">ü</span>
+                                            </td>
+                                            <td style="text-align: center;"><span style="font-family: Wingdings;">ü</span>
+                                            </td>
+                                            <td>
+                                                <p>Confirms that content is ready for use in customer output. Only approved content can be used in customer output.</p>
+                                                <div class="Admonition_Tip">
+                                                    <p data-mc-autonum="&lt;b&gt;Tip: &lt;/b&gt;"><span class="autonumber"><span><b>Tip: </b></span></span>If you're a content reviewer, you can use the <a href="ComparingVersionsOfContent.htm">version comparison tools</a> to compare the text changes in the current version of content that has been submitted for approval against those in the previously approved version.</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>Reject content</p>
+                                            </td>
+                                            <td><span class="uielement">Reject</span>
+                                            </td>
+                                            <td>
+                                                <p><span class="uielement">Reject</span>
+                                                </p>
+                                            </td>
+                                            <td style="text-align: center;"><span style="font-family: Wingdings;">ü</span>
+                                            </td>
+                                            <td style="text-align: center;">&#160;</td>
+                                            <td>
+                                                <p>Allows content creators to make changes to the current version before it is used in customer output. When you reject content, content creators must then return the rejected content to a draft state and submit the updated draft for approval after making changes.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>Return submitted or rejected content to a draft state</p>
+                                            </td>
+                                            <td>
+                                                <p><span class="uielement">Return to draft</span>
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p><span class="uielement">Draft</span>
+                                                </p>
+                                            </td>
+                                            <td style="text-align: center;"><span style="font-family: Wingdings;">ü</span>
+                                            </td>
+                                            <td style="text-align: center;">&#160;</td>
+                                            <td>
+                                                <p>Allows you to update content that was already submitted for approval or rejected. <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> does not treat content that has been returned to a draft state as a new version; it simply resets the approval workflow process.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Discard draft content</td>
+                                            <td>
+                                                <p><span class="uielement">Discard draft</span>
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p>(not available)</p>
+                                            </td>
+                                            <td style="text-align: center;"><span style="font-family: Wingdings;">ü</span>
+                                            </td>
+                                            <td style="text-align: center;"><span style="font-family: Wingdings;">ü</span>
+                                            </td>
+                                            <td>
+                                                <p>Deletes draft content before it is submitted for approval. To delete draft content, simply select the workflow icon next to name of the content that you want to delete in the <span class="uielement">Applied Content</span> card in <span class="mc-variable _Exstream_UI_Names.BCA_CommunicationView variable">Communications view</span>, then click <span class="uielement">Change workflow state &gt; Discard draft</span>. When you discard a draft of content, you lose your edits, and the content is replaced by a previously approved version if one is available.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Switch between the latest version and the latest approved version of the content</td>
+                                            <td>
+                                                <ul>
+                                                    <li>
+                                                        <p><span class="uielement">See latest approved version</span>
+                                                        </p>
+                                                    </li>
+                                                    <li>
+                                                        <p><span class="uielement">See latest version</span>
+                                                        </p>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <p>(not available)</p>
+                                            </td>
+                                            <td style="text-align: center;"><span style="font-family: Wingdings;">ü</span>
+                                            </td>
+                                            <td style="text-align: center;"><span style="font-family: Wingdings;">ü</span>
+                                            </td>
+                                            <td>
+                                                <p>Switches between the latest approved version and the latest version so that you can <a href="ComparingVersionsOfContent.htm">compare changes made in each version</a>. If there is only one version for a piece of content, then these options are not available.</p>
+                                                <div class="Admonition_Note">
+                                                    <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>For information about versioning with sections and clauses, see <a href="#ApprovalSectionsClauses" class="MCXref xref">Approval considerations for sections and clauses</a>.</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p>&#160;</p>
+                                <div class="Admonition_Tip">
+                                    <p data-mc-autonum="&lt;b&gt;Tip: &lt;/b&gt;"><span class="autonumber"><span><b>Tip: </b></span></span>You can also change the workflow state of content by right-clicking the name of individual pieces of content on the <span class="uielement">Applied Content</span> card in <span class="mc-variable _Exstream_UI_Names.BCA_CommunicationView variable">Communications view</span>.</p>
+                                </div>
+                                <p>&#160;</p>
+                            </li>
+                            <li value="2">
+                                <p>In <span class="mc-variable _Exstream_UI_Names.BCA_AuthoringView variable">Authoring view</span>, select an option from the <span class="uielement">Workflow state change</span> dialog box that opens when you select the <span class="uielement">Change workflow state</span> button. Or, in <span class="mc-variable _Exstream_UI_Names.BCA_CommunicationView variable">Communications view</span>, select an option from the menu below the <span class="uielement">Change workflow state</span> button:</p>
+                            </li>
+                            <li value="3">
+                                <p>If you selected a workflow option that requires a next step, you can enter an optional workflow comment in the <span class="uielement">Workflow state change</span> dialog box that opens so that other users can understand any changes or decisions that you made. After you've added a comment, click <span class="uielement">Change</span>.</p>
+                                <p>The content moves to the next step in the workflow process, and the comment can be seen in <span class="mc-variable _Exstream_UI_Names.BCA_AuthoringView variable">Authoring view</span> by clicking <span class="uielement">Workflow history</span> in the area just below the content canvas.</p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Moving a communication through the approval workflow</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>When you work with communications in the standard workflow, you can submit a communication for approval, or you can reject a submitted communication without affecting the workflow state of the content that it contains. However, in the standard or simple workflow, if you try to approve a communication that contains unapproved content (or content that does not have a previously approved version), you will receive a message indicating that you must first approve all of the content within the communication before you can approve the communication itself. If you approve a communication that contains draft content with a previously approved version, the approved communication will use the previously approved content, not the draft content.</p>
+                        <p>To check the current workflow state of a communication, simply look for the <a href="#WorkflowSymbols">workflow symbol</a> next to the name of the communication on the <span class="uielement">Selected Communication</span> card in <span class="mc-variable _Exstream_UI_Names.BCA_CommunicationView variable">Communications view</span>.</p>
+                        <p>In the standard workflow, as with <a href="#Content">content</a>, after a communication has been either submitted for approval or rejected, you must return it to a draft state in order to add to or update it. In the standard or simple workflow, if a communication has already been approved, you must create a new draft of the communication in order to add to or update it. That draft is considered a completely separate version of the communication and must be approved separately in order to be used for customer output. </p>
+                        <div class="Admonition_Note">
+                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>Your ability to move content or communications through an approval workflow is determined by access privileges within your organization’s <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> environment. If you have questions about your access privileges, speak to your system administrator.</p>
+                        </div>
+                        <p class="TaskIntro">To move a communication through the approval workflow:</p>
+                        <ol>
+                            <li value="1">
+                                <p>When you have finished <a href="EditingContentAndComms.htm">editing the content</a> in the communication, open the communication in <span class="mc-variable _Exstream_UI_Names.BCA_CommunicationView variable">Communications view</span>, select the <span class="uielement">Change workflow state</span> button next to the name of the communication on the <span class="uielement">Selected Communication</span> card.</p>
+                            </li>
+                            <li value="2">
+                                <p>Select an option on the menu below the <span class="uielement">Change workflow state</span> button:</p>
+                                <table style="width: 100%;">
+                                    <col />
+                                    <col />
+                                    <col />
+                                    <col />
+                                    <col />
+                                    <thead>
+                                        <tr>
+                                            <th rowspan="2" style="vertical-align: bottom;padding-left: 5px;padding-right: 5px;padding-top: 5px;padding-bottom: 5px;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">&#160; Task</th>
+                                            <th rowspan="2" style="vertical-align: bottom;padding-left: 5px;padding-right: 5px;padding-top: 5px;padding-bottom: 5px;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">Option in <span class="mc-variable _Exstream_UI_Names.BCA_CommunicationView variable">Communications view</span></th>
+                                            <th colspan="2" style="text-align: center;vertical-align: bottom;padding-left: 5px;padding-right: 5px;padding-top: 5px;padding-bottom: 5px;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">Workflow type</th>
+                                            <th rowspan="2" style="vertical-align: bottom;padding-left: 5px;padding-right: 5px;padding-top: 5px;padding-bottom: 5px;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">&#160; What it does</th>
+                                        </tr>
+                                        <tr>
+                                            <th style="text-align: center;vertical-align: bottom;padding-left: 5px;padding-right: 5px;padding-top: 5px;padding-bottom: 5px;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">Standard</th>
+                                            <th style="text-align: center;vertical-align: bottom;padding-left: 5px;padding-right: 5px;padding-top: 5px;padding-bottom: 5px;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">Simple</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Create a draft of a previously approved communication</td>
+                                            <td><span class="uielement">Make new draft</span>
+                                            </td>
+                                            <td style="text-align: center;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;"><span style="font-family: Wingdings;">ü</span>
+                                            </td>
+                                            <td style="text-align: center;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;"><span style="font-family: Wingdings;">ü</span>
+                                            </td>
+                                            <td>
+                                                <p>Creates a new draft of a previously approved communication. When you create a draft, <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> creates a new version of the communication that must go through the approval process in order to be used in customer output.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Return a submitted or rejected communication to a draft state</td>
+                                            <td><span class="uielement">Return to draft</span>
+                                            </td>
+                                            <td style="text-align: center;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;"><span style="font-family: Wingdings;">ü</span>
+                                            </td>
+                                            <td style="text-align: center;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">&#160;</td>
+                                            <td>
+                                                <p>Allows you to update a communication that was submitted for approval or rejected. When you select this option for a communication that has been previously submitted or rejected, <span class="mc-variable _IMP_Product_Names.BCA_Short variable">Content Author</span> does not create a new version of the communication; instead, it resets the approval workflow process.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Submit a draft for approval</td>
+                                            <td><span class="uielement">Submit for approval</span>
+                                            </td>
+                                            <td style="text-align: center;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;"><span style="font-family: Wingdings;">ü</span>
+                                            </td>
+                                            <td style="text-align: center;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">&#160;</td>
+                                            <td>
+                                                <p>Moves the communication to the next step in the workflow process. After you submit a communication for approval, you can no longer make changes to the communication. In order to make changes to a submitted communication, content creators must return the communication to a draft state, and then submit the updated draft for approval when ready.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Approve a communication</td>
+                                            <td><span class="uielement">Approve</span>
+                                            </td>
+                                            <td style="text-align: center;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;"><span style="font-family: Wingdings;">ü</span>
+                                            </td>
+                                            <td style="text-align: center;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;"><span style="font-family: Wingdings;">ü</span>
+                                            </td>
+                                            <td>
+                                                <p>Confirms that the communication is ready for use in customer output. If you try to approve a communication that contains unapproved content (or content that does not have a previously approved version), you will receive a message indicating that you must first approve all of the content within the communication before you can approve the communication itself. If you approve a communication that contains draft content with a previously approved version, the approved communication will use the previously approved content, not the draft content.
+										</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Reject a communication</td>
+                                            <td><span class="uielement">Reject</span>
+                                            </td>
+                                            <td style="text-align: center;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;"><span style="font-family: Wingdings;">ü</span>
+                                            </td>
+                                            <td style="text-align: center;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">&#160;</td>
+                                            <td>Allows content creators to make changes to the current version of the communication before it is used in customer output. In order to make changes to a rejected communication, content creators must return the communication to a draft state, and then submit the updated draft for approval when ready.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Discard a draft communication</td>
+                                            <td><span class="uielement">Discard draft</span>
+                                            </td>
+                                            <td style="text-align: center;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;"><span style="font-family: Wingdings;">ü</span>
+                                            </td>
+                                            <td style="text-align: center;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;"><span style="font-family: Wingdings;">ü</span>
+                                            </td>
+                                            <td>Deletes a draft version of a communication before it is submitted for approval. When you discard a draft version of a communication, you lose your edits, and the communication is replaced by a previously approved version. If there is no previously approved version, you will not have the option to discard the current draft of the communication.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Switch between the latest content and the latest approved content for the communication as a whole</td>
+                                            <td>
+                                                <p>On the <span class="uielement">Selected Communication</span> card, select <img src="../images/b_WebApps_Hamburger.png" class="inline" alt="hamburger menu" />, and then select one of the following options:</p>
+                                                <ul>
+                                                    <li>
+                                                        <p><span class="uielement">Latest  versions</span>
+                                                        </p>
+                                                    </li>
+                                                    <li>
+                                                        <p><span class="uielement">Latest approved versions</span>
+                                                        </p>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                            <td style="text-align: center;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;"><span style="font-family: Wingdings;">ü</span>
+                                            </td>
+                                            <td style="text-align: center;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;"><span style="font-family: Wingdings;">ü</span>
+                                            </td>
+                                            <td>Switches between versions of the communication when the frames in a communication contain multiple versions of content. You can use this option to <a href="ComparingVersionsOfContent.htm">compare changes between versions</a>.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+                            <li value="3">
+                                <p>If you selected a workflow option that requires a next step, you can enter an optional workflow comment in the <span class="uielement">Workflow state change</span> dialog box that opens so that other users can understand any changes or decisions that you made. After you've added a comment, click <span class="uielement">Change</span>.</p>
+                                <p>The communication moves to the next step in the workflow process and the comment can be seen in <span class="mc-variable _Exstream_UI_Names.BCA_CommunicationView variable">Communications view</span> by clicking <img src="../images/b_WebApps_MenuBar_AdvancedDetails.png" class="inline" /> on the toolbar, and then clicking the <span class="uielement">History</span> tab.</p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2022</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="Switch reference (English only)|Complete list of switches|[%=System.LinkedTitle%]|Switches A - D" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="OpenText Exstream (Cloud-Native) Release CE 22.2.0 Web Client Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>CAPTURETESTDATA</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>CAPTURETESTDATA</h1>
+                <div class="Admonition_Note">
+                    <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>This switch is <a href="LandingPages/_RestrictedSwitchesForDocGen.htm" data-mc-exclude-action="unbind" data-mc-conditions="_IMP_Conditions.ScreenOnly">not supported</a> when using the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> engine in a containerized <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> deployment.</p>
+                </div>
+                <p>If you have licensed the Test Data Capture module, you can use the CAPTURETESTDATA switch to collect a minimal set of test data that fully exercises all lines of the named and unnamed rules that are included in an application.</p>
+                <p>This switch generates a new customer driver file and an optional test data capture report. Test Data Capture supports columnar, delimited, or XML-formatted customer driver files. On two-pass engine runs, Test Data Capture can collect data only for rules that are executed on the first pass.</p>
+                <p>The CAPTURETESTDATA switch supports multiple-byte encoding.</p>
+                <div class="Admonition_Important">
+                    <P data-mc-autonum="&lt;b&gt;Important: &lt;/b&gt;"><span class="autonumber"><span><b>Important: </b></span></span>The CAPTURETESTDATA switch is not compatible with sorting and bundling. If your application uses sorting and bundling, either remove the CAPTURETESTDATA switch from your control file, or disable sorting and bundling before using this switch.</P>
+                </div>
+                <p class="intro_phrase">Syntax</p><pre xml:space="preserve">CAPTURETESTDATA=&lt;captureFileName&gt;,[&lt;statementCustomers&gt;],[&lt;reporting&gt;],[&lt;reportFileName&gt;],[&lt;optimization&gt;]</pre>
+                <table style="width: 100%;">
+                    <col />
+                    <col />
+                    <col />
+                    <thead>
+                        <tr>
+                            <th>Argument</th>
+                            <th>Required</th>
+                            <th>Supported values</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>captureFileName</code>
+                            </td>
+                            <td>Yes</td>
+                            <td>
+                                <p>The name of the file to which the production environment writes the captured data</p>
+                                <p>The production environment generates the same type of data file as the customer driver file included in the application.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code>statementCustomers</code>
+                            </td>
+                            <td>No</td>
+                            <td>
+                                <p>The number of customers to capture per statement </p>
+                                <p>This value also specifies the number of customers you want the production environment to capture based on their inclusion or exclusion from the outcome after executing the rule statement. </p>
+                                <p>The default value of this argument is 1.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code>reporting</code>
+                            </td>
+                            <td>No</td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <p><code>NONE</code>—No report</p>
+                                    </li>
+                                    <li>
+                                        <p><code>SUMMARY</code>—Includes the rule names and identifies whether each was fully tested</p>
+                                    </li>
+                                    <li>
+                                        <p><code>DETAILED</code>—Includes each statement of each rule and identifies how many customers were captured for each statement</p>
+                                    </li>
+                                    <li>
+                                        <p><code>AUDIT</code>—Includes each statement of each rule and identifies which customers were captured for each statement</p>
+                                    </li>
+                                </ul>
+                                <p>The <code>DETAILED</code> and <code>AUDIT</code> levels of reporting are available only if you have licensed both the Test Data Capture and the Rule Analyzer modules.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code>reportFileName</code>
+                            </td>
+                            <td>No</td>
+                            <td>
+                                <p>The name of the file to which the production environment writes the Test data capture report</p>
+                                <p>The default argument value is <code>TestDataCaptureReport.txt</code> or <code>DD:TDCRPT</code> for z/OS.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code>optimization</code>
+                            </td>
+                            <td>No</td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <p><code>LOW</code>—Tracks the minimum number of customers possible, uses the least memory, and runs the fastest of all three settings</p>
+                                    </li>
+                                    <li>
+                                        <p><code>NORMAL</code>—Tracks customers, memory usage, and speed run at a moderate level. This is the default option.</p>
+                                    </li>
+                                    <li>
+                                        <p><code>HIGH</code>—Tracks a large number of customers, uses the most memory, and runs the slowest of all three settings</p>
+                                    </li>
+                                </ul>
+                                <p>Higher optimization levels increase memory usage and time to run, but can produce smaller customer driver files with test data.</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="intro_phrase">Example</p><pre xml:space="preserve">-CAPTURETESTDATA=CaptureFile.dat,1,DETAILED,CaptureReport.txt,HIGH</pre>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2022</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

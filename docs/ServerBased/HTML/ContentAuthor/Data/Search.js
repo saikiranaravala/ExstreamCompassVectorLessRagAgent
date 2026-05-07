@@ -1,0 +1,1 @@
+define({r:0.5,st:'Stem',n:1,t:[0],m:[],u:['../Content/ContentAuthorHelp/AddingAccessibilityFeatures.htm'],s:['+','unapprov'],p:[['+',5],['card',12],['expanded',2],['metadata',2],['rules',6],['then',5]]});

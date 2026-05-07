@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]|[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="OpenText Exstream (Cloud-Native) Release CE 22.2.0 Web Client Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Creating tenant schemas in the database</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Creating tenant schemas in the database</h1>
+                <div class="Admonition_Note">
+                    <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>This step is required only for manually managed databases. If you are using automatic schema management for your <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> databases, see <a href="CreatingTenantsInUI.htm" class="MCXref xref">Creating tenants in System management view</a> or <a href="CreatingTenantsWithBootstrap.htm" class="MCXref xref">Running a Helm upgrade with the bootstrap configuration</a>.</p>
+                </div>
+                <p>If you manually manage your database schemas,  then you will need to set up tenant schemas directly in the database for each of the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> services, and then use <span class="mc-variable _Exstream_UI_Names.WEB_SystemMgmtView variable">System management view</span> to associate the new tenant with the schema for each service in the <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> deployment.</p>
+                <p>After you create the tenant schemas in your database, you must also use Liquibase to initialize the schemas. You can either allow Liquibase to handle schema initialization automatically or you can use it to generate the SQL&#160;file that can be applied to the database. The <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> Liquibase scripts are packaged in the <code>ExstreamCEDatabaseSetup.zip</code> file that is available for download on <span class="mc-variable _IMP_Template_Elements.SoftwareDownloadCenter variable">My Support</span>. </p>
+                <div class="Admonition_Note">
+                    <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>Regardless of the schema management method that you use for your databases, <span class="mc-variable _IMP_Template_Elements._Company_Acronym variable">OpenText</span> recommends that you use either the <a href="CreatingTenantsInUI.htm">tenant creation wizard</a> in <span class="mc-variable _Exstream_UI_Names.WEB_SystemMgmtView variable">System management view</span> or a <a href="CreatingTenantsWithBootstrap.htm">bootstrap configuration</a> to create new <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> tenants in <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span>. Doing so saves a significant number of manual steps. For information about creating tenants manually in <span class="mc-variable _IMP_Product_Names.OTDS_Short variable">OTDS</span>, see <span class="emphasis-italic"><span class="mc-variable _IMP_Product_Names.OTDS_Full variable">OpenText Directory Services</span> Web Client Help</span>.</p>
+                </div>
+                <p class="subhead">To create database schemas for a new tenant:</p>
+                <ol>
+                    <li value="1">
+                        <p>Extract the contents of the <code>ExstreamCEDatabaseSetup.zip</code> file, and locate the <code>ExstreamCEDatabaseSetup</code> folder.</p>
+                    </li>
+                    <li value="2">
+                        <p>In the <code>ExstreamCEDatabaseSetup</code> folder, extract the contents of the <code>liquibase-core-&lt;version&gt;-bin.zip</code> file into a <code>Liquibase</code> folder. </p>
+                    </li>
+                    <li value="3">
+                        <p>In the <code>Liquibase</code> folder, copy the JDBC&#160;driver for your databases into the <code>lib</code> folder.<br /></p>
+                    </li>
+                    <li value="4">
+                        <p>Create database schemas for the new tenant in each <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> service in your deployment. If you're using separate database instances for each service, then create the appropriate schema in each database.</p>
+                        <p>For example, if you're creating a tenant called <code>sandbox</code>, you might create the following schemas in the database:&#160;</p>
+                        <ul>
+                            <li>
+                                <p>For Design, <code>exd_sandbox</code></p>
+                            </li>
+                            <li>
+                                <p>For Orchestration, <code>exo_sandbox</code></p>
+                            </li>
+                            <li>
+                                <p>For <span class="mc-variable _IMP_Product_Names.Hydrogen variable">Empower</span>, <code>exe_sandbox</code></p>
+                            </li>
+                            <li>
+                                <p>For Experience Insights, <code>exi_sandbox</code></p>
+                            </li>
+                        </ul>
+                        <div class="Admonition_Important">
+                            <p data-mc-autonum="&lt;b&gt;Important: &lt;/b&gt;"><span class="autonumber"><span><b>Important: </b></span></span>To ensure security in a multi-tenant deployment, you must use a separate schema and schema user for each tenant. </p>
+                        </div>
+                    </li>
+                    <li value="5">
+                        <p>Assign a schema owner for each schema. At a minimum, the schema owner must have CRUD&#160;permissions (Create, Read, Update, and Delete).</p>
+                    </li>
+                    <li value="6">
+                        <p>For each schema, complete one of the following steps to initialize the schema in your database:</p>
+                        <table style="width: 100%;margin-left: 0;margin-right: auto;">
+                            <col />
+                            <col />
+                            <thead>
+                                <tr>
+                                    <th>Step</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Use Liquibase to generate SQL&#160;statements and manually initialize the schema in the database.</td>
+                                    <td>
+                                        <ol>
+                                            <li value="1">
+                                                <p>Use the following command with the  <code>liquibase.bat</code> batch file or the <code>liquibase</code> bash script file to generate the SQL&#160;statement that is needed to initialize the schema:</p>
+                                                <p><code>&lt;liquibaseExecutable&gt; --driver="&lt;dbDriverClassName&gt;" --url="&lt;dbURL&gt;" --username="&lt;SchemaUser&gt;" --password="&lt;schemaUserPassword&gt;" --changeLogFile="&lt;dbDirectory&gt;\&lt;serviceName&gt;\changelog.xml" updateSQL</code>
+                                                </p>
+                                                <p>The resulting output contains the SQL&#160;statements that you need, along with some other information.&#160;By default, the output is written to the console. To write the output directly to a SQL&#160;file, add the following parameter to the command:</p>
+                                                <p><code>--outputFile=&lt;fileName&gt;</code>
+                                                </p>
+                                            </li>
+                                            <li value="2">If the output was written to the console, create a SQL&#160;file that contains the SQL&#160;statements.</li>
+                                            <li value="3">Use the SQL&#160;file to initialize the schema in the database.</li>
+                                        </ol>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Use Liquibase to automatically initialize the schema in the database.</td>
+                                    <td>
+                                        <p>
+                                            <p>Use the following command with the  <code>liquibase.bat</code> batch file or the <code>liquibase</code> bash script file to generate the SQL&#160;statement that is needed to initialize the schema:</p>
+                                            <p><code>&lt;liquibaseExecutable&gt; --driver="&lt;dbDriverClassName&gt;" --url="&lt;dbURL&gt;" --username="&lt;schemaUser&gt;" --password="&lt;schemaUserPassword&gt;" --changeLogFile="&lt;dbDirectory&gt;\&lt;serviceName&gt;\changelog.xml" update</code>
+                                            </p>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="intro_phrase">Example 1:&#160;Generate SQL&#160;statements to initialize a Design tenant schema</p>
+                        <p>The following command uses the <code>liquibase.bat</code> batch file on Windows to generate the SQL&#160;statement to initialize a tenant schema for the Design service in a PostgreSQL database:</p>
+                        <p><code>liquibase.bat --driver="org.postgresql.Driver" --url="jdbc:postgresql://sampleserver.opentext.com:5432/ExstreamDatabase?raiseExceptionOnSilentRollback=false" --username="exd_sandbox" --password="Exstream1!" --changeLogFile=".\postgresql\das\changelog.xml" updateSQL</code>
+                        </p>
+                        <p class="intro_phrase">Example 2: Automatically initialize an Orchestration tenant schema</p>
+                        <p>The following command uses the <code>liquibase</code> bash script on Linux to automatically initialize a tenant schema for the Orchestration service in an Oracle database:</p>
+                        <p><code>liquibase --driver="oracle.jdbc.driver.OracleDriver" --url="jdbc:oracle:thin://sampleserver.opentext.com:1521/ExstreamDatabase" --username="exo_sandbox" --password="Exstream1!" --changeLogFile=".\oracle\orchestration\changelog.xml" update</code>
+                        </p>
+                        <p class="intro_phrase">Example 3: Generate SQL&#160;statements to initialize an Empower tenant schema</p>
+                        <p>The following command uses the <code>liquibase</code> bash script on Linux to generate a SQL&#160;file containing the SQL&#160;statements needed to initialize a tenant schema for the Empower service in a SQL&#160;Server database:</p>
+                        <p><code>liquibase --driver="com.microsoft.sqlserver.jdbc.SQLServerDriver" --url="jdbc:sqlserver://localhost:1433;databaseName=ExstreamDatabase" --username="exe_sandbox" --password="Exstream1!" --changeLogFile=".\sqlserver\empower\tenant\db.changelog-master.xml" --outputFile=.\exe_sandboxTenant.sql updateSQL</code>
+                        </p>
+                    </li>
+                </ol>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2022</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

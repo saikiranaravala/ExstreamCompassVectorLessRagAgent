@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="OpenText Exstream (Cloud-Native) Release CE 22.2.0 Web Client Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Managing approval workflows</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Managing approval workflows</h1>
+                <p>The approval workflow is the progression of a resource from initial version to final approval. Using the standard or <a href="CreatingAndConfiguringDomains.htm#DomainWorkflowType">simple</a> approval workflow in <span class="mc-variable _IMP_Product_Names.Exstream variable">Exstream</span> helps to ensure that new and updated content is properly reviewed for accuracy and conforms to company standards. The standard workflow requires authors to submit their drafts for approval. The simple workflow does not. Rather, the simple workflow skips the "Submitted for approval" workflow state and allows authors to approve their own drafts. </p>
+                <p class="keepWithNext">Keep the following in mind when approving resources:</p>
+                <ul>
+                    <li>
+                        <p>All child resources must be approved before a parent resource. For a communication, this includes the communication and all of its associated resources, such as images that are used in designs and the sample files that are referenced by the communication. If you try to approve a resource that references other unapproved resource, you receive a message indicating that you must first approve all of the linked resources before you can approve that resource.</p>
+                    </li>
+                    <li>
+                        <p>You can only approve a new <a href="SupportedResourcesDAS.htm#Design_pack">design pack</a> if it contains at least all the attributes and tags in approved <a href="ConfiguringCommunicationSets.htm#Including_variation_variables">variations</a> of the communications that use the design pack. If you try to approve a design pack that is missing attributes or tags, a list of affected variations opens and prompts you to remove the attributes or tags before resubmitting the design pack for approval. For more information about using variations in a communication, see <span class="docName mc-variable _Exstream_Doc_Names._Product_Prefix variable">OpenText Exstream</span> <span class="docName mc-variable _Exstream_Doc_Names.CDR_Help variable">Communications Designer Online Help</span>.</p>
+                        <div class="Admonition_Note">
+                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>Alternatively, you can use <span class="mc-variable _IMP_Product_Names.DesignManager variable">Design Manager</span> to add the missing attributes or tags to the design pack and then re-upload the design pack to DAS. For more information about  uploading design packs, see <span class="docName mc-variable _Exstream_Doc_Names._Product_Prefix variable">OpenText Exstream</span> <span class="docName mc-variable _Exstream_Doc_Names.DNP_Help variable">Design and Production Online Help</span>.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <p>You can change the workflow state of a single resource or multiple resources at the same time. If you select multiple resources, only those whose workflow state matches that of the resource  you actively select to move are changed.</p>
+                        <div class="Admonition_Note">
+                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>The only exception to changing multiple resources is the <span class="uielement">Discard draft</span> option; only the draft of the selected resource is discarded.</p>
+                        </div>
+                    </li>
+                </ul>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Workflow state symbols on workflow state buttons</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p class="keepWithNext">In the design applications and the asset library views, you can select the workflow state button  next to a resource to move the resource to its next workflow state. The symbol on the button indicates the current workflow state for the resource. </p>
+                        <p class="keepWithNext">The following table tells you what each workflow symbol means and which workflow types it can appear in:</p>
+                        <table style="width: 100%;">
+                            <col />
+                            <col />
+                            <col />
+                            <col />
+                            <col />
+                            <thead>
+                                <tr>
+                                    <th rowspan="2" style="vertical-align: bottom;padding-left: 5px;padding-right: 5px;padding-top: 5px;padding-bottom: 5px;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">
+                                        <p>&#160;</p>
+                                        <p>Symbol</p>
+                                    </th>
+                                    <th rowspan="2" style="vertical-align: bottom;padding-left: 5px;padding-right: 5px;padding-top: 5px;padding-bottom: 5px;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">
+                                        <p>&#160;</p>
+                                        <p> State</p>
+                                    </th>
+                                    <th colspan="2" style="vertical-align: bottom;text-align: center;padding-left: 5px;padding-right: 5px;padding-top: 5px;padding-bottom: 5px;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">
+                                        <p colspan="2" style="text-align: center;">Workflow type</p>
+                                    </th>
+                                    <th rowspan="2" style="vertical-align: bottom;padding-left: 5px;padding-right: 5px;padding-top: 5px;padding-bottom: 5px;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">&#160;<p>Description</p></th>
+                                </tr>
+                                <tr>
+                                    <th style="vertical-align: bottom;text-align: center;padding-left: 5px;padding-right: 5px;padding-top: 5px;padding-bottom: 5px;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">
+                                        <p>Standard</p>
+                                    </th>
+                                    <th style="vertical-align: bottom;text-align: center;padding-left: 5px;padding-right: 5px;padding-top: 5px;padding-bottom: 5px;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">
+                                        <p>Simple</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img src="../images/b_WebApps_Workflow_Draft.png" alt="Draft workflow state indicator" title="Draft workflow state indicator" />
+                                    </td>
+                                    <td>Draft</td>
+                                    <td style="padding-left: 3px;padding-right: 3px;padding-top: 3px;padding-bottom: 3px;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-top-style: solid;border-top-width: 1px;border-top-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;font-family: Wingdings;font-size: 12pt;text-align: center;"><span style="font-family: 'Wingdings'; font-size: 12pt;">ü</span>
+                                    </td>
+                                    <td style="border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;font-family: Wingdings;font-size: 12pt;text-align: center;"><span style="font-family: Wingdings;">ü</span>
+                                    </td>
+                                    <td>The resource is available for editing.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="../images/B_WebApps_Workflow_Submitted.png" />
+                                    </td>
+                                    <td>
+                                        <p>Submitted for approval</p>
+                                    </td>
+                                    <td style="border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;font-family: Wingdings;font-size: 12pt;text-align: center;"><span style="font-family: Wingdings;">ü</span>
+                                    </td>
+                                    <td style="text-align: center;">&#160;</td>
+                                    <td>
+                                        <p>The resource has been submitted for approval and cannot be edited. To make changes, you must return the resource to a draft state.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="../images/B_WebApps_Workflow_Approved.png" />
+                                    </td>
+                                    <td>Approved</td>
+                                    <td style="border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;font-family: Wingdings;font-size: 12pt;text-align: center;"><span style="font-family: Wingdings;">ü</span>
+                                    </td>
+                                    <td style="border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;font-family: Wingdings;font-size: 12pt;text-align: center;"><span style="font-family: Wingdings;">ü</span>
+                                    </td>
+                                    <td>
+                                        <p>The resource is approved and is ready to be used in customer output. To make changes, you must create a new draft.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="../images/B_WebApps_Workflow_Rejected.png" />
+                                    </td>
+                                    <td>
+                                        <p>Rejected</p>
+                                    </td>
+                                    <td style="border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;font-family: Wingdings;font-size: 12pt;text-align: center;"><span style="font-family: Wingdings;">ü</span>
+                                    </td>
+                                    <td style="text-align: center;">&#160;</td>
+                                    <td>The resource has been rejected and cannot be edited. To make changes, you must return the resource to a draft state.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Moving through the approval process</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>As you move through the approval process, keep in mind that only resources that are in draft state can be edited. In the standard workflow only, after a resource has been submitted for approval or rejected, you must return that resource to a draft state in order to update it. Similarly, if a resource has already been approved, you must create a new draft of the resource in order to add to or update it.</p>
+                        <p class="TaskIntro">To move  resources through the approval process:</p>
+                        <ol>
+                            <li value="1">
+                                <p>Select one or more resources:</p>
+                                <ul start="1">
+                                    <li>
+                                        <p>If changing the workflow state of a single resource, select the workflow state button for the selected resource.</p>
+                                    </li>
+                                    <li>
+                                        <p>If changing the workflow state of multiple resources at once:</p>
+                                        <ol style="list-style-type: lower-alpha;">
+                                            <li value="1">
+                                                <p>Use the check boxes next to the resource names to select the desired resources.</p>
+                                                <div class="Admonition_Note">
+                                                    <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>You can use the check box in the heading row to select all the resources on that page. You can only select resources on the active page. If you navigate to another page, any previously-selected items are cleared.</p>
+                                                </div>
+                                            </li>
+                                            <li value="2">
+                                                <p>Select the workflow state button for one of the resources that you want to advance to the next workflow state.</p>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li value="2">
+                                <p>Depending on the current workflow state of the resource, select one of the following actions in the table below to move the resource through the approval process.</p>
+                                <table style="width: 100%;margin-left: 0;margin-right: auto;" summary="Options for moving an object through the approval process depending on its current workflow state">
+                                    <col />
+                                    <col />
+                                    <col />
+                                    <col style="width: 62px;" />
+                                    <col />
+                                    <thead>
+                                        <tr>
+                                            <th rowspan="2" style="vertical-align: bottom;padding-left: 5px;padding-right: 5px;padding-top: 5px;padding-bottom: 5px;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">
+                                                <p rowspan="2">Current state</p>
+                                            </th>
+                                            <th rowspan="2" style="vertical-align: bottom;padding-left: 5px;padding-right: 5px;padding-top: 5px;padding-bottom: 5px;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">&#160; Option</th>
+                                            <th colspan="2" style="vertical-align: bottom;text-align: center;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">
+                                                <p colspan="2" style="text-align: center;">Workflow type</p>
+                                            </th>
+                                            <th rowspan="2" style="vertical-align: bottom;padding-left: 5px;padding-right: 5px;padding-top: 5px;padding-bottom: 5px;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">&#160; Description</th>
+                                        </tr>
+                                        <tr>
+                                            <th style="vertical-align: bottom;text-align: center;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">
+                                                <p>Standard</p>
+                                            </th>
+                                            <th style="vertical-align: bottom;text-align: center;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">
+                                                <p>Simple</p>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <p>Draft</p>
+                                            </td>
+                                            <td>
+                                                <p><span class="uielement">Submit for&#160;approval</span>
+                                                </p>
+                                            </td>
+                                            <td style="text-align: center;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;"><span style="font-family: Wingdings;">ü</span>
+                                            </td>
+                                            <td style="text-align: center;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">&#160;</td>
+                                            <td>
+                                                <p>Submit the draft version for approval.</p>
+                                                <p>After you submit a version for approval, you can no longer make changes to it. In order to make changes, you must return the content to a draft state, and then submit the updated draft for approval when ready.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>Draft </p>
+                                            </td>
+                                            <td>
+                                                <p><span class="uielement">Approve</span>
+                                                    <br />
+                                                </p>
+                                            </td>
+                                            <td style="text-align: center;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">&#160;</td>
+                                            <td style="text-align: center;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;"><span style="font-family: Wingdings;">ü</span>
+                                            </td>
+                                            <td rowspan="2">
+                                                <p>Approve the submitted resource.</p>
+                                                <p>Select this option only for resources that are ready to be used in customer output. Only approved resources will be included in customer output.</p>
+                                                <p>You can approve an resource only if all of the child resources that are associated with that resource have also been approved. For example, to approve a document, you must first approve all of the designs that are contained within that resource and any components or asset library resources that are used in those designs.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>Submitted for approval</p>
+                                            </td>
+                                            <td><span class="uielement">Approve</span>
+                                            </td>
+                                            <td style="text-align: center;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;"><span style="font-family: Wingdings;">ü</span>
+                                            </td>
+                                            <td style="text-align: center;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">&#160;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>Submitted for approval</p>
+                                            </td>
+                                            <td>
+                                                <p><span class="uielement">Reject</span>
+                                                </p>
+                                            </td>
+                                            <td style="text-align: center;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;"><span style="font-family: Wingdings;">ü</span>
+                                            </td>
+                                            <td style="text-align: center;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">&#160;</td>
+                                            <td>
+                                                <p>Reject the submitted resource.</p>
+                                                <p>Select this option if the resource must be changed before it can be used in customer output. When you reject an resource, designers must then return the rejected resource to a draft state and submit the updated draft for approval after making any required changes.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>Submitted for approval</p>
+                                                <p>or</p>
+                                                <p>Rejected</p>
+                                            </td>
+                                            <td>
+                                                <p><span class="uielement">Return to draft</span>
+                                                </p>
+                                            </td>
+                                            <td style="text-align: center;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;"><span style="font-family: Wingdings;">ü</span>
+                                            </td>
+                                            <td style="text-align: center;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;">&#160;</td>
+                                            <td>
+                                                <p>Return the submitted or rejected resource to a draft state. </p>
+                                                <p>Select this option to make updates to content that has already been submitted for approval or that has been rejected. A resource that is returned to a draft state is not treated as a new version; it simply resets the approval workflow process.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>Approved</p>
+                                            </td>
+                                            <td>
+                                                <p><span class="uielement">Make new draft</span>
+                                                </p>
+                                            </td>
+                                            <td style="text-align: center;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;"><span style="font-family: Wingdings;">ü</span>
+                                            </td>
+                                            <td style="text-align: center;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;"><span style="font-family: Wingdings;">ü</span>
+                                            </td>
+                                            <td>
+                                                <p>Create a new draft version of a previously approved resource.</p>
+                                                <p>When you create a draft, it creates a new version of the content that must again go through the approval process to be used in customer output.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Draft</td>
+                                            <td>
+                                                <p><span class="uielement">Discard draft</span>
+                                                </p>
+                                            </td>
+                                            <td style="text-align: center;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;"><span style="font-family: Wingdings;">ü</span>
+                                            </td>
+                                            <td style="text-align: center;border-right-style: solid;border-right-width: 1px;border-right-color: #E7EDF8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #E7EDF8;"><span style="font-family: Wingdings;">ü</span>
+                                            </td>
+                                            <td>
+                                                <p>Discard a draft version without moving it through the approval process. </p>
+                                                <p>You can delete a draft version of an resource at any point before it has been submitted for approval. When you discard a draft version, you lose your edits, and the resource is replaced by the latest approved version. </p>
+                                                <p>This option is available only if a previously approved version of the resource exists.</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+                            <li value="3">
+                                <p>In the <span class="uielement">Workflow state change</span> dialog box that opens, enter an optional workflow comment to help other users understand any changes or decisions that you made, and then click <span class="uielement">Change</span>.</p>
+                                <p>To see the workflow history for a selected resource, in the <span class="uielement">Properties</span> panel, click the <span class="uielement">Workflow</span> tab.</p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2022</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>

@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-toc-path="[%=System.LinkedTitle%]|[%=System.LinkedTitle%]" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="header-title" content="OpenText Exstream (Cloud-Native) Release CE 22.2.0 Web Client Online Help" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Using system variables</title>
+        <!-- WEBHELP-ONLY: The following statement fixes cropping errors when customers use IE7 at 120 dpi (for example, list numbering problems) -->
+        <!--[if lt IE 8]>
+            <style type="text/css"> 
+                body
+                {
+                        padding-left: 16px;
+                }
+            </style>
+         <![endif]-->
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <style>p.footerlink
+{
+	font-size: 85%;
+	text-align: right;
+}
+
+</style>
+        <link href="../Resources/Stylesheets/_IMP_IE.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <div style="max-width: 1280px">
+            <div role="main" id="mc-main-content">
+                <h1>Using system variables</h1>
+                <p>System variables let you use system information, such as the information stored in the design environment, to complete tasks such as monitoring and controlling an engine run, formatting designs, or organizing a customer mailing.</p>
+                <p>While some DAS system variable properties are predefined, you can edit the <span class="uielement">Design sample</span> and <span class="uielement">Output format</span> fields in the <span class="uielement">Properties</span> panel. You cannot delete a system variable.</p>
+                <p>System variables can be categorized as follows:</p>
+                <div class="Admonition_Note">
+                    <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>In the tables below, if a system variable name is in <span class="emphasis-bold">bold</span>, its value can be calculated using a rule.</p>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Communication design related system variables</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>These variables are related to the objects required to create a communication: communications, documents, and designs.</p>
+                        <table>
+                            <caption class="title">Communication design related system variables</caption>
+                            <colgroup span="1">
+                                <col title="col1" span="1" width="33.50%" />
+                                <col title="col2" span="1" width="66.50%" />
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th rowspan="1" colspan="1">
+                                        <p>Variable name</p>
+                                    </th>
+                                    <th rowspan="1" colspan="1">
+                                        <p>Description</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_DocumentNames</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The names of the documents included in the customer.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_PageInDocument</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The sequence number of the current counted page within the document.</p>
+                                        <p>The value of the 'SYS_PageInDocument' system variable might vary from the value of the 'SYS_SheetInDocument' system variable if duplex pages are included in a document.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_PagePhysicalInDocument</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The sequence number of the current physical page within the document.</p>
+                                        <p>The number of physical pages might differ from counted pages because of the page counting methods set in the communication.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_PagePrintedValue</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The value to use as the page number of the current page.</p>
+                                        <p>The page number might differ from page count because the page count might have been restarted or because of blank pages.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p><span class="emphasis-bold">SYS_PageStart</span>
+                                        </p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The initial number of pages included in the document before pages are excluded for reasons such as rules or marketing page limits.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_PageTotalInDocument</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The total number of counted pages included in the document.</p>
+                                        <p>The value of the 'SYS_PageTotalInDocument' system variable might vary from the value of the 'SYS_SheetTotalInDocument' system variable when duplex pages are included in a document.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_PageTotalPhysicalInDocument</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The total number of physical pages included in the document.</p>
+                                        <p>The number of physical pages might differ from counted pages because of the page counting methods set in the communication.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_PageTotalPrinted</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The page number of the last page in the document.</p>
+                                        <p>The value of the 'SYS_PageTotalPrintedInDocument' system variable might vary from the value of the 'SYS_PageTotalPhysicalInDocument' system variable when page counts reset at the start of a document.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_SheetInDocument</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The sequence number of the current sheet within the document.</p>
+                                        <p>The value of the 'SYS_SheetInDocument' system variable might vary from the value of the 'SYS_PageInDocument' system variable when duplex pages are included in a document.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_SheetTotalInDocument</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The total number of sheets included in the document.</p>
+                                        <p>The value of the 'SYS_SheetTotalInDocument' system variable might vary from the value of the 'SYS_PageTotalInDocument' system variable when duplex pages are included in a document.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_SubDocInDocument</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The sequence number of the current sub-document (design document ) within the current document (customer).</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_TotalSubDocsInDocument</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The total number of sub-documents (design documents) in the current document (customer).</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Counting and numbering related system variables</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>These variables are related to counting a type of object in a communication or numbering an object as it is processed.</p>
+                        <table>
+                            <caption class="title">Counting and numbering related system variables</caption>
+                            <colgroup span="1">
+                                <col title="col1" span="1" width="37.50%" />
+                                <col title="col2" span="1" width="62.50%" />
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th rowspan="1" colspan="1">
+                                        <p>Variable name</p>
+                                    </th>
+                                    <th rowspan="1" colspan="1">
+                                        <p>Description</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p><span class="emphasis-bold">SYS_ByteInQueue</span>
+                                        </p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The total number of bytes written to the current output queue.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_CustomerInRun</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The sequence number of the current customer within the engine run.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_DocumentTotalInRun</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The total number of documents included in the engine run.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_PageInBreak</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The sequence number of the current page within the convenience break of the output queue.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_PageInDocument</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The sequence number of the current counted page within the document.</p>
+                                        <p>The value of the 'SYS_PageInDocument' system variable might vary from the value of the 'SYS_SheetInDocument' system variable when duplex pages are included in a document.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p><span class="emphasis-bold">SYS_PageInQueue</span>
+                                        </p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The total number of physical pages included in the current output queue.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_PagePhysicalInDocument</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The sequence number of the current physical page within the document.</p>
+                                        <p>The number of physical pages might differ from counted pages because of the page counting methods set in the communication.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_PagePrintedValue</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The value to use as the page number of the current page.</p>
+                                        <p>The page number might differ from page count because the page count might have been restarted or because of blank pages.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p><span class="emphasis-bold">SYS_PageStart</span>
+                                        </p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The initial number of pages included in the document before pages are excluded for reasons such as rules or marketing page limits.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_PageTotalInDocument</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The total number of counted pages included in the document.</p>
+                                        <p>The value of the 'SYS_PageTotalInDocument' system variable might vary from the value of the 'SYS_SheetTotalInDocument' system variable when duplex pages are included in a document.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_PageTotalInRun</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The total number of pages included in the run.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_PageTotalPhysicalInDocument</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The total number of physical pages included in the document.</p>
+                                        <p>The number of physical pages might differ from counted pages because of the page counting methods set in the communication.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_PageTotalPrinted</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The page number of the last page in the document.</p>
+                                        <p>The value of the 'SYS_PageTotalPrinted' system variable might vary from the value of the 'SYS_PageTotalPhysicalInDocument' system variable when page counts reset at the start of a document.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_SheetInBreak</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The sequence number of the current sheet within the convenience break of the output queue.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_SheetInDocument</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The sequence number of the current sheet within the document.</p>
+                                        <p>The value of the 'SYS_SheetInDocument' system variable might vary from the value of the 'SYS_PageInDocument' system variable when duplex pages are included in a document.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_SheetInQueue</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The total number of sheets created using the output queue.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_SheetTotalInDocument</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The total number of sheets included in the document.</p>
+                                        <p>The value of the 'SYS_SheetTotalInDocument' system variable might vary from the value of the 'SYS_PageTotalInDocument' system variable when duplex pages are included in a document.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_TableRow</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The sequence number of the current automated table row.</p>
+                                        <p>If the row repeats, the value of the 'SYS_TableRow' system variable indicates the current count of the row, including those rows that were not composed.</p>
+                                        <div class="Admonition_Note">
+                                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>You can use the 'SYS_TableRow' system variable in formulas to compute transaction data on a row-by-row basis. The 'SYS_TableRow' system variable does not work for embedded tables.</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_TotalSubDocsInDocument</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The total number of sub-documents (design documents) in the current document (customer).</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Customer related system variables</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>These variables are related to information about a customer.</p>
+                        <table>
+                            <caption class="title">Customer related system variables</caption>
+                            <colgroup span="1">
+                                <col title="col1" span="1" width="33.50%" />
+                                <col title="col2" span="1" width="66.50%" />
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th rowspan="1" colspan="1">
+                                        <p>Variable name</p>
+                                    </th>
+                                    <th rowspan="1" colspan="1">
+                                        <p>Description</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_CustomerInRun</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The sequence number of the current customer within the engine run.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_DocumentNames</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The names of the documents included in the customer.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p><span class="emphasis-bold">SYS_LanguageCustomer</span>
+                                        </p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The language of the current customer, which is used to identify the values to use when dynamically selecting language-based objects and settings.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p><span class="emphasis-bold">SYS_LanguageDefault</span>
+                                        </p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The default language for all of the customers within the engine run.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p><span class="emphasis-bold">SYS_LocaleCustomer</span>
+                                        </p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The locale for the current customer, which is used to identify the variables that dynamically select the appropriate locale-based objects and settings.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p><span class="emphasis-bold">SYS_LocaleDefault</span>
+                                        </p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The default locale for all of the customers within the engine run.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_TotalSubDocsInDocument</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The total number of sub-documents (design documents) in the current document (customer).</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Date related system variables</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>These variables are related to dates.</p>
+                        <table>
+                            <caption class="title">Date related system variables</caption>
+                            <colgroup span="1">
+                                <col title="col1" span="1" width="33.50%" />
+                                <col title="col2" span="1" width="66.50%" />
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th rowspan="1" colspan="1">
+                                        <p>Variable name</p>
+                                    </th>
+                                    <th rowspan="1" colspan="1">
+                                        <p>Description</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p><span class="emphasis-bold">SYS_DateAsOf</span>
+                                        </p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The date for the engine run.</p>
+                                        <div class="Admonition_Note">
+                                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span> The date might vary from the calendar date.</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p><span class="emphasis-bold">SYS_DateCurrent</span>
+                                        </p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The day on which the engine is run to create documents.</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Design related system variables</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>These variables are related to the design objects placed on a page.</p>
+                        <table>
+                            <caption class="title">Design related system variables</caption>
+                            <colgroup span="1">
+                                <col title="col1" span="1" width="33.50%" />
+                                <col title="col2" span="1" width="66.50%" />
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th rowspan="1" colspan="1">
+                                        <p>Variable name</p>
+                                    </th>
+                                    <th rowspan="1" colspan="1">
+                                        <p>Description</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p><span class="emphasis-bold">SYS_LanguageCustomer</span>
+                                        </p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The language of the current customer, which is used to identify the values to use when dynamically selecting language based objects and settings.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p><span class="emphasis-bold">SYS_LanguageDefault</span>
+                                        </p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The default language for all of the customers within one engine run.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p><span class="emphasis-bold">SYS_LocaleCustomer</span>
+                                        </p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The locale for the current customer, which is used to identify the variables that dynamically select the appropriate locale-based objects and settings.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p><span class="emphasis-bold">SYS_LocaleDefault</span>
+                                        </p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The default locale for all of the customers within the engine run.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_TableRow</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The sequence number of the current automated table row.</p>
+                                        <p>If the row repeats, the value of the 'SYS_TableRow' system variable indicates the current count of the row, including those rows that were not composed.</p>
+                                        <div class="Admonition_Note">
+                                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>You can use the 'SYS_TableRow' system variable in formulas to compute transaction data on a row-by-row basis. The 'SYS_TableRow' system variable does not work for embedded tables.</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />High-volume output processing related system variables</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>These variables are related to output queues and sorting.</p>
+                        <table>
+                            <caption class="title">High-volume output processing related system variables</caption>
+                            <colgroup span="1">
+                                <col title="col1" span="1" width="37.50%" />
+                                <col title="col2" span="1" width="62.50%" />
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th rowspan="1" colspan="1">
+                                        <p>Variable name</p>
+                                    </th>
+                                    <th rowspan="1" colspan="1">
+                                        <p>Description</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p><span class="emphasis-bold">SYS_ByteInQueue</span>
+                                        </p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The total number of bytes written to the current output queue.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_DocumentInBreak</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The sequence number of the current document within the convenience break of the output queue.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_DocumentInQueue</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The sequence number of the current customer within the output queue.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_PageInBreak</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The sequence number of the current page within the convenience break of the output queue.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p><span class="emphasis-bold">SYS_PageInQueue</span>
+                                        </p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The total number of physical pages included in the current output queue.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_PrinterInQueue</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The name you have specified for the output device that is associated with the current output queue.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_QueueCurrent</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The name you have specified for the current output queue.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_SheetInBreak</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The sequence number of the current sheet within the convenience break of the output queue.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_SheetInQueue</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The sequence number of the current sheet within the output queue.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_SubDocumentInBreak</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The sequence number of the current document within the convenience break of the output queue.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_SubDocumentInQueue</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The sequence number of the current document within the output queue.</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="MCDropDown MCDropDown_Closed dropDown"><span class="MCDropDownHead dropDownHead dropDownHeadsubhead"><a href="javascript:void(0)" class="MCDropDownHotSpot dropDownHotspot MCDropDownHotSpot_ subhead MCHotSpotImage" aria-expanded="false"><img class="MCDropDown_Image_Icon" src="../../Skins/Default/Stylesheets/Images/transparent.gif" height="16" width="16" alt="Click to expand the drop-down hotspot" data-mc-alt2="Click to collapse the drop-down hotspot" />Production related system variables</a></span>
+                    <div class="MCDropDownBody dropDownBody">
+                        <p>These variables are related to packaging and running the engine.</p>
+                        <table>
+                            <caption class="title">Production related system variables</caption>
+                            <colgroup span="1">
+                                <col title="col1" span="1" width="33.50%" />
+                                <col title="col2" span="1" width="66.50%" />
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th rowspan="1" colspan="1">
+                                        <p>Variable name</p>
+                                    </th>
+                                    <th rowspan="1" colspan="1">
+                                        <p>Description</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_CustomerInRun</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The sequence number of the current customer within the engine run.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p><span class="emphasis-bold">SYS_DateAsOf</span>
+                                        </p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The date for the engine run.</p>
+                                        <div class="Admonition_Note">
+                                            <p data-mc-autonum="&lt;b&gt;Note: &lt;/b&gt;"><span class="autonumber"><span><b>Note: </b></span></span>The date might vary from the calendar date.</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p><span class="emphasis-bold">SYS_DateCurrent</span>
+                                        </p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The day on which the engine is run to create documents.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_DocumentTotalInRun</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The total number of documents included in the engine run.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p><span class="emphasis-bold">SYS_LanguageCustomer</span>
+                                        </p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The default language for all of the customers within the engine run.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p><span class="emphasis-bold">SYS_LanguageDefault</span>
+                                        </p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The default locale for all of the customers within the engine run.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_PageTotalInRun</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The total number of pages included in the run.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="1" colspan="1">
+                                        <p>SYS_SheetTotalInRun</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                        <p>The total number of sheets included in the engine run.</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <hr width="100%" size="0" align="center" padding-bottom="0" style="clear:both; height:1px; border:none; background-color: #e1e8f6" color="#e1e8f6" />
+        </div>
+        <div class="row">
+            <div class="column">
+                <p style="font-size: 85%; text-align: left;direction: ltr;">Copyright © <span class="Basic_Variables._CopyrightDateRange_StartDate mc-variable"></span><span class="mc-variable _IMP_Template_Elements.CopyrightDateRange_CurrentYear variable">2022</span> <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. All Rights Reserved.<br />Trademarks owned by <span class="mc-variable _IMP_Template_Elements._Company_Legal_Name variable">Open&#160;Text</span>. <a href="../Resources/MasterPages/_IMP_Legal_Notices.htm#1">Legal page</a></p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--Set the topic ID for feedback link-->
+        <br />
+        <!--Hidden href to include banner title topic in output--><a href="../Resources/MasterPages/_IMP_HTML5_bannerTitle.htm" style="visibility: hidden;">_IMP_HTML5_bannerTitle.htm</a>
+        <br />
+        <!--Hidden href to include search tips topic in output--><a href="../Resources/MasterPages/_IMP_aboutSearch.htm" style="visibility: hidden;">_IMP_aboutSearch.htm</a>
+        <br />
+        <!--Hidden href to include script to enable responsive image maps--><a href="../Resources/Scripts/_IMP_imageMapResizer.min.js" style="visibility: hidden;">_IMP_imageMapResizer.min.js</a>
+        <br />
+        <!--Javascript for getting variable values for copyright and feedback link in footer BEGIN-->
+        <!-- <script> 
+			var TemplateElements = document.getElementById("Template-Elements"); 
+			if(TemplateElements.getAttribute('Footer')=="No") {
+				document.getElementById('Copyright').style.display = 'none';
+			} 
+			if(TemplateElements.getAttribute('Feedback')=="No") {
+				document.getElementById('Feedback').style.display = 'none';
+			} 
+		</script> -->
+        <!--Javascript for getting variable values for copyright and feedback link in footer END-->
+        <br />
+        <!--Javascript for setting navigation hotkeys within iframe BEGIN-->
+        <script type="text/javascript">/* <![CDATA[ */ 
+			window.addEventListener('keyup', function(e) { 
+				switch (e.key) { 
+					case 'ArrowLeft': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-previous"); 
+					break; 
+					case 'ArrowRight': MadCap.Utilities.CrossFrame.PostMessageRequest(parent,"navigate-next"); 
+				} 
+			} , false); 
+		/* ]]> */</script>
+        <!--Javascript for setting navigation hotkeys within iframe END-->
+        <br />
+        <!--Javascript for enabling the Close button on the popup windows BEGIN-->
+        <!-- <script type="text/javascript">
+		var closeIFrame = function() {
+		$('.MCTopicPopupContainer').remove();
+		$("#mc-background-tint").remove();
+		}
+		</script> -->
+        <!--Javascript for enabling the Close button on the popup windows END-->
+    </body>
+</html>
