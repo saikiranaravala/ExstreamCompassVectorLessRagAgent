@@ -53,7 +53,7 @@ export interface RateLimitInfo {
 class CompassAPI {
   private client: AxiosInstance
 
-  constructor(baseURL: string = '/api/v1') {
+  constructor(baseURL: string = import.meta.env.VITE_API_URL ?? '/api/v1') {
     this.client = axios.create({
       baseURL,
       headers: {
