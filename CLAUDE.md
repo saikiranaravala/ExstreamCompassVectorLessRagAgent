@@ -12,22 +12,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Target GA:** Q4 2026
 
-**Target Stack:**
-- Backend: Python 3.11.9 + FastAPI
-- Agent Framework: LangGraph
-- LLM (reasoning): Deepseek v4 (via OpenRouter API)
-- LLM (summarization): Deepseek v4 (via OpenRouter API)
+**Target Stack (PRD):** Deepseek v4 via OpenRouter for reasoning/summarization  
+**Actual Stack:** Claude (`claude-opus-4-7` reasoning, `claude-haiku-4-5-20251001` summarization) via Anthropic SDK. Model migration to cost-optimized option is planned post-MVP.
 
 ## Repository Status
 
-**Active development.** The system is partially implemented with working backend, frontend, and core agent framework. Current focus areas:
-- Agent reasoning and tool orchestration (using Claude via Anthropic SDK, not Deepseek)
-- Index tree generation and incremental indexing
-- Citation verification and audit logging
-- OIDC authentication and session management
-- Observability and telemetry integration
-
-**Note:** The PRD specifies Deepseek v4 for reasoning/summarization; implementation currently uses Claude. Evaluation on switching to cost-optimized model (Deepseek or similar) is planned post-MVP.
+**Active development.** Backend, frontend, and core agent framework are working. Deployed to Render.com (free tier). Current focus:
+- Wiring `_plan_tools` / `_execute_tools` LangGraph nodes to `ToolRegistry` and real index/search
+- Activating `CompassRouter` (full agent path) to replace the demo keyword-search path
+- Incremental index tree generation and evaluation harness
 
 ## Architecture Overview
 
@@ -189,7 +182,7 @@ Tests requiring API calls (agent, indexing) need `ANTHROPIC_API_KEY` in `.env`. 
 
 **Optional:** `OPENROUTER_API_KEY` (Deepseek evaluation), `DEBUG=true`, `LOG_LEVEL`
 
-See `.env.example` for the full list. Note: `agent.py` hard-codes `claude-opus-4-6` and `index_tree.py` hard-codes `claude-haiku-4-5-20251001`; the `REASONING_MODEL` / `SUMMARIZATION_MODEL` env vars in `.env.example` are placeholders for a future model-config pass and are not currently read by either file.
+See `.env.example` for the full list. Note: `agent.py` hard-codes `claude-opus-4-7` and `index_tree.py` hard-codes `claude-haiku-4-5-20251001`; the `REASONING_MODEL` / `SUMMARIZATION_MODEL` env vars in `.env.example` are placeholders for a future model-config pass and are not currently read by either file.
 
 ### Render.com Deployment
 
@@ -268,6 +261,7 @@ cat .audit_logs/*.jsonl | jq .
 
 - **[PRD.md](PRD.md)** — Product requirements, milestones, risk register
 - **[render_deployment.md](render_deployment.md)** — Render.com step-by-step deployment guide
+- **[START_HERE.txt](START_HERE.txt)** — 5-minute local setup (no Docker)
 - **[QUICKSTART.md](QUICKSTART.md)** — Quick start (Render or Docker)
 - **[INSTALLATION.md](INSTALLATION.md)** — Detailed local setup options
 - **[SIMPLE_SETUP.md](SIMPLE_SETUP.md)** — Minimal local setup (Python + Node, no Docker)
