@@ -3,22 +3,23 @@
 import logging
 from typing import Optional
 
-from anthropic import Anthropic
+from openai import OpenAI
 from langgraph.graph import StateGraph, START, END
 
 try:
-    from langsmith.wrappers import wrap_anthropic as _wrap_anthropic
+    from langsmith.wrappers import wrap_openai as _wrap_openai
 except ImportError:
-    def _wrap_anthropic(client):  # passthrough when langsmith not installed
+    def _wrap_openai(client):  # passthrough when langsmith not installed
         return client
 
 from compass.agent.state import AgentState, AgentToolCall
+from compass.config import settings
 
 logger = logging.getLogger(__name__)
 
 
 class ReasoningAgent:
-    """LangGraph-based reasoning agent using Claude."""
+    """LangGraph-based reasoning agent using DeepSeek via OpenRouter."""
 
     # Budget constraints
     MAX_TOOL_CALLS_PER_QUERY = 20
@@ -26,22 +27,27 @@ class ReasoningAgent:
 
     def __init__(
         self,
-        model: str = "claude-opus-4-7",
+        model: Optional[str] = None,
         api_key: Optional[str] = None,
+        base_url: Optional[str] = None,
         max_tool_calls: int = MAX_TOOL_CALLS_PER_QUERY,
         max_file_reads: int = MAX_FILE_READS_PER_QUERY,
     ):
         """Initialize the reasoning agent.
 
         Args:
-            model: Claude model to use
-            api_key: Anthropic API key (uses env if not provided)
+            model: Model name (defaults to settings.reasoning_model)
+            api_key: OpenRouter API key (defaults to settings.openrouter_api_key)
+            base_url: OpenRouter base URL (defaults to settings.openrouter_base_url)
             max_tool_calls: Maximum tool calls per query
             max_file_reads: Maximum file reads per query
         """
-        raw_client = Anthropic(api_key=api_key) if api_key else Anthropic()
-        self.client = _wrap_anthropic(raw_client)
-        self.model = model
+        raw_client = OpenAI(
+            api_key=api_key or settings.openrouter_api_key,
+            base_url=base_url or settings.openrouter_base_url,
+        )
+        self.client = _wrap_openai(raw_client)
+        self.model = model or settings.reasoning_model
         self.max_tool_calls = max_tool_calls
         self.max_file_reads = max_file_reads
 
@@ -193,13 +199,13 @@ Documentation Context:
 Provide a clear, concise answer with citations where applicable."""
 
         try:
-            message = self.client.messages.create(
+            response = self.client.chat.completions.create(
                 model=self.model,
                 max_tokens=1024,
                 messages=[{"role": "user", "content": prompt}],
             )
 
-            answer = message.content[0].text
+            answer = response.choices[0].message.content
             return {"final_answer": answer}
 
         except Exception as e:

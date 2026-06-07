@@ -19,7 +19,8 @@ pytesseract>=0.3.10
 # Search & Indexing
 tantivy>=0.20.0
 
-# LLM Provider
+# LLM Provider (OpenRouter uses OpenAI-compatible API)
+openai>=1.0.0
 openrouter>=0.1.0
 
 # Data & Config
