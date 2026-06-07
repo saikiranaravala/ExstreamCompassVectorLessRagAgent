@@ -7,7 +7,7 @@ class Settings(BaseSettings):
     """Application settings."""
 
     # API
-    api_title: str = "Compass RAG"
+    api_title: str = "Exstream Document Assistant"
     api_version: str = "0.0.1"
     debug: bool = False
 
@@ -25,6 +25,11 @@ class Settings(BaseSettings):
     # Budget constraints
     max_tool_calls_per_query: int = 20
     max_file_reads_per_query: int = 8
+
+    # LangSmith / Tracing (opt-in — default off)
+    langchain_tracing_v2: bool = False
+    langchain_api_key: str = ""
+    langchain_project: str = "ExstreamDocumentAssistant"
 
     class Config:
         env_file = ".env"

@@ -11,8 +11,32 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from compass import __version__
 from compass.api.gateway import APIGateway
+from compass.config import settings
 
 logger = logging.getLogger(__name__)
+
+
+def _bootstrap_langsmith() -> None:
+    """Push LangSmith env vars into os.environ before LangGraph initializes its tracer.
+
+    LangGraph reads LANGCHAIN_TRACING_V2 when the graph is compiled, so this must
+    run at module load time — before any ReasoningAgent is instantiated.
+    """
+    if not settings.langchain_tracing_v2:
+        return
+    if not settings.langchain_api_key:
+        logger.warning(
+            "LANGCHAIN_TRACING_V2=true but LANGCHAIN_API_KEY is not set — "
+            "LangSmith tracing will be disabled."
+        )
+        return
+    os.environ["LANGCHAIN_TRACING_V2"] = "true"
+    os.environ["LANGCHAIN_API_KEY"] = settings.langchain_api_key
+    os.environ["LANGCHAIN_PROJECT"] = settings.langchain_project
+    logger.info(f"LangSmith tracing enabled (project: {settings.langchain_project})")
+
+
+_bootstrap_langsmith()
 
 app = FastAPI(
     title="Compass RAG",

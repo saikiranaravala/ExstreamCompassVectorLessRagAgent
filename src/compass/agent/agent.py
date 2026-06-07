@@ -6,6 +6,12 @@ from typing import Optional
 from anthropic import Anthropic
 from langgraph.graph import StateGraph, START, END
 
+try:
+    from langsmith.wrappers import wrap_anthropic as _wrap_anthropic
+except ImportError:
+    def _wrap_anthropic(client):  # passthrough when langsmith not installed
+        return client
+
 from compass.agent.state import AgentState, AgentToolCall
 
 logger = logging.getLogger(__name__)
@@ -33,7 +39,8 @@ class ReasoningAgent:
             max_tool_calls: Maximum tool calls per query
             max_file_reads: Maximum file reads per query
         """
-        self.client = Anthropic(api_key=api_key) if api_key else Anthropic()
+        raw_client = Anthropic(api_key=api_key) if api_key else Anthropic()
+        self.client = _wrap_anthropic(raw_client)
         self.model = model
         self.max_tool_calls = max_tool_calls
         self.max_file_reads = max_file_reads

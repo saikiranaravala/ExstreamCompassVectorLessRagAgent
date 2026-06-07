@@ -5,6 +5,14 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Optional
 
+try:
+    from langsmith import traceable as _traceable
+except ImportError:
+    def _traceable(func=None, **kwargs):  # no-op decorator when langsmith not installed
+        if func is not None:
+            return func
+        return lambda f: f
+
 logger = logging.getLogger(__name__)
 
 
@@ -305,6 +313,7 @@ class ToolRegistry:
             "compare_variants": CompareVariantsTool(index_tree),
         }
 
+    @_traceable(name="tool_execution", run_type="tool")
     def execute_tool(self, tool_name: str, **kwargs) -> ToolResult:
         """Execute a registered tool.
 
