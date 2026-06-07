@@ -8,10 +8,22 @@ from pathlib import Path
 from html.parser import HTMLParser
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from openai import OpenAI
 
 from compass import __version__
 from compass.api.gateway import APIGateway
 from compass.config import settings
+
+try:
+    from langsmith import traceable as _traceable
+    from langsmith.wrappers import wrap_openai as _wrap_openai
+except ImportError:
+    def _traceable(func=None, **kwargs):  # no-op when langsmith not installed
+        if func is not None:
+            return func
+        return lambda f: f
+    def _wrap_openai(client):
+        return client
 
 logger = logging.getLogger(__name__)
 
@@ -151,26 +163,57 @@ def search_documentation(query: str, variant: str = "CloudNative", max_results: 
     return results[:max_results]
 
 
-def generate_answer_from_docs(query: str, search_results: list) -> str:
-    """Generate a helpful answer from documentation results."""
+@_traceable(name="llm_generate_answer", run_type="llm")
+def generate_answer_from_docs(query: str, search_results: list, variant: str = "CloudNative") -> str:
+    """Generate an answer using DeepSeek via OpenRouter, or fall back to excerpt assembly."""
     if not search_results:
-        return f"No documentation found for '{query}'. Try searching for: deployment, architecture, design, content author, communications, orchestrator, empower, web client, exstream engine."
+        return (
+            f"No documentation found for '{query}'. "
+            "Try searching for: deployment, architecture, design, content author, "
+            "communications, orchestrator, empower, web client, exstream engine."
+        )
 
-    # Build comprehensive answer from multiple sources
-    answer = ""
+    # Fall back to string assembly if OpenRouter key not configured
+    if not settings.openrouter_api_key:
+        first = search_results[0]
+        answer = f"**{first['title']}**\n\n{first['excerpt'][:400]}\n\n"
+        if len(search_results) > 1:
+            answer += "**Related topics:**\n"
+            for result in search_results[1:]:
+                answer += f"- **{result['title']}**: {result['excerpt'][:200]}...\n"
+        return answer
 
-    # Add summary from first (most relevant) result
-    first = search_results[0]
-    answer += f"**{first['title']}**\n\n"
-    answer += f"{first['excerpt'][:400]}\n\n"
+    # Build context from search results
+    context = "\n\n".join(
+        f"**{r['title']}** (file: {r['file']})\n{r['excerpt']}"
+        for r in search_results
+    )
 
-    # Add related information from other results
-    if len(search_results) > 1:
-        answer += "**Related topics:**\n"
-        for result in search_results[1:]:
-            answer += f"- **{result['title']}**: {result['excerpt'][:200]}...\n"
+    prompt = (
+        f"You are an expert on OpenText Exstream documentation ({variant} variant). "
+        f"Answer the question below using only the documentation excerpts provided. "
+        f"Be concise and cite specific component or feature names.\n\n"
+        f"Question: {query}\n\n"
+        f"Documentation excerpts:\n{context}"
+    )
 
-    return answer
+    try:
+        raw_client = OpenAI(
+            api_key=settings.openrouter_api_key,
+            base_url=settings.openrouter_base_url,
+        )
+        client = _wrap_openai(raw_client)
+        response = client.chat.completions.create(
+            model=settings.reasoning_model,
+            max_tokens=1024,
+            messages=[{"role": "user", "content": prompt}],
+        )
+        return response.choices[0].message.content
+    except Exception as e:
+        logger.error(f"LLM answer generation failed: {e}")
+        # Fall back to excerpt assembly
+        first = search_results[0]
+        return f"**{first['title']}**\n\n{first['excerpt'][:400]}"
 
 
 # Simple demo endpoints for testing
@@ -190,7 +233,7 @@ async def query(request: Request, query: str, variant: str = "CloudNative", sess
 
     if results:
         # Generate answer using LLM
-        answer = generate_answer_from_docs(query, results)
+        answer = generate_answer_from_docs(query, results, variant)
 
         citations = [
             {
