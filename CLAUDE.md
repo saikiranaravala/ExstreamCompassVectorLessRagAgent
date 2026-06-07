@@ -256,6 +256,7 @@ cat .audit_logs/*.jsonl | jq .
 - **TypeScript build fix:** Added `frontend/src/vite-env.d.ts` with `ImportMetaEnv` declaration to resolve `import.meta.env` type errors in Vite builds.
 - **`.gitignore` / docs corpus:** Docs PDFs and `ServerBased/HTML/DesignAndProduction/` (160 MB) excluded from git; HTML docs committed to repo for Render.com search to work.
 - **`.env.example`:** Updated — `ANTHROPIC_API_KEY` added as required, `REASONING_MODEL`/`SUMMARIZATION_MODEL` updated to reflect actual models in use.
+- **LangSmith tracing:** Opt-in distributed tracing via LangSmith. Set `LANGCHAIN_TRACING_V2=true` + `LANGCHAIN_API_KEY` to enable. Traces all LangGraph nodes, Anthropic LLM calls (via `wrap_anthropic`), and tool invocations (via `@traceable`). `_bootstrap_langsmith()` in `app.py` sets env vars at module load time before any agent is constructed. Feature is off by default — Render.com demo works without a LangSmith key. Project name: `ExstreamDocumentAssistant`.
 
 ## Reference Documentation
 
