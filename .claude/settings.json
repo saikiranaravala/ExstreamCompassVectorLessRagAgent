@@ -1,6 +1,17 @@
 {
-   "env": {
-       "SHELL": "C:\\Program Files\\Git\\bin\\bash.exe"
+  "env": {
+    "SHELL": "C:\\Program Files\\Git\\bin\\bash.exe"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(find *)",
+      "Bash(grep *)",
+      "Bash(git *)",
+      "Bash(ls *)",
+      "Bash(git -C \"e:/AIWorkSpace/ExstreamCompassVectorLessRagAgent\" log --stat -3)"
+    ],
+    "deny": [],
+    "ask": []
   },
   "project": {
     "name": "ExstreamVectorLessRag / Compass",
@@ -14,20 +25,10 @@
     "PYTHONPATH": "${PROJECT_ROOT}:${PROJECT_ROOT}/src",
     "PROJECT_ROOT": "E:\\AIWorkSpace\\ExstreamVectorLessRag"
   },
-  "permissions": {
-    "allow": [
-      "Bash(find *)",
-      "Bash(grep *)",
-      "Bash(git *)",
-      "Bash(ls *)"
-    ],
-    "deny": [],
-    "ask": []
-  },
   "claude": {
     "model": "claude-opus-4-6",
     "temperature": 1,
-    "maxTokens": 4096
+    "maxTokens": 4096                 
   },
   "paths": {
     "memory": "E:\\AIWorkSpace\\ExstreamVectorLessRag\\memory",

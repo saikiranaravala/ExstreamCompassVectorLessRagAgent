@@ -12,8 +12,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Target GA:** Q4 2026
 
-**Target Stack (PRD):** Deepseek v4 via OpenRouter for reasoning/summarization  
-**Actual Stack:** Claude (`claude-opus-4-7` reasoning, `claude-haiku-4-5-20251001` summarization) via Anthropic SDK. Model migration to cost-optimized option is planned post-MVP.
+**LLM Stack:** DeepSeek via OpenRouter (OpenAI-compatible client) for reasoning and demo-path answer generation — model/key read from `settings` (`REASONING_MODEL`, default `deepseek-v4`; `OPENROUTER_API_KEY`). Index-tree summarization still uses Claude `claude-haiku-4-5-20251001` via the Anthropic SDK (hard-coded in `indexer/index_tree.py`, needs `ANTHROPIC_API_KEY`).
 
 ## Repository Status
 
@@ -30,8 +29,8 @@ There are currently **two distinct query paths** — understanding which is acti
 
 **Path A — Active demo path (`src/compass/app.py`):**
 - Routes `POST /api/v1/query`, `GET/DELETE /api/v1/session/{id}` are defined **inline in `app.py`**
-- Uses `search_documentation()` (file-glob + keyword scoring against `docs/{variant}/HTML/`, returning top 3 results) and `generate_answer_from_docs()` to build answers without the LangGraph agent
-- Allows unauthenticated access (demo mode); variant isolation is **not enforced** in this path
+- Uses `search_documentation()` (file-glob + keyword scoring against `docs/{variant}/HTML/`, first 100 files only, top 3 results) then `generate_answer_from_docs()` — a **real LLM call** (DeepSeek via OpenRouter) over the excerpts, decorated `@traceable` for LangSmith; falls back to plain excerpt assembly if `OPENROUTER_API_KEY` is unset or the call fails
+- No LangGraph agent involved; allows unauthenticated access (demo mode); variant isolation is **not enforced** in this path
 
 **Path B — Full agent path (`src/compass/api/routes.py` → `CompassRouter`):**
 - `CompassRouter` wraps the LangGraph `ReasoningAgent`, `SessionManager`, and `AuditLogger`
@@ -40,8 +39,8 @@ There are currently **two distinct query paths** — understanding which is acti
 
 ### Reasoning Agent (`src/compass/agent/`)
 - **Framework:** LangGraph (`StateGraph`)
-- **Model:** `claude-opus-4-7` (hard-coded in `agent.py` via Anthropic SDK — ignores the `REASONING_MODEL` env var, which is a Deepseek placeholder in `.env.example`)
-- **Summarization model:** `claude-haiku-4-5-20251001` (used by `IndexTreeBuilder` in `indexer/index_tree.py` for generating `.atlas/index.json` summaries)
+- **Model:** DeepSeek via OpenRouter using the `openai` SDK (OpenRouter is OpenAI-compatible). `agent.py` reads `settings.reasoning_model` (default `deepseek-v4`), `settings.openrouter_api_key`, and `settings.openrouter_base_url` from `src/compass/config.py` (pydantic-settings, loads `.env`). The client is wrapped with LangSmith's `wrap_openai` when available.
+- **Summarization model:** `claude-haiku-4-5-20251001` via Anthropic SDK — still **hard-coded** in `IndexTreeBuilder` (`indexer/index_tree.py`) for generating `.atlas/index.json` summaries; the `SUMMARIZATION_MODEL` setting (default `deepseek-v4`) is not read by it
 - **Tools (5)** registered via `ToolRegistry` in `core_tools.py` (note: `agent/tools.py` is an empty placeholder):
   - `list_node` — traverses `.atlas/index.json` hierarchy
   - `read_html` — parses HTML files via `indexer/html_parser.py`
@@ -132,7 +131,7 @@ python -m venv venv
 
 pip install -r requirements.txt
 cp .env.example .env
-# Edit .env: set ANTHROPIC_API_KEY
+# Edit .env: set OPENROUTER_API_KEY (LLM answers) and ANTHROPIC_API_KEY (index-tree summarization)
 ```
 
 ```bash
@@ -172,24 +171,29 @@ pytest -m "not slow"                         # Skip slow tests
 pytest -s tests/test_agent.py               # Live logging
 ```
 
-Tests requiring API calls (agent, indexing) need `ANTHROPIC_API_KEY` in `.env`. Unit tests with mocks run without it.
+Tests requiring API calls need keys in `.env`: agent tests need `OPENROUTER_API_KEY`, indexing tests need `ANTHROPIC_API_KEY`. Unit tests with mocks run without them.
 
 **Evaluation framework** lives in `tests/evaluation/`: `harness.py`, `metrics.py`, `reporter.py`, `test_queries.py` — target 300-query dataset for accuracy, latency, citation correctness.
 
 ### Environment Variables
 
-**Required:** `ANTHROPIC_API_KEY` — present in `.env.example`; copy `.env.example` → `.env` and fill it in.
+All settings load through `src/compass/config.py` (pydantic-settings, `env_file=".env"`, case-insensitive).
 
-**Optional:** `OPENROUTER_API_KEY` (Deepseek evaluation), `DEBUG=true`, `LOG_LEVEL`
+- `OPENROUTER_API_KEY` — required for real LLM answers (agent and demo path). If unset, the app still starts and the demo path falls back to excerpt assembly.
+- `ANTHROPIC_API_KEY` — required only for index-tree summarization (`IndexTreeBuilder`), read directly by the Anthropic SDK.
+- `REASONING_MODEL` (default `deepseek-v4`), `OPENROUTER_BASE_URL` — read by `agent.py` and the demo path.
+- `SUMMARIZATION_MODEL` — defined in `config.py` but **not** read by `index_tree.py`, which hard-codes `claude-haiku-4-5-20251001`.
+- `LANGCHAIN_TRACING_V2` / `LANGCHAIN_API_KEY` / `LANGCHAIN_PROJECT` — opt-in LangSmith tracing (see Completed Work).
+- `DEBUG=true` — debug logging.
 
-See `.env.example` for the full list. Note: `agent.py` hard-codes `claude-opus-4-7` and `index_tree.py` hard-codes `claude-haiku-4-5-20251001`; the `REASONING_MODEL` / `SUMMARIZATION_MODEL` env vars in `.env.example` are placeholders for a future model-config pass and are not currently read by either file.
+See `.env.example` for the full annotated list.
 
 ### Render.com Deployment
 
 See `render_deployment.md` for the complete step-by-step guide. Key points:
 - Backend: Web Service, `pip install -r requirements-render.txt`, start cmd `PYTHONPATH=src uvicorn compass.main:app --host 0.0.0.0 --port $PORT`
 - Frontend: Static Site, build `cd frontend && npm install && npm run build`, publish dir `./frontend/dist`
-- Set `ANTHROPIC_API_KEY` in the backend's **Environment** tab
+- Set `OPENROUTER_API_KEY` (and `ANTHROPIC_API_KEY` if indexing) in the backend's **Environment** tab
 - Set `VITE_API_URL=https://<your-api>.onrender.com/api/v1` in the frontend's **Environment** tab **before** the first build — it is baked into the bundle at build time
 - Free tier sleeps after 15 min idle; first cold-start request takes ~30–60 s
 
@@ -210,7 +214,7 @@ mypy src                 # Type check
 
 ## Debugging & Troubleshooting
 
-**Backend fails to start:** Check `ANTHROPIC_API_KEY` is set; verify Python 3.11.9.
+**Backend fails to start:** Verify Python 3.11.9 and that `pydantic-settings` is installed. API keys are not required at startup (settings default to empty strings) — missing `OPENROUTER_API_KEY` only degrades answers to excerpt assembly.
 
 **Agent timeouts:** Agent enforces budget (20 tool calls, 8 file reads). Check `.audit_logs/` for action history.
 
@@ -240,7 +244,7 @@ cat .audit_logs/*.jsonl | jq .
 
 - **Wire agent tools:** Connect `_plan_tools` / `_execute_tools` LangGraph nodes to `ToolRegistry` and real index/search
 - **Activate CompassRouter:** Register full agent path, replacing the demo inline routes
-- **Model migration:** Evaluate cost-optimized models (Deepseek v4, Claude Haiku) once agent path is active
+- **Summarizer migration:** `index_tree.py` still hard-codes Claude Haiku via Anthropic SDK; wire it to `settings.summarization_model` to complete the OpenRouter/DeepSeek migration
 - **Incremental indexing:** Cron-driven delta updates to `.atlas/index.json`
 - **Vision service:** Implement diagram interpretation stub in `vision.py`
 - **Evaluation harness:** 300-query dataset for accuracy, latency, citation correctness
@@ -255,8 +259,9 @@ cat .audit_logs/*.jsonl | jq .
 - **UI — chat history persistence:** Messages stored in `localStorage` per-variant; survives page refresh and variant switching.
 - **TypeScript build fix:** Added `frontend/src/vite-env.d.ts` with `ImportMetaEnv` declaration to resolve `import.meta.env` type errors in Vite builds.
 - **`.gitignore` / docs corpus:** Docs PDFs and `ServerBased/HTML/DesignAndProduction/` (160 MB) excluded from git; HTML docs committed to repo for Render.com search to work.
-- **`.env.example`:** Updated — `ANTHROPIC_API_KEY` added as required, `REASONING_MODEL`/`SUMMARIZATION_MODEL` updated to reflect actual models in use.
-- **LangSmith tracing:** Opt-in distributed tracing via LangSmith. Set `LANGCHAIN_TRACING_V2=true` + `LANGCHAIN_API_KEY` to enable. Traces all LangGraph nodes, Anthropic LLM calls (via `wrap_anthropic`), and tool invocations (via `@traceable`). `_bootstrap_langsmith()` in `app.py` sets env vars at module load time before any agent is constructed. Feature is off by default — Render.com demo works without a LangSmith key. Project name: `ExstreamDocumentAssistant`.
+- **LangSmith tracing:** Opt-in distributed tracing via LangSmith. Set `LANGCHAIN_TRACING_V2=true` + `LANGCHAIN_API_KEY` to enable. Traces all LangGraph nodes, LLM calls (via `wrap_openai`), and tool invocations (via `@traceable`). `_bootstrap_langsmith()` in `app.py` sets env vars at module load time before any agent is constructed. Feature is off by default — Render.com demo works without a LangSmith key. Project name: `ExstreamDocumentAssistant`.
+- **OpenRouter/DeepSeek migration (agent):** `ReasoningAgent` switched from Anthropic SDK to the `openai` client pointed at OpenRouter; model and key come from `settings` instead of being hard-coded. LangSmith wrapper swapped `wrap_anthropic` → `wrap_openai`.
+- **Real LLM call in demo path:** `generate_answer_from_docs()` in `app.py` now calls DeepSeek via OpenRouter over the top-3 search excerpts (with LangSmith `@traceable`), falling back to excerpt assembly when `OPENROUTER_API_KEY` is unset or the call fails.
 
 ## Reference Documentation
 
