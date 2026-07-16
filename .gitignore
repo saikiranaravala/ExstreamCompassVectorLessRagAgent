@@ -57,3 +57,4 @@ htmlcov/
 # Atlas/Index
 .atlas/
 
+.claude/settings.local.json

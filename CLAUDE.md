@@ -16,54 +16,84 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Status
 
-**Active development.** Backend, frontend, and core agent framework are working. Deployed to Render.com (free tier). Current focus:
-- Wiring `_plan_tools` / `_execute_tools` LangGraph nodes to `ToolRegistry` and real index/search
-- Activating `CompassRouter` (full agent path) to replace the demo keyword-search path
-- Incremental index tree generation and evaluation harness
+**Active development.** Backend (full-corpus retrieval + cited LLM answers), frontend, and agent
+framework are working. Deployed to Render.com (free tier). Current focus:
+- Activating `CompassRouter` (sessions/audit) and LLM-driven tool planning
+- Index-tree summaries for hierarchical navigation; PDF corpus inclusion
+- Evaluation harness (300-query dataset)
 
 ## Architecture Overview
 
-### Two-Path Request Handling (Important)
+### Retrieval Layer (`src/compass/retrieval/`) — the core of answering
 
-There are currently **two distinct query paths** — understanding which is active prevents confusion:
+The **single orchestration point** for answering queries, shared by the API routes and
+the agent tools:
 
-**Path A — Active demo path (`src/compass/app.py`):**
+- `corpus.py` — `CorpusStore`: walks `docs/{variant}/HTML` recursively (ALL files, skipping
+  viewer chrome dirs like `Skins/`), extracts title+text, caches to `.atlas/corpus_{variant}.json.gz`.
+  First build takes minutes (~750 CloudNative / ~3,200 ServerBased docs); cached loads take seconds.
+- `bm25.py` — `BM25Index`: pure-Python BM25 (no native deps) with weighted title field. Builds
+  from the corpus cache in ~1-2s.
+- `passages.py` — `best_passage()`: sliding-window extraction of the **query-relevant** span of
+  each hit (not the first N chars of the file).
+- `answer.py` — `generate_answer()`: structured, inline-cited markdown answer via DeepSeek/OpenRouter
+  (system prompt demands direct answer → details/steps → `[n]` citations → gap disclosure).
+  Extractive fallback when `OPENROUTER_API_KEY` is unset or the call fails.
+- `service.py` — `QueryService`: thread-safe lazy per-variant index, `warmup()` (run in a
+  background thread at app startup), `search()`, `query()` (returns answer, citations, trace).
+- `textutil.py` — tokenizer + HTML text extraction (selectolax when installed, stdlib fallback).
+
+Prebuild caches with `PYTHONPATH=src python scripts/build_index.py [--variant X] [--rebuild]`.
+Caches live in `.atlas/` (gitignored).
+
+### Two-Path Request Handling
+
+**Path A — Active path (`src/compass/app.py`):**
 - Routes `POST /api/v1/query`, `GET/DELETE /api/v1/session/{id}` are defined **inline in `app.py`**
-- Uses `search_documentation()` (file-glob + keyword scoring against `docs/{variant}/HTML/`, first 100 files only, top 3 results) then `generate_answer_from_docs()` — a **real LLM call** (DeepSeek via OpenRouter) over the excerpts, decorated `@traceable` for LangSmith; falls back to plain excerpt assembly if `OPENROUTER_API_KEY` is unset or the call fails
-- No LangGraph agent involved; allows unauthenticated access (demo mode); variant isolation is **not enforced** in this path
+  and delegate to the shared `QueryService`
+- Endpoints are sync `def` on purpose (FastAPI threadpool) so index builds/LLM calls don't block
+  the event loop; `@app.on_event("startup")` warms indexes in a background thread
+- Response includes `answer` (markdown), `citations` (query-relevant passages), `tool_calls`,
+  `model`, and `trace` (retrieval steps); allows unauthenticated access (demo mode)
 
 **Path B — Full agent path (`src/compass/api/routes.py` → `CompassRouter`):**
 - `CompassRouter` wraps the LangGraph `ReasoningAgent`, `SessionManager`, and `AuditLogger`
 - **Not currently registered with the app** — requires explicit `CompassRouter.register_with_app(app)` to activate
-- Intended for production; falls back to a demo response if the agent fails
+- The agent is now functional when constructed with `ReasoningAgent(tools=ToolRegistry(service=query_service, docs_root=...))` — `_plan_tools`/`_execute_tools` dispatch real search-then-read plans with budget enforcement
 
 ### Reasoning Agent (`src/compass/agent/`)
 - **Framework:** LangGraph (`StateGraph`)
 - **Model:** DeepSeek via OpenRouter using the `openai` SDK (OpenRouter is OpenAI-compatible). `agent.py` reads `settings.reasoning_model` (default `deepseek-v4`), `settings.openrouter_api_key`, and `settings.openrouter_base_url` from `src/compass/config.py` (pydantic-settings, loads `.env`). The client is wrapped with LangSmith's `wrap_openai` when available.
 - **Summarization model:** `claude-haiku-4-5-20251001` via Anthropic SDK — still **hard-coded** in `IndexTreeBuilder` (`indexer/index_tree.py`) for generating `.atlas/index.json` summaries; the `SUMMARIZATION_MODEL` setting (default `deepseek-v4`) is not read by it
 - **Tools (5)** registered via `ToolRegistry` in `core_tools.py` (note: `agent/tools.py` is an empty placeholder):
-  - `list_node` — traverses `.atlas/index.json` hierarchy
-  - `read_html` — parses HTML files via `indexer/html_parser.py`
+  - `list_node` — lists real folders/files under `docs_root/{variant}` (variant-isolated)
+  - `read_html` — reads `.htm`/`.html` via `retrieval/textutil.py`, enforces variant isolation
   - `read_pdf` — extracts PDF content via `indexer/pdf_parser.py`
-  - `lexical_search` — BM25 search via `indexer/search.py` (tantivy)
-  - `compare_variants` — cross-variant topic comparison
-- **All tools require their dependencies injected at construction** (`index_tree`, `search_index`, `docs_root`); they return errors if uninitialized (current stubs)
+  - `lexical_search` — BM25 search via `QueryService` (preferred) or a legacy index object
+  - `compare_variants` — real cross-variant search when a `QueryService` is injected
+- **Tools take their dependencies at construction** — `ToolRegistry(service=QueryService(), docs_root=...)`; without them, tools return explanatory error `ToolResult`s
 - **LangGraph DAG:**
   ```
   START → process_query → plan_tools ──(budget ok)──► execute_tools → generate_answer → finalize → END
                                       └─(budget exhausted)──────────────────────────────►
   ```
-- `_plan_tools` and `_execute_tools` are currently stubs — tool dispatch is not yet wired to `ToolRegistry`
+- `_plan_tools` builds a search-then-read plan; `_execute_tools` dispatches it through the injected
+  `ToolRegistry` (search → read top 3 hits), tracking budgets; `_generate_answer` reuses
+  `retrieval/answer.py` for structured cited answers
+- `AgentState` (`state.py`) is a **plain dataclass** — deliberately not LangGraph's `MessagesState`,
+  which is a TypedDict in current versions and silently breaks attribute access
 - **Budget constraints:** max 20 tool calls, max 8 file reads per query (tracked in `AgentState`)
-- **Variant isolation:** Enforced at tool-runtime level via `variant_isolation.py` — queries restricted to CloudNative or ServerBased subtree; this is a **security boundary**
+- **Variant isolation:** Enforced in the tools (`read_html`, `list_node` refuse paths outside the
+  variant subtree) and in `CorpusStore.get_document`; this is a **security boundary**
 
 ### Index Tree & Indexing (`src/compass/indexer/`)
-- **Index structure:** `.atlas/index.json` — JSON file mirroring docs folder structure with LLM-generated summaries
+- **Index structure:** `.atlas/index.json` — JSON file mirroring docs folder structure with LLM-generated summaries (planned; the active search index is `retrieval/bm25.py`)
 - **Atomic writes:** tmp-then-rename pattern via `atomic.py`
-- HTML parsing: `selectolax` + `readability-lxml` (`html_parser.py`)
+- HTML parsing: `selectolax` + `readability-lxml` (`html_parser.py`; readability is best-effort — parse survives empty/odd docs)
 - PDF text: `pypdf` (`pdf_parser.py`), tables: `pdfplumber` (`pdf_tables.py`)
 - OCR fallback: Tesseract / `pytesseract` (`ocr.py`)
-- Lexical search: `tantivy-py` BM25 in-process (`search.py`)
+- `search.py` (tantivy BM25) is **legacy/unused** — tantivy imports lazily; the module raises at
+  construction if tantivy is missing. Superseded by `retrieval/bm25.py`; kept for future scale-up.
 - **Known issue:** Corpus structure diverges from PRD (see Documentation Corpus Structure below). Index paths must match actual on-disk structure.
 
 ### Orchestration Services (`src/compass/services/`)
@@ -85,6 +115,8 @@ There are currently **two distinct query paths** — understanding which is acti
 - `services/api.ts` (`CompassAPI`) wraps axios; adds Bearer token automatically, redirects on 401; base URL from `import.meta.env.VITE_API_URL` (baked at Vite build time) falling back to `/api/v1`
 - **Variant selector** is embedded as a pill toggle inside the chat input bar (not a standalone page-level component); variant state + chat history are persisted in `localStorage` per-variant key (`compass_messages_{variant}`)
 - Key components: `ChatInterface.tsx`, `CitationsPanel.tsx`, `ReasoningTrail.tsx`
+- **Markdown answers:** assistant messages render through `utils/markdown.ts` — a minimal,
+  HTML-escaping markdown renderer (headings, bold, code, lists, `[n]` citation superscripts)
 - **Ports:** Backend 8000, Frontend 5173 (dev) / 3000 (Docker) / Render static site
 
 ## Documentation Corpus Structure
@@ -242,15 +274,32 @@ cat .audit_logs/*.jsonl | jq .
 
 ## Planned Work
 
-- **Wire agent tools:** Connect `_plan_tools` / `_execute_tools` LangGraph nodes to `ToolRegistry` and real index/search
-- **Activate CompassRouter:** Register full agent path, replacing the demo inline routes
-- **Summarizer migration:** `index_tree.py` still hard-codes Claude Haiku via Anthropic SDK; wire it to `settings.summarization_model` to complete the OpenRouter/DeepSeek migration
-- **Incremental indexing:** Cron-driven delta updates to `.atlas/index.json`
+- **Activate CompassRouter:** Register full agent path (sessions/audit), replacing the inline routes
+- **LLM-driven tool planning:** `_plan_tools` currently uses a fixed search-then-read plan; upgrade to model-chosen tool sequences (index-tree navigation)
+- **Index tree summaries:** Generate `.atlas/index.json` LLM summaries for hierarchical navigation; `index_tree.py` still hard-codes Claude Haiku via Anthropic SDK — wire it to `settings.summarization_model`
+- **PDF corpus:** Include `docs/{variant}/PDFs/` in the retrieval corpus (currently HTML-only)
+- **Incremental indexing:** Cron-driven delta updates to the corpus caches
 - **Vision service:** Implement diagram interpretation stub in `vision.py`
 - **Evaluation harness:** 300-query dataset for accuracy, latency, citation correctness
 - **Configuration schema:** `config.yml` for variant selection, parser tuning, OCR thresholds, budget constraints (PRD §7.7)
 
 ## Completed Work (recent)
+
+- **Retrieval overhaul (`src/compass/retrieval/`):** Replaced the first-100-files keyword demo search
+  with full-corpus retrieval — `CorpusStore` (parse + gzip cache), pure-Python `BM25Index` with
+  weighted titles, query-relevant `best_passage()` extraction, and structured cited answering.
+  ~3,970 documents indexed vs ~100 before. `scripts/build_index.py` prebuilds caches.
+- **Answer quality:** system prompt enforces direct answer → explanation/steps → inline `[n]`
+  citations → explicit gap disclosure; `max_tokens=1600`, `temperature=0.2`; extractive fallback
+  without an API key. Frontend renders the markdown properly (`frontend/src/utils/markdown.ts`).
+- **Agent path functional:** `_plan_tools`/`_execute_tools` dispatch real plans through
+  `ToolRegistry` with budget tracking; tools rewritten against the retrieval layer with variant
+  isolation; `AgentState` converted to a plain dataclass (LangGraph `MessagesState` is a TypedDict
+  now and broke attribute access).
+- **Fixes:** `read_html` accepts `.htm` (the entire corpus); selectolax `select()` → `css()` API fix
+  in `html_parser.py`; readability made best-effort; tantivy made an optional import; removed bogus
+  `openrouter` package from requirements; added `selectolax` to `requirements-render.txt`; test
+  suite green (312 passed, legacy tantivy suite skipped).
 
 - **Render.com deployment:** Both API (Web Service) and UI (Static Site) deployed and working on free tier. See `render_deployment.md`.
 - **CORS fix:** `allow_credentials=False` + OPTIONS preflight bypass at top of gateway middleware — resolves browser CORS errors for cross-origin Bearer-token requests.

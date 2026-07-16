@@ -1,29 +1,17 @@
 """Main FastAPI application."""
 
 import logging
-import uuid
 import os
-import re
-from pathlib import Path
-from html.parser import HTMLParser
+import threading
+import uuid
+
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from openai import OpenAI
 
 from compass import __version__
 from compass.api.gateway import APIGateway
 from compass.config import settings
-
-try:
-    from langsmith import traceable as _traceable
-    from langsmith.wrappers import wrap_openai as _wrap_openai
-except ImportError:
-    def _traceable(func=None, **kwargs):  # no-op when langsmith not installed
-        if func is not None:
-            return func
-        return lambda f: f
-    def _wrap_openai(client):
-        return client
+from compass.retrieval.service import QueryService
 
 logger = logging.getLogger(__name__)
 
@@ -68,201 +56,51 @@ app.add_middleware(
 gateway = APIGateway(app)
 gateway.register_routes()
 
-
-class HTMLTextExtractor(HTMLParser):
-    """Extract text from HTML, filtering out scripts and styles."""
-
-    def __init__(self):
-        super().__init__()
-        self.text = []
-        self.skip = False
-
-    def handle_starttag(self, tag, attrs):
-        """Skip script and style tags."""
-        if tag in ("script", "style", "meta"):
-            self.skip = True
-
-    def handle_endtag(self, tag):
-        """Resume after script and style tags."""
-        if tag in ("script", "style", "meta"):
-            self.skip = False
-
-    def handle_data(self, data):
-        """Handle text data."""
-        if not self.skip:
-            text = data.strip()
-            if text and not text.startswith("font-size:") and "{" not in text:
-                self.text.append(text)
-
-    def get_text(self):
-        """Get extracted text."""
-        # Join and clean up
-        text = " ".join(self.text)
-        # Remove multiple spaces
-        text = re.sub(r"\s+", " ", text)
-        return text.strip()
+# Shared retrieval/answering service (also used by agent tools)
+query_service = QueryService()
 
 
-def search_documentation(query: str, variant: str = "CloudNative", max_results: int = 3) -> list:
-    """Search documentation files for query."""
-    docs_root = Path(__file__).parent.parent.parent / "docs"
-    variant_path = docs_root / variant / "HTML"
-
-    if not variant_path.exists():
-        return []
-
-    results = []
-    query_terms = query.lower().split()
-
-    # Find HTML files
-    html_files = list(variant_path.glob("**/*.htm")) + list(variant_path.glob("**/*.html"))
-
-    for html_file in html_files[:100]:  # Limit search to first 100 files
-        try:
-            with open(html_file, "r", encoding="utf-8", errors="ignore") as f:
-                content = f.read()
-
-            # Extract text from HTML
-            extractor = HTMLTextExtractor()
-            extractor.feed(content)
-            text = extractor.get_text()
-
-            # Calculate relevance score
-            score = 0
-            for term in query_terms:
-                # Count occurrences of each query term
-                score += text.lower().count(term) * 10
-
-            # Check title for matches
-            if "<title>" in content:
-                title_match = re.search(r"<title>(.*?)</title>", content)
-                if title_match:
-                    title = title_match.group(1)
-                    for term in query_terms:
-                        if term in title.lower():
-                            score += 50  # Boost title matches
-
-            if score > 0:
-                # Extract relevant excerpt
-                excerpt = text[:300] if len(text) > 300 else text
-                results.append(
-                    {
-                        "score": score,
-                        "file": html_file.name,
-                        "path": str(html_file.relative_to(docs_root)),
-                        "title": title if title_match else html_file.name,
-                        "excerpt": excerpt,
-                    }
-                )
-        except Exception as e:
-            logger.debug(f"Error processing {html_file}: {e}")
-            continue
-
-    # Sort by relevance and return top results
-    results.sort(key=lambda x: x["score"], reverse=True)
-    return results[:max_results]
+@app.on_event("startup")
+def _warm_indexes() -> None:
+    """Build search indexes in the background so the first query is fast."""
+    threading.Thread(target=query_service.warmup, daemon=True).start()
 
 
-@_traceable(name="llm_generate_answer", run_type="llm")
-def generate_answer_from_docs(query: str, search_results: list, variant: str = "CloudNative") -> str:
-    """Generate an answer using DeepSeek via OpenRouter, or fall back to excerpt assembly."""
-    if not search_results:
-        return (
-            f"No documentation found for '{query}'. "
-            "Try searching for: deployment, architecture, design, content author, "
-            "communications, orchestrator, empower, web client, exstream engine."
-        )
-
-    # Fall back to string assembly if OpenRouter key not configured
-    if not settings.openrouter_api_key:
-        first = search_results[0]
-        answer = f"**{first['title']}**\n\n{first['excerpt'][:400]}\n\n"
-        if len(search_results) > 1:
-            answer += "**Related topics:**\n"
-            for result in search_results[1:]:
-                answer += f"- **{result['title']}**: {result['excerpt'][:200]}...\n"
-        return answer
-
-    # Build context from search results
-    context = "\n\n".join(
-        f"**{r['title']}** (file: {r['file']})\n{r['excerpt']}"
-        for r in search_results
-    )
-
-    prompt = (
-        f"You are an expert on OpenText Exstream documentation ({variant} variant). "
-        f"Answer the question below using only the documentation excerpts provided. "
-        f"Be concise and cite specific component or feature names.\n\n"
-        f"Question: {query}\n\n"
-        f"Documentation excerpts:\n{context}"
-    )
-
-    try:
-        raw_client = OpenAI(
-            api_key=settings.openrouter_api_key,
-            base_url=settings.openrouter_base_url,
-        )
-        client = _wrap_openai(raw_client)
-        response = client.chat.completions.create(
-            model=settings.reasoning_model,
-            max_tokens=1024,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        return response.choices[0].message.content
-    except Exception as e:
-        logger.error(f"LLM answer generation failed: {e}")
-        # Fall back to excerpt assembly
-        first = search_results[0]
-        return f"**{first['title']}**\n\n{first['excerpt'][:400]}"
+# NOTE: endpoints below are sync (`def`) on purpose — FastAPI runs them in a
+# threadpool, so index builds and LLM calls do not block the event loop.
 
 
-# Simple demo endpoints for testing
 @app.post("/api/v1/query")
-async def query(request: Request, query: str, variant: str = "CloudNative", session_id: str = None) -> dict:
-    """Query endpoint - searches documentation and generates answer."""
+def query(request: Request, query: str, variant: str = "CloudNative", session_id: str = None) -> dict:
+    """Query endpoint — full-corpus BM25 retrieval + structured LLM answer."""
     try:
-        user = gateway.get_current_user(request)
+        gateway.get_current_user(request)
     except HTTPException:
-        # Allow demo access without authentication
-        user = None
+        pass  # demo mode allows unauthenticated access
 
     session_id = session_id or str(uuid.uuid4())
+    if variant not in ("CloudNative", "ServerBased"):
+        raise HTTPException(status_code=400, detail=f"Invalid variant: {variant}")
 
-    # Search documentation
-    results = search_documentation(query, variant)
-
-    if results:
-        # Generate answer using LLM
-        answer = generate_answer_from_docs(query, results, variant)
-
-        citations = [
-            {
-                "doc_id": result["file"],
-                "title": result["title"],
-                "path": result["path"],
-                "content": result["excerpt"][:300],
-            }
-            for result in results
-        ]
-    else:
-        answer = f"No documentation found for '{query}' in {variant} variant. Try searching for: deployment, architecture, design, content author, communications, orchestration, empower, web client."
-        citations = []
+    result = query_service.query(query, variant)
 
     return {
         "session_id": session_id,
-        "answer": answer,
-        "citations": citations,
-        "tool_calls": len(results),
-        "processing_time": 0.5,
+        "answer": result["answer"],
+        "citations": result["citations"],
+        "tool_calls": result["tool_calls"],
+        "processing_time": result["processing_time"],
         "variant": variant,
+        "model": result["model"],
+        "trace": result["trace"],
     }
 
 
 @app.get("/api/v1/session/{session_id}")
-async def get_session(session_id: str, request: Request) -> dict:
+def get_session(session_id: str, request: Request) -> dict:
     """Get session information."""
     try:
-        user = gateway.get_current_user(request)
+        gateway.get_current_user(request)
     except HTTPException:
         pass
 
@@ -281,10 +119,10 @@ async def get_session(session_id: str, request: Request) -> dict:
 
 
 @app.delete("/api/v1/session/{session_id}")
-async def close_session(session_id: str, request: Request) -> dict:
+def close_session(session_id: str, request: Request) -> dict:
     """Close a session."""
     try:
-        user = gateway.get_current_user(request)
+        gateway.get_current_user(request)
     except HTTPException:
         pass
 
@@ -292,10 +130,10 @@ async def close_session(session_id: str, request: Request) -> dict:
 
 
 @app.get("/api/v1/session/{session_id}/queries")
-async def get_session_queries(session_id: str, request: Request) -> dict:
+def get_session_queries(session_id: str, request: Request) -> dict:
     """Get all queries in a session."""
     try:
-        user = gateway.get_current_user(request)
+        gateway.get_current_user(request)
     except HTTPException:
         pass
 
@@ -306,13 +144,18 @@ async def get_session_queries(session_id: str, request: Request) -> dict:
 
 
 @app.get("/health")
-async def health_check():
-    """Health check endpoint."""
-    return {"status": "healthy", "service": "compass-rag", "version": __version__}
+def health_check():
+    """Health check endpoint (includes index status)."""
+    return {
+        "status": "healthy",
+        "service": "compass-rag",
+        "version": __version__,
+        "retrieval": query_service.status(),
+    }
 
 
 @app.get("/")
-async def root():
+def root():
     """Root endpoint."""
     return {
         "message": "Compass RAG API",

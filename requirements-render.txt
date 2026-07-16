@@ -18,6 +18,9 @@ pydantic-settings>=2.0.0
 # LLM Provider (OpenRouter uses OpenAI-compatible API)
 openai>=1.0.0
 
+# HTML parsing for the retrieval layer (falls back to stdlib if missing)
+selectolax>=0.3.16
+
 # HTTP
 httpx>=0.27.0
 

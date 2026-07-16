@@ -38,7 +38,7 @@ class ExtractedTable:
         for i, row in enumerate(self.rows):
             lines.append("| " + " | ".join(str(cell or "") for cell in row) + " |")
             if i == 0 and len(self.rows) > 1:
-                lines.append("|" + "|".join(["---"] * len(row)) + "|")
+                lines.append("| " + " | ".join(["---"] * len(row)) + " |")
 
         return "\n".join(lines)
 

@@ -136,6 +136,41 @@
   word-wrap: break-word;
 }
 
+/* Rendered markdown answers */
+.markdown p {
+  margin: 0 0 0.6rem;
+}
+.markdown p:last-child {
+  margin-bottom: 0;
+}
+.markdown h3,
+.markdown h4,
+.markdown h5 {
+  margin: 0.8rem 0 0.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.markdown ul,
+.markdown ol {
+  margin: 0.3rem 0 0.6rem;
+  padding-left: 1.4rem;
+}
+.markdown li {
+  margin: 0.25rem 0;
+}
+.markdown code {
+  background: rgba(127, 127, 127, 0.15);
+  border-radius: 3px;
+  padding: 0.1em 0.35em;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.9em;
+}
+.markdown :global(.citation-ref) {
+  color: #7aa2ff;
+  font-weight: 600;
+  margin-left: 1px;
+}
+
 .messageFooter {
   display: flex;
   gap: 1rem;

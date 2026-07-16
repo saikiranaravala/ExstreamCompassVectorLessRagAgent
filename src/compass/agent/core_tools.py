@@ -1,4 +1,10 @@
-"""Core tools for the reasoning agent."""
+"""Core tools for the reasoning agent.
+
+Tools are thin wrappers over the shared retrieval layer (``QueryService``),
+so the agent path and the API path search the same index and read the same
+corpus. Every tool degrades to an explanatory error ToolResult when its
+dependencies were not injected.
+"""
 
 import logging
 from dataclasses import dataclass
@@ -26,269 +32,244 @@ class ToolResult:
 
 
 class ListNodeTool:
-    """Tool to list contents of index tree nodes."""
+    """List the contents of a documentation tree node (folder)."""
 
-    def __init__(self, index_tree: Optional[Any] = None):
-        """Initialize tool.
-
-        Args:
-            index_tree: Index tree manager instance
-        """
+    def __init__(self, index_tree: Optional[Any] = None, docs_root: Optional[Path] = None):
         self.index_tree = index_tree
+        self.docs_root = Path(docs_root) if docs_root else None
 
     def execute(self, node_path: str, variant: str) -> ToolResult:
-        """List children of an index tree node.
+        """List children of a node.
 
         Args:
-            node_path: Path to node in index tree
+            node_path: Folder path relative to the docs root ("" for the variant root)
             variant: Variant filter (CloudNative or ServerBased)
-
-        Returns:
-            ToolResult with list of child nodes
         """
         try:
-            if not self.index_tree:
-                return ToolResult(
-                    success=False,
-                    data=None,
-                    error="Index tree not initialized",
+            if self.docs_root and self.docs_root.exists():
+                base = (self.docs_root / variant).resolve()
+                target = (self.docs_root / node_path).resolve() if node_path else base
+                try:
+                    target.relative_to(base)
+                except ValueError:
+                    return ToolResult(
+                        success=False,
+                        data=None,
+                        error=f"Path outside {variant} subtree (variant isolation)",
+                    )
+                if not target.is_dir():
+                    return ToolResult(success=False, data=None, error=f"Not a folder: {node_path}")
+                children = [
+                    {
+                        "name": p.name,
+                        "type": "folder" if p.is_dir() else "document",
+                    }
+                    for p in sorted(target.iterdir())[:100]
+                    if p.is_dir() or p.suffix.lower() in (".htm", ".html", ".pdf")
+                ]
+                return ToolResult(success=True, data={"node": node_path, "children": children})
+
+            if self.index_tree is not None:
+                node = self.index_tree
+                for part in filter(None, node_path.replace("\\", "/").split("/")):
+                    node = node.get(part, {}) if isinstance(node, dict) else {}
+                children = (
+                    [{"name": k, "type": "folder" if isinstance(v, dict) else "document"}
+                     for k, v in node.items()]
+                    if isinstance(node, dict)
+                    else []
                 )
+                return ToolResult(success=True, data={"node": node_path, "children": children})
 
-            # In production, would traverse the actual index tree
-            logger.info(f"Listing node: {node_path} (variant: {variant})")
-
-            children = [
-                {"name": "intro.html", "type": "document"},
-                {"name": "guide.html", "type": "document"},
-                {"name": "advanced", "type": "folder"},
-            ]
-
-            return ToolResult(
-                success=True,
-                data={"node": node_path, "children": children},
-            )
-
+            return ToolResult(success=False, data=None, error="Index tree not initialized")
         except Exception as e:
             logger.error(f"list_node failed: {e}")
             return ToolResult(success=False, data=None, error=str(e))
 
 
 class ReadHTMLTool:
-    """Tool to read HTML documentation files."""
+    """Read and parse an HTML documentation file (.htm or .html)."""
+
+    MAX_CONTENT_CHARS = 4000
 
     def __init__(self, docs_root: Optional[Path] = None):
-        """Initialize tool.
-
-        Args:
-            docs_root: Root documentation directory
-        """
         self.docs_root = Path(docs_root) if docs_root else None
 
     def execute(self, file_path: str, variant: str) -> ToolResult:
-        """Read and parse HTML file.
-
-        Args:
-            file_path: Path to HTML file
-            variant: Documentation variant (for validation)
-
-        Returns:
-            ToolResult with parsed HTML content
-        """
         try:
-            logger.info(f"Reading HTML: {file_path} (variant: {variant})")
+            from compass.retrieval.textutil import extract_html_text
 
-            # In production, would use the HTML parser
-            from compass.indexer.html_parser import HTMLParser
+            path = Path(file_path)
+            if self.docs_root and not path.is_absolute():
+                path = self.docs_root / file_path
+            path = path.resolve()
 
-            full_path = Path(file_path)
+            if path.suffix.lower() not in (".htm", ".html"):
+                return ToolResult(success=False, data=None, error=f"Not an HTML file: {file_path}")
+            if not path.is_file():
+                return ToolResult(success=False, data=None, error=f"File not found: {file_path}")
 
-            if full_path.exists() and full_path.suffix == ".html":
-                parsed = HTMLParser.parse_file(full_path)
-                if parsed:
+            if self.docs_root:
+                root = self.docs_root.resolve()
+                try:
+                    path.relative_to(root)
+                except ValueError:
                     return ToolResult(
-                        success=True,
-                        data={
-                            "title": parsed.title,
-                            "content": parsed.text[:1000],  # Truncate for response
-                            "url": parsed.url,
-                        },
+                        success=False, data=None, error="Path outside documentation root"
                     )
+                variant_root = root / variant
+                if variant_root.is_dir():
+                    try:
+                        path.relative_to(variant_root)
+                    except ValueError:
+                        return ToolResult(
+                            success=False,
+                            data=None,
+                            error=f"Path outside {variant} subtree (variant isolation)",
+                        )
 
+            html = path.read_text(encoding="utf-8", errors="ignore")
+            title, text = extract_html_text(html)
             return ToolResult(
-                success=False,
-                data=None,
-                error=f"Could not read HTML file: {file_path}",
+                success=True,
+                data={
+                    "title": title or path.stem,
+                    "content": text[: self.MAX_CONTENT_CHARS],
+                    "url": str(path),
+                },
             )
-
         except Exception as e:
             logger.error(f"read_html failed: {e}")
             return ToolResult(success=False, data=None, error=str(e))
 
 
 class ReadPDFTool:
-    """Tool to read PDF documentation files."""
+    """Read and extract text from a PDF documentation file."""
 
     def __init__(self, docs_root: Optional[Path] = None):
-        """Initialize tool.
-
-        Args:
-            docs_root: Root documentation directory
-        """
         self.docs_root = Path(docs_root) if docs_root else None
 
     def execute(self, file_path: str, variant: str, page: Optional[int] = None) -> ToolResult:
-        """Read and extract PDF content.
-
-        Args:
-            file_path: Path to PDF file
-            variant: Documentation variant (for validation)
-            page: Optional specific page number
-
-        Returns:
-            ToolResult with extracted PDF content
-        """
         try:
-            logger.info(f"Reading PDF: {file_path} (variant: {variant}, page: {page})")
+            path = Path(file_path)
+            if self.docs_root and not path.is_absolute():
+                path = self.docs_root / file_path
+            path = path.resolve()
 
-            # In production, would use the PDF parser
+            if path.suffix.lower() != ".pdf" or not path.is_file():
+                return ToolResult(
+                    success=False, data=None, error=f"Could not read PDF file: {file_path}"
+                )
+
             from compass.indexer.pdf_parser import PDFParser
 
-            full_path = Path(file_path)
-
-            if full_path.exists() and full_path.suffix == ".pdf":
-                parsed = PDFParser.parse_file(full_path)
-                if parsed:
-                    content = parsed.text[:1000] if page is None else parsed.text
-                    return ToolResult(
-                        success=True,
-                        data={
-                            "title": parsed.title,
-                            "content": content,
-                            "pages": parsed.pages,
-                            "url": parsed.url,
-                        },
-                    )
-
+            parsed = PDFParser.parse_file(path)
+            if not parsed:
+                return ToolResult(
+                    success=False, data=None, error=f"Could not parse PDF: {file_path}"
+                )
+            content = parsed.text[:4000] if page is None else parsed.text
             return ToolResult(
-                success=False,
-                data=None,
-                error=f"Could not read PDF file: {file_path}",
+                success=True,
+                data={
+                    "title": parsed.title,
+                    "content": content,
+                    "pages": parsed.pages,
+                    "url": parsed.url,
+                },
             )
-
         except Exception as e:
             logger.error(f"read_pdf failed: {e}")
             return ToolResult(success=False, data=None, error=str(e))
 
 
 class LexicalSearchTool:
-    """Tool for BM25 full-text search."""
+    """Full-text BM25 search over the documentation corpus."""
 
-    def __init__(self, search_index: Optional[Any] = None):
-        """Initialize tool.
-
-        Args:
-            search_index: BM25Index instance
+    def __init__(self, search_index: Optional[Any] = None, service: Optional[Any] = None):
+        """Args:
+            search_index: Legacy index object exposing .search(query, limit)
+            service: QueryService (preferred) — searches per variant with passages
         """
         self.search_index = search_index
+        self.service = service
 
-    def execute(
-        self,
-        query: str,
-        variant: str,
-        limit: int = 10,
-    ) -> ToolResult:
-        """Execute lexical search query.
-
-        Args:
-            query: Search query string
-            variant: Documentation variant to search
-            limit: Maximum results to return
-
-        Returns:
-            ToolResult with search results
-        """
+    def execute(self, query: str, variant: str, limit: int = 10) -> ToolResult:
         try:
-            logger.info(f"Searching: '{query}' in {variant} (limit: {limit})")
-
-            if not self.search_index:
+            if self.service is not None:
+                hits = self.service.search(query, variant, limit=limit)
                 return ToolResult(
-                    success=False,
-                    data=None,
-                    error="Search index not initialized",
+                    success=True,
+                    data={
+                        "query": query,
+                        "results": [
+                            {
+                                "doc_id": h["doc_id"],
+                                "title": h["title"],
+                                "path": h["path"],
+                                "score": h["score"],
+                                "preview": h["passage"][:300],
+                            }
+                            for h in hits
+                        ],
+                        "total": len(hits),
+                    },
                 )
 
-            # In production, would use the actual search index
-            from compass.indexer.search import BM25Index
+            if self.search_index is not None:
+                results = self.search_index.search(query, limit=limit)
+                return ToolResult(
+                    success=True,
+                    data={
+                        "query": query,
+                        "results": [
+                            {
+                                "doc_id": r.doc_id,
+                                "title": r.title,
+                                "path": r.path,
+                                "score": r.score,
+                                "preview": r.content_preview[:200],
+                            }
+                            for r in results
+                        ],
+                        "total": len(results),
+                    },
+                )
 
-            results = self.search_index.search(query, limit=limit)
-
-            return ToolResult(
-                success=True,
-                data={
-                    "query": query,
-                    "results": [
-                        {
-                            "doc_id": r.doc_id,
-                            "title": r.title,
-                            "path": r.path,
-                            "score": r.score,
-                            "preview": r.content_preview[:200],
-                        }
-                        for r in results
-                    ],
-                    "total": len(results),
-                },
-            )
-
+            return ToolResult(success=False, data=None, error="Search index not initialized")
         except Exception as e:
             logger.error(f"lexical_search failed: {e}")
             return ToolResult(success=False, data=None, error=str(e))
 
 
 class CompareVariantsTool:
-    """Tool to compare CloudNative vs ServerBased documentation."""
+    """Compare a topic across CloudNative and ServerBased documentation."""
 
-    def __init__(self, index_tree: Optional[Any] = None):
-        """Initialize tool.
-
-        Args:
-            index_tree: Index tree manager instance
-        """
+    def __init__(self, index_tree: Optional[Any] = None, service: Optional[Any] = None):
         self.index_tree = index_tree
+        self.service = service
 
-    def execute(
-        self,
-        topic: str,
-        query: Optional[str] = None,
-    ) -> ToolResult:
-        """Compare a topic across variants.
-
-        Args:
-            topic: Topic to compare
-            query: Optional query string for filtering
-
-        Returns:
-            ToolResult with comparison data
-        """
+    def execute(self, topic: str, query: Optional[str] = None) -> ToolResult:
         try:
-            logger.info(f"Comparing variants for topic: {topic}")
+            search_text = query or topic
+            comparison: dict[str, Any] = {"topic": topic}
 
-            comparison = {
-                "topic": topic,
-                "cloudnative": {
-                    "availability": True,
-                    "docs": ["cloud-intro.html", "cloud-guide.html"],
-                    "summary": "Cloud-native specific documentation available",
-                },
-                "serverbased": {
-                    "availability": True,
-                    "docs": ["server-guide.html", "server-setup.html"],
-                    "summary": "Server-based specific documentation available",
-                },
-            }
+            for variant, key in (("CloudNative", "cloudnative"), ("ServerBased", "serverbased")):
+                if self.service is not None:
+                    hits = self.service.search(search_text, variant, limit=3)
+                    comparison[key] = {
+                        "availability": bool(hits),
+                        "docs": [h["path"] for h in hits],
+                        "summary": hits[0]["passage"][:300] if hits else "No matching topics found",
+                    }
+                else:
+                    comparison[key] = {
+                        "availability": None,
+                        "docs": [],
+                        "summary": "Search service not initialized",
+                    }
 
             return ToolResult(success=True, data=comparison)
-
         except Exception as e:
             logger.error(f"compare_variants failed: {e}")
             return ToolResult(success=False, data=None, error=str(e))
@@ -297,76 +278,54 @@ class CompareVariantsTool:
 class ToolRegistry:
     """Registry of available tools for the agent."""
 
-    def __init__(self, index_tree=None, search_index=None, docs_root=None):
+    def __init__(self, index_tree=None, search_index=None, docs_root=None, service=None):
         """Initialize tool registry.
 
         Args:
-            index_tree: Index tree manager
-            search_index: BM25 search index
+            index_tree: Index tree (dict) for offline node listing
+            search_index: Legacy BM25 index object
             docs_root: Root documentation directory
+            service: QueryService — the preferred backend for search/compare
         """
         self.tools = {
-            "list_node": ListNodeTool(index_tree),
+            "list_node": ListNodeTool(index_tree, docs_root),
             "read_html": ReadHTMLTool(docs_root),
             "read_pdf": ReadPDFTool(docs_root),
-            "lexical_search": LexicalSearchTool(search_index),
-            "compare_variants": CompareVariantsTool(index_tree),
+            "lexical_search": LexicalSearchTool(search_index, service),
+            "compare_variants": CompareVariantsTool(index_tree, service),
         }
 
     @_traceable(name="tool_execution", run_type="tool")
     def execute_tool(self, tool_name: str, **kwargs) -> ToolResult:
-        """Execute a registered tool.
-
-        Args:
-            tool_name: Name of tool to execute
-            **kwargs: Tool arguments
-
-        Returns:
-            ToolResult
-        """
+        """Execute a registered tool by name."""
         if tool_name not in self.tools:
-            return ToolResult(
-                success=False,
-                data=None,
-                error=f"Unknown tool: {tool_name}",
-            )
+            return ToolResult(success=False, data=None, error=f"Unknown tool: {tool_name}")
 
         try:
-            tool = self.tools[tool_name]
-            return tool.execute(**kwargs)
+            return self.tools[tool_name].execute(**kwargs)
         except TypeError as e:
             return ToolResult(
-                success=False,
-                data=None,
-                error=f"Invalid arguments for {tool_name}: {e}",
+                success=False, data=None, error=f"Invalid arguments for {tool_name}: {e}"
             )
         except Exception as e:
             logger.error(f"Tool execution failed: {e}")
             return ToolResult(success=False, data=None, error=str(e))
 
     def get_tools(self) -> dict:
-        """Get all registered tools.
-
-        Returns:
-            Dict of tool names and instances
-        """
+        """Get all registered tools."""
         return self.tools
 
     def list_tools(self) -> list[dict]:
-        """Get list of available tools with descriptions.
-
-        Returns:
-            List of tool descriptions
-        """
+        """Get list of available tools with descriptions."""
         return [
             {
                 "name": "list_node",
-                "description": "List contents of an index tree node",
+                "description": "List contents of a documentation folder",
                 "params": ["node_path", "variant"],
             },
             {
                 "name": "read_html",
-                "description": "Read and parse HTML documentation files",
+                "description": "Read and parse HTML documentation files (.htm/.html)",
                 "params": ["file_path", "variant"],
             },
             {
@@ -376,7 +335,7 @@ class ToolRegistry:
             },
             {
                 "name": "lexical_search",
-                "description": "Full-text search across documentation",
+                "description": "Full-text BM25 search across documentation",
                 "params": ["query", "variant", "limit"],
             },
             {

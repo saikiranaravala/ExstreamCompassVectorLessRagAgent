@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import { api, QueryResponse } from '../services/api'
 import { CitationsPanel } from './CitationsPanel'
 import { ReasoningTrail } from './ReasoningTrail'
+import { renderMarkdown } from '../utils/markdown'
 import styles from './ChatInterface.module.css'
 
 export interface Message {
@@ -173,7 +174,14 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
                   {message.timestamp.toLocaleTimeString()}
                 </span>
               </div>
-              <div className={styles.messageContent}>{message.content}</div>
+              {message.role === 'assistant' ? (
+                <div
+                  className={`${styles.messageContent} ${styles.markdown}`}
+                  dangerouslySetInnerHTML={{ __html: renderMarkdown(message.content) }}
+                />
+              ) : (
+                <div className={styles.messageContent}>{message.content}</div>
+              )}
               {message.response && (
                 <div className={styles.messageFooter}>
                   <span className={styles.toolCalls}>

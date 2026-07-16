@@ -3,8 +3,6 @@
 from dataclasses import dataclass, field
 from typing import Any, Optional
 
-from langgraph.graph import MessagesState
-
 
 @dataclass
 class AgentToolCall:
@@ -17,12 +15,17 @@ class AgentToolCall:
 
 
 @dataclass
-class AgentState(MessagesState):
+class AgentState:
     """State for the reasoning agent.
 
-    Extends LangGraph MessagesState with additional fields for
-    query context, tool tracking, and budgets.
+    A plain dataclass (LangGraph supports dataclass state schemas natively).
+    Deliberately does NOT extend MessagesState: that is a TypedDict in current
+    LangGraph versions, which silently turns instances into dicts and breaks
+    attribute access.
     """
+
+    # Conversation context
+    messages: list = field(default_factory=list)
 
     # Query context
     query: str = ""
@@ -40,5 +43,5 @@ class AgentState(MessagesState):
     final_answer: Optional[str] = None
     citations: list[dict] = field(default_factory=list)
 
-    # Metadata
+    # Tool plan produced by _plan_tools (list of {tool, args} steps)
     search_results: list[dict] = field(default_factory=list)

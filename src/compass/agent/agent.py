@@ -32,6 +32,7 @@ class ReasoningAgent:
         base_url: Optional[str] = None,
         max_tool_calls: int = MAX_TOOL_CALLS_PER_QUERY,
         max_file_reads: int = MAX_FILE_READS_PER_QUERY,
+        tools: Optional[object] = None,
     ):
         """Initialize the reasoning agent.
 
@@ -41,6 +42,8 @@ class ReasoningAgent:
             base_url: OpenRouter base URL (defaults to settings.openrouter_base_url)
             max_tool_calls: Maximum tool calls per query
             max_file_reads: Maximum file reads per query
+            tools: ToolRegistry with search/read tools wired to the real corpus.
+                Without it the agent still runs but tool steps are skipped.
         """
         raw_client = OpenAI(
             api_key=api_key or settings.openrouter_api_key,
@@ -50,6 +53,7 @@ class ReasoningAgent:
         self.model = model or settings.reasoning_model
         self.max_tool_calls = max_tool_calls
         self.max_file_reads = max_file_reads
+        self.tools = tools
 
         # Build the graph
         self.graph = self._build_graph()
@@ -108,6 +112,10 @@ class ReasoningAgent:
     def _plan_tools(self, state: AgentState) -> dict:
         """Plan which tools to use based on the query.
 
+        The default plan is search-then-read: one lexical search over the
+        variant's corpus, followed by reading the top documents (bounded by
+        the file-read budget).
+
         Args:
             state: Current agent state
 
@@ -116,15 +124,11 @@ class ReasoningAgent:
         """
         logger.info(f"Planning tools for query: {state.query}")
 
-        # For now, just mark that tools should be executed
-        # In production, this would be more sophisticated
-        tool_plan = {
-            "needs_search": True,
-            "needs_document_read": True,
-            "tools": ["lexical_search", "read_html"],
-        }
+        plan = [{"tool": "lexical_search", "args": {"query": state.query, "variant": state.variant, "limit": 8}}]
+        if "compare" in state.query.lower() or "difference between" in state.query.lower():
+            plan.append({"tool": "compare_variants", "args": {"topic": state.query}})
 
-        return {"tool_calls": state.tool_calls, "search_results": tool_plan}
+        return {"tool_calls": state.tool_calls, "search_results": plan}
 
     def _should_execute_tools(self, state: AgentState) -> str:
         """Determine if tools should be executed.
@@ -146,7 +150,10 @@ class ReasoningAgent:
         return "skip"
 
     def _execute_tools(self, state: AgentState) -> dict:
-        """Execute planned tools.
+        """Execute the planned tools via the ToolRegistry, respecting budgets.
+
+        Runs the planned calls (search/compare), then follows up by reading
+        the top search hits with read_html — up to the file-read budget.
 
         Args:
             state: Current agent state
@@ -156,25 +163,62 @@ class ReasoningAgent:
         """
         logger.info(f"Executing tools (calls used: {state.tool_calls_used})")
 
-        # Placeholder: in production, actually execute tools
-        # For now, just simulate tool execution
-        tool_call = AgentToolCall(
-            tool_name="lexical_search",
-            input={"query": state.query, "variant": state.variant},
-            output={"results": []},
-        )
+        calls = list(state.tool_calls)
+        tool_calls_used = state.tool_calls_used
+        file_reads_used = state.file_reads_used
 
-        updated_calls = state.tool_calls + [tool_call]
-        updated_tool_calls_used = state.tool_calls_used + 1
+        if self.tools is None:
+            logger.warning("No ToolRegistry injected — skipping tool execution")
+            return {
+                "tool_calls": calls,
+                "tool_calls_used": tool_calls_used,
+                "current_tool_output": "No tools available",
+            }
+
+        plan = state.search_results if isinstance(state.search_results, list) else []
+        search_hits: list[dict] = []
+
+        for step in plan:
+            if tool_calls_used >= self.max_tool_calls:
+                break
+            result = self.tools.execute_tool(step["tool"], **step["args"])
+            tool_calls_used += 1
+            calls.append(
+                AgentToolCall(
+                    tool_name=step["tool"],
+                    input=step["args"],
+                    output=result.data if result.success else {"error": result.error},
+                )
+            )
+            if step["tool"] == "lexical_search" and result.success:
+                search_hits = result.data.get("results", [])
+
+        # Read the top hits for full context (budget-bounded)
+        for hit in search_hits[:3]:
+            if tool_calls_used >= self.max_tool_calls or file_reads_used >= self.max_file_reads:
+                break
+            result = self.tools.execute_tool(
+                "read_html", file_path=hit["path"], variant=state.variant
+            )
+            tool_calls_used += 1
+            file_reads_used += 1
+            calls.append(
+                AgentToolCall(
+                    tool_name="read_html",
+                    input={"file_path": hit["path"], "variant": state.variant},
+                    output=result.data if result.success else {"error": result.error},
+                )
+            )
 
         return {
-            "tool_calls": updated_calls,
-            "tool_calls_used": updated_tool_calls_used,
-            "current_tool_output": "Tool executed",
+            "tool_calls": calls,
+            "tool_calls_used": tool_calls_used,
+            "file_reads_used": file_reads_used,
+            "current_tool_output": f"Executed {tool_calls_used} tool calls",
         }
 
     def _generate_answer(self, state: AgentState) -> dict:
-        """Generate final answer using Claude.
+        """Generate the final answer from tool outputs (structured, cited).
 
         Args:
             state: Current agent state
@@ -182,35 +226,49 @@ class ReasoningAgent:
         Returns:
             Updated state dict
         """
-        logger.info("Generating answer from Claude")
+        logger.info("Generating answer")
 
-        # Build context from tool results
-        context = "\n".join(
-            [f"Tool: {call.tool_name}\nOutput: {call.output}" for call in state.tool_calls]
-        )
+        # Collect sources: full documents read via read_html, else search previews
+        hits: list[dict] = []
+        previews: dict[str, dict] = {}
+        for call in state.tool_calls:
+            if not isinstance(call.output, dict) or "error" in call.output:
+                continue
+            if call.tool_name == "lexical_search":
+                for r in call.output.get("results", []):
+                    if not isinstance(r, dict) or "path" not in r:
+                        continue
+                    previews[r["path"]] = {
+                        "title": r.get("title", r["path"]),
+                        "path": r["path"],
+                        "passage": r.get("preview", ""),
+                    }
+            elif call.tool_name == "read_html":
+                path = call.input.get("file_path", "")
+                hits.append(
+                    {
+                        "title": call.output.get("title", path),
+                        "path": path,
+                        "passage": call.output.get("content", "")[:1500],
+                    }
+                )
+        read_paths = {h["path"] for h in hits}
+        hits.extend(p for path, p in previews.items() if path not in read_paths)
+        hits = hits[:6]
 
-        prompt = f"""Answer the user's question based on the documentation.
+        from compass.retrieval.answer import generate_answer
 
-Query: {state.query}
-Variant: {state.variant}
-Documentation Context:
-{context}
-
-Provide a clear, concise answer with citations where applicable."""
-
-        try:
-            response = self.client.chat.completions.create(
-                model=self.model,
-                max_tokens=1024,
-                messages=[{"role": "user", "content": prompt}],
-            )
-
-            answer = response.choices[0].message.content
-            return {"final_answer": answer}
-
-        except Exception as e:
-            logger.error(f"Failed to generate answer: {e}")
-            return {"final_answer": "Unable to generate answer at this time."}
+        answer, _ = generate_answer(state.query, state.variant, hits, model=self.model)
+        citations = [
+            {
+                "doc_id": h["path"],
+                "title": h["title"],
+                "path": h["path"],
+                "content": h["passage"][:500],
+            }
+            for h in hits
+        ]
+        return {"final_answer": answer, "citations": citations}
 
     def _finalize(self, state: AgentState) -> dict:
         """Finalize the response.

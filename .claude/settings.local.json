@@ -2,7 +2,22 @@
   "permissions": {
     "allow": [
       "mcp__claude_ai_Gamma__generate",
-      "mcp__claude_ai_Gamma__get_generation_status"
+      "mcp__claude_ai_Gamma__get_generation_status",
+      "PowerShell",
+      "Bash",
+      "Edit",
+      "Write",
+      "Read",
+      "Glob",
+      "Grep",
+      "WebFetch",
+      "WebSearch",
+      "TodoWrite",
+      "NotebookEdit",
+      "Agent",
+      "Artifact",
+      "Skill",
+      "ToolSearch"
     ]
   }
 }

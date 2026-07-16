@@ -61,9 +61,11 @@ class TestReasoningAgent:
 
     def test_agent_initialization(self):
         """Test agent initialization."""
+        from compass.config import settings
+
         agent = ReasoningAgent()
 
-        assert agent.model == "claude-opus-4-7"
+        assert agent.model == settings.reasoning_model
         assert agent.max_tool_calls == ReasoningAgent.MAX_TOOL_CALLS_PER_QUERY
         assert agent.max_file_reads == ReasoningAgent.MAX_FILE_READS_PER_QUERY
 
@@ -132,7 +134,10 @@ class TestReasoningAgent:
         result = agent._plan_tools(state)
 
         assert "search_results" in result
-        assert result["search_results"]["needs_search"] is True
+        plan = result["search_results"]
+        assert isinstance(plan, list) and plan
+        assert plan[0]["tool"] == "lexical_search"
+        assert plan[0]["args"]["variant"] == "CloudNative"
 
     def test_should_execute_tools_within_budget(self):
         """Test tool execution decision within budget."""
@@ -166,8 +171,8 @@ class TestReasoningAgent:
 
         assert decision == "skip"
 
-    def test_execute_tools_node(self):
-        """Test tool execution node."""
+    def test_execute_tools_node_without_registry(self):
+        """Without a ToolRegistry, tool execution is skipped gracefully."""
         agent = ReasoningAgent()
 
         state = AgentState(
@@ -176,14 +181,48 @@ class TestReasoningAgent:
             variant="CloudNative",
             tool_calls=[],
             tool_calls_used=0,
-            search_results={"plan": "search"},
+            search_results=[{"tool": "lexical_search", "args": {"query": "x", "variant": "CloudNative"}}],
         )
 
         result = agent._execute_tools(state)
 
         assert "tool_calls" in result
-        assert "tool_calls_used" in result
-        assert result["tool_calls_used"] == 1
+        assert result["tool_calls_used"] == 0
+        assert result["current_tool_output"] == "No tools available"
+
+    def test_execute_tools_node_with_registry(self):
+        """With a ToolRegistry, planned steps run and hits are read."""
+        from compass.agent.core_tools import ToolRegistry
+
+        class StubService:
+            def search(self, query, variant, limit=10):
+                return [
+                    {
+                        "doc_id": "CloudNative/HTML/a.htm",
+                        "title": "A",
+                        "path": "CloudNative/HTML/a.htm",
+                        "score": 1.0,
+                        "passage": "text about the query",
+                    }
+                ]
+
+        agent = ReasoningAgent(tools=ToolRegistry(service=StubService()))
+
+        state = AgentState(
+            messages=[],
+            query="Search for Python",
+            variant="CloudNative",
+            tool_calls=[],
+            tool_calls_used=0,
+            search_results=[
+                {"tool": "lexical_search", "args": {"query": "Python", "variant": "CloudNative", "limit": 8}}
+            ],
+        )
+
+        result = agent._execute_tools(state)
+
+        assert result["tool_calls_used"] >= 1
+        assert result["tool_calls"][0].tool_name == "lexical_search"
 
     def test_generate_answer_node(self):
         """Test answer generation node."""

@@ -55,12 +55,19 @@ class HTMLParser:
             ParsedHTML with extracted content, or None if parsing fails
         """
         try:
-            doc = Document(html)
-            title = doc.short_title() or ""
-            content = doc.summary() or ""
-
             parser = SelectolaxParser(html)
             text_content = HTMLParser._extract_text(parser)
+
+            # readability is best-effort: it raises on empty/duplicate-free
+            # documents, which should not fail the parse as a whole.
+            title, content = "", ""
+            try:
+                doc = Document(html)
+                title = doc.short_title() or ""
+                content = doc.summary() or ""
+            except Exception:
+                title_node = SelectolaxParser(html).css_first("title")
+                title = title_node.text(strip=True) if title_node else ""
 
             return ParsedHTML(
                 title=title,
@@ -83,19 +90,14 @@ class HTMLParser:
         Returns:
             Extracted text content
         """
-        body = parser.select("body")
-        if not body:
-            return ""
-
-        body_elem = body[0]
-
-        # Remove script and style tags
-        for elem in body_elem.select("script, style"):
+        # Remove script and style tags first
+        for elem in parser.css("script, style"):
             elem.decompose()
 
-        # Get text content
-        text = body_elem.text()
-        # Clean up whitespace
-        text = " ".join(text.split())
+        body_elem = parser.body
+        if body_elem is None:
+            return ""
 
-        return text
+        # Get text content and clean up whitespace
+        text = body_elem.text(separator=" ")
+        return " ".join(text.split())

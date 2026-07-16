@@ -1,4 +1,10 @@
-"""BM25 lexical search index using tantivy."""
+"""BM25 lexical search index using tantivy (optional dependency).
+
+NOTE: the actively used search implementation is the pure-Python
+``compass.retrieval.bm25.BM25Index``. This tantivy-backed index is kept for
+future scale-up; ``tantivy`` is imported lazily so this module (and its
+``SearchResult`` dataclass) can be imported without it installed.
+"""
 
 import json
 import logging
@@ -6,7 +12,10 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
 
-import tantivy
+try:
+    import tantivy
+except ImportError:  # pragma: no cover - depends on environment
+    tantivy = None
 
 logger = logging.getLogger(__name__)
 
@@ -30,7 +39,15 @@ class BM25Index:
 
         Args:
             index_path: Path to store index files
+
+        Raises:
+            ImportError: if the optional ``tantivy`` package is not installed
         """
+        if tantivy is None:
+            raise ImportError(
+                "tantivy is not installed — use compass.retrieval.bm25.BM25Index "
+                "or `pip install tantivy`"
+            )
         self.index_path = Path(index_path)
         self.index_path.mkdir(parents=True, exist_ok=True)
         self.schema = self._create_schema()
