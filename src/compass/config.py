@@ -26,6 +26,14 @@ class Settings(BaseSettings):
     max_tool_calls_per_query: int = 20
     max_file_reads_per_query: int = 8
 
+    # Guardrails
+    guardrails_enabled: bool = True
+    max_query_chars: int = 2000  # reject queries longer than this
+    min_query_chars: int = 3  # reject trivially short queries
+    min_retrieval_score: float = 1.5  # below this top-hit score, treat as low-confidence
+    guardrail_rate_per_minute: int = 30  # per-identity query cap (demo path)
+    guardrail_rate_per_hour: int = 400
+
     # LangSmith / Tracing (opt-in — default off)
     langchain_tracing_v2: bool = False
     langchain_api_key: str = ""

@@ -12,6 +12,7 @@ from compass import __version__
 from compass.api.gateway import APIGateway
 from compass.config import settings
 from compass.retrieval.service import QueryService
+from compass.services.audit import AuditLogger, AuditEventType
 
 logger = logging.getLogger(__name__)
 
@@ -59,6 +60,36 @@ gateway.register_routes()
 # Shared retrieval/answering service (also used by agent tools)
 query_service = QueryService()
 
+# Audit logger for guardrail decisions on the active query flow
+audit_logger = AuditLogger()
+
+
+def _audit_guardrail(session_id: str, identity: str, result: dict) -> None:
+    """Record guardrail decisions to the audit log (no raw query text)."""
+    guardrail = result.get("guardrail") or {}
+    inp = guardrail.get("input", {})
+    out = guardrail.get("output", {})
+    decision = inp.get("decision")
+    try:
+        if decision in ("refuse", "rate_limit"):
+            event = (
+                AuditEventType.RATE_LIMITED
+                if decision == "rate_limit"
+                else AuditEventType.GUARDRAIL_BLOCKED
+            )
+            audit_logger.log_event(event, session_id, identity, inp, severity="WARNING")
+        elif decision == "sanitize":
+            audit_logger.log_event(
+                AuditEventType.GUARDRAIL_SANITIZED, session_id, identity, inp
+            )
+        if out.get("category") in ("low_confidence", "leaked", "ungrounded"):
+            audit_logger.log_event(
+                AuditEventType.GUARDRAIL_FLAGGED, session_id, identity, out,
+                severity=out.get("severity", "INFO"),
+            )
+    except Exception as e:  # audit must never break the request
+        logger.debug(f"Audit logging failed: {e}")
+
 
 @app.on_event("startup")
 def _warm_indexes() -> None:
@@ -70,9 +101,18 @@ def _warm_indexes() -> None:
 # threadpool, so index builds and LLM calls do not block the event loop.
 
 
+def _caller_identity(request: Request) -> str:
+    """Identity for rate limiting: authenticated user id, else client IP."""
+    user = getattr(request.state, "user", None)
+    if user is not None and getattr(user, "user_id", None):
+        return f"user:{user.user_id}"
+    client = request.client.host if request.client else "unknown"
+    return f"ip:{client}"
+
+
 @app.post("/api/v1/query")
 def query(request: Request, query: str, variant: str = "CloudNative", session_id: str = None) -> dict:
-    """Query endpoint — full-corpus BM25 retrieval + structured LLM answer."""
+    """Query endpoint — guardrails + full-corpus BM25 retrieval + LLM answer."""
     try:
         gateway.get_current_user(request)
     except HTTPException:
@@ -82,7 +122,14 @@ def query(request: Request, query: str, variant: str = "CloudNative", session_id
     if variant not in ("CloudNative", "ServerBased"):
         raise HTTPException(status_code=400, detail=f"Invalid variant: {variant}")
 
-    result = query_service.query(query, variant)
+    identity = _caller_identity(request)
+    result = query_service.query(query, variant, identity=identity)
+    _audit_guardrail(session_id, identity, result)
+
+    guardrail = result.get("guardrail", {})
+    # A rate-limit refusal maps to HTTP 429 so clients can back off correctly.
+    if guardrail.get("input", {}).get("decision") == "rate_limit":
+        raise HTTPException(status_code=429, detail=result["answer"])
 
     return {
         "session_id": session_id,
@@ -93,6 +140,7 @@ def query(request: Request, query: str, variant: str = "CloudNative", session_id
         "variant": variant,
         "model": result["model"],
         "trace": result["trace"],
+        "guardrail": guardrail,
     }
 
 

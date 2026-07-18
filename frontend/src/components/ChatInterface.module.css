@@ -186,6 +186,20 @@
   gap: 0.25rem;
 }
 
+.guardrailBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.05rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: rgba(232, 180, 76, 0.16);
+  color: #b07d16;
+  border: 1px solid rgba(232, 180, 76, 0.4);
+  cursor: help;
+}
+
 .loadingIndicator {
   display: flex;
   gap: 0.25rem;

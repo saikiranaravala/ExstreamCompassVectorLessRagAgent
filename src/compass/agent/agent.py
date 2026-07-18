@@ -289,16 +289,33 @@ class ReasoningAgent:
 
         return {"final_answer": state.final_answer}
 
-    def query(self, question: str, variant: str = "CloudNative") -> dict:
+    def query(self, question: str, variant: str = "CloudNative", identity: str = "anonymous") -> dict:
         """Process a question and return the answer.
 
         Args:
             question: User question
             variant: Documentation variant ("CloudNative" or "ServerBased")
+            identity: Caller identity for rate limiting
 
         Returns:
             Dict with answer, citations, and metadata
         """
+        # Input guardrail — refuse injection/harmful/malformed before any tool runs
+        from compass.guardrails import GuardrailPipeline
+
+        guardrails = getattr(self, "guardrails", None) or GuardrailPipeline()
+        self.guardrails = guardrails
+        pre = guardrails.check_request(question, identity=identity)
+        if pre.blocked:
+            return {
+                "answer": pre.message,
+                "variant": variant,
+                "tool_calls": 0,
+                "citations": [],
+                "guardrail": pre.to_audit(),
+            }
+        question = pre.sanitized_text or question
+
         # Create initial state
         initial_state = AgentState(
             messages=[],

@@ -13,6 +13,18 @@ export interface Citation {
   content: string
 }
 
+export interface GuardrailDecision {
+  decision: string
+  category: string
+  severity: string
+  reason?: string
+}
+
+export interface GuardrailInfo {
+  input?: GuardrailDecision
+  output?: GuardrailDecision
+}
+
 export interface QueryResponse {
   session_id: string
   answer: string
@@ -20,6 +32,8 @@ export interface QueryResponse {
   tool_calls: number
   processing_time: number
   variant: string
+  model?: string | null
+  guardrail?: GuardrailInfo
 }
 
 export interface SessionInfo {

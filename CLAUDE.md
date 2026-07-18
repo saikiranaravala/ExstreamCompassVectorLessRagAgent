@@ -96,15 +96,50 @@ Caches live in `.atlas/` (gitignored).
   construction if tantivy is missing. Superseded by `retrieval/bm25.py`; kept for future scale-up.
 - **Known issue:** Corpus structure diverges from PRD (see Documentation Corpus Structure below). Index paths must match actual on-disk structure.
 
+### Guardrails (`src/compass/guardrails/`) — safety/quality boundary on every query
+
+A layered boundary applied uniformly to **all personas** (legit roles and adversarial
+actors) and wired into the shared `QueryService.query()` choke point, so both the API
+path and the agent path are covered.
+
+- `policy.py` — `Category` (in_scope, out_of_scope, prompt_injection, harmful, pii,
+  malformed, rate_limited, low_confidence, ungrounded, leaked), `Decision`
+  (ALLOW / SANITIZE / REFUSE / RATE_LIMIT), `GuardrailResult`, `GuardrailConfig`
+  (thresholds from `settings`), and the documented persona × category matrix. User-facing
+  refusal messages live here.
+- `patterns.py` — precision-tuned regex banks (injection/jailbreak, harmful, off-topic,
+  PII/secrets). Deliberately matches multi-word phrases, not single words, so
+  "how do I **ignore** case in a filter" passes while "**ignore your previous
+  instructions**" is refused. `redact_pii()` masks emails/SSNs/cards/keys/secrets.
+- `input_guard.py` — pre-answer: validity (length/encoding/letters) → injection (REFUSE)
+  → harmful (REFUSE) → off-topic (REFUSE) → PII (SANITIZE+redact).
+- `output_guard.py` — post-answer: empty→disclaimer, system-prompt leak→replace,
+  secret leak→redact, low retrieval confidence→ALLOW+flag disclaimer, missing citations→flag.
+  Prefers to **repair** over hard-refuse so legit questions still get the best safe answer.
+- `rate_limit.py` — `SlidingWindowRateLimiter` keyed by caller identity. Runs inside the
+  pipeline so it covers the **unauthenticated demo path** too (the gateway's `RateLimiter`
+  is bypassed there — see API Gateway note).
+- `pipeline.py` — `GuardrailPipeline.check_request()` (rate limit + input) short-circuits
+  answer generation on a block; `check_response()` validates/repairs the answer.
+
+Flow in `QueryService.query(query, variant, identity)`: input guard → (blocked ⇒ refusal,
+no retrieval/LLM) → retrieval → `generate_answer` (system prompt also hardened to treat
+sources/query as data, never instructions) → output guard → response includes a
+`guardrail: {input, output}` block. `app.py` maps a `rate_limit` decision to **HTTP 429**
+and audits every decision. Config: `GUARDRAILS_ENABLED`, `MAX_QUERY_CHARS`,
+`MIN_RETRIEVAL_SCORE`, `GUARDRAIL_RATE_PER_MINUTE/HOUR` in `config.py`.
+
 ### Orchestration Services (`src/compass/services/`)
 - `session.py` — per-user session state and chat history with budget tracking
 - `citations.py` — maps agent-cited documents to actual files, tracks citation correctness (critical for evaluation metrics)
-- `audit.py` — all tool calls and agent actions recorded to `.audit_logs/` (JSONL)
+- `audit.py` — all tool calls and agent actions recorded to `.audit_logs/` (JSONL); includes
+  `GUARDRAIL_BLOCKED / GUARDRAIL_SANITIZED / GUARDRAIL_FLAGGED / RATE_LIMITED` event types
 - `vision.py` — stub for diagram interpretation (planned)
 
 ### API Gateway (`src/compass/api/gateway.py`)
 - `APIGateway` initializes `AuthenticationManager` (in-memory token store) and `RateLimiter` (60 req/min, 1000 req/hour per user)
 - Middleware checks `Authorization: Bearer <token>`; falls back to `DemoUser` for `/api/v1/query` and `/api/v1/session` paths (unauthenticated demo access)
+- **Note:** the gateway's `RateLimiter` is **not** invoked on the demo path (middleware early-returns with `DemoUser`). Rate limiting for that path is enforced by the guardrail pipeline's `SlidingWindowRateLimiter` inside `QueryService.query()` instead.
 - **CORS:** `CORSMiddleware` uses `allow_origins=["*"]`, `allow_credentials=False` (Bearer tokens don't require credentials flag). Gateway middleware passes `OPTIONS` preflight requests straight through to `CORSMiddleware` before auth checks run — critical because Starlette runs `@app.middleware("http")` wrappers before `add_middleware` wrappers.
 - OIDC flow: `GET /api/v1/auth/{provider}` → redirect → `GET /api/v1/auth/callback` → token creation
 - `POST /api/v1/login` creates a token for any email/password (dev only)
@@ -217,6 +252,7 @@ All settings load through `src/compass/config.py` (pydantic-settings, `env_file=
 - `SUMMARIZATION_MODEL` — defined in `config.py` but **not** read by `index_tree.py`, which hard-codes `claude-haiku-4-5-20251001`.
 - `LANGCHAIN_TRACING_V2` / `LANGCHAIN_API_KEY` / `LANGCHAIN_PROJECT` — opt-in LangSmith tracing (see Completed Work).
 - `DEBUG=true` — debug logging.
+- Guardrails: `GUARDRAILS_ENABLED` (default true), `MAX_QUERY_CHARS` (2000), `MIN_QUERY_CHARS` (3), `MIN_RETRIEVAL_SCORE` (1.5), `GUARDRAIL_RATE_PER_MINUTE` (30), `GUARDRAIL_RATE_PER_HOUR` (400).
 
 See `.env.example` for the full annotated list.
 
@@ -284,6 +320,15 @@ cat .audit_logs/*.jsonl | jq .
 - **Configuration schema:** `config.yml` for variant selection, parser tuning, OCR thresholds, budget constraints (PRD §7.7)
 
 ## Completed Work (recent)
+
+- **Guardrails layer (`src/compass/guardrails/`):** input + output + rate-limit boundary on
+  every query, applied uniformly across personas. Refuses prompt injection / harmful /
+  malformed / off-topic; redacts PII/secrets; enforces per-identity rate limits (covers the
+  demo path the gateway limiter misses); repairs ungrounded/low-confidence/leaked answers.
+  System prompt hardened to treat sources+query as data. Wired into `QueryService.query()`,
+  `app.py` (HTTP 429 + audit), the agent entrypoint, and surfaced in the UI as a footer badge.
+  45 new tests (357 total green); verified end-to-end (injection refused with 0 LLM calls,
+  PII redacted, legit query answered).
 
 - **Retrieval overhaul (`src/compass/retrieval/`):** Replaced the first-100-files keyword demo search
   with full-corpus retrieval — `CorpusStore` (parse + gzip cache), pure-Python `BM25Index` with

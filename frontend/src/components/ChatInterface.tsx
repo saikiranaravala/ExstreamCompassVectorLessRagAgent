@@ -27,6 +27,32 @@ interface ChatInterfaceProps {
 
 const MESSAGES_KEY = (variant: string) => `compass_messages_${variant}`
 
+// Small footer badge describing any guardrail action on a response.
+function guardrailBadge(response: QueryResponse) {
+  const g = response.guardrail
+  if (!g) return null
+  const input = g.input
+  const output = g.output
+  let label: string | null = null
+  let title = ''
+  if (input?.decision === 'refuse' || input?.decision === 'rate_limit') {
+    label = '🛡️ Blocked'
+    title = `Request blocked: ${input.category}`
+  } else if (input?.decision === 'sanitize') {
+    label = '🛡️ Redacted'
+    title = `Input sanitized: ${input.category}`
+  } else if (output && ['low_confidence', 'leaked', 'ungrounded'].includes(output.category)) {
+    label = output.category === 'low_confidence' ? '⚠️ Low confidence' : '🛡️ Checked'
+    title = `Answer check: ${output.category}`
+  }
+  if (!label) return null
+  return (
+    <span className={styles.guardrailBadge} title={title}>
+      {label}
+    </span>
+  )
+}
+
 export const ChatInterface: React.FC<ChatInterfaceProps> = ({
   variant,
   onVariantChange,
@@ -190,6 +216,7 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
                   <span className={styles.processingTime}>
                     ⏱️ {message.response.processing_time.toFixed(2)}s
                   </span>
+                  {guardrailBadge(message.response)}
                 </div>
               )}
             </div>
