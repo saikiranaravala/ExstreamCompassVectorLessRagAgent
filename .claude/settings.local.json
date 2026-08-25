@@ -17,7 +17,8 @@
       "Agent",
       "Artifact",
       "Skill",
-      "ToolSearch"
+      "ToolSearch",
+      "PowerShell(git lfs ls-files 2>&1)"
     ]
   }
 }

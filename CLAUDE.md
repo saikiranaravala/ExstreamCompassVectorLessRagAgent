@@ -273,6 +273,16 @@ ruff check src tests --fix  # Lint
 mypy src                 # Type check
 ```
 
+### Frontend Commands
+
+```bash
+cd frontend
+npm run build       # tsc + vite build -> dist/
+npm run type-check  # tsc --noEmit
+npm run lint        # eslint src --ext .ts,.tsx
+npm run preview     # serve the production build locally
+```
+
 ### Observability (Docker Only)
 
 - **Prometheus:** `http://localhost:9090`
