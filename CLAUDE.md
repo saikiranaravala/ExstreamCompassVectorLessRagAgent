@@ -240,7 +240,9 @@ pytest -s tests/test_agent.py               # Live logging
 
 Tests requiring API calls need keys in `.env`: agent tests need `OPENROUTER_API_KEY`, indexing tests need `ANTHROPIC_API_KEY`. Unit tests with mocks run without them.
 
-**Evaluation framework** lives in `tests/evaluation/`: `harness.py`, `metrics.py`, `reporter.py`, `test_queries.py` — target 300-query dataset for accuracy, latency, citation correctness.
+Note: `pytest.ini` (markers, `--strict-markers`) takes precedence over `pyproject.toml`'s `[tool.pytest.ini_options]`, so the coverage addopts declared there are shadowed — bare `pytest` does **not** produce a coverage report; pass `--cov` explicitly as shown above.
+
+**Evaluation framework** lives in `tests/evaluation/`: `harness.py`, `metrics.py`, `reporter.py`, `test_queries.py` (plus `conftest.py`, `test_harness.py`, `README.md`) — target 300-query dataset for accuracy, latency, citation correctness.
 
 ### Environment Variables
 
@@ -273,10 +275,13 @@ ruff check src tests --fix  # Lint
 mypy src                 # Type check
 ```
 
+Known issue: `pyproject.toml` declares `readme = "README.md"` but no `README.md` exists at repo root — pre-existing packaging metadata gap, not a file that went missing.
+
 ### Frontend Commands
 
 ```bash
 cd frontend
+npm run dev         # start Vite dev server (http://localhost:5173)
 npm run build       # tsc + vite build -> dist/
 npm run type-check  # tsc --noEmit
 npm run lint        # eslint src --ext .ts,.tsx
@@ -288,6 +293,7 @@ npm run preview     # serve the production build locally
 - **Prometheus:** `http://localhost:9090`
 - **Jaeger UI:** `http://localhost:16686`
 - **Grafana:** `http://localhost:3001` (admin/admin)
+- **Alertmanager:** `http://localhost:9093`
 - **Audit logs:** `.audit_logs/*.jsonl`
 
 ## Debugging & Troubleshooting
