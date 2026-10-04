@@ -377,6 +377,7 @@ cat .audit_logs/*.jsonl | jq .
 
 - **[PRD.md](PRD.md)** — Product requirements, milestones, risk register
 - **[render_deployment.md](render_deployment.md)** — Render.com step-by-step deployment guide
+- **[agentcore_migration.md](agentcore_migration.md)** — Plan for migrating the reasoning agent (Path B) from Render to AWS Bedrock AgentCore Runtime
 - **[START_HERE.txt](START_HERE.txt)** — 5-minute local setup (no Docker)
 - **[QUICKSTART.md](QUICKSTART.md)** — Quick start (Render or Docker)
 - **[INSTALLATION.md](INSTALLATION.md)** — Detailed local setup options
